@@ -4,7 +4,13 @@ import Listen from './Listen';
 
 const config = {
   items: [
-    { id: 'l1', speak: 'Guten Morgen', answer: 'good morning', options: ['good morning', 'good night'], transcript: 'Guten Morgen = good morning' },
+    {
+      id: 'l1',
+      speak: 'Guten Morgen',
+      answer: 'good morning',
+      options: ['good morning', 'good night'],
+      transcript: 'Guten Morgen = good morning',
+    },
   ],
 };
 
@@ -17,7 +23,9 @@ describe('Listen', () => {
     expect(screen.getByTestId('feedback')).toHaveAttribute('data-kind', 'wrong');
     expect(screen.getByText('Guten Morgen = good morning')).toBeInTheDocument();
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 0, total: 1, mistakes: ['l1'] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 0, total: 1, mistakes: ['l1'] }),
+    );
   });
 
   it('accepts the right answer', async () => {

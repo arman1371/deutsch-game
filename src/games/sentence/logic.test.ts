@@ -16,7 +16,13 @@ describe('sentence logic', () => {
     expect(sentenceOf(['Wie', 'heißt', 'du?'])).toBe('Wie heißt du?');
     expect(isCorrectSentence(['wie', 'heißt', 'du'], ['Wie', 'heißt', 'du?'])).toBe(true);
     expect(isCorrectSentence(['heißt', 'wie', 'du?'], ['Wie', 'heißt', 'du?'])).toBe(false);
-    expect(isCorrectSentence(['Am', 'Abend', 'sehe', 'ich', 'fern.'], ['Ich', 'sehe', 'am', 'Abend', 'fern.'], ['Am Abend sehe ich fern.'])).toBe(true);
+    expect(
+      isCorrectSentence(
+        ['Am', 'Abend', 'sehe', 'ich', 'fern.'],
+        ['Ich', 'sehe', 'am', 'Abend', 'fern.'],
+        ['Am Abend sehe ich fern.'],
+      ),
+    ).toBe(true);
   });
 
   it('moves items', () => {

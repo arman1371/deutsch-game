@@ -24,8 +24,14 @@ function dueMistakeIds(
     .map((m) => m.itemId);
 }
 
+/** Re-mounts the play view per activity, so "Next up" starts a fresh intro instead of keeping the old result. */
 export function PlayPage() {
   const { activityId = '' } = useParams();
+  const [params] = useSearchParams();
+  return <PlayView key={`${activityId}:${params.get('review') ?? ''}`} activityId={activityId} />;
+}
+
+function PlayView({ activityId }: { activityId: string }) {
   const [params] = useSearchParams();
   const navigate = useNavigate();
   const content = useContent();

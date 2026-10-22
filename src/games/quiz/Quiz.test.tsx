@@ -4,8 +4,21 @@ import Quiz from './Quiz';
 
 const config = {
   questions: [
-    { id: 'q1', prompt: 'Hallo', options: ['hello', 'bye', 'thanks'], answer: 'hello', emoji: '👋', speak: 'Hallo' },
-    { id: 'q2', prompt: 'Tschüss', options: ['hello', 'bye', 'thanks'], answer: 'bye', explanation: 'Bye!' },
+    {
+      id: 'q1',
+      prompt: 'Hallo',
+      options: ['hello', 'bye', 'thanks'],
+      answer: 'hello',
+      emoji: '👋',
+      speak: 'Hallo',
+    },
+    {
+      id: 'q2',
+      prompt: 'Tschüss',
+      options: ['hello', 'bye', 'thanks'],
+      answer: 'bye',
+      explanation: 'Bye!',
+    },
   ],
 };
 const ANSWER: Record<string, string> = { Hallo: 'hello', Tschüss: 'bye' };
@@ -20,7 +33,9 @@ describe('Quiz', () => {
     await user.click(screen.getByTestId('continue'));
     await user.click(screen.getByRole('button', { name: ANSWER[prompt()]! }));
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 2, total: 2, mistakes: [] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 2, total: 2, mistakes: [] }),
+    );
   });
 
   it('shows the answer and explanation on a mistake and records it', async () => {

@@ -6,7 +6,13 @@ import { LEVELS, getLevelMeta } from './levels';
 
 function Probe() {
   const state = useContentState();
-  if (state.status !== 'ready') return <p>{state.status}{state.status === 'error' ? `: ${state.message}` : ''}</p>;
+  if (state.status !== 'ready')
+    return (
+      <p>
+        {state.status}
+        {state.status === 'error' ? `: ${state.message}` : ''}
+      </p>
+    );
   return <p>units: {state.index.units.length}</p>;
 }
 function Strict() {
@@ -16,31 +22,65 @@ function Strict() {
 
 describe('ContentProvider', () => {
   it('is ready immediately with injected content', () => {
-    render(<ContentProvider content={[levelFixture()]}><Probe /></ContentProvider>);
+    render(
+      <ContentProvider content={[levelFixture()]}>
+        <Probe />
+      </ContentProvider>,
+    );
     expect(screen.getByText('units: 2')).toBeInTheDocument();
   });
 
   it('loads available levels lazily and skips coming-soon ones', async () => {
     const levels: LevelMeta[] = [
-      { id: 'a1-1', title: 'A1.1', subtitle: '', status: 'available', load: async () => ({ default: levelFixture() }) },
+      {
+        id: 'a1-1',
+        title: 'A1.1',
+        subtitle: '',
+        status: 'available',
+        load: async () => ({ default: levelFixture() }),
+      },
       { id: 'a1-2', title: 'A1.2', subtitle: '', status: 'coming-soon' },
     ];
-    render(<ContentProvider levels={levels}><Probe /></ContentProvider>);
+    render(
+      <ContentProvider levels={levels}>
+        <Probe />
+      </ContentProvider>,
+    );
     expect(screen.getByText('loading')).toBeInTheDocument();
     expect(await screen.findByText('units: 2')).toBeInTheDocument();
   });
 
   it('exposes load failures', async () => {
-    const levels: LevelMeta[] = [{ id: 'x', title: 'X', subtitle: '', status: 'available', load: () => Promise.reject(new Error('boom')) }];
-    render(<ContentProvider levels={levels}><Probe /></ContentProvider>);
+    const levels: LevelMeta[] = [
+      {
+        id: 'x',
+        title: 'X',
+        subtitle: '',
+        status: 'available',
+        load: () => Promise.reject(new Error('boom')),
+      },
+    ];
+    render(
+      <ContentProvider levels={levels}>
+        <Probe />
+      </ContentProvider>,
+    );
     await waitFor(() => expect(screen.getByText('error: boom')).toBeInTheDocument());
   });
 
   it('merges several levels', async () => {
     const second = levelFixture();
     second.units = second.units.map((u) => ({ ...u, id: `${u.id}-b`, levelId: 'a1-2' }));
-    second.activities = second.activities.map((a) => ({ ...a, id: `${a.id}-b`, unitId: `${a.unitId}-b` }));
-    render(<ContentProvider content={[levelFixture(), second]}><Probe /></ContentProvider>);
+    second.activities = second.activities.map((a) => ({
+      ...a,
+      id: `${a.id}-b`,
+      unitId: `${a.unitId}-b`,
+    }));
+    render(
+      <ContentProvider content={[levelFixture(), second]}>
+        <Probe />
+      </ContentProvider>,
+    );
     expect(screen.getByText('units: 4')).toBeInTheDocument();
   });
 

@@ -28,7 +28,12 @@ describe('memory logic', () => {
     const b = deck.find((c) => c.uid === 'p1:b')!;
     expect(isMatch(a, b)).toBe(true);
     expect(isMatch(a, a)).toBe(false);
-    expect(isMatch(a, deck.find((c) => c.uid === 'p2:b')!)).toBe(false);
+    expect(
+      isMatch(
+        a,
+        deck.find((c) => c.uid === 'p2:b')!,
+      ),
+    ).toBe(false);
   });
 });
 
@@ -50,7 +55,9 @@ describe('Memory', () => {
   });
 
   it('flips mismatches back after a delay and records them as mistakes', async () => {
-    const { user, onFinish } = renderGame(Memory, config, 1, { advanceTimers: vi.advanceTimersByTime });
+    const { user, onFinish } = renderGame(Memory, config, 1, {
+      advanceTimers: vi.advanceTimersByTime,
+    });
     await user.click(cards()[indexOf('p1:a')]!);
     await user.click(cards()[indexOf('p2:b')]!);
     expect(screen.getByRole('status')).toHaveTextContent('Not a pair');

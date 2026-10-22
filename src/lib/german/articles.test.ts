@@ -1,5 +1,9 @@
 import {
-  definiteArticle, genderOfArticle, indefiniteArticle, negativeArticle, possessive,
+  definiteArticle,
+  genderOfArticle,
+  indefiniteArticle,
+  negativeArticle,
+  possessive,
 } from './articles';
 
 describe('articles', () => {

@@ -5,13 +5,28 @@ import Conjugation from './Conjugation';
 import { gradeTable } from './logic';
 
 const forms = conjugate('sein');
-const config = { tables: [{ id: 'sein', verb: 'sein', meaning: 'to be', forms, blanks: ['ich', 'du'] as ('ich' | 'du')[] }] };
+const config = {
+  tables: [
+    {
+      id: 'sein',
+      verb: 'sein',
+      meaning: 'to be',
+      forms,
+      blanks: ['ich', 'du'] as ('ich' | 'du')[],
+    },
+  ],
+};
 
 describe('gradeTable', () => {
   it('grades each blank and the overall verdict', () => {
     expect(gradeTable(forms, ['ich', 'du'], { ich: 'bin', du: 'bist' }).overall).toBe('correct');
-    expect(gradeTable(forms, ['ich', 'du'], { ich: 'bin', du: 'bis' })).toMatchObject({ overall: 'wrong', cells: { ich: 'correct', du: 'wrong' } });
-    expect(gradeTable({ ...forms, ich: 'heiße' }, ['ich'], { ich: 'heisse' }).overall).toBe('almost');
+    expect(gradeTable(forms, ['ich', 'du'], { ich: 'bin', du: 'bis' })).toMatchObject({
+      overall: 'wrong',
+      cells: { ich: 'correct', du: 'wrong' },
+    });
+    expect(gradeTable({ ...forms, ich: 'heiße' }, ['ich'], { ich: 'heisse' }).overall).toBe(
+      'almost',
+    );
     expect(gradeTable(forms, ['ich'], {}).overall).toBe('wrong');
   });
 });
@@ -43,11 +58,23 @@ describe('Conjugation', () => {
     expect(screen.getByTestId('feedback')).toHaveAttribute('data-kind', 'wrong');
     expect(screen.getByTestId('mark-du')).toHaveTextContent('✗ bist');
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 0, mistakes: ['sein'] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 0, mistakes: ['sein'] }),
+    );
   });
 
   it('inserts umlauts into the focused cell', async () => {
-    const wollen = { tables: [{ id: 'k', verb: 'können', meaning: 'can', forms: conjugate('können'), blanks: ['wir'] as 'wir'[] }] };
+    const wollen = {
+      tables: [
+        {
+          id: 'k',
+          verb: 'können',
+          meaning: 'can',
+          forms: conjugate('können'),
+          blanks: ['wir'] as 'wir'[],
+        },
+      ],
+    };
     const { user } = renderGame(Conjugation, wollen);
     const input = screen.getByLabelText('wir');
     await user.type(input, 'k');

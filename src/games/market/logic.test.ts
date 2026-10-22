@@ -7,7 +7,10 @@ const products = [
 
 describe('market logic', () => {
   it('compares baskets with orders exactly', () => {
-    const order = [{ product: 'apfel', qty: 2 }, { product: 'milch', qty: 1 }];
+    const order = [
+      { product: 'apfel', qty: 2 },
+      { product: 'milch', qty: 1 },
+    ];
     expect(basketMatches({ apfel: 2, milch: 1 }, order)).toBe(true);
     expect(basketMatches({ milch: 1, apfel: 2 }, order)).toBe(true);
     expect(basketMatches({ apfel: 2 }, order)).toBe(false);
@@ -16,7 +19,15 @@ describe('market logic', () => {
   });
 
   it('sums prices in cents', () => {
-    expect(totalCents([{ product: 'apfel', qty: 2 }, { product: 'milch', qty: 1 }], products)).toBe(230);
+    expect(
+      totalCents(
+        [
+          { product: 'apfel', qty: 2 },
+          { product: 'milch', qty: 1 },
+        ],
+        products,
+      ),
+    ).toBe(230);
     expect(totalCents([], products)).toBe(0);
     expect(totalCents([{ product: 'unknown', qty: 3 }], products)).toBe(0);
   });

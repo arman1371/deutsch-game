@@ -30,7 +30,9 @@ describe('Blitz', () => {
   });
 
   it('builds a combo, resets it on a mistake, and finishes after the last statement with bonus xp', async () => {
-    const { user, onFinish } = renderGame(Blitz, config, 1, { advanceTimers: vi.advanceTimersByTime });
+    const { user, onFinish } = renderGame(Blitz, config, 1, {
+      advanceTimers: vi.advanceTimersByTime,
+    });
     await user.click(screen.getByTestId('blitz-start'));
     await answerRight(user);
     await answerRight(user);
@@ -40,12 +42,16 @@ describe('Blitz', () => {
     expect(screen.getByTestId('flash')).toHaveTextContent(/It was (correct|wrong)/);
     await answerRight(user);
     expect(onFinish).toHaveBeenCalledTimes(1);
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 3, total: 4, bonusXp: 4 }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 3, total: 4, bonusXp: 4 }),
+    );
     expect(onFinish.mock.calls[0]![0].mistakes).toHaveLength(1);
   });
 
   it('ends when time runs out and scores what was answered', async () => {
-    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, { advanceTimers: vi.advanceTimersByTime });
+    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, {
+      advanceTimers: vi.advanceTimersByTime,
+    });
     await user.click(screen.getByTestId('blitz-start'));
     await answerRight(user);
     for (let i = 0; i < 16; i++) act(() => void vi.advanceTimersByTime(1000));
@@ -54,14 +60,18 @@ describe('Blitz', () => {
   });
 
   it('gives a failing score (not a free win) when nothing was answered in time', async () => {
-    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, { advanceTimers: vi.advanceTimersByTime });
+    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, {
+      advanceTimers: vi.advanceTimersByTime,
+    });
     await user.click(screen.getByTestId('blitz-start'));
     for (let i = 0; i < 16; i++) act(() => void vi.advanceTimersByTime(1000));
     expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 0, total: 4 }));
   });
 
   it('relaxed mode has no timer', async () => {
-    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, { advanceTimers: vi.advanceTimersByTime });
+    const { user, onFinish } = renderGame(Blitz, { ...config, seconds: 15 }, 1, {
+      advanceTimers: vi.advanceTimersByTime,
+    });
     await user.click(screen.getByLabelText(/Relaxed mode/));
     await user.click(screen.getByTestId('blitz-start'));
     expect(screen.getByTestId('timer')).toHaveTextContent('∞');

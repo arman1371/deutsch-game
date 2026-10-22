@@ -71,39 +71,39 @@ function Shell() {
             >
               Ä
             </span>
-            <span className="hidden sm:inline">{t('appName')}</span>
+            <span className="sr-only sm:not-sr-only">{t('appName')}</span>
           </Link>
           {!playing ? (
-          <nav
-            aria-label="Main"
-            className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t-2 border-line bg-surface pb-[env(safe-area-inset-bottom)] md:static md:ml-6 md:flex md:gap-1 md:border-0 md:bg-transparent md:pb-0"
-          >
-            {NAV.map((n) => (
-              <NavLink
-                key={n.to}
-                to={n.to}
-                end={n.end}
-                className={({ isActive }) =>
-                  `relative flex min-h-14 flex-col items-center justify-center gap-0.5 px-3 text-xs font-bold md:min-h-11 md:flex-row md:gap-2 md:rounded-xl md:text-sm ${
-                    isActive ? 'text-primary md:bg-primary-soft' : 'text-muted hover:text-ink'
-                  }`
-                }
-              >
-                <span aria-hidden="true" className="text-xl md:text-base">
-                  {n.icon}
-                </span>
-                {t(n.label)}
-                {n.to === '/review' && mistakeCount > 0 ? (
-                  <span
-                    className="absolute right-1/4 top-1 rounded-full bg-danger px-1.5 text-[10px] text-on-primary md:static"
-                    aria-label={`${mistakeCount} items to review`}
-                  >
-                    {mistakeCount}
+            <nav
+              aria-label="Main"
+              className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t-2 border-line bg-surface pb-[env(safe-area-inset-bottom)] md:static md:ml-6 md:flex md:gap-1 md:border-0 md:bg-transparent md:pb-0"
+            >
+              {NAV.map((n) => (
+                <NavLink
+                  key={n.to}
+                  to={n.to}
+                  end={n.end}
+                  className={({ isActive }) =>
+                    `relative flex min-h-14 flex-col items-center justify-center gap-0.5 px-3 text-xs font-bold md:min-h-11 md:flex-row md:gap-2 md:rounded-xl md:text-sm ${
+                      isActive ? 'text-primary md:bg-primary-soft' : 'text-muted hover:text-ink'
+                    }`
+                  }
+                >
+                  <span aria-hidden="true" className="text-xl md:text-base">
+                    {n.icon}
                   </span>
-                ) : null}
-              </NavLink>
-            ))}
-          </nav>
+                  {t(n.label)}
+                  {n.to === '/review' && mistakeCount > 0 ? (
+                    <span
+                      className="absolute right-1/4 top-1 rounded-full bg-danger px-1.5 text-[10px] text-on-primary md:static"
+                      aria-label={`${mistakeCount} items to review`}
+                    >
+                      {mistakeCount}
+                    </span>
+                  ) : null}
+                </NavLink>
+              ))}
+            </nav>
           ) : null}
           <div className="ml-auto flex items-center gap-3 text-sm font-extrabold text-ink">
             <span title="Daily streak" data-testid="streak">

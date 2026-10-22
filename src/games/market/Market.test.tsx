@@ -9,7 +9,15 @@ const config = {
     { id: 'kaese', name: 'Käse', emoji: '🧀', priceCents: 250 },
   ],
   orders: [
-    { id: 'o1', request: 'Ich nehme zwei Äpfel und eine Milch.', translation: 'Two apples and a milk.', items: [{ product: 'apfel', qty: 2 }, { product: 'milch', qty: 1 }] },
+    {
+      id: 'o1',
+      request: 'Ich nehme zwei Äpfel und eine Milch.',
+      translation: 'Two apples and a milk.',
+      items: [
+        { product: 'apfel', qty: 2 },
+        { product: 'milch', qty: 1 },
+      ],
+    },
   ],
 };
 
@@ -61,7 +69,9 @@ describe('Market', () => {
     await user.type(screen.getByLabelText(/Was kostet das zusammen/), '2,30{Enter}');
     expect(screen.getByTestId('feedback')).toHaveAttribute('data-kind', 'wrong');
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 0, mistakes: ['o1'] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 0, mistakes: ['o1'] }),
+    );
   });
 
   it('shows the right total after a wrong price', async () => {

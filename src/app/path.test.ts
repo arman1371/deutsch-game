@@ -3,7 +3,9 @@ import { nextActivity, pathStates, playUrl, queueAfter } from './path';
 
 const path = ['a', 'b', 'c'].map((id) => quizActivity(id));
 const done = (...ids: string[]) =>
-  Object.fromEntries(ids.map((id) => [id, { stars: 3 as const, bestAccuracy: 1, plays: 1, lastPlayed: 0 }]));
+  Object.fromEntries(
+    ids.map((id) => [id, { stars: 3 as const, bestAccuracy: 1, plays: 1, lastPlayed: 0 }]),
+  );
 
 describe('guided path', () => {
   it('marks done, current and open steps', () => {

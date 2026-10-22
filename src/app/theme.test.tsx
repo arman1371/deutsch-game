@@ -10,9 +10,13 @@ function Probe() {
 function mockMatchMedia(matches: Record<string, boolean>) {
   const listeners = new Map<string, Set<() => void>>();
   window.matchMedia = ((query: string) => ({
-    get matches() { return matches[query] ?? false; },
+    get matches() {
+      return matches[query] ?? false;
+    },
     media: query,
-    addEventListener: (_: string, cb: () => void) => { (listeners.get(query) ?? listeners.set(query, new Set()).get(query)!).add(cb); },
+    addEventListener: (_: string, cb: () => void) => {
+      (listeners.get(query) ?? listeners.set(query, new Set()).get(query)!).add(cb);
+    },
     removeEventListener: (_: string, cb: () => void) => listeners.get(query)?.delete(cb),
   })) as unknown as typeof window.matchMedia;
   return {

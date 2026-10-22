@@ -2,14 +2,29 @@ import { screen, within } from '@testing-library/react';
 import { renderGame } from '@/test/render';
 import Spell from './Spell';
 
-const unscramble = { items: [{ id: 'u1', mode: 'unscramble' as const, answer: 'Tag', hint: 'day', emoji: '📅' }] };
+const unscramble = {
+  items: [{ id: 'u1', mode: 'unscramble' as const, answer: 'Tag', hint: 'day', emoji: '📅' }],
+};
 const typed = { items: [{ id: 't1', mode: 'type' as const, answer: 'Größe', hint: 'size' }] };
-const dictation = { items: [{ id: 'd1', mode: 'dictation' as const, answer: '0151 234', numeric: true, hint: 'phone', speak: 'null eins fünf eins zwei drei vier' }] };
+const dictation = {
+  items: [
+    {
+      id: 'd1',
+      mode: 'dictation' as const,
+      answer: '0151 234',
+      numeric: true,
+      hint: 'phone',
+      speak: 'null eins fünf eins zwei drei vier',
+    },
+  ],
+};
 
 async function buildWord(user: ReturnType<typeof renderGame>['user'], word: string) {
   for (const ch of word) {
     const letters = within(screen.getByRole('group', { name: 'Letters' }));
-    const btn = letters.getAllByRole('button').find((b) => b.textContent === ch && !(b as HTMLButtonElement).disabled)!;
+    const btn = letters
+      .getAllByRole('button')
+      .find((b) => b.textContent === ch && !(b as HTMLButtonElement).disabled)!;
     await user.click(btn);
   }
 }

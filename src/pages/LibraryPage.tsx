@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { ActivityCard } from '@/components/ActivityCard';
 import { Button } from '@/components/ui/Button';
@@ -38,6 +38,10 @@ export function LibraryPage() {
     [content, filters],
   );
   const count = activeFilterCount(filters);
+  // open the panel on arrival when the URL already carries filters; afterwards the user decides
+  const [panelOpen, setPanelOpen] = useState(
+    () => activeFilterCount(filters) > (filters.q ? 1 : 0),
+  );
   const unitTitle = (id: string) => content.unitById.get(id)?.title;
 
   const tagFacet = (group: 'skill' | 'topic' | 'grammar', key: 'skills' | 'topics' | 'grammar') => (
@@ -82,7 +86,8 @@ export function LibraryPage() {
         />
         <details
           className="rounded-2xl border-2 border-line bg-surface p-3"
-          open={count > 0 && count !== (filters.q ? 1 : 0)}
+          open={panelOpen}
+          onToggle={(e) => setPanelOpen(e.currentTarget.open)}
           data-testid="filters"
         >
           <summary className="min-h-11 cursor-pointer select-none py-2 text-lg font-extrabold text-ink">

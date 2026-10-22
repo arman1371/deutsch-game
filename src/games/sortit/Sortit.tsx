@@ -64,27 +64,33 @@ function DraggableCard({
   id,
   disabled,
   children,
+  aside,
 }: {
   id: string;
   disabled: boolean;
   children: React.ReactNode;
+  aside?: React.ReactNode;
 }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id,
     disabled,
   });
+  // the audio button lives beside (not inside) the draggable element: no nested interactive controls
   return (
-    <div
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      style={{
-        transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
-        touchAction: 'none',
-      }}
-      className={`relative z-10 flex min-h-32 cursor-grab flex-col items-center justify-center gap-2 rounded-3xl border-2 border-primary bg-primary-soft p-5 text-center shadow-[0_6px_0_var(--primary-edge)] ${isDragging ? 'opacity-90' : ''}`}
-    >
-      {children}
+    <div className="relative">
+      <div
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+        style={{
+          transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+          touchAction: 'none',
+        }}
+        className={`relative z-10 flex min-h-32 cursor-grab flex-col items-center justify-center gap-2 rounded-3xl border-2 border-primary bg-primary-soft p-5 text-center shadow-[0_6px_0_var(--primary-edge)] ${isDragging ? 'opacity-90' : ''}`}
+      >
+        {children}
+      </div>
+      {aside ? <div className="absolute right-2 top-2 z-20">{aside}</div> : null}
     </div>
   );
 }
@@ -150,7 +156,11 @@ export function Sortit({ config, seed, onFinish }: GameProps<'sortit'>) {
         {flash}
       </p>
       <DndContext sensors={sensors} onDragEnd={onDragEnd}>
-        <DraggableCard id={item.id} disabled={locked}>
+        <DraggableCard
+          id={item.id}
+          disabled={locked}
+          aside={item.speak ? <SpeakButton text={item.speak} /> : null}
+        >
           {item.emoji ? (
             <span aria-hidden="true" className="text-5xl">
               {item.emoji}
@@ -159,7 +169,6 @@ export function Sortit({ config, seed, onFinish }: GameProps<'sortit'>) {
           <span className="text-3xl font-extrabold text-ink" data-testid="prompt">
             {item.text}
           </span>
-          {item.speak ? <SpeakButton text={item.speak} /> : null}
         </DraggableCard>
         <div className={`grid gap-3 ${config.buckets.length > 2 ? 'grid-cols-3' : 'grid-cols-2'}`}>
           {config.buckets.map((b, i) => (

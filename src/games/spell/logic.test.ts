@@ -11,7 +11,11 @@ describe('scrambleLetters', () => {
   });
 
   it('handles words made of one repeated letter', () => {
-    expect(scrambleLetters('aaa', createRng(1)).map((t) => t.ch).join('')).toBe('aaa');
+    expect(
+      scrambleLetters('aaa', createRng(1))
+        .map((t) => t.ch)
+        .join(''),
+    ).toBe('aaa');
   });
 
   it('is deterministic per seed and item', () => {

@@ -17,11 +17,19 @@ import { UmlautKeyboard } from './UmlautKeyboard';
 describe('Button', () => {
   it('renders variants, icon and fires clicks unless disabled', async () => {
     const onClick = vi.fn();
-    const { rerender } = render(<Button icon="🔁" onClick={onClick}>Again</Button>);
+    const { rerender } = render(
+      <Button icon="🔁" onClick={onClick}>
+        Again
+      </Button>,
+    );
     await userEvent.setup().click(screen.getByRole('button', { name: /Again/ }));
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
-    rerender(<Button disabled onClick={onClick} block size="sm" variant="danger">Nope</Button>);
+    rerender(
+      <Button disabled onClick={onClick} block size="sm" variant="danger">
+        Nope
+      </Button>,
+    );
     await userEvent.setup().click(screen.getByRole('button', { name: 'Nope' }));
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(screen.getByRole('button')).toHaveClass('w-full');
@@ -30,18 +38,31 @@ describe('Button', () => {
 
 describe('Card, Tag, Chip', () => {
   it('render content', () => {
-    render(<><Card data-testid="card">x</Card><Tag tone="success">ok</Tag></>);
+    render(
+      <>
+        <Card data-testid="card">x</Card>
+        <Tag tone="success">ok</Tag>
+      </>,
+    );
     expect(screen.getByTestId('card')).toHaveTextContent('x');
     expect(screen.getByText('ok')).toBeInTheDocument();
   });
   it('Chip toggles and exposes aria-pressed', async () => {
     const onToggle = vi.fn();
-    const { rerender } = render(<Chip selected={false} onToggle={onToggle}>Food</Chip>);
+    const { rerender } = render(
+      <Chip selected={false} onToggle={onToggle}>
+        Food
+      </Chip>,
+    );
     const chip = screen.getByRole('button', { name: 'Food' });
     expect(chip).toHaveAttribute('aria-pressed', 'false');
     await userEvent.setup().click(chip);
     expect(onToggle).toHaveBeenCalled();
-    rerender(<Chip selected onToggle={onToggle}>Food</Chip>);
+    rerender(
+      <Chip selected onToggle={onToggle}>
+        Food
+      </Chip>,
+    );
     expect(chip).toHaveAttribute('aria-pressed', 'true');
   });
 });
@@ -65,7 +86,11 @@ describe('ProgressBar / Stars / Confetti / FeedbackBanner', () => {
     expect(screen.getByTestId('confetti').children).toHaveLength(5);
   });
   it('announces feedback politely', () => {
-    render(<FeedbackBanner kind="almost" title="Almost!">Check umlauts</FeedbackBanner>);
+    render(
+      <FeedbackBanner kind="almost" title="Almost!">
+        Check umlauts
+      </FeedbackBanner>,
+    );
     const banner = screen.getByRole('status');
     expect(banner).toHaveAttribute('aria-live', 'polite');
     expect(banner).toHaveAttribute('data-kind', 'almost');
@@ -78,7 +103,8 @@ describe('UmlautKeyboard', () => {
     const onInsert = vi.fn();
     render(<UmlautKeyboard onInsert={onInsert} />);
     const user = userEvent.setup();
-    for (const ch of ['ä', 'ö', 'ü', 'ß']) await user.click(screen.getByRole('button', { name: ch }));
+    for (const ch of ['ä', 'ö', 'ü', 'ß'])
+      await user.click(screen.getByRole('button', { name: ch }));
     expect(onInsert.mock.calls.map((c) => c[0])).toEqual(['ä', 'ö', 'ü', 'ß']);
   });
 });
@@ -99,13 +125,23 @@ describe('SpeakButton', () => {
 
   it('speaks with the configured rate when available', async () => {
     const synth = { cancel: vi.fn(), speak: vi.fn(), getVoices: () => [] };
-    class U { constructor(public text: string) {} lang = ''; rate = 1; onend: (() => void) | null = null; onerror: (() => void) | null = null; }
+    class U {
+      constructor(public text: string) {}
+      lang = '';
+      rate = 1;
+      onend: (() => void) | null = null;
+      onerror: (() => void) | null = null;
+    }
     Object.assign(window, { speechSynthesis: synth, SpeechSynthesisUtterance: U });
     useSettingsStore.setState({ ttsRate: 0.6 });
     render(<SpeakButton text="Guten Tag" label="Play" size="lg" />);
     await userEvent.setup().click(screen.getByRole('button', { name: 'Play' }));
     expect(synth.speak).toHaveBeenCalledTimes(1);
-    expect(synth.speak.mock.calls[0]![0]).toMatchObject({ text: 'Guten Tag', rate: 0.6, lang: 'de-DE' });
+    expect(synth.speak.mock.calls[0]![0]).toMatchObject({
+      text: 'Guten Tag',
+      rate: 0.6,
+      lang: 'de-DE',
+    });
   });
 });
 
@@ -113,7 +149,13 @@ describe('ActivityCard', () => {
   it('links to the game and shows meta, tags and stars', () => {
     render(
       <MemoryRouter>
-        <ActivityCard activity={quizActivity('a', 'u', { title: 'My quiz' })} to="/play/a" stars={2} badge="Up next" unitTitle="Unit One" />
+        <ActivityCard
+          activity={quizActivity('a', 'u', { title: 'My quiz' })}
+          to="/play/a"
+          stars={2}
+          badge="Up next"
+          unitTitle="Unit One"
+        />
       </MemoryRouter>,
     );
     const link = screen.getByRole('link', { name: /My quiz/ });

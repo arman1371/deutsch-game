@@ -5,26 +5,42 @@ import Dialogue from './Dialogue';
 const config = {
   scenes: [
     {
-      id: 'sc1', title: 'Meeting', emoji: '👋', setting: 'A party.',
+      id: 'sc1',
+      title: 'Meeting',
+      emoji: '👋',
+      setting: 'A party.',
       turns: [
         { kind: 'npc' as const, who: 'Anna', text: 'Hallo!', translation: 'Hi!' },
-        { kind: 'you' as const, options: [
-          { text: 'Hallo!', correct: true },
-          { text: 'Tschüss!', correct: false, feedback: 'That is goodbye.' },
-          { text: 'Danke!', correct: false },
-        ] },
+        {
+          kind: 'you' as const,
+          options: [
+            { text: 'Hallo!', correct: true },
+            { text: 'Tschüss!', correct: false, feedback: 'That is goodbye.' },
+            { text: 'Danke!', correct: false },
+          ],
+        },
         { kind: 'npc' as const, who: 'Anna', text: 'Wie geht’s?' },
-        { kind: 'you' as const, options: [
-          { text: 'Gut, danke.', correct: true },
-          { text: 'Nein.', correct: false, feedback: 'That does not fit.' },
-        ] },
+        {
+          kind: 'you' as const,
+          options: [
+            { text: 'Gut, danke.', correct: true },
+            { text: 'Nein.', correct: false, feedback: 'That does not fit.' },
+          ],
+        },
         { kind: 'npc' as const, who: 'Anna', text: 'Schön!' },
       ],
     },
     {
-      id: 'sc2', title: 'Leaving',
+      id: 'sc2',
+      title: 'Leaving',
       turns: [
-        { kind: 'you' as const, options: [{ text: 'Tschüss!', correct: true }, { text: 'Hallo!', correct: false }] },
+        {
+          kind: 'you' as const,
+          options: [
+            { text: 'Tschüss!', correct: true },
+            { text: 'Hallo!', correct: false },
+          ],
+        },
         { kind: 'npc' as const, who: 'Anna', text: 'Bis bald!' },
       ],
     },
@@ -54,7 +70,9 @@ describe('Dialogue', () => {
     await user.click(screen.getByRole('button', { name: 'Tschüss!' }));
     expect(conversation().getByText('Bis bald!')).toBeInTheDocument();
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 2, total: 2, mistakes: [] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 2, total: 2, mistakes: [] }),
+    );
   });
 
   it('gives feedback on a wrong reply, removes it and counts the scene as a mistake', async () => {
@@ -70,7 +88,9 @@ describe('Dialogue', () => {
     await user.click(screen.getByTestId('continue'));
     await user.click(screen.getByRole('button', { name: 'Tschüss!' }));
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 1, total: 2, mistakes: ['sc1'] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 1, total: 2, mistakes: ['sc1'] }),
+    );
   });
 
   it('starts directly with a player turn when the scene has no opening NPC line', async () => {

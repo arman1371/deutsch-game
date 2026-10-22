@@ -29,11 +29,17 @@ describe('useSequence', () => {
     expect(result.current.isLast).toBe(true);
     act(() => result.current.answerAndAdvance(true));
     expect(onFinish).toHaveBeenCalledTimes(1);
-    expect(onFinish).toHaveBeenCalledWith({ correct: 2, total: 3, played: ['a', 'b', 'c'], mistakes: ['b'] });
+    expect(onFinish).toHaveBeenCalledWith({
+      correct: 2,
+      total: 3,
+      played: ['a', 'b', 'c'],
+      mistakes: ['b'],
+    });
   });
 
   it('shuffles deterministically by seed', () => {
-    const order = (seed: number) => renderHook(() => useSequence(items, seed, vi.fn())).result.current.item.id;
+    const order = (seed: number) =>
+      renderHook(() => useSequence(items, seed, vi.fn())).result.current.item.id;
     expect(order(5)).toBe(order(5));
   });
 });
@@ -50,7 +56,9 @@ describe('ChoiceList', () => {
   it('calls onSelect on click and with number keys, then locks and marks answers', async () => {
     const user = userEvent.setup();
     const onSelect = vi.fn();
-    const { rerender } = render(<ChoiceList options={['Eins', 'Zwei', 'Drei']} onSelect={onSelect} />);
+    const { rerender } = render(
+      <ChoiceList options={['Eins', 'Zwei', 'Drei']} onSelect={onSelect} />,
+    );
     await user.click(screen.getByRole('button', { name: 'Zwei' }));
     expect(onSelect).toHaveBeenLastCalledWith('Zwei');
     await user.keyboard('3');
@@ -58,7 +66,14 @@ describe('ChoiceList', () => {
     await user.keyboard('9');
     expect(onSelect).toHaveBeenCalledTimes(2);
 
-    rerender(<ChoiceList options={['Eins', 'Zwei', 'Drei']} onSelect={onSelect} picked="Eins" answer="Zwei" />);
+    rerender(
+      <ChoiceList
+        options={['Eins', 'Zwei', 'Drei']}
+        onSelect={onSelect}
+        picked="Eins"
+        answer="Zwei"
+      />,
+    );
     expect(screen.getByRole('button', { name: /Zwei, correct answer/ })).toBeDisabled();
     expect(screen.getByRole('button', { name: /Eins, your answer, incorrect/ })).toBeDisabled();
     await user.keyboard('1');
@@ -96,7 +111,10 @@ describe('GameFrame / FeedbackFooter', () => {
         <p>content</p>
       </GameFrame>,
     );
-    expect(screen.getByRole('progressbar', { name: 'Progress' })).toHaveAttribute('aria-valuenow', '25');
+    expect(screen.getByRole('progressbar', { name: 'Progress' })).toHaveAttribute(
+      'aria-valuenow',
+      '25',
+    );
     expect(screen.getByTestId('counter')).toHaveTextContent('2 / 4');
     expect(screen.getByText('content')).toBeInTheDocument();
     expect(screen.getByText('footer')).toBeInTheDocument();
@@ -104,7 +122,9 @@ describe('GameFrame / FeedbackFooter', () => {
 
   it('announces feedback, focuses Continue and labels the last item', async () => {
     const onNext = vi.fn();
-    render(<FeedbackFooter kind="wrong" title="Oops" detail={<p>detail</p>} isLast onNext={onNext} />);
+    render(
+      <FeedbackFooter kind="wrong" title="Oops" detail={<p>detail</p>} isLast onNext={onNext} />,
+    );
     expect(screen.getByRole('status')).toHaveTextContent('Oops');
     const next = screen.getByTestId('continue');
     await waitFor(() => expect(next).toHaveFocus());
@@ -131,7 +151,11 @@ describe('useAutoSpeak', () => {
 
   const stub = () => {
     const synth = { cancel: vi.fn(), speak: vi.fn(), getVoices: () => [] };
-    class U { constructor(public text: string) {} lang = ''; rate = 1; }
+    class U {
+      constructor(public text: string) {}
+      lang = '';
+      rate = 1;
+    }
     Object.assign(window, { speechSynthesis: synth, SpeechSynthesisUtterance: U });
     return synth;
   };

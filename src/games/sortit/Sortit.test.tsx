@@ -4,7 +4,10 @@ import Sortit from './Sortit';
 
 const config = {
   instruction: 'Hello or goodbye?',
-  buckets: [{ id: 'hello', label: 'Hello', emoji: '👋' }, { id: 'bye', label: 'Goodbye' }],
+  buckets: [
+    { id: 'hello', label: 'Hello', emoji: '👋' },
+    { id: 'bye', label: 'Goodbye' },
+  ],
   items: [
     { id: 'i1', text: 'Hallo', bucket: 'hello', speak: 'Hallo' },
     { id: 'i2', text: 'Tschüss', bucket: 'bye' },
@@ -23,7 +26,9 @@ describe('Sortit', () => {
     expect(screen.getByTestId('flash')).toHaveTextContent('✓');
     expect(screen.getByTestId('counter')).toHaveTextContent('2 / 2');
     await user.click(screen.getByTestId(`bucket-${BUCKET[prompt()]}`));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 2, total: 2, mistakes: [] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 2, total: 2, mistakes: [] }),
+    );
   });
 
   it('explains a wrong sort and waits for Continue', async () => {

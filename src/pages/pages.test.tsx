@@ -9,19 +9,29 @@ beforeEach(resetStores);
 describe('Home', () => {
   it('invites a new learner to start and lists the levels', async () => {
     renderApp('/');
-    expect(await screen.findByRole('heading', { name: 'Start your first game' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Start your first game' }),
+    ).toBeInTheDocument();
     expect(screen.getByTestId('continue-cta')).toHaveTextContent('Start');
-    expect(screen.getByTestId('level-a1-1')).toHaveTextContent('0 / ' + content.activities.length + ' games');
+    expect(screen.getByTestId('level-a1-1')).toHaveTextContent(
+      '0 / ' + content.activities.length + ' games',
+    );
     for (const soon of ['A1.2', 'A2.1', 'A2.2']) {
-      expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent('Coming soon');
+      expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
+        'Coming soon',
+      );
     }
     expect(screen.getByTestId('streak')).toHaveTextContent('0');
   });
 
   it('continues at the next unplayed activity', async () => {
-    useProgressStore.getState().recordResult(content.activities[0]!.id, { correct: 3, total: 3, played: [], mistakes: [] });
+    useProgressStore
+      .getState()
+      .recordResult(content.activities[0]!.id, { correct: 3, total: 3, played: [], mistakes: [] });
     renderApp('/');
-    expect(await screen.findByRole('heading', { name: 'Continue where you left off' })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('heading', { name: 'Continue where you left off' }),
+    ).toBeInTheDocument();
     expect(screen.getByText(content.activities[1]!.title)).toBeInTheDocument();
     expect(screen.getByTestId('continue-cta')).toHaveTextContent('Continue');
   });
@@ -44,7 +54,9 @@ describe('Level and unit pages', () => {
 
   it('marks finished steps as done and moves the "up next" marker', async () => {
     const first = content.activities.find((a) => a.unitId === 'a1-1-hallo')!;
-    useProgressStore.getState().recordResult(first.id, { correct: 1, total: 1, played: [], mistakes: [] });
+    useProgressStore
+      .getState()
+      .recordResult(first.id, { correct: 1, total: 1, played: [], mistakes: [] });
     renderApp('/levels/a1-1/units/a1-1-hallo');
     const path = await screen.findByRole('list', { name: 'Guided path' });
     const steps = within(path).getAllByRole('listitem');
@@ -82,7 +94,9 @@ describe('Library', () => {
   it('lists every game and filters by game type, topic and unit', async () => {
     const { user } = renderApp('/library');
     const total = content.activities.length;
-    await waitFor(() => expect(screen.getByTestId('result-count')).toHaveTextContent(`${total} games`));
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(`${total} games`),
+    );
 
     await user.click(screen.getByText(/Filters/));
     await user.click(screen.getByRole('button', { name: /Market stand/ }));
@@ -96,7 +110,9 @@ describe('Library', () => {
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${acc} games`);
 
     await user.click(screen.getByRole('button', { name: /Hard/ }));
-    const hard = content.activities.filter((a) => a.tags.includes('accusative') && a.difficulty === 3).length;
+    const hard = content.activities.filter(
+      (a) => a.tags.includes('accusative') && a.difficulty === 3,
+    ).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${hard} games`);
   });
 
@@ -117,10 +133,19 @@ describe('Library', () => {
 
   it('puts the rest of the results into the queue', async () => {
     renderApp('/library?unit=a1-1-hallo&type=quiz');
-    const quizzes = content.activities.filter((a) => a.unitId === 'a1-1-hallo' && a.gameType === 'quiz');
-    await waitFor(() => expect(screen.getByTestId('result-count')).toHaveTextContent(`${quizzes.length} games`));
+    const quizzes = content.activities.filter(
+      (a) => a.unitId === 'a1-1-hallo' && a.gameType === 'quiz',
+    );
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(`${quizzes.length} games`),
+    );
     const href = screen.getByTestId('play-queue').getAttribute('href')!;
-    expect(href).toBe(`/play/${quizzes[0]!.id}?q=${quizzes.slice(1).map((a) => a.id).join('%2C')}`);
+    expect(href).toBe(
+      `/play/${quizzes[0]!.id}?q=${quizzes
+        .slice(1)
+        .map((a) => a.id)
+        .join('%2C')}`,
+    );
   });
 });
 
@@ -157,7 +182,9 @@ describe('Play flow', () => {
   it('lets you leave with Exit and returns to the unit', async () => {
     const { user, router } = renderApp(`/play/${quiz.id}?seed=1`);
     await user.click(await screen.findByRole('button', { name: 'Exit game' }));
-    await waitFor(() => expect(router.state.location.pathname).toBe('/levels/a1-1/units/a1-1-hallo'));
+    await waitFor(() =>
+      expect(router.state.location.pathname).toBe('/levels/a1-1/units/a1-1-hallo'),
+    );
   });
 
   it('shows not-found for an unknown activity', async () => {
@@ -181,14 +208,18 @@ describe('Review', () => {
   it('lists mistakes and replays only those items', async () => {
     const quiz = activityById('a1-1-hallo-time-of-day');
     const first = (quiz.config as { questions: { id: string }[] }).questions[0]!.id;
-    useProgressStore.getState().recordResult(quiz.id, { correct: 4, total: 5, played: [first], mistakes: [first] });
+    useProgressStore
+      .getState()
+      .recordResult(quiz.id, { correct: 4, total: 5, played: [first], mistakes: [first] });
     const { user } = renderApp('/review');
     expect(await screen.findByTestId('review-count')).toHaveTextContent('1 due');
     await user.click(screen.getByTestId('start-review'));
     expect(await screen.findByText('1 items to review · ~2 min')).toBeInTheDocument();
     await user.click(screen.getByTestId('start'));
     const prompt = (await screen.findByTestId('prompt')).textContent;
-    const q = (quiz.config as { questions: { id: string; prompt: string; answer: string }[] }).questions.find((x) => x.id === first)!;
+    const q = (
+      quiz.config as { questions: { id: string; prompt: string; answer: string }[] }
+    ).questions.find((x) => x.id === first)!;
     expect(prompt).toBe(q.prompt);
     await user.click(await screen.findByRole('button', { name: q.answer }));
     await user.click(await screen.findByTestId('continue'));
@@ -212,9 +243,14 @@ describe('Settings', () => {
   });
 
   it('resets progress only after confirmation', async () => {
-    useProgressStore.getState().recordResult('x', { correct: 1, total: 1, played: [], mistakes: [] });
+    useProgressStore
+      .getState()
+      .recordResult('x', { correct: 1, total: 1, played: [], mistakes: [] });
     const { user } = renderApp('/settings');
-    const confirm = vi.spyOn(window, 'confirm').mockReturnValueOnce(false).mockReturnValueOnce(true);
+    const confirm = vi
+      .spyOn(window, 'confirm')
+      .mockReturnValueOnce(false)
+      .mockReturnValueOnce(true);
     await user.click(await screen.findByRole('button', { name: 'Reset all progress' }));
     expect(useProgressStore.getState().xp).toBeGreaterThan(0);
     await user.click(screen.getByRole('button', { name: 'Reset all progress' }));
@@ -232,12 +268,46 @@ describe('Routing', () => {
   });
 
   it('has a skip link and the main nav with the review badge', async () => {
-    useProgressStore.getState().recordResult('act', { correct: 0, total: 2, played: ['a', 'b'], mistakes: ['a', 'b'] });
+    useProgressStore
+      .getState()
+      .recordResult('act', { correct: 0, total: 2, played: ['a', 'b'], mistakes: ['a', 'b'] });
     renderApp('/');
-    expect(await screen.findByRole('link', { name: 'Skip to content' })).toHaveAttribute('href', '#main');
+    expect(await screen.findByRole('link', { name: 'Skip to content' })).toHaveAttribute(
+      'href',
+      '#main',
+    );
     expect(screen.getByLabelText('2 items to review')).toBeInTheDocument();
     for (const name of ['Home', 'Games', 'Review', 'Settings']) {
-      expect(within(screen.getByRole('navigation', { name: 'Main' })).getByRole('link', { name: new RegExp(name) })).toBeInTheDocument();
+      expect(
+        within(screen.getByRole('navigation', { name: 'Main' })).getByRole('link', {
+          name: new RegExp(name),
+        }),
+      ).toBeInTheDocument();
     }
+  });
+});
+
+describe('Play flow – queues', () => {
+  it('"Next up" starts a fresh intro for the next game instead of keeping the old result', async () => {
+    const first = activityById('a1-1-hallo-time-of-day');
+    const next = activityById('a1-1-hallo-feelings');
+    const { user, router } = renderApp(`/play/${first.id}?seed=1&q=${next.id}`);
+    await user.click(await screen.findByTestId('start'));
+    await playQuiz(user, first);
+    await user.click(await screen.findByTestId('next-activity'));
+    await waitFor(() => expect(router.state.location.pathname).toBe(`/play/${next.id}`));
+    expect(await screen.findByRole('heading', { level: 1, name: next.title })).toBeInTheDocument();
+    expect(screen.getByTestId('start')).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Well done!' })).not.toBeInTheDocument();
+  });
+});
+
+describe('Library – filter panel', () => {
+  it('stays open when filters are cleared and starts open when the URL has filters', async () => {
+    const { user } = renderApp('/library?type=market');
+    const panel = await screen.findByTestId('filters');
+    expect(panel).toHaveAttribute('open');
+    await user.click(screen.getByRole('button', { name: 'Clear filters' }));
+    expect(panel).toHaveAttribute('open');
   });
 });

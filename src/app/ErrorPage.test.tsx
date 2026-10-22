@@ -9,7 +9,9 @@ describe('ErrorPage', () => {
     const Boom = () => {
       throw new Error('kaputt');
     };
-    const router = createMemoryRouter([{ path: '/', Component: Boom, errorElement: <ErrorPage /> }]);
+    const router = createMemoryRouter([
+      { path: '/', Component: Boom, errorElement: <ErrorPage /> },
+    ]);
     render(<RouterProvider router={router} />);
     expect(await screen.findByRole('alert')).toHaveTextContent('kaputt');
     expect(screen.getByRole('link', { name: 'Back to home' })).toHaveAttribute('href', '/');

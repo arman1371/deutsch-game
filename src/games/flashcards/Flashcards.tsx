@@ -22,9 +22,6 @@ export function Flashcards({ config, seed, onFinish }: GameProps<'flashcards'>) 
       <button
         type="button"
         onClick={() => setFlipped((f) => !f)}
-        aria-label={
-          flipped ? 'Card back – flip to the front' : 'Card front – flip to see the answer'
-        }
         data-testid="card"
         className={`press flex min-h-64 w-full flex-col items-center justify-center gap-3 rounded-3xl border-2 border-line p-6 text-center shadow-[0_6px_0_var(--border)] ${
           flipped ? 'bg-primary-soft' : 'bg-surface'
@@ -40,6 +37,11 @@ export function Flashcards({ config, seed, onFinish }: GameProps<'flashcards'>) 
         </span>
         {flipped && card.note ? <span className="text-base text-muted">{card.note}</span> : null}
         {!flipped ? <span className="text-sm font-bold text-muted">Tap to flip</span> : null}
+        <span className="sr-only">
+          {flipped
+            ? ' (card back, press to flip to the front)'
+            : ' (card front, press to flip to the answer)'}
+        </span>
       </button>
 
       <div className="flex items-center justify-center gap-3">

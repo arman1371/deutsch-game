@@ -4,8 +4,19 @@ import Sentence from './Sentence';
 
 const config = {
   items: [
-    { id: 's1', translation: 'What is your name?', words: ['Wie', 'heißt', 'du?'], explanation: 'Verb second.' },
-    { id: 's2', translation: 'In the evening I watch TV.', words: ['Am', 'Abend', 'sehe', 'ich', 'fern.'], alsoAccept: ['Ich sehe am Abend fern.'], extra: ['auf'] },
+    {
+      id: 's1',
+      translation: 'What is your name?',
+      words: ['Wie', 'heißt', 'du?'],
+      explanation: 'Verb second.',
+    },
+    {
+      id: 's2',
+      translation: 'In the evening I watch TV.',
+      words: ['Am', 'Abend', 'sehe', 'ich', 'fern.'],
+      alsoAccept: ['Ich sehe am Abend fern.'],
+      extra: ['auf'],
+    },
   ],
 };
 
@@ -61,8 +72,12 @@ describe('Sentence', () => {
     expect(screen.getByTestId('feedback')).toHaveAttribute('data-kind', 'wrong');
     expect(screen.getByText('Wie heißt du?', { selector: 'strong' })).toBeInTheDocument();
     expect(screen.getByText('Verb second.')).toBeInTheDocument();
-    expect(within(screen.getByTestId('answer-line')).getByRole('button', { name: 'Remove Wie' })).toBeDisabled();
+    expect(
+      within(screen.getByTestId('answer-line')).getByRole('button', { name: 'Remove Wie' }),
+    ).toBeDisabled();
     await user.click(screen.getByTestId('continue'));
-    expect(onFinish).toHaveBeenCalledWith(expect.objectContaining({ correct: 0, mistakes: ['s1'] }));
+    expect(onFinish).toHaveBeenCalledWith(
+      expect.objectContaining({ correct: 0, mistakes: ['s1'] }),
+    );
   });
 });

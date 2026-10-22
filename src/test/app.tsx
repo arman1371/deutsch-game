@@ -32,7 +32,11 @@ export const activityById = (id: string): Activity => {
 };
 
 /** Answer every question of a quiz activity (correctly or all wrong) by reading the prompt from the screen. */
-export async function playQuiz(user: ReturnType<typeof userEvent.setup>, activity: Activity, { correct = true } = {}) {
+export async function playQuiz(
+  user: ReturnType<typeof userEvent.setup>,
+  activity: Activity,
+  { correct = true } = {},
+) {
   if (activity.gameType !== 'quiz') throw new Error('playQuiz needs a quiz');
   const total = activity.config.questions.length;
   for (let i = 0; i < total; i++) {
