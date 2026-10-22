@@ -1,0 +1,72 @@
+import AxeBuilder from '@axe-core/playwright';
+import { expect, test, type Page } from '@playwright/test';
+
+async function expectNoViolations(page: Page, label: string) {
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+  const summary = results.violations.map(
+    (v) =>
+      `${v.id}: ${v.nodes
+        .map((n) => n.target.join(' '))
+        .slice(0, 3)
+        .join(' | ')}`,
+  );
+  expect(summary, `${label}: accessibility violations`).toEqual([]);
+}
+
+const PAGES: [string, string, string][] = [
+  ['home', '/', 'Start your first game'],
+  ['level', '/levels/a1-1', 'A1.1'],
+  ['unit', '/levels/a1-1/units/a1-1-hallo', 'Hallo & Tschüss'],
+  ['library', '/library', 'Game library'],
+  ['review', '/review', 'Fehlerkiste'],
+  ['settings', '/settings', 'Settings'],
+  ['play intro', '/play/a1-1-hallo-time-of-day?seed=1', 'Greeting for the time of day'],
+  ['404', '/nope', 'Page not found'],
+];
+
+for (const scheme of ['light', 'dark'] as const) {
+  test.describe(`accessibility (${scheme})`, () => {
+    test.use({ colorScheme: scheme });
+
+    for (const [name, url, heading] of PAGES) {
+      test(`${name} has no WCAG A/AA violations`, async ({ page }) => {
+        await page.goto(url);
+        await expect(page.getByRole('heading', { name: heading }).first()).toBeVisible();
+        await expectNoViolations(page, name);
+      });
+    }
+
+    test('an open game, feedback state and result screen have no violations', async ({ page }) => {
+      await page.goto('/play/a1-1-hallo-time-of-day?seed=1');
+      await page.getByTestId('start').click();
+      await expect(page.getByTestId('prompt')).toBeVisible();
+      await expectNoViolations(page, 'quiz question');
+      await page.keyboard.press('1');
+      await expect(page.getByTestId('feedback')).toBeVisible();
+      await page.waitForTimeout(500); // let the pop animation finish – axe measures contrast on the settled frame
+      await expectNoViolations(page, 'quiz feedback');
+    });
+
+    for (const id of [
+      'a1-1-hallo-sort-hello-bye',
+      'a1-1-tag-clock-read',
+      'a1-1-einkaufen-market-bakery',
+      'a1-1-hallo-sentences',
+      'a1-1-wer-conj-heissen-sein',
+      'a1-1-hallo-memory-greetings',
+      'a1-1-hallo-blitz',
+      'a1-1-hallo-dialogues',
+      'a1-1-zahlen-dictation-phone',
+      'a1-1-hallo-flash',
+    ]) {
+      test(`${id} has no violations`, async ({ page }) => {
+        await page.goto(`/play/${id}?seed=1`);
+        await page.getByTestId('start').click();
+        await page.waitForTimeout(300);
+        await expectNoViolations(page, id);
+      });
+    }
+  });
+}
