@@ -27,7 +27,7 @@ isolates storage behind `src/store/repository.ts`, so a D1-backed implementation
    - Build command: `npm run build`
    - **Deploy command: `npx wrangler deploy`**
    - Root directory: `/`
-   - Variable: `NODE_VERSION` = `22`
+   - No `NODE_VERSION` variable needed: Cloudflare reads the Node version from `.nvmrc` (`22`)
 5. Save and deploy. The production branch deploys to your `*.workers.dev` URL; other branches get preview URLs.
 
 `wrangler.jsonc` points Wrangler at `dist/` and sets `not_found_handling: "single-page-application"`, so deep links
@@ -35,7 +35,7 @@ isolates storage behind `src/store/repository.ts`, so a D1-backed implementation
 
 ### Alternative: classic Cloudflare Pages
 
-Pages has no deploy command: build `npm run build`, output `dist`, `NODE_VERSION=22`. Do **not** add a
+Pages has no deploy command: build `npm run build`, output `dist`; Node comes from `.nvmrc`. Do **not** add a
 `/* /index.html 200` rule to `_redirects` there (flagged as an infinite loop; Pages falls back to `index.html` itself).
 
 Notes
