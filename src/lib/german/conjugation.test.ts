@@ -1,4 +1,4 @@
-import { conjugate, PRONOUNS, separableForms } from './conjugation';
+import { conjugate, conjugatePreterite, PRONOUNS, separableForms } from './conjugation';
 
 const row = (v: string) => PRONOUNS.map((p) => conjugate(v)[p]);
 
@@ -71,5 +71,36 @@ describe('modal and A1.2 verbs', () => {
   it('knows wissen and werden', () => {
     expect(row('wissen')).toEqual(['weiß', 'weißt', 'weiß', 'wissen', 'wisst', 'wissen']);
     expect(row('werden')).toEqual(['werde', 'wirst', 'wird', 'werden', 'werdet', 'werden']);
+  });
+});
+
+describe('conjugatePreterite', () => {
+  it('gives war and hatte', () => {
+    expect(PRONOUNS.map((p) => conjugatePreterite('sein')[p])).toEqual([
+      'war',
+      'warst',
+      'war',
+      'waren',
+      'wart',
+      'waren',
+    ]);
+    expect(PRONOUNS.map((p) => conjugatePreterite('haben')[p])).toEqual([
+      'hatte',
+      'hattest',
+      'hatte',
+      'hatten',
+      'hattet',
+      'hatten',
+    ]);
+  });
+
+  it('gives the modal verbs without umlaut', () => {
+    expect(conjugatePreterite('können')['ich']).toBe('konnte');
+    expect(conjugatePreterite('müssen')['wir']).toBe('mussten');
+    expect(conjugatePreterite('dürfen')['du']).toBe('durftest');
+  });
+
+  it('throws for verbs it does not know', () => {
+    expect(() => conjugatePreterite('gehen')).toThrow();
   });
 });

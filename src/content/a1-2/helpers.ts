@@ -1,4 +1,4 @@
-import { conjugate, separableForms } from '@/lib/german/conjugation';
+import { conjugate, conjugatePreterite, separableForms } from '@/lib/german/conjugation';
 import { activity, unit, type Meta } from '../builders';
 import type { ConfigOf, Unit } from '../schema';
 import type { TagId } from '../tags';
@@ -145,6 +145,15 @@ export const table = (verb: string, meaning: string, blanks: Pronoun[], id = ver
   verb,
   meaning,
   forms: conjugate(verb),
+  blanks,
+});
+
+/** Table for the simple past (war, hatte, konnte …); `label` is what the learner sees as the verb. */
+export const pastTable = (verb: string, label: string, meaning: string, blanks: Pronoun[]) => ({
+  id: `past-${verb}`,
+  verb: label,
+  meaning,
+  forms: conjugatePreterite(verb),
   blanks,
 });
 

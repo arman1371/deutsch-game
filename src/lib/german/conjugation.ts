@@ -179,3 +179,30 @@ export function separableForms(prefix: string, base: string): Forms {
   const forms = conjugate(base);
   return Object.fromEntries(PRONOUNS.map((p) => [p, `${forms[p]} ${prefix}`])) as Forms;
 }
+
+const f = (ich: string, du: string, er: string, wir: string, ihr: string, sie: string): Forms => ({
+  ich,
+  du,
+  'er/sie/es': er,
+  wir,
+  ihr,
+  'sie/Sie': sie,
+});
+
+const PRETERITE: Record<string, Forms> = {
+  sein: f('war', 'warst', 'war', 'waren', 'wart', 'waren'),
+  haben: f('hatte', 'hattest', 'hatte', 'hatten', 'hattet', 'hatten'),
+  werden: f('wurde', 'wurdest', 'wurde', 'wurden', 'wurdet', 'wurden'),
+  können: f('konnte', 'konntest', 'konnte', 'konnten', 'konntet', 'konnten'),
+  müssen: f('musste', 'musstest', 'musste', 'mussten', 'musstet', 'mussten'),
+  wollen: f('wollte', 'wolltest', 'wollte', 'wollten', 'wolltet', 'wollten'),
+  dürfen: f('durfte', 'durftest', 'durfte', 'durften', 'durftet', 'durften'),
+  sollen: f('sollte', 'solltest', 'sollte', 'sollten', 'solltet', 'sollten'),
+};
+
+/** Simple past (Präteritum) of the verbs A1 learners need: war, hatte and the modal verbs. */
+export function conjugatePreterite(infinitive: string): Forms {
+  const forms = PRETERITE[infinitive];
+  if (!forms) throw new Error(`No preterite for "${infinitive}"`);
+  return forms;
+}

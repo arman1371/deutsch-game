@@ -1,7 +1,9 @@
 import type { LevelContent } from '../schema';
 import { stadt } from './u1-stadt';
+import { wohnen } from './u2-wohnen';
+import { arbeit } from './u3-arbeit';
 
-const units = [stadt];
+const units = [stadt, wohnen, arbeit];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
