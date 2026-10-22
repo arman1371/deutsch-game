@@ -29,6 +29,7 @@ isolates storage behind `src/store/repository.ts`, so a D1-backed implementation
    - Root directory: `/`
    - No `NODE_VERSION` variable needed: Cloudflare reads the Node version from `.nvmrc` (`22`)
 5. Save and deploy. The production branch deploys to your `*.workers.dev` URL; other branches get preview URLs.
+   Non-production branches run `npx wrangler preview`, which requires the (empty) `"previews": {}` block in `wrangler.jsonc`.
 
 `wrangler.jsonc` points Wrangler at `dist/` and sets `not_found_handling: "single-page-application"`, so deep links
 (`/levels/a1-1/units/a1-1-hallo`) serve `index.html`. Manual deploy from your machine: `npm run deploy`.
