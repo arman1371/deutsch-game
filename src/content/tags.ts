@@ -1,0 +1,64 @@
+export type TagGroup = 'skill' | 'topic' | 'grammar';
+
+export interface TagInfo {
+  label: string;
+  group: TagGroup;
+  emoji: string;
+}
+
+/**
+ * Canonical tag vocabulary. Activities may only use ids from here (enforced by the content tests),
+ * so filters stay consistent when new levels are added. Add new tags here first.
+ */
+export const TAGS = {
+  // skills
+  vocabulary: { label: 'Vocabulary', group: 'skill', emoji: '📚' },
+  grammar: { label: 'Grammar', group: 'skill', emoji: '🧩' },
+  listening: { label: 'Listening', group: 'skill', emoji: '🎧' },
+  spelling: { label: 'Spelling', group: 'skill', emoji: '🔤' },
+  communication: { label: 'Conversation', group: 'skill', emoji: '💬' },
+  // topics
+  greetings: { label: 'Greetings', group: 'topic', emoji: '👋' },
+  introductions: { label: 'Introductions', group: 'topic', emoji: '🤝' },
+  'countries-languages': { label: 'Countries & languages', group: 'topic', emoji: '🌍' },
+  alphabet: { label: 'Alphabet & spelling', group: 'topic', emoji: '🔠' },
+  numbers: { label: 'Numbers', group: 'topic', emoji: '🔢' },
+  'phone-address': { label: 'Phone & address', group: 'topic', emoji: '📞' },
+  family: { label: 'Family', group: 'topic', emoji: '👨‍👩‍👧' },
+  hobbies: { label: 'Hobbies & free time', group: 'topic', emoji: '🎸' },
+  weekdays: { label: 'Weekdays', group: 'topic', emoji: '📅' },
+  'time-clock': { label: 'Clock time', group: 'topic', emoji: '🕒' },
+  'daily-routine': { label: 'Daily routine', group: 'topic', emoji: '🌅' },
+  'food-drinks': { label: 'Food & drinks', group: 'topic', emoji: '🥖' },
+  shopping: { label: 'Shopping & prices', group: 'topic', emoji: '🛒' },
+  // grammar points
+  'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
+  questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
+  pronouns: { label: 'Personal pronouns', group: 'grammar', emoji: '🙋' },
+  'verb-conjugation': { label: 'Verb conjugation', group: 'grammar', emoji: '⚙️' },
+  articles: { label: 'Articles', group: 'grammar', emoji: '🏷️' },
+  negation: { label: 'Negation (kein)', group: 'grammar', emoji: '🚫' },
+  plurals: { label: 'Plurals', group: 'grammar', emoji: '➕' },
+  possessives: { label: 'Possessive articles', group: 'grammar', emoji: '🔑' },
+  'prepositions-of-time': { label: 'am / um / von…bis', group: 'grammar', emoji: '⏰' },
+  'separable-verbs': { label: 'Separable verbs', group: 'grammar', emoji: '✂️' },
+  accusative: { label: 'Accusative', group: 'grammar', emoji: '🎯' },
+  'modal-verbs': { label: 'können & wollen', group: 'grammar', emoji: '💪' },
+} as const satisfies Record<string, TagInfo>;
+
+export type TagId = keyof typeof TAGS;
+export const TAG_IDS = Object.keys(TAGS) as TagId[];
+
+export const GROUP_LABELS: Record<TagGroup, string> = {
+  skill: 'Skill',
+  topic: 'Topic',
+  grammar: 'Grammar point',
+};
+
+export function tagsInGroup(group: TagGroup): TagId[] {
+  return TAG_IDS.filter((id) => TAGS[id].group === group);
+}
+
+export function isTagId(value: string): value is TagId {
+  return Object.hasOwn(TAGS, value);
+}
