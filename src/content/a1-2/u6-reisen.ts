@@ -799,7 +799,11 @@ export const reisen: UnitContent = {
             'Sind Sie ein Zimmer?',
             'Wo ist das Zimmer frei?',
           ]),
-          q('c9', 'Wir sind drei Tage in Rom ___.', 'geblieben', ['gebleibt', 'gebleiben', 'bleiben']),
+          q('c9', 'Wir sind drei Tage in Rom ___.', 'geblieben', [
+            'gebleibt',
+            'gebleiben',
+            'bleiben',
+          ]),
           q('c10', 'der Regenschirm', 'umbrella', ['raincoat', 'rain', 'cloud']),
         ],
       },

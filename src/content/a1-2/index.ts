@@ -5,8 +5,10 @@ import { arbeit } from './u3-arbeit';
 import { gesundheit } from './u4-gesundheit';
 import { kleidung } from './u5-kleidung';
 import { reisen } from './u6-reisen';
+import { feiern } from './u7-feste';
+import { termine } from './u8-termine';
 
-const units = [stadt, wohnen, arbeit, gesundheit, kleidung, reisen];
+const units = [stadt, wohnen, arbeit, gesundheit, kleidung, reisen, feiern, termine];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),

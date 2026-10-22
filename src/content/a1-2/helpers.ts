@@ -178,3 +178,25 @@ export const setRound = (time: string, style: 'formal' | 'informal') => ({
   mode: 'set' as const,
   style,
 });
+
+/** Conjugation table with hand-written forms: ich, du, er/sie/es, wir, ihr, sie/Sie. */
+export const customTable = (
+  id: string,
+  verb: string,
+  meaning: string,
+  forms: readonly [string, string, string, string, string, string],
+  blanks: Pronoun[],
+) => ({
+  id,
+  verb,
+  meaning,
+  forms: {
+    ich: forms[0],
+    du: forms[1],
+    'er/sie/es': forms[2],
+    wir: forms[3],
+    ihr: forms[4],
+    'sie/Sie': forms[5],
+  },
+  blanks,
+});
