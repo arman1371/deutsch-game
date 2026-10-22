@@ -86,6 +86,13 @@ export function Conjugation({ config, seed, onFinish }: GameProps<'conjugation'>
                     disabled={overall !== null}
                     onFocus={(e) => (focused.current = e.currentTarget)}
                     onChange={(e) => setValues((s) => ({ ...s, [p]: e.target.value }))}
+                    onKeyDown={(e) => {
+                      // several text fields and no submit button inside the form: handle Enter ourselves
+                      if (e.key === 'Enter') {
+                        e.preventDefault();
+                        if (complete && !overall) check();
+                      }
+                    }}
                     autoComplete="off"
                     autoCapitalize="off"
                     spellCheck={false}

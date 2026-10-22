@@ -51,7 +51,7 @@ export function Quiz({ config, seed, onFinish }: GameProps<'quiz'>) {
     >
       <div className="flex flex-col items-center gap-3 text-center">
         {q.emoji ? (
-          <span aria-hidden="true" className="text-6xl">
+          <span aria-hidden="true" className="text-6xl" data-testid="emoji">
             {q.emoji}
           </span>
         ) : null}

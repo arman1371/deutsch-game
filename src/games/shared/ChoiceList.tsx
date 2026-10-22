@@ -44,8 +44,8 @@ export function ChoiceList({ options, onSelect, picked = null, answer, columns =
               {i + 1}
             </span>
             <span>{option}</span>
-            {isAnswer ? <span className="sr-only"> (correct answer)</span> : null}
-            {isWrongPick ? <span className="sr-only"> (your answer, incorrect)</span> : null}
+            {isAnswer ? <span className="sr-only">, correct answer</span> : null}
+            {isWrongPick ? <span className="sr-only">, your answer, incorrect</span> : null}
           </button>
         );
       })}

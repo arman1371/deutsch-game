@@ -38,6 +38,7 @@ function AnswerTile({
       {...attributes}
       {...listeners}
       type="button"
+      disabled={disabled}
       aria-label={`Remove ${text}`}
       onClick={onRemove}
       style={{ transform: CSS.Transform.toString(transform), transition, touchAction: 'none' }}

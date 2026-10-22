@@ -73,9 +73,10 @@ function Shell() {
             </span>
             <span className="hidden sm:inline">{t('appName')}</span>
           </Link>
+          {!playing ? (
           <nav
             aria-label="Main"
-            className={`${playing ? 'hidden' : 'fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t-2 border-line bg-surface pb-[env(safe-area-inset-bottom)] md:static md:ml-6 md:flex md:gap-1 md:border-0 md:bg-transparent md:pb-0'}`}
+            className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-4 border-t-2 border-line bg-surface pb-[env(safe-area-inset-bottom)] md:static md:ml-6 md:flex md:gap-1 md:border-0 md:bg-transparent md:pb-0"
           >
             {NAV.map((n) => (
               <NavLink
@@ -103,6 +104,7 @@ function Shell() {
               </NavLink>
             ))}
           </nav>
+          ) : null}
           <div className="ml-auto flex items-center gap-3 text-sm font-extrabold text-ink">
             <span title="Daily streak" data-testid="streak">
               🔥 {streak}
