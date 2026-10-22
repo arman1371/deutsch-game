@@ -6,7 +6,14 @@ describe('conjugate', () => {
   it('handles the A1.1 core verbs', () => {
     expect(row('sein')).toEqual(['bin', 'bist', 'ist', 'sind', 'seid', 'sind']);
     expect(row('haben')).toEqual(['habe', 'hast', 'hat', 'haben', 'habt', 'haben']);
-    expect(row('sprechen')).toEqual(['spreche', 'sprichst', 'spricht', 'sprechen', 'sprecht', 'sprechen']);
+    expect(row('sprechen')).toEqual([
+      'spreche',
+      'sprichst',
+      'spricht',
+      'sprechen',
+      'sprecht',
+      'sprechen',
+    ]);
   });
 
   it('conjugates regular verbs', () => {
@@ -18,13 +25,24 @@ describe('conjugate', () => {
   it('handles s-sounds and e-insertion', () => {
     expect(row('heißen')).toEqual(['heiße', 'heißt', 'heißt', 'heißen', 'heißt', 'heißen']);
     expect(row('tanzen')[1]).toBe('tanzt');
-    expect(row('arbeiten')).toEqual(['arbeite', 'arbeitest', 'arbeitet', 'arbeiten', 'arbeitet', 'arbeiten']);
+    expect(row('arbeiten')).toEqual([
+      'arbeite',
+      'arbeitest',
+      'arbeitet',
+      'arbeiten',
+      'arbeitet',
+      'arbeiten',
+    ]);
     expect(conjugate('öffnen').du).toBe('öffnest');
     expect(conjugate('kosten').du).toBe('kostest');
   });
 
   it('handles -ern verbs and modals', () => {
-    expect(conjugate('wandern')).toMatchObject({ ich: 'wandere', wir: 'wandern', 'er/sie/es': 'wandert' });
+    expect(conjugate('wandern')).toMatchObject({
+      ich: 'wandere',
+      wir: 'wandern',
+      'er/sie/es': 'wandert',
+    });
     expect(row('können')).toEqual(['kann', 'kannst', 'kann', 'können', 'könnt', 'können']);
     expect(row('wollen')).toEqual(['will', 'willst', 'will', 'wollen', 'wollt', 'wollen']);
     expect(conjugate('möchten').ich).toBe('möchte');

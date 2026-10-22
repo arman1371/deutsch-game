@@ -1,4 +1,9 @@
-import { DEFAULT_SETTINGS, resolveReducedMotion, resolveTheme, useSettingsStore } from './settingsStore';
+import {
+  DEFAULT_SETTINGS,
+  resolveReducedMotion,
+  resolveTheme,
+  useSettingsStore,
+} from './settingsStore';
 import { localRepository } from './repository';
 
 describe('settingsStore', () => {
@@ -6,7 +11,11 @@ describe('settingsStore', () => {
 
   it('updates and persists settings', () => {
     useSettingsStore.getState().set({ theme: 'dark', ttsRate: 0.7 });
-    expect(useSettingsStore.getState()).toMatchObject({ theme: 'dark', ttsRate: 0.7, sounds: true });
+    expect(useSettingsStore.getState()).toMatchObject({
+      theme: 'dark',
+      ttsRate: 0.7,
+      sounds: true,
+    });
     expect(JSON.parse(localStorage.getItem('spielplatz.settings')!).state.theme).toBe('dark');
   });
 
@@ -29,12 +38,20 @@ describe('localRepository', () => {
   });
 
   it('never throws when storage is blocked', () => {
-    const spy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => { throw new Error('blocked'); });
-    const spy2 = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => { throw new Error('blocked'); });
-    const spy3 = vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => { throw new Error('blocked'); });
+    const spy = vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new Error('blocked');
+    });
+    const spy2 = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('blocked');
+    });
+    const spy3 = vi.spyOn(Storage.prototype, 'removeItem').mockImplementation(() => {
+      throw new Error('blocked');
+    });
     expect(localRepository.getItem('k')).toBeNull();
     expect(() => localRepository.setItem('k', 'v')).not.toThrow();
     expect(() => localRepository.removeItem('k')).not.toThrow();
-    spy.mockRestore(); spy2.mockRestore(); spy3.mockRestore();
+    spy.mockRestore();
+    spy2.mockRestore();
+    spy3.mockRestore();
   });
 });

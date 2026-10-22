@@ -23,15 +23,18 @@ export const DEFAULT_SETTINGS = {
 } satisfies Omit<SettingsState, 'set'>;
 
 export const useSettingsStore = create<SettingsState>()(
-  persist(
-    (set) => ({ ...DEFAULT_SETTINGS, set: (patch) => set(patch) }),
-    {
-      name: 'spielplatz.settings',
-      version: 1,
-      storage: createJSONStorage(() => localRepository),
-      partialize: ({ theme, motion, sounds, autoSpeak, ttsRate }) => ({ theme, motion, sounds, autoSpeak, ttsRate }),
-    },
-  ),
+  persist((set) => ({ ...DEFAULT_SETTINGS, set: (patch) => set(patch) }), {
+    name: 'spielplatz.settings',
+    version: 1,
+    storage: createJSONStorage(() => localRepository),
+    partialize: ({ theme, motion, sounds, autoSpeak, ttsRate }) => ({
+      theme,
+      motion,
+      sounds,
+      autoSpeak,
+      ttsRate,
+    }),
+  }),
 );
 
 export function resolveTheme(theme: ThemeSetting, prefersDark: boolean): 'light' | 'dark' {

@@ -1,6 +1,15 @@
 import type { Activity } from './schema';
 
-type ItemsKey = 'cards' | 'questions' | 'pairs' | 'items' | 'tables' | 'statements' | 'scenes' | 'rounds' | 'orders';
+type ItemsKey =
+  | 'cards'
+  | 'questions'
+  | 'pairs'
+  | 'items'
+  | 'tables'
+  | 'statements'
+  | 'scenes'
+  | 'rounds'
+  | 'orders';
 
 const ITEMS_KEY: Record<Activity['gameType'], ItemsKey> = {
   flashcards: 'cards',

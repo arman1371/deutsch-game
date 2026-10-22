@@ -1,6 +1,11 @@
 import { levelFixture } from '@/test/factories';
 import {
-  activeFilterCount, durationBucket, EMPTY_FILTERS, filterActivities, filtersFromParams, filtersToParams,
+  activeFilterCount,
+  durationBucket,
+  EMPTY_FILTERS,
+  filterActivities,
+  filtersFromParams,
+  filtersToParams,
   matchesFilters,
 } from './filters';
 
@@ -41,14 +46,26 @@ describe('filters', () => {
 
   it('counts active filters', () => {
     expect(activeFilterCount(EMPTY_FILTERS)).toBe(0);
-    expect(activeFilterCount({ ...EMPTY_FILTERS, q: ' x ', units: ['a', 'b'], difficulty: [1] })).toBe(4);
+    expect(
+      activeFilterCount({ ...EMPTY_FILTERS, q: ' x ', units: ['a', 'b'], difficulty: [1] }),
+    ).toBe(4);
   });
 
   it('round-trips through URL params and drops invalid values', () => {
-    const f = { ...EMPTY_FILTERS, q: 'hallo', units: ['u1'], skills: ['grammar' as const], types: ['quiz' as const], difficulty: [2 as const], duration: ['quick' as const] };
+    const f = {
+      ...EMPTY_FILTERS,
+      q: 'hallo',
+      units: ['u1'],
+      skills: ['grammar' as const],
+      types: ['quiz' as const],
+      difficulty: [2 as const],
+      duration: ['quick' as const],
+    };
     const params = filtersToParams(f);
     expect(filtersFromParams(new URLSearchParams(params.toString()))).toEqual(f);
-    const dirty = filtersFromParams(new URLSearchParams('skill=bogus,grammar&topic=grammar&type=nope&level=9,2&time=forever'));
+    const dirty = filtersFromParams(
+      new URLSearchParams('skill=bogus,grammar&topic=grammar&type=nope&level=9,2&time=forever'),
+    );
     expect(dirty.skills).toEqual(['grammar']);
     expect(dirty.topics).toEqual([]); // grammar is not a topic
     expect(dirty.types).toEqual([]);

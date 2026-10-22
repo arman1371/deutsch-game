@@ -1,5 +1,11 @@
 import {
-  clockAngles, formalTime, formatDigital, informalTime, parseTime, timeToGerman, WEEKDAYS,
+  clockAngles,
+  formalTime,
+  formatDigital,
+  informalTime,
+  parseTime,
+  timeToGerman,
+  WEEKDAYS,
 } from './time';
 
 const t = (s: string) => parseTime(s);
@@ -13,19 +19,33 @@ describe('time', () => {
   });
 
   it.each([
-    ['09:00', 'neun Uhr'], ['01:00', 'ein Uhr'], ['14:30', 'vierzehn Uhr dreißig'],
-    ['21:05', 'einundzwanzig Uhr fünf'], ['00:15', 'null Uhr fünfzehn'],
+    ['09:00', 'neun Uhr'],
+    ['01:00', 'ein Uhr'],
+    ['14:30', 'vierzehn Uhr dreißig'],
+    ['21:05', 'einundzwanzig Uhr fünf'],
+    ['00:15', 'null Uhr fünfzehn'],
   ])('formal %s → %s', (time, expected) => {
     expect(formalTime(t(time))).toBe(expected);
   });
 
   it.each([
-    ['13:00', 'ein Uhr'], ['15:00', 'drei Uhr'], ['00:00', 'zwölf Uhr'],
-    ['14:05', 'fünf nach zwei'], ['14:10', 'zehn nach zwei'], ['14:15', 'Viertel nach zwei'],
-    ['14:20', 'zwanzig nach zwei'], ['14:25', 'fünf vor halb drei'], ['14:30', 'halb drei'],
-    ['14:35', 'fünf nach halb drei'], ['14:40', 'zwanzig vor drei'], ['14:45', 'Viertel vor drei'],
-    ['14:50', 'zehn vor drei'], ['14:55', 'fünf vor drei'], ['11:30', 'halb zwölf'],
-    ['12:30', 'halb eins'], ['14:07', 'vierzehn Uhr sieben'],
+    ['13:00', 'ein Uhr'],
+    ['15:00', 'drei Uhr'],
+    ['00:00', 'zwölf Uhr'],
+    ['14:05', 'fünf nach zwei'],
+    ['14:10', 'zehn nach zwei'],
+    ['14:15', 'Viertel nach zwei'],
+    ['14:20', 'zwanzig nach zwei'],
+    ['14:25', 'fünf vor halb drei'],
+    ['14:30', 'halb drei'],
+    ['14:35', 'fünf nach halb drei'],
+    ['14:40', 'zwanzig vor drei'],
+    ['14:45', 'Viertel vor drei'],
+    ['14:50', 'zehn vor drei'],
+    ['14:55', 'fünf vor drei'],
+    ['11:30', 'halb zwölf'],
+    ['12:30', 'halb eins'],
+    ['14:07', 'vierzehn Uhr sieben'],
   ])('informal %s → %s', (time, expected) => {
     expect(informalTime(t(time))).toBe(expected);
   });

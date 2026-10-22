@@ -17,7 +17,12 @@ export function dayNumber(date: Date = new Date()): number {
   return Math.floor((date.getTime() - date.getTimezoneOffset() * 60_000) / 86_400_000);
 }
 
-export function addMistake(existing: Mistake | undefined, activityId: string, itemId: string, today: number): Mistake {
+export function addMistake(
+  existing: Mistake | undefined,
+  activityId: string,
+  itemId: string,
+  today: number,
+): Mistake {
   return {
     key: mistakeKey(activityId, itemId),
     activityId,

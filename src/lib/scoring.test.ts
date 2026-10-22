@@ -1,7 +1,11 @@
 import { accuracy, starsFor, xpFor, type GameResult } from './scoring';
 
 const r = (correct: number, total: number, extra: Partial<GameResult> = {}): GameResult => ({
-  correct, total, played: [], mistakes: [], ...extra,
+  correct,
+  total,
+  played: [],
+  mistakes: [],
+  ...extra,
 });
 
 describe('scoring', () => {

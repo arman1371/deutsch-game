@@ -1,5 +1,11 @@
 import {
-  checkAnswer, checkNumeric, foldUmlauts, normalize, normalizeDigits, parsePriceToCents, stripUmlauts,
+  checkAnswer,
+  checkNumeric,
+  foldUmlauts,
+  normalize,
+  normalizeDigits,
+  parsePriceToCents,
+  stripUmlauts,
 } from './answer-check';
 
 describe('answer-check', () => {

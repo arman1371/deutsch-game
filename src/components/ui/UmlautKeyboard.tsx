@@ -1,0 +1,24 @@
+const KEYS = ['ä', 'ö', 'ü', 'ß'] as const;
+
+interface Props {
+  onInsert: (char: string) => void;
+}
+
+export function UmlautKeyboard({ onInsert }: Props) {
+  return (
+    <div role="group" aria-label="Special characters" className="flex gap-2">
+      {KEYS.map((k) => (
+        <button
+          key={k}
+          type="button"
+          // keep focus in the text field while inserting
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={() => onInsert(k)}
+          className="press min-h-11 min-w-11 rounded-xl border-2 border-line bg-surface px-3 text-lg font-extrabold shadow-[0_3px_0_var(--border)] hover:bg-surface-2"
+        >
+          {k}
+        </button>
+      ))}
+    </div>
+  );
+}

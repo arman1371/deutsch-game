@@ -27,10 +27,15 @@ export function ContentProvider({ children, content, levels = LEVELS }: Props) {
     let cancelled = false;
     Promise.all(levels.filter((l) => l.status === 'available' && l.load).map((l) => l.load!()))
       .then((mods) => {
-        if (!cancelled) setState({ status: 'ready', index: buildIndex(mods.map((m) => m.default)) });
+        if (!cancelled)
+          setState({ status: 'ready', index: buildIndex(mods.map((m) => m.default)) });
       })
       .catch((e: unknown) => {
-        if (!cancelled) setState({ status: 'error', message: e instanceof Error ? e.message : 'Failed to load content' });
+        if (!cancelled)
+          setState({
+            status: 'error',
+            message: e instanceof Error ? e.message : 'Failed to load content',
+          });
       });
     return () => {
       cancelled = true;

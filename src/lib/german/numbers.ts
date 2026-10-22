@@ -1,8 +1,37 @@
 const ONES = [
-  'null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn',
-  'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn', 'sechzehn', 'siebzehn', 'achtzehn', 'neunzehn',
+  'null',
+  'eins',
+  'zwei',
+  'drei',
+  'vier',
+  'fünf',
+  'sechs',
+  'sieben',
+  'acht',
+  'neun',
+  'zehn',
+  'elf',
+  'zwölf',
+  'dreizehn',
+  'vierzehn',
+  'fünfzehn',
+  'sechzehn',
+  'siebzehn',
+  'achtzehn',
+  'neunzehn',
 ];
-const TENS = ['', '', 'zwanzig', 'dreißig', 'vierzig', 'fünfzig', 'sechzig', 'siebzig', 'achtzig', 'neunzig'];
+const TENS = [
+  '',
+  '',
+  'zwanzig',
+  'dreißig',
+  'vierzig',
+  'fünfzig',
+  'sechzig',
+  'siebzig',
+  'achtzig',
+  'neunzig',
+];
 
 /** 0–99. `attributive` drops the final -s of "eins" (ein Euro, einundzwanzig). */
 function below100(n: number): string {
@@ -24,7 +53,8 @@ function below1000(n: number): string {
 
 /** Cardinal numbers 0–999 999 as one German word, e.g. 21 → "einundzwanzig". */
 export function numberToGerman(n: number): string {
-  if (!Number.isInteger(n) || n < 0 || n > 999_999) throw new RangeError(`Unsupported number: ${n}`);
+  if (!Number.isInteger(n) || n < 0 || n > 999_999)
+    throw new RangeError(`Unsupported number: ${n}`);
   if (n < 1000) return below1000(n);
   const thousands = Math.floor(n / 1000);
   const rest = n % 1000;
@@ -43,10 +73,36 @@ export function digitsToGerman(digits: string): string {
 
 /** Letter names in German, used by spelling games. */
 export const LETTER_NAMES: Record<string, string> = {
-  a: 'a', b: 'be', c: 'ce', d: 'de', e: 'e', f: 'ef', g: 'ge', h: 'ha', i: 'i', j: 'jot',
-  k: 'ka', l: 'el', m: 'em', n: 'en', o: 'o', p: 'pe', q: 'ku', r: 'er', s: 'es', t: 'te',
-  u: 'u', v: 'fau', w: 'we', x: 'ix', y: 'ypsilon', z: 'zett', ä: 'a-Umlaut', ö: 'o-Umlaut',
-  ü: 'u-Umlaut', ß: 'Eszett',
+  a: 'a',
+  b: 'be',
+  c: 'ce',
+  d: 'de',
+  e: 'e',
+  f: 'ef',
+  g: 'ge',
+  h: 'ha',
+  i: 'i',
+  j: 'jot',
+  k: 'ka',
+  l: 'el',
+  m: 'em',
+  n: 'en',
+  o: 'o',
+  p: 'pe',
+  q: 'ku',
+  r: 'er',
+  s: 'es',
+  t: 'te',
+  u: 'u',
+  v: 'fau',
+  w: 'we',
+  x: 'ix',
+  y: 'ypsilon',
+  z: 'zett',
+  ä: 'a-Umlaut',
+  ö: 'o-Umlaut',
+  ü: 'u-Umlaut',
+  ß: 'Eszett',
 };
 
 export function spellOut(word: string): string {

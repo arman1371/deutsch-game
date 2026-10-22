@@ -25,10 +25,7 @@ export function stripUmlauts(input: string): string {
  * - almost: only differs by umlaut/ß spelling (ae or a instead of ä)
  * - wrong: anything else
  */
-export function checkAnswer(
-  given: string,
-  accepted: string | readonly string[],
-): AnswerVerdict {
+export function checkAnswer(given: string, accepted: string | readonly string[]): AnswerVerdict {
   const list = typeof accepted === 'string' ? [accepted] : accepted;
   const g = normalize(given);
   if (g === '') return 'wrong';
@@ -54,7 +51,10 @@ export function checkNumeric(given: string, accepted: string): AnswerVerdict {
 
 /** Parse "3,50", "3.50", "3 €", "3,5" into cents. Returns null if not a price. */
 export function parsePriceToCents(input: string): number | null {
-  const cleaned = input.replace(/€|eur(o)?/gi, '').replace(/\s+/g, '').replace(',', '.');
+  const cleaned = input
+    .replace(/€|eur(o)?/gi, '')
+    .replace(/\s+/g, '')
+    .replace(',', '.');
   if (!/^\d+(\.\d{1,2})?$/.test(cleaned)) return null;
   return Math.round(Number(cleaned) * 100);
 }

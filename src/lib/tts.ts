@@ -4,10 +4,16 @@ export interface SpeakOptions {
 }
 
 export function ttsSupported(): boolean {
-  return typeof window !== 'undefined' && 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  return (
+    typeof window !== 'undefined' &&
+    'speechSynthesis' in window &&
+    'SpeechSynthesisUtterance' in window
+  );
 }
 
-export function pickGermanVoice(voices: readonly SpeechSynthesisVoice[]): SpeechSynthesisVoice | undefined {
+export function pickGermanVoice(
+  voices: readonly SpeechSynthesisVoice[],
+): SpeechSynthesisVoice | undefined {
   return (
     voices.find((v) => v.lang === 'de-DE') ??
     voices.find((v) => v.lang.toLowerCase().startsWith('de')) ??

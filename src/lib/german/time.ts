@@ -50,18 +50,30 @@ export function informalTime(clock: Clock): string {
   switch (minute) {
     case 0:
       return hour % 12 === 1 ? 'ein Uhr' : `${cur} Uhr`;
-    case 5: return `fünf nach ${cur}`;
-    case 10: return `zehn nach ${cur}`;
-    case 15: return `Viertel nach ${cur}`;
-    case 20: return `zwanzig nach ${cur}`;
-    case 25: return `fünf vor halb ${next}`;
-    case 30: return `halb ${next}`;
-    case 35: return `fünf nach halb ${next}`;
-    case 40: return `zwanzig vor ${next}`;
-    case 45: return `Viertel vor ${next}`;
-    case 50: return `zehn vor ${next}`;
-    case 55: return `fünf vor ${next}`;
-    default: return formalTime(clock);
+    case 5:
+      return `fünf nach ${cur}`;
+    case 10:
+      return `zehn nach ${cur}`;
+    case 15:
+      return `Viertel nach ${cur}`;
+    case 20:
+      return `zwanzig nach ${cur}`;
+    case 25:
+      return `fünf vor halb ${next}`;
+    case 30:
+      return `halb ${next}`;
+    case 35:
+      return `fünf nach halb ${next}`;
+    case 40:
+      return `zwanzig vor ${next}`;
+    case 45:
+      return `Viertel vor ${next}`;
+    case 50:
+      return `zehn vor ${next}`;
+    case 55:
+      return `fünf vor ${next}`;
+    default:
+      return formalTime(clock);
   }
 }
 
@@ -74,4 +86,12 @@ export function clockAngles({ hour, minute }: Clock): { hourAngle: number; minut
   return { hourAngle: ((hour % 12) + minute / 60) * 30, minuteAngle: minute * 6 };
 }
 
-export const WEEKDAYS = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'] as const;
+export const WEEKDAYS = [
+  'Montag',
+  'Dienstag',
+  'Mittwoch',
+  'Donnerstag',
+  'Freitag',
+  'Samstag',
+  'Sonntag',
+] as const;

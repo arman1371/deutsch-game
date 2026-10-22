@@ -119,11 +119,16 @@ export const useProgressStore = create<ProgressState>()(
       version: 1,
       storage: createJSONStorage(() => localRepository),
       partialize: ({ xp, streak, activities, mistakes, lastActivityId }) => ({
-        xp, streak, activities, mistakes, lastActivityId,
+        xp,
+        streak,
+        activities,
+        mistakes,
+        lastActivityId,
       }),
       migrate: (persisted) => ({ ...initialProgress(), ...(persisted as Partial<ProgressData>) }),
     },
   ),
 );
 
-export const completedIds = (activities: ProgressData['activities']) => new Set(Object.keys(activities));
+export const completedIds = (activities: ProgressData['activities']) =>
+  new Set(Object.keys(activities));

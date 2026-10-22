@@ -12,9 +12,19 @@ export const LEVELS: LevelMeta[] = [
     status: 'available',
     load: () => import('./a1-1'),
   },
-  { id: 'a1-2', title: 'A1.2', subtitle: 'Everyday life: home, travel, health', status: 'coming-soon' },
+  {
+    id: 'a1-2',
+    title: 'A1.2',
+    subtitle: 'Everyday life: home, travel, health',
+    status: 'coming-soon',
+  },
   { id: 'a2-1', title: 'A2.1', subtitle: 'Past tense, plans and opinions', status: 'coming-soon' },
-  { id: 'a2-2', title: 'A2.2', subtitle: 'Work, services and longer conversations', status: 'coming-soon' },
+  {
+    id: 'a2-2',
+    title: 'A2.2',
+    subtitle: 'Work, services and longer conversations',
+    status: 'coming-soon',
+  },
 ];
 
 export function getLevelMeta(id: string): LevelMeta | undefined {

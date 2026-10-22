@@ -14,7 +14,9 @@ export interface ContentIndex {
 
 /** Merge several loaded levels into one lookup structure. Authoring order = path order. */
 export function buildIndex(levels: readonly LevelContent[]): ContentIndex {
-  const units = levels.flatMap((l) => l.units).sort((a, b) => a.levelId.localeCompare(b.levelId) || a.order - b.order);
+  const units = levels
+    .flatMap((l) => l.units)
+    .sort((a, b) => a.levelId.localeCompare(b.levelId) || a.order - b.order);
   const activities = levels.flatMap((l) => l.activities);
   const vocab = levels.flatMap((l) => l.vocab);
   const unitById = new Map(units.map((u) => [u.id, u]));

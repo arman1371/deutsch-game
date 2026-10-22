@@ -2,7 +2,11 @@ import { initialProgress, nextStreak, useProgressStore, visibleStreak } from './
 import type { GameResult } from '@/lib/scoring';
 
 const res = (over: Partial<GameResult> = {}): GameResult => ({
-  correct: 3, total: 4, played: ['a', 'b', 'c', 'd'], mistakes: ['d'], ...over,
+  correct: 3,
+  total: 4,
+  played: ['a', 'b', 'c', 'd'],
+  mistakes: ['d'],
+  ...over,
 });
 
 beforeEach(() => useProgressStore.getState().reset());
@@ -42,12 +46,19 @@ describe('progressStore', () => {
   it('resets a mistake to box 1 when missed again', () => {
     const { recordResult } = useProgressStore.getState();
     recordResult('act', res(), { today: 1 });
-    recordResult('act', res({ correct: 0, total: 1, played: ['d'], mistakes: ['d'] }), { mode: 'review', today: 2 });
+    recordResult('act', res({ correct: 0, total: 1, played: ['d'], mistakes: ['d'] }), {
+      mode: 'review',
+      today: 2,
+    });
     expect(useProgressStore.getState().mistakes['act::d']).toMatchObject({ box: 1, wrongCount: 2 });
   });
 
   it('tracks streaks', () => {
-    expect(nextStreak({ current: 0, longest: 0, lastDay: null }, 5)).toEqual({ current: 1, longest: 1, lastDay: 5 });
+    expect(nextStreak({ current: 0, longest: 0, lastDay: null }, 5)).toEqual({
+      current: 1,
+      longest: 1,
+      lastDay: 5,
+    });
     const same = { current: 2, longest: 4, lastDay: 5 };
     expect(nextStreak(same, 5)).toBe(same);
     expect(nextStreak(same, 6)).toEqual({ current: 3, longest: 4, lastDay: 6 });

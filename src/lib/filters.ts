@@ -1,4 +1,5 @@
-import { GAME_TYPES, type Activity, type GameType, type Unit } from '@/content/schema';
+import { GAME_TYPES, type GameType } from '@/content/gameTypes';
+import type { Activity, Unit } from '@/content/schema';
 import { TAGS, isTagId, tagsInGroup, type TagId } from '@/content/tags';
 
 export type DurationBucket = 'quick' | 'medium' | 'long';
@@ -15,7 +16,14 @@ export interface FilterState {
 }
 
 export const EMPTY_FILTERS: FilterState = {
-  q: '', units: [], skills: [], topics: [], grammar: [], types: [], difficulty: [], duration: [],
+  q: '',
+  units: [],
+  skills: [],
+  topics: [],
+  grammar: [],
+  types: [],
+  difficulty: [],
+  duration: [],
 };
 
 export const GAME_TYPE_LABELS: Record<GameType, { label: string; emoji: string }> = {
@@ -54,9 +62,14 @@ export function matchesFilters(activity: Activity, f: FilterState, unitTitle?: s
   const q = f.q.trim().toLowerCase();
   if (q) {
     const haystack = [
-      activity.title, activity.description, unitTitle ?? '',
-      ...activity.tags.map((t) => TAGS[t].label), GAME_TYPE_LABELS[activity.gameType].label,
-    ].join(' ').toLowerCase();
+      activity.title,
+      activity.description,
+      unitTitle ?? '',
+      ...activity.tags.map((t) => TAGS[t].label),
+      GAME_TYPE_LABELS[activity.gameType].label,
+    ]
+      .join(' ')
+      .toLowerCase();
     if (!q.split(/\s+/).every((word) => haystack.includes(word))) return false;
   }
   const tagged = (group: TagId[]) => hasAny(group, (t) => activity.tags.includes(t));
@@ -71,14 +84,26 @@ export function matchesFilters(activity: Activity, f: FilterState, unitTitle?: s
   );
 }
 
-export function filterActivities(activities: readonly Activity[], f: FilterState, units: readonly Unit[] = []): Activity[] {
+export function filterActivities(
+  activities: readonly Activity[],
+  f: FilterState,
+  units: readonly Unit[] = [],
+): Activity[] {
   const titles = new Map(units.map((u) => [u.id, u.title]));
   return activities.filter((a) => matchesFilters(a, f, titles.get(a.unitId)));
 }
 
 export function activeFilterCount(f: FilterState): number {
-  return (f.q.trim() ? 1 : 0) + f.units.length + f.skills.length + f.topics.length + f.grammar.length
-    + f.types.length + f.difficulty.length + f.duration.length;
+  return (
+    (f.q.trim() ? 1 : 0) +
+    f.units.length +
+    f.skills.length +
+    f.topics.length +
+    f.grammar.length +
+    f.types.length +
+    f.difficulty.length +
+    f.duration.length
+  );
 }
 
 const list = (raw: string | null) => (raw ? raw.split(',').filter(Boolean) : []);
@@ -92,9 +117,15 @@ export function filtersFromParams(p: URLSearchParams): FilterState {
     skills: tagList('skill', 'skill'),
     topics: tagList('topic', 'topic'),
     grammar: tagList('grammar', 'grammar'),
-    types: list(p.get('type')).filter((t): t is GameType => (GAME_TYPES as readonly string[]).includes(t)),
-    difficulty: list(p.get('level')).map(Number).filter((n): n is 1 | 2 | 3 => n === 1 || n === 2 || n === 3),
-    duration: list(p.get('time')).filter((d): d is DurationBucket => d === 'quick' || d === 'medium' || d === 'long'),
+    types: list(p.get('type')).filter((t): t is GameType =>
+      (GAME_TYPES as readonly string[]).includes(t),
+    ),
+    difficulty: list(p.get('level'))
+      .map(Number)
+      .filter((n): n is 1 | 2 | 3 => n === 1 || n === 2 || n === 3),
+    duration: list(p.get('time')).filter(
+      (d): d is DurationBucket => d === 'quick' || d === 'medium' || d === 'long',
+    ),
   };
 }
 

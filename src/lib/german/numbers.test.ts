@@ -1,14 +1,24 @@
-import {
-  digitsToGerman, formatPrice, numberToGerman, priceToGerman, spellOut,
-} from './numbers';
+import { digitsToGerman, formatPrice, numberToGerman, priceToGerman, spellOut } from './numbers';
 
 describe('numberToGerman', () => {
   it.each([
-    [0, 'null'], [1, 'eins'], [12, 'zwölf'], [16, 'sechzehn'], [17, 'siebzehn'], [20, 'zwanzig'],
-    [21, 'einundzwanzig'], [30, 'dreißig'], [66, 'sechsundsechzig'], [99, 'neunundneunzig'],
-    [100, 'einhundert'], [101, 'einhunderteins'], [215, 'zweihundertfünfzehn'],
-    [1000, 'eintausend'], [1999, 'eintausendneunhundertneunundneunzig'],
-    [21000, 'einundzwanzigtausend'], [999999, 'neunhundertneunundneunzigtausendneunhundertneunundneunzig'],
+    [0, 'null'],
+    [1, 'eins'],
+    [12, 'zwölf'],
+    [16, 'sechzehn'],
+    [17, 'siebzehn'],
+    [20, 'zwanzig'],
+    [21, 'einundzwanzig'],
+    [30, 'dreißig'],
+    [66, 'sechsundsechzig'],
+    [99, 'neunundneunzig'],
+    [100, 'einhundert'],
+    [101, 'einhunderteins'],
+    [215, 'zweihundertfünfzehn'],
+    [1000, 'eintausend'],
+    [1999, 'eintausendneunhundertneunundneunzig'],
+    [21000, 'einundzwanzigtausend'],
+    [999999, 'neunhundertneunundneunzigtausendneunhundertneunundneunzig'],
   ])('%i → %s', (n, word) => {
     expect(numberToGerman(n)).toBe(word);
   });
