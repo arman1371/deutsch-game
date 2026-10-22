@@ -18,22 +18,28 @@ wanted, Cloudflare offers D1/KV/R2 on the free tier without changing host or dom
 isolates storage behind `src/store/repository.ts`, so a D1-backed implementation can replace
 `localStorage` without touching the stores or UI.
 
-## Steps
+## Steps (Workers Builds – the current "Create" flow)
 
 1. Push the repo to GitHub.
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**, select the repo.
-3. Build settings
-   - Framework preset: _None_ (or Vite)
+2. Cloudflare dashboard → **Workers & Pages → Create → Import a repository**, select the repo.
+3. Project name: `lingoat-games` (must match `name` in `wrangler.jsonc`).
+4. Build settings
    - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Environment variable: `NODE_VERSION` = `22`
-4. Save and deploy. Production = the default branch; every other branch/PR gets a preview URL.
+   - **Deploy command: `npx wrangler deploy`**
+   - Root directory: `/`
+   - Variable: `NODE_VERSION` = `22`
+5. Save and deploy. The production branch deploys to your `*.workers.dev` URL; other branches get preview URLs.
+
+`wrangler.jsonc` points Wrangler at `dist/` and sets `not_found_handling: "single-page-application"`, so deep links
+(`/levels/a1-1/units/a1-1-hallo`) serve `index.html`. Manual deploy from your machine: `npm run deploy`.
+
+### Alternative: classic Cloudflare Pages
+
+Pages has no deploy command: build `npm run build`, output `dist`, `NODE_VERSION=22`. Do **not** add a
+`/* /index.html 200` rule to `_redirects` there (flagged as an infinite loop; Pages falls back to `index.html` itself).
 
 Notes
 
-- **Deep links** (`/levels/a1-1/units/a1-1-hallo`): Pages serves `index.html` for unknown paths automatically
-  as long as there is no `404.html` in `dist/` – do **not** add a `/* /index.html 200` rule to `_redirects`
-  (Pages flags it as an infinite loop).
 - `public/_headers` sets long-lived caching for hashed assets and `no-cache` for `index.html` and the
   service worker, so new releases reach installed PWAs quickly.
 - The service worker (vite-plugin-pwa, `autoUpdate`) precaches the shell and every level chunk for offline play.

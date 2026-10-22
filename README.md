@@ -37,8 +37,8 @@ Chromium set `PW_CHROMIUM_PATH=/path/to/chrome` instead.
 ## Hosting: Cloudflare Pages (free)
 
 See [docs/deployment.md](docs/deployment.md) for the full reasoning and steps. Short version:
-connect the repo in the Cloudflare dashboard → Pages → build command `npm run build`, output directory
-`dist`, environment variable `NODE_VERSION=22`. Every branch gets a preview URL automatically.
+connect the repo in the Cloudflare dashboard with build command `npm run build` and deploy command
+`npx wrangler deploy` (config in `wrangler.jsonc`, `NODE_VERSION=22`). Every branch gets a preview URL.
 
 ## Project layout
 
