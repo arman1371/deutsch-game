@@ -59,3 +59,17 @@ describe('conjugate', () => {
     expect(f.wir).toBe('stehen auf');
   });
 });
+
+describe('modal and A1.2 verbs', () => {
+  it('conjugates the modal verbs', () => {
+    expect(row('müssen')).toEqual(['muss', 'musst', 'muss', 'müssen', 'müsst', 'müssen']);
+    expect(row('dürfen')).toEqual(['darf', 'darfst', 'darf', 'dürfen', 'dürft', 'dürfen']);
+    expect(row('sollen')).toEqual(['soll', 'sollst', 'soll', 'sollen', 'sollt', 'sollen']);
+    expect(row('mögen')).toEqual(['mag', 'magst', 'mag', 'mögen', 'mögt', 'mögen']);
+  });
+
+  it('knows wissen and werden', () => {
+    expect(row('wissen')).toEqual(['weiß', 'weißt', 'weiß', 'wissen', 'wisst', 'wissen']);
+    expect(row('werden')).toEqual(['werde', 'wirst', 'wird', 'werden', 'werdet', 'werden']);
+  });
+});

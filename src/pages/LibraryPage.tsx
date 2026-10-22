@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { Chip } from '@/components/ui/Chip';
 import { useContent } from '@/content/ContentProvider';
 import { GAME_TYPES } from '@/content/gameTypes';
+import { LEVELS } from '@/content/levels';
 import { GROUP_LABELS, TAGS, tagsInGroup, type TagId } from '@/content/tags';
 import { playUrl } from '@/app/path';
 import {
@@ -43,6 +44,11 @@ export function LibraryPage() {
     () => activeFilterCount(filters) > (filters.q ? 1 : 0),
   );
   const unitTitle = (id: string) => content.unitById.get(id)?.title;
+  const levelsWithUnits = LEVELS.filter((l) => content.units.some((u) => u.levelId === l.id));
+  // with a level selected only that level's units are offered as unit chips
+  const visibleUnits = content.units.filter(
+    (u) => filters.levels.length === 0 || filters.levels.includes(u.levelId),
+  );
 
   const tagFacet = (group: 'skill' | 'topic' | 'grammar', key: 'skills' | 'topics' | 'grammar') => (
     <fieldset className="flex flex-col gap-2">
@@ -95,12 +101,30 @@ export function LibraryPage() {
             {count > 0 ? ` (${count})` : ''}
           </summary>
           <div className="mt-3 flex flex-col gap-5">
+            {levelsWithUnits.length > 1 && (
+              <fieldset className="flex flex-col gap-2">
+                <legend className="mb-1 text-sm font-extrabold uppercase tracking-wide text-muted">
+                  {t('library.level')}
+                </legend>
+                <div className="flex flex-wrap gap-2">
+                  {levelsWithUnits.map((l) => (
+                    <Chip
+                      key={l.id}
+                      selected={filters.levels.includes(l.id)}
+                      onToggle={() => update({ levels: toggle(filters.levels, l.id) })}
+                    >
+                      {l.title}
+                    </Chip>
+                  ))}
+                </div>
+              </fieldset>
+            )}
             <fieldset className="flex flex-col gap-2">
               <legend className="mb-1 text-sm font-extrabold uppercase tracking-wide text-muted">
                 Unit
               </legend>
               <div className="flex flex-wrap gap-2">
-                {content.units.map((u) => (
+                {visibleUnits.map((u) => (
                   <Chip
                     key={u.id}
                     selected={filters.units.includes(u.id)}
