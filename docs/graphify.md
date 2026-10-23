@@ -28,12 +28,15 @@ every checkout), `cost.json`, `*.pending.json`.
 - **Settings → Actions → General → Workflow permissions**: the workflow asks for `contents: write`
   itself, which works with the default settings. If the repo or org forces read-only tokens, allow
   "Read and write permissions".
-- **`GRAPHIFY_TOKEN` secret (recommended)**: GitHub does not start workflows for pushes made with the
+- **`GRAPHIFY_DEPLOY_KEY` secret (recommended)**: GitHub does not start workflows for pushes made with the
   default `GITHUB_TOKEN`, so without it CI and SonarCloud do not re-run on the bot commit and a branch
-  ruleset that requires those checks would block the merge. Create a fine-grained personal access token
-  limited to this repository with **Contents: read and write**, and save it as an Actions secret named
-  `GRAPHIFY_TOKEN`. The bot commit then triggers CI, SonarCloud and the Cloudflare preview like any push.
-  The Cloudflare preview builds on every push either way.
+  ruleset that requires those checks would block the merge. Create a key pair with
+  `ssh-keygen -t ed25519 -N "" -C graphify-bot -f graphify_key`, add `graphify_key.pub` under
+  **Settings → Deploy keys** with **Allow write access** ticked, and save the private `graphify_key` as an
+  Actions secret named `GRAPHIFY_DEPLOY_KEY`. Delete the local key files afterwards. The bot commit then
+  triggers CI, SonarCloud and the Cloudflare preview like any push. If a ruleset blocks the push, add
+  **Deploy keys** to its bypass list. A fine-grained PAT (Contents: read and write) saved as
+  `GRAPHIFY_TOKEN` works the same way if you prefer that.
 - Branch protection must allow pushes to PR branches from Actions (the default).
 
 ## Locally

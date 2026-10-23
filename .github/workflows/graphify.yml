@@ -23,8 +23,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-          # A PAT / app token makes the bot push trigger CI, SonarCloud and the preview again;
+          # A deploy key (or PAT) makes the bot push trigger CI, SonarCloud and the preview again;
           # pushes made with the default GITHUB_TOKEN start no workflows (see docs/graphify.md).
+          ssh-key: ${{ secrets.GRAPHIFY_DEPLOY_KEY }}
           token: ${{ secrets.GRAPHIFY_TOKEN || github.token }}
       - name: Skip graph-only commits
         id: guard
@@ -50,7 +51,7 @@ jobs:
         if: steps.guard.outputs.skip != 'true'
         env:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
-          HAS_PAT: ${{ secrets.GRAPHIFY_TOKEN != '' }}
+          HAS_PAT: ${{ secrets.GRAPHIFY_TOKEN != '' || secrets.GRAPHIFY_DEPLOY_KEY != '' }}
         run: |
           if ! .github/scripts/graph-changed.sh; then
             echo "Graph is up to date."
@@ -65,5 +66,5 @@ jobs:
           # the run for that newer push updates the graph instead.
           git push origin "HEAD:$HEAD_REF" || { echo "::warning::Branch moved on, graph not pushed."; exit 0; }
           if [ "$HAS_PAT" != 'true' ]; then
-            echo "::warning::Pushed with GITHUB_TOKEN, so CI did not re-run on the graph commit. Add a GRAPHIFY_TOKEN secret (see docs/graphify.md)."
+            echo "::warning::Pushed with GITHUB_TOKEN, so CI did not re-run on the graph commit. Add a GRAPHIFY_DEPLOY_KEY (or GRAPHIFY_TOKEN) secret (see docs/graphify.md)."
           fi
