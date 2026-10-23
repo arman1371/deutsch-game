@@ -2,7 +2,9 @@
 
 Interactive games for learning German – one level at a time. **A1.1** (8 units, 114 games) and
 **A1.2** (10 units, 159 games: town, housing, work, health, clothing, travel, celebrations, appointments,
-offices and everyday life) are complete; later levels plug in as content packs without touching the engines.
+offices and everyday life) and **A2.1** (10 units, 158 games: internet and apps, events and plans, weather,
+bus and train, flat hunting, offices and forms, family, school and training, job search, CV and work
+experience) are complete; later levels plug in as content packs without touching the engines.
 
 - **13 game engines**: flashcards, quiz, memory, listen & pick, spell it, sentence builder, gap fill,
   sort it (drag & drop), conjugation grid, blitz, dialogue, clock master, market stand.
@@ -59,7 +61,7 @@ docs/           adding-content.md, deployment.md, architecture.md
 
 ## Extending
 
-- **New level (A1.2 …), unit, activity or game engine** → [docs/adding-content.md](docs/adding-content.md)
+- **New level (A2.2 …), unit, activity or game engine** → [docs/adding-content.md](docs/adding-content.md)
 - **How it fits together** → [docs/architecture.md](docs/architecture.md)
 
 Every new game or content pack needs unit tests; engines also need a component test and an e2e run.
