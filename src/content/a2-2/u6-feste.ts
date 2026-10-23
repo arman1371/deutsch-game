@@ -1,4 +1,4 @@
-import { flashcards, quizEmoji, vocabList } from '../builders';
+import { flashcards, vocabList } from '../builders';
 import {
   activity,
   gap,
@@ -96,18 +96,40 @@ const people = vocabList(U, 'People & animals (n-Deklination)', [
   ['Affe', 'monkey', '🐒', 'der', 'Affen'],
 ]);
 
-const vocab = [...festivals, ...etiquette, ...values, ...people];
+const restaurant = vocabList(U, 'Restaurant', [
+  ['Speisekarte', 'menu', '📋', 'die', 'Speisekarten'],
+  ['Getränkekarte', 'drinks menu', '🍹', 'die', 'Getränkekarten'],
+  ['Bedienung', 'waiter, waitress, service', '🧑‍🍳', 'die'],
+  ['Trinkgeld', 'tip', '💶', 'das'],
+  ['Vorspeise', 'starter', '🥗', 'die', 'Vorspeisen'],
+  ['Hauptgericht', 'main course', '🍝', 'das', 'Hauptgerichte'],
+  ['Nachspeise', 'dessert', '🍮', 'die', 'Nachspeisen'],
+  ['Tagesgericht', 'dish of the day', '📆', 'das', 'Tagesgerichte'],
+  ['einen Tisch reservieren', 'to book a table', '🪑'],
+  ['bestellen', 'to order', '🛎️'],
+  ['zahlen', 'to pay (the bill)', '💳'],
+  ['vegetarisch', 'vegetarian', '🥦'],
+  ['scharf', 'spicy', '🌶️'],
+  ['gebraten', 'fried, roasted', '🍳'],
+  ['Die Rechnung, bitte.', 'The bill, please.', '🧾'],
+  ['Zusammen oder getrennt?', 'Together or separately?', '💰'],
+  ['Stimmt so.', 'Keep the change.', '🤝'],
+  ['Was können Sie empfehlen?', 'What can you recommend?', '👍'],
+  ['Das schmeckt köstlich.', 'That tastes delicious.', '😋'],
+]);
+
+const vocab = [...festivals, ...etiquette, ...values, ...people, ...restaurant];
 
 export const feste: UnitContent = {
   unit: unit22({
     id: U,
     order: 6,
     title: 'Feste & Umgangsformen',
-    subtitle: 'Festivals, manners, du and Sie, clichés and values',
+    subtitle: 'Festivals, manners, the restaurant, du and Sie, clichés and values',
     emoji: '🎎',
     goals: [
       'Talk about festivals and traditions',
-      'Behave politely as a guest and choose between du and Sie',
+      'Behave politely as a guest and in a restaurant, and choose between du and Sie',
       'Talk about clichés, values and what is typical',
       'Say who, nobody and anybody (jemand, niemand)',
     ],
@@ -123,6 +145,7 @@ export const feste: UnitContent = {
       'Manners & forms of address',
       'Clichés & values',
       'People & animals (n-Deklination)',
+      'Restaurant',
     ],
   }),
   vocab,
@@ -181,16 +204,16 @@ export const feste: UnitContent = {
     ),
     activity(
       U,
-      'quiz-pictures',
-      'quiz',
+      'flash-restaurant',
+      'flashcards',
       meta(
-        'What is it called?',
-        'Festivals, people and animals – match picture and word.',
-        ['vocabulary', 'celebrations'],
-        2,
-        4,
+        'Restaurant',
+        'Speisekarte, Trinkgeld, Die Rechnung, bitte – eating out.',
+        ['vocabulary', 'food-drinks', 'customs-etiquette'],
+        1,
+        5,
       ),
-      quizEmoji([...festivals, ...people], [...festivals, ...people]),
+      flashcards(restaurant),
     ),
     activity(
       U,
@@ -749,6 +772,65 @@ export const feste: UnitContent = {
                 [
                   'Ich habe mit dem Praktikant gesprochen. Er sitzt im Büro nebenan.',
                   'n-Deklination: dem Praktikanten.',
+                ],
+              ),
+            ],
+          },
+          {
+            id: 'restaurant',
+            title: 'In the restaurant',
+            emoji: '🍽️',
+            setting: 'You have booked a table for two.',
+            turns: [
+              say(
+                'Kellner',
+                'Guten Abend! Haben Sie reserviert?',
+                'Good evening! Have you booked?',
+              ),
+              you(
+                'Ja, auf den Namen Kim. Ein Tisch für zwei Personen.',
+                [
+                  'Ja, auf dem Namen Kim. Ein Tisch für zwei Personen.',
+                  'auf den Namen (accusative): the n-noun der Name becomes den Namen.',
+                ],
+                [
+                  'Ja, auf Name Kim. Ein Tisch für zwei Personen.',
+                  'You need the article: auf den Namen.',
+                ],
+              ),
+              say(
+                'Kellner',
+                'Hier ist die Speisekarte. Das Tagesgericht ist Fisch mit Kartoffeln.',
+                'Here is the menu. The dish of the day is fish with potatoes.',
+              ),
+              you(
+                'Was können Sie empfehlen? Ich esse nicht gern Fleisch.',
+                [
+                  'Was Sie können empfehlen? Ich esse nicht gern Fleisch.',
+                  'In a question the verb is in second position: Was können Sie empfehlen?',
+                ],
+                [
+                  'Was können Sie empfiehlt? Ich esse nicht gern Fleisch.',
+                  'After können use the infinitive: empfehlen.',
+                ],
+              ),
+              say(
+                'Kellner',
+                'Dann nehmen Sie das vegetarische Hauptgericht. Es ist sehr gut.',
+                'Then have the vegetarian main course. It is very good.',
+              ),
+              you(
+                'Gern, dann nehme ich das.',
+                ['Gern, dann ich nehme das.', 'After dann the verb comes next: dann nehme ich …'],
+                ['Gern, dann nehme das ich.', 'Order: dann nehme ich das.'],
+              ),
+              say('Kellner', 'Hat es Ihnen geschmeckt?', 'Did you enjoy it?'),
+              you(
+                'Ja, es hat köstlich geschmeckt. Die Rechnung, bitte!',
+                ['Ja, es hat köstlich schmeckt. Die Rechnung, bitte!', 'Perfekt: hat geschmeckt.'],
+                [
+                  'Ja, es hat köstlich geschmeckt. Der Rechnung, bitte!',
+                  'die Rechnung is feminine: die Rechnung.',
                 ],
               ),
             ],

@@ -7,8 +7,25 @@ import { wuensche } from './u5-wuensche';
 import { feste } from './u6-feste';
 import { postUnit } from './u7-post';
 import { werbung } from './u8-werbung';
+import { reisen } from './u9-reisen';
+import { bankUnit } from './u10-bank';
+import { leben } from './u11-leben';
+import { arbeit } from './u12-arbeit';
 
-const units = [lernen, sportUnit, nachbarn, kunst, wuensche, feste, postUnit, werbung];
+const units = [
+  lernen,
+  sportUnit,
+  nachbarn,
+  kunst,
+  wuensche,
+  feste,
+  postUnit,
+  werbung,
+  reisen,
+  bankUnit,
+  leben,
+  arbeit,
+];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
