@@ -8,10 +8,13 @@ experience) and **A2.2** (12 units, 190 games: learning and exams, sport, neighb
 art, time and wishes, festivals and manners, post and phone, shopping and adverts, travel and directions,
 bank and insurance, life stages, work and emergencies) and **B1.1** (12 units, 173 games: luck and news
 stories, TV and series, health, languages, the world of work, customer service, living together, friendship,
-future and technology, invitations, environment, mishaps and regrets) are complete; later levels plug in as
+future and technology, invitations, environment, mishaps and regrets) and **B1.2** (12 units, 149 games: colleagues, digital life, consumer rights, courses,
+customs and manners, volunteering, politics, history, city and country, home and Europe, theatre and art,
+discussions and presentations) are complete; later levels plug in as
 content packs without touching the engines. How A2.2 relates to A2.1 is documented in
 [docs/a2-2-coverage.md](docs/a2-2-coverage.md); the research behind B1.1 (course books, Goethe B1, CEFR) and
-its overlap with earlier levels in [docs/b1-1-coverage.md](docs/b1-1-coverage.md).
+its overlap with earlier levels in [docs/b1-1-coverage.md](docs/b1-1-coverage.md); the same for B1.2 in
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md).
 
 - **13 game engines**: flashcards, quiz, memory, listen & pick, spell it, sentence builder, gap fill,
   sort it (drag & drop), conjugation grid, blitz, dialogue, clock master, market stand.

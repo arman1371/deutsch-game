@@ -346,6 +346,147 @@ export const LESSONS = {
       'Gehen Sie an der Kirche vorbei.',
     ],
   },
+  // ---- B1.1 ----
+  plusquamperfekt: {
+    title: 'Plusquamperfekt: hatte / war + participle',
+    rule: 'The Plusquamperfekt tells what had happened before another past event. Form it like the Perfekt, but with the past of the helper: hatte or war + participle. It often stands in a nachdem-clause, while the main clause is in the Präteritum or Perfekt.',
+    examples: [
+      'Ich hatte schon gegessen. · Er war schon gegangen.',
+      'Nachdem sie angekommen war, rief sie an.',
+    ],
+  },
+  'concessive-clauses': {
+    title: 'obwohl or trotzdem?',
+    rule: 'obwohl starts a subordinate clause, so its verb goes to the end. trotzdem is an adverb in a main clause: it takes position 1 or comes after the verb, and the verb stays in position 2. Both say that something happens although there is a reason against it.',
+    examples: [
+      'Obwohl es regnet, gehen wir spazieren.',
+      'Es regnet. Trotzdem gehen wir spazieren.',
+    ],
+  },
+  'genitive-prepositions': {
+    title: 'wegen, trotz, während + genitive',
+    rule: 'wegen (because of), trotz (despite), während (during), innerhalb / außerhalb (inside / outside of) and statt (instead of) take the genitive: des / eines for masculine and neuter (+ -s on the noun), der / einer for feminine and plural.',
+    examples: ['wegen des Wetters · trotz der Kälte', 'während der Arbeit · innerhalb einer Woche'],
+  },
+  'infinitive-zu': {
+    title: 'Infinitive with zu',
+    rule: 'After many verbs and expressions (versuchen, vergessen, anfangen, Lust haben, es ist wichtig …) the second verb is an infinitive with zu at the end of the clause. With separable verbs zu goes between prefix and verb: anzurufen. nicht / nur brauchen + zu = not have to / only have to.',
+    examples: [
+      'Ich versuche, pünktlich zu sein.',
+      'Vergiss nicht, mich anzurufen!',
+      'Du brauchst nicht zu kommen.',
+    ],
+  },
+  'two-part-conjunctions': {
+    title: 'Two-part conjunctions',
+    rule: 'nicht nur … sondern auch (not only … but also), sowohl … als auch (both … and), entweder … oder (either … or), weder … noch (neither … nor), zwar … aber (admittedly … but) and einerseits … andererseits (on the one hand … on the other) link two parts of a sentence.',
+    examples: [
+      'Ich spreche sowohl Englisch als auch Deutsch.',
+      'Wir fahren entweder mit dem Zug oder mit dem Bus.',
+      'Einerseits ist es teuer, andererseits ist es praktisch.',
+    ],
+  },
+  'adjectives-as-nouns': {
+    title: 'Adjectives as nouns',
+    rule: 'An adjective can be used as a noun for a person (der Bekannte, die Verwandte). It is written with a capital letter but keeps its adjective endings: der Bekannte, ein Bekannter, die Bekannten. After etwas / nichts it is neuter: etwas Neues.',
+    examples: [
+      'der Erwachsene · ein Erwachsener',
+      'Ich treffe meine Bekannten.',
+      'Gibt es etwas Neues?',
+    ],
+  },
+  'futur-1': {
+    title: 'Futur I: werden + infinitive',
+    rule: 'Futur I = a form of werden in position 2 + the infinitive at the end. Use it for predictions, promises, resolutions and assumptions about the present (with wohl). For plans with a time word, German often just uses the present tense.',
+    examples: [
+      'Ich werde mehr Sport machen.',
+      'Es wird morgen regnen.',
+      'Er wird wohl krank sein.',
+    ],
+  },
+  'konjunktiv-2-past': {
+    title: 'hätte / wäre + participle',
+    rule: 'The Konjunktiv II of the past talks about things that did not happen: hätte or wäre (the same choice as haben / sein in the Perfekt) + participle. With a modal verb: hätte + infinitive + modal infinitive (hätte kommen sollen).',
+    examples: [
+      'Wenn ich das gewusst hätte, wäre ich gekommen.',
+      'Hätte ich bloß mehr gelernt!',
+      'Du hättest anrufen sollen.',
+    ],
+  },
+  // ---- B1.2 ----
+  'je-desto': {
+    title: 'je … desto / umso',
+    rule: 'je + comparative starts a subordinate clause (verb at the end). desto or umso + comparative starts the main clause, and its verb comes right after the comparative word group.',
+    examples: [
+      'Je mehr ich arbeite, desto müder bin ich.',
+      'Je früher wir anfangen, umso schneller sind wir fertig.',
+    ],
+  },
+  'als-ob': {
+    title: 'als ob + Konjunktiv II',
+    rule: 'als ob (as if) compares with something that is not true. It starts a subordinate clause with the verb at the end, usually in the Konjunktiv II (wäre, hätte, würde + infinitive, or hätte / wäre + participle for the past).',
+    examples: [
+      'Er tut so, als ob er alles wüsste.',
+      'Du siehst aus, als ob du nicht geschlafen hättest.',
+    ],
+  },
+  'participles-as-adjectives': {
+    title: 'Participles as adjectives',
+    rule: 'Partizip I (infinitive + d: lachend) describes something happening at the same time: das lachende Kind. Partizip II (gekocht, repariert) describes something finished or passive: das reparierte Handy. Before a noun both take normal adjective endings.',
+    examples: [
+      'ein schlafender Hund · die steigenden Preise',
+      'das gekochte Ei · ein gebrauchtes Fahrrad',
+    ],
+  },
+  'modal-particles': {
+    title: 'doch, ja, mal, denn, eigentlich',
+    rule: 'Modal particles add a tone, not facts. denn makes questions friendlier, mal and doch soften requests, ja marks something both speakers know, doch also shows surprise or protest, eigentlich (actually) changes the topic or limits a statement. They come after the verb and are not stressed.',
+    examples: ['Was machst du denn hier?', 'Komm doch mal vorbei!', 'Das weißt du ja.'],
+  },
+  'indem-ohne-dass': {
+    title: 'indem, ohne dass, statt dass',
+    rule: 'indem (by …ing) says how something is done. ohne dass / ohne … zu (without …ing) says what does not happen, statt dass / statt … zu (instead of) names the alternative. All start a clause with the verb at the end; use zu when both parts have the same subject.',
+    examples: [
+      'Man hilft, indem man Zeit spendet.',
+      'Er ging, ohne dass jemand es merkte.',
+      'Sie half, statt nur zu reden.',
+    ],
+  },
+  'passive-past': {
+    title: 'Passive in the past',
+    rule: 'Präteritum passive: wurde + participle (Die Mauer wurde 1961 gebaut.). Perfekt passive: ist + participle + worden – worden, not geworden. The doer is added with von + dative, a cause with durch + accusative.',
+    examples: [
+      'Die Mauer wurde 1961 gebaut.',
+      'Die Grenze ist 1989 geöffnet worden.',
+      'Das Gesetz wurde vom Parlament beschlossen.',
+    ],
+  },
+  'relative-wo-was': {
+    title: 'Relative clauses with wo and was',
+    rule: 'wo refers to a place (die Stadt, wo …) and can replace in dem / in der. was refers to alles, nichts, etwas, vieles, das (pronoun), to a superlative used as a noun (das Beste, was …) or to a whole clause. The verb goes to the end.',
+    examples: [
+      'Das ist die Stadt, wo ich geboren bin.',
+      'Alles, was du brauchst, ist hier.',
+      'Er kam pünktlich, was mich überraschte.',
+    ],
+  },
+  'nicht-position': {
+    title: 'Where does nicht go?',
+    rule: 'To negate the whole sentence, nicht goes as far to the end as possible, but before the second verb part, before most adverbs of manner and place, and before prepositional objects. To negate one word, nicht stands right before it (often with sondern).',
+    examples: [
+      'Ich kenne den Künstler nicht.',
+      'Das Stück hat mir nicht gefallen.',
+      'Nicht das Bild, sondern der Rahmen ist alt.',
+    ],
+  },
+  'consecutive-clauses': {
+    title: 'sodass and so … dass',
+    rule: 'sodass and so … dass give a consequence (so that, with the result that). Both start a subordinate clause with the verb at the end. With so … dass, so stands before an adjective in the main clause.',
+    examples: [
+      'Es regnete stark, sodass das Fest ausfiel.',
+      'Der Vortrag war so lang, dass alle müde wurden.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
@@ -373,6 +514,18 @@ const COVERS: Partial<Record<TagId, readonly TagId[]>> = {
   'reflexive-verbs': ['accusative', 'dative'],
   'n-declension': ['accusative', 'dative'],
   'konjunktiv-2': ['polite-forms'],
+  'konjunktiv-2-past': ['konjunktiv-2', 'perfekt'],
+  'als-ob': ['konjunktiv-2', 'subordinate-clauses'],
+  'je-desto': ['comparison', 'subordinate-clauses'],
+  'indem-ohne-dass': ['subordinate-clauses', 'infinitive-zu'],
+  'consecutive-clauses': ['subordinate-clauses'],
+  'relative-wo-was': ['relative-clauses', 'subordinate-clauses'],
+  'passive-past': ['passive', 'past-tense', 'perfekt'],
+  'participles-as-adjectives': ['adjective-endings', 'perfekt'],
+  'concessive-clauses': ['subordinate-clauses', 'connectors'],
+  plusquamperfekt: ['perfekt', 'past-tense'],
+  'futur-1': ['verb-conjugation'],
+  'nicht-position': ['negation', 'word-order'],
   comparison: ['superlative'],
   'relative-clauses': ['subordinate-clauses'],
   'indirect-questions': ['subordinate-clauses', 'questions'],
