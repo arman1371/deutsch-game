@@ -76,6 +76,14 @@ const IRREGULAR: Record<string, Forms> = {
     ihr: 'trefft',
     'sie/Sie': 'treffen',
   },
+  laden: {
+    ich: 'lade',
+    du: 'lädst',
+    'er/sie/es': 'lädt',
+    wir: 'laden',
+    ihr: 'ladet',
+    'sie/Sie': 'laden',
+  },
   // modal verbs
   können: {
     ich: 'kann',
@@ -178,6 +186,23 @@ export function conjugate(infinitive: string): Forms {
 export function separableForms(prefix: string, base: string): Forms {
   const forms = conjugate(base);
   return Object.fromEntries(PRONOUNS.map((p) => [p, `${forms[p]} ${prefix}`])) as Forms;
+}
+
+export const REFLEXIVE_PRONOUNS: Forms = {
+  ich: 'mich',
+  du: 'dich',
+  'er/sie/es': 'sich',
+  wir: 'uns',
+  ihr: 'euch',
+  'sie/Sie': 'sich',
+};
+
+/** Reflexive verbs, accusative: "sich freuen" → "freue mich", "freust dich" … */
+export function reflexiveForms(infinitive: string): Forms {
+  const forms = conjugate(infinitive);
+  return Object.fromEntries(
+    PRONOUNS.map((p) => [p, `${forms[p]} ${REFLEXIVE_PRONOUNS[p]}`]),
+  ) as Forms;
 }
 
 const f = (ich: string, du: string, er: string, wir: string, ihr: string, sie: string): Forms => ({

@@ -45,6 +45,13 @@ export const TAGS = {
   'describing-people': { label: 'Describing people', group: 'topic', emoji: '🧑' },
   'plans-wishes': { label: 'Plans & wishes', group: 'topic', emoji: '🌟' },
   household: { label: 'Household & rules', group: 'topic', emoji: '🧹' },
+  // topics – A2.1
+  'internet-media': { label: 'Internet & media', group: 'topic', emoji: '💻' },
+  'events-plans': { label: 'Events & plans', group: 'topic', emoji: '🎭' },
+  weather: { label: 'Weather', group: 'topic', emoji: '⛅' },
+  'school-education': { label: 'School & education', group: 'topic', emoji: '🎓' },
+  'job-search': { label: 'Job search', group: 'topic', emoji: '🔍' },
+  'cv-career': { label: 'CV & career', group: 'topic', emoji: '📑' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -69,6 +76,14 @@ export const TAGS = {
   'ordinal-numbers': { label: 'Ordinal numbers', group: 'grammar', emoji: '🥇' },
   conjunctions: { label: 'und / oder / aber / denn', group: 'grammar', emoji: '🔗' },
   'polite-forms': { label: 'würde / könnte', group: 'grammar', emoji: '🎩' },
+  // grammar points – A2.1
+  'reflexive-verbs': { label: 'Reflexive verbs', group: 'grammar', emoji: '🪞' },
+  genitive: { label: 'Genitive with names', group: 'grammar', emoji: '👑' },
+  'indefinite-pronouns': { label: 'einen / welche / etwas / man', group: 'grammar', emoji: '❔' },
+  'subordinate-clauses': { label: 'weil / wenn clauses', group: 'grammar', emoji: '🔚' },
+  connectors: { label: 'deshalb / zuerst – dann', group: 'grammar', emoji: '➡️' },
+  superlative: { label: 'Superlative', group: 'grammar', emoji: '🏆' },
+  'dative-prepositions': { label: 'Dative prepositions', group: 'grammar', emoji: '🧲' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

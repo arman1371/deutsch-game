@@ -20,7 +20,7 @@ describe('Home', () => {
     expect(screen.getByTestId('level-a1-2')).toHaveTextContent(
       '0 / ' + a12.activities.length + ' games',
     );
-    for (const soon of ['A2.1', 'A2.2']) {
+    for (const soon of ['A2.2']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -89,7 +89,7 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/a2-1');
+    renderApp('/levels/a2-2');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });
