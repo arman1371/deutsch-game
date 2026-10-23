@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { createRng, shuffle } from '@/lib/rng';
+import { useAnswerSound } from '../shared/useAnswerSound';
 import type { GameProps } from '../types';
 
 export function Blitz({ config, seed, onFinish }: GameProps<'blitz'>) {
@@ -17,6 +18,7 @@ export function Blitz({ config, seed, onFinish }: GameProps<'blitz'>) {
   const verdicts = useRef(new Map<string, boolean>());
   const bestCombo = useRef(0);
   const finished = useRef(false);
+  const playAnswerSound = useAnswerSound();
 
   const finish = useCallback(() => {
     if (finished.current) return;
@@ -76,6 +78,7 @@ export function Blitz({ config, seed, onFinish }: GameProps<'blitz'>) {
   const answer = (said: boolean) => {
     if (finished.current) return;
     const ok = said === statement.isTrue;
+    playAnswerSound(ok);
     verdicts.current.set(statement.id, ok);
     const newCombo = ok ? combo + 1 : 0;
     bestCombo.current = Math.max(bestCombo.current, newCombo);

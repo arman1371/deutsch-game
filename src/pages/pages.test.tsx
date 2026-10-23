@@ -378,6 +378,8 @@ describe('Settings', () => {
     await waitFor(() => expect(document.documentElement.dataset.reducedMotion).toBe('true'));
     await user.click(screen.getByLabelText('Speak German automatically'));
     expect(useSettingsStore.getState().autoSpeak).toBe(false);
+    await user.click(screen.getByLabelText('Sound effects'));
+    expect(useSettingsStore.getState().sounds).toBe(false);
   });
 
   it('resets progress only after confirmation', async () => {

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { GameResult } from '@/lib/scoring';
+import { useAnswerSound } from '../shared/useAnswerSound';
 import type { GameProps } from '../types';
 import { buildDeck, isMatch } from './logic';
 
@@ -14,6 +15,7 @@ export function Memory({ config, seed, onFinish }: GameProps<'memory'>) {
   const mistakes = useRef(new Set<string>());
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const finished = useRef(false);
+  const playAnswerSound = useAnswerSound();
 
   useEffect(() => () => void (timer.current && clearTimeout(timer.current)), []);
 
@@ -44,7 +46,9 @@ export function Memory({ config, seed, onFinish }: GameProps<'memory'>) {
       typeof card,
       typeof card,
     ];
-    if (isMatch(first, second)) {
+    const matchFound = isMatch(first, second);
+    playAnswerSound(matchFound);
+    if (matchFound) {
       setMatched((m) => new Set(m).add(first.pairId));
       setFlipped([]);
       setNote(
