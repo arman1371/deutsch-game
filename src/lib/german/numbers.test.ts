@@ -1,4 +1,29 @@
-import { digitsToGerman, formatPrice, numberToGerman, priceToGerman, spellOut } from './numbers';
+import {
+  digitsToGerman,
+  formatPrice,
+  numberToGerman,
+  priceToGerman,
+  spellOut,
+  yearToGerman,
+} from './numbers';
+
+describe('yearToGerman', () => {
+  it.each([
+    [1990, 'neunzehnhundertneunzig'],
+    [1985, 'neunzehnhundertfünfundachtzig'],
+    [2000, 'zweitausend'],
+    [2008, 'zweitausendacht'],
+    [2019, 'zweitausendneunzehn'],
+    [1900, 'neunzehnhundert'],
+  ])('%i → %s', (year, word) => {
+    expect(yearToGerman(year)).toBe(word);
+  });
+
+  it('rejects non-years', () => {
+    expect(() => yearToGerman(99)).toThrow(RangeError);
+    expect(() => yearToGerman(1999.5)).toThrow(RangeError);
+  });
+});
 
 describe('numberToGerman', () => {
   it.each([

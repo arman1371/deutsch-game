@@ -1,4 +1,10 @@
-import { conjugate, conjugatePreterite, PRONOUNS, separableForms } from './conjugation';
+import {
+  conjugate,
+  conjugatePreterite,
+  PRONOUNS,
+  reflexiveForms,
+  separableForms,
+} from './conjugation';
 
 const row = (v: string) => PRONOUNS.map((p) => conjugate(v)[p]);
 
@@ -102,5 +108,40 @@ describe('conjugatePreterite', () => {
 
   it('throws for verbs it does not know', () => {
     expect(() => conjugatePreterite('gehen')).toThrow();
+  });
+});
+
+describe('reflexiveForms', () => {
+  it('adds the reflexive pronoun after the verb', () => {
+    expect(reflexiveForms('freuen')).toEqual({
+      ich: 'freue mich',
+      du: 'freust dich',
+      'er/sie/es': 'freut sich',
+      wir: 'freuen uns',
+      ihr: 'freut euch',
+      'sie/Sie': 'freuen sich',
+    });
+  });
+
+  it('keeps irregular stems', () => {
+    expect(reflexiveForms('treffen').du).toBe('triffst dich');
+  });
+});
+
+describe('laden', () => {
+  it('has the umlaut in du/er forms (herunterladen)', () => {
+    expect(separableForms('herunter', 'laden').du).toBe('lädst herunter');
+    expect(conjugate('laden')['er/sie/es']).toBe('lädt');
+  });
+});
+
+describe('geben and helfen', () => {
+  it('helfen: du hilfst, er hilft', () => {
+    expect(conjugate('helfen')['er/sie/es']).toBe('hilft');
+  });
+
+  it('changes the stem vowel: du gibst, er gibt (abgeben)', () => {
+    expect(conjugate('geben').du).toBe('gibst');
+    expect(separableForms('ab', 'geben')['er/sie/es']).toBe('gibt ab');
   });
 });

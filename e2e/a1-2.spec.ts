@@ -1,20 +1,20 @@
 import { expect, test } from '@playwright/test';
 import a11 from '../src/content/a1-1';
 import a12 from '../src/content/a1-2';
-import { activity, captureSpeech, playPerfectly, SEED } from './helpers';
+import { activity, allActivities, captureSpeech, playPerfectly, SEED } from './helpers';
 
 test.beforeEach(async ({ page }) => {
   await captureSpeech(page);
 });
 
 test.describe('A1.2 – level navigation', () => {
-  test('Home lists A1.2 as available and A2.1 as coming soon', async ({ page }) => {
+  test('Home lists A1.2 as available and A2.2 as coming soon', async ({ page }) => {
     await page.goto('/');
     const card = page.getByTestId('level-a1-2');
     await expect(card).toContainText('A1.2');
     await expect(card).toContainText(`0 / ${a12.activities.length} games`);
     await expect(
-      page.getByRole('heading', { name: 'A2.1' }).locator('xpath=ancestor::li'),
+      page.getByRole('heading', { name: 'A2.2' }).locator('xpath=ancestor::li'),
     ).toContainText('Coming soon');
   });
 
@@ -76,10 +76,11 @@ test.describe('A1.2 – library', () => {
       [/Wo\? \/ Wohin\?/, 'two-way-prepositions'],
     ] as const) {
       await page.getByRole('button', { name: label }).click();
-      const n = a12.activities.filter((a) => a.tags.includes(tag as never)).length;
+      const n = allActivities.filter((a) => a.tags.includes(tag as never)).length;
       expect(n).toBeGreaterThan(3);
       await expect(page.getByTestId('result-count')).toHaveText(`${n} games`);
       await page.getByRole('button', { name: 'Clear filters' }).click();
+      await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     }
   });
 

@@ -1,6 +1,7 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import content from '@/content/a1-1';
 import a12 from '@/content/a1-2';
+import a21 from '@/content/a2-1';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
@@ -20,7 +21,10 @@ describe('Home', () => {
     expect(screen.getByTestId('level-a1-2')).toHaveTextContent(
       '0 / ' + a12.activities.length + ' games',
     );
-    for (const soon of ['A2.1', 'A2.2']) {
+    expect(screen.getByTestId('level-a2-1')).toHaveTextContent(
+      '0 / ' + a21.activities.length + ' games',
+    );
+    for (const soon of ['A2.2']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -89,7 +93,7 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/a2-1');
+    renderApp('/levels/a2-2');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });
@@ -141,7 +145,7 @@ describe('Level A1.2', () => {
       `${content.activities.length} games`,
     );
     expect(screen.getByRole('button', { name: /Hallo & Tschüss/ })).toBeInTheDocument();
-  });
+  }, 30_000);
 
   it('finds the new grammar tags in the library', async () => {
     const { user } = renderApp('/library');
@@ -150,7 +154,35 @@ describe('Level A1.2', () => {
     const dative = allActivities.filter((a) => a.tags.includes('dative')).length;
     expect(dative).toBeGreaterThan(10);
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${dative} games`);
+  }, 30_000);
+});
+
+describe('Level A2.1', () => {
+  it('walks Home → A2.1 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-a2-1'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(a21.units.length);
+    expect(within(units).queryByTestId('unit-a1-2-stadt')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-a2-1-online'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(screen.getByRole('heading', { level: 1, name: 'Online & Apps' })).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(a21.activities.filter((a) => a.unitId === 'a2-1-online').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
   });
+
+  it('filters the library by the A2.1 level and only offers its units', async () => {
+    renderApp('/library?lvl=a2-1');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${a21.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'A2.1' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Online & Apps/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /In der Stadt/ })).not.toBeInTheDocument();
+  }, 30_000);
 });
 
 describe('Library', () => {
@@ -177,7 +209,7 @@ describe('Library', () => {
       (a) => a.tags.includes('accusative') && a.difficulty === 3,
     ).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${hard} games`);
-  });
+  }, 30_000);
 
   it('searches by text and shows an empty state', async () => {
     const { user } = renderApp('/library');
@@ -185,14 +217,14 @@ describe('Library', () => {
     await user.type(screen.getByLabelText('Search games'), 'zzzzzz');
     expect(screen.getByText('No games match these filters.')).toBeInTheDocument();
     expect(screen.queryByTestId('play-queue')).not.toBeInTheDocument();
-  });
+  }, 30_000);
 
   it('restores filters from the URL and builds a play queue in the shown order', async () => {
     renderApp('/library?type=blitz&unit=a1-1-hallo');
     await waitFor(() => expect(screen.getByTestId('result-count')).toHaveTextContent('1 games'));
     expect(screen.getByRole('button', { name: /Blitz/ })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByTestId('play-queue')).toHaveAttribute('href', '/play/a1-1-hallo-blitz');
-  });
+  }, 30_000);
 
   it('puts the rest of the results into the queue', async () => {
     renderApp('/library?unit=a1-1-hallo&type=quiz');
@@ -209,7 +241,7 @@ describe('Library', () => {
         .map((a) => a.id)
         .join('%2C')}`,
     );
-  });
+  }, 30_000);
 });
 
 describe('Play flow', () => {

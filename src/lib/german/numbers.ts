@@ -62,6 +62,17 @@ export function numberToGerman(n: number): string {
   return rest === 0 ? head : `${head}${below1000(rest)}`;
 }
 
+/** Years as spoken: 1990 → "neunzehnhundertneunzig", 2008 → "zweitausendacht". */
+export function yearToGerman(year: number): string {
+  if (!Number.isInteger(year) || year < 1000 || year > 2999)
+    throw new RangeError(`Unsupported year: ${year}`);
+  if (year >= 2000) return numberToGerman(year);
+  const hundreds = Math.floor(year / 100);
+  const rest = year % 100;
+  const head = `${numberToGerman(hundreds)}hundert`;
+  return rest === 0 ? head : `${head}${numberToGerman(rest)}`;
+}
+
 /** Spoken digit-by-digit form for phone numbers: "0151 234" → "null eins fünf eins zwei drei vier". */
 export function digitsToGerman(digits: string): string {
   return digits
