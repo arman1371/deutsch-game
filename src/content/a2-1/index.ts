@@ -6,8 +6,11 @@ import { bahn } from './u4-bahn';
 import { wohnung } from './u5-wohnung';
 import { aemter } from './u6-aemter';
 import { familie } from './u7-familie';
+import { schule } from './u8-schule';
+import { jobsuche } from './u9-jobsuche';
+import { beruf } from './u10-beruf';
 
-const units = [online, freizeit, wetter, bahn, wohnung, aemter, familie];
+const units = [online, freizeit, wetter, bahn, wohnung, aemter, familie, schule, jobsuche, beruf];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
