@@ -1,0 +1,51 @@
+name: Graphify
+# Keeps the committed knowledge graph (graphify-out/) in sync with main: after every push to main it runs
+# `graphify update .` and pushes a bot commit when the graph changed.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Every run checks out the latest main, so a newer run supersedes an older one: cancel the older one.
+concurrency:
+  group: graphify-main
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Update graph
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          # A deploy key (or PAT) lets the push bypass branch rules you grant it and start workflows;
+          # the default GITHUB_TOKEN starts none (see docs/graphify.md).
+          ssh-key: ${{ secrets.GRAPHIFY_DEPLOY_KEY }}
+          token: ${{ secrets.GRAPHIFY_TOKEN || github.token }}
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.13' }
+      - name: Install Graphify
+        # Same version as the committed graph and the local install, so output stays reproducible.
+        run: pip install graphifyy==0.9.63
+      - name: graphify update .
+        # CI always starts without cache/manifest, so force the write even when a commit deletes code
+        # (Graphify otherwise refuses to replace graph.json with a smaller graph).
+        env: { GRAPHIFY_FORCE: '1' }
+        run: graphify update .
+      - name: Commit graph if it changed
+        run: |
+          # Graphify leaves the files untouched when the code graph did not change.
+          if [ -z "$(git status --porcelain -- graphify-out)" ]; then
+            echo "Graph is up to date."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graphify-out
+          # [skip ci] stops every push workflow (this one, CI, Sonar) and the Cloudflare build for the bot commit.
+          git commit -m 'chore(graph): graphify update [skip ci]'
+          # If main moved on meanwhile, the run for that newer commit updates the graph instead.
+          git push origin HEAD:main || echo "::warning::Push to main failed (branch rules? main moved?), graph not pushed. See docs/graphify.md."
