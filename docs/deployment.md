@@ -53,6 +53,9 @@ Notes
 
 ## CI
 
-`.github/workflows/ci.yml` runs lint, typecheck, unit tests with coverage thresholds and the Playwright
-suite (desktop + mobile) on every push and pull request. Cloudflare builds only when you push; keep CI as the
+`.github/workflows/ci.yml` runs on every push and pull request. Independent jobs run in parallel: lint and
+typecheck, unit tests with coverage thresholds, one production build, and the Playwright suite (desktop +
+mobile) split into 4 shards that serve the shared build. The `verify` job is green only when all of them
+are, so branch protection needs just `verify` (and `SonarCloud`). SonarCloud reuses the coverage report of
+the unit job. Superseded pull request runs are cancelled. Cloudflare builds only when you push; keep CI as the
 gate by enabling branch protection on the default branch.

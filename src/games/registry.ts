@@ -5,7 +5,7 @@ import type { GameProps } from './types';
 type Loader<T extends GameType> = () => Promise<{ default: ComponentType<GameProps<T>> }>;
 
 /** One lazy-loaded component per engine; adding a game = a new folder + one line here + schema entry. */
-const loaders: { [T in GameType]: Loader<T> } = {
+export const gameLoaders: { [T in GameType]: Loader<T> } = {
   flashcards: () => import('./flashcards/Flashcards'),
   quiz: () => import('./quiz/Quiz'),
   memory: () => import('./memory/Memory'),
@@ -22,9 +22,9 @@ const loaders: { [T in GameType]: Loader<T> } = {
 };
 
 export const gameComponents = Object.fromEntries(
-  (Object.keys(loaders) as GameType[]).map((type) => [
+  (Object.keys(gameLoaders) as GameType[]).map((type) => [
     type,
-    lazy(loaders[type] as Loader<GameType>),
+    lazy(gameLoaders[type] as Loader<GameType>),
   ]),
 ) as unknown as { [T in GameType]: ComponentType<GameProps<T>> };
 
