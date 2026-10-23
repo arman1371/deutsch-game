@@ -15,8 +15,9 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'a1-2',
     title: 'A1.2',
-    subtitle: 'Everyday life: home, travel, health',
-    status: 'coming-soon',
+    subtitle: 'Everyday life: town, home, work, health, travel and services',
+    status: 'available',
+    load: () => import('./a1-2'),
   },
   { id: 'a2-1', title: 'A2.1', subtitle: 'Past tense, plans and opinions', status: 'coming-soon' },
   {

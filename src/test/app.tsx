@@ -3,7 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { RouterProvider } from 'react-router/dom';
 import { Suspense } from 'react';
 import { createTestRouter } from '@/app/router';
-import content from '@/content/a1-1';
+import a11 from '@/content/a1-1';
+import a12 from '@/content/a1-2';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
 import { useProgressStore } from '@/store/progressStore';
@@ -13,7 +14,11 @@ export function resetStores() {
   useSettingsStore.setState({ ...DEFAULT_SETTINGS });
 }
 
-/** Render the whole app at a URL with the real A1.1 content. */
+/** Every available level, merged – what the app loads in tests. */
+export const allActivities: Activity[] = [...a11.activities, ...a12.activities];
+export const allUnits = [...a11.units, ...a12.units];
+
+/** Render the whole app at a URL with the real A1.1 and A1.2 content. */
 export function renderApp(path = '/') {
   const router = createTestRouter([path]);
   const user = userEvent.setup();
@@ -26,7 +31,7 @@ export function renderApp(path = '/') {
 }
 
 export const activityById = (id: string): Activity => {
-  const a = content.activities.find((x) => x.id === id);
+  const a = allActivities.find((x) => x.id === id);
   if (!a) throw new Error(`No activity ${id}`);
   return a;
 };

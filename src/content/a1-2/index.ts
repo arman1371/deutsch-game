@@ -7,8 +7,21 @@ import { kleidung } from './u5-kleidung';
 import { reisen } from './u6-reisen';
 import { feiern } from './u7-feste';
 import { termine } from './u8-termine';
+import { aemter } from './u9-aemter';
+import { alltag } from './u10-alltag';
 
-const units = [stadt, wohnen, arbeit, gesundheit, kleidung, reisen, feiern, termine];
+const units = [
+  stadt,
+  wohnen,
+  arbeit,
+  gesundheit,
+  kleidung,
+  reisen,
+  feiern,
+  termine,
+  aemter,
+  alltag,
+];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),

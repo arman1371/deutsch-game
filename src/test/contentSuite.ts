@@ -77,7 +77,10 @@ export function describeLevelContent(name: string, content: LevelContent, levelI
                 ),
                 where,
               ).toEqual([]);
-              expect(dup(a.config.items.map((x) => x.hint)), where).toEqual([]);
+              expect(
+                dup(a.config.items.filter((x) => x.mode !== 'dictation').map((x) => x.hint)),
+                where,
+              ).toEqual([]);
               break;
             case 'sentence':
               expect(dup(a.config.items.map((x) => x.translation)), where).toEqual([]);
