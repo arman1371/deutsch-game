@@ -1,0 +1,581 @@
+import { byDe, flashcards, listen, memory, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  meta,
+  q,
+  say,
+  sortItems,
+  sw,
+  tf,
+  typed,
+  unitC21,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'c2-1-medizin';
+
+const care = vocabList(U, 'Medicine & care', [
+  ['Vorsorgeuntersuchung', 'preventive check-up', '🩺', 'die', 'Vorsorgeuntersuchungen'],
+  ['Wechselwirkung', 'interaction (of drugs)', '⚗️', 'die', 'Wechselwirkungen'],
+  ['Pflegekraft', 'care worker, nurse', '🧑‍⚕️', 'die', 'Pflegekräfte'],
+  ['Gesundheitswesen', 'healthcare system', '🏥', 'das'],
+  ['Facharzt', 'specialist doctor', '👨‍⚕️', 'der', 'Fachärzte'],
+  ['Eingriff', 'procedure, operation', '🔪', 'der', 'Eingriffe'],
+  ['Wartezeit', 'waiting time', '⏳', 'die', 'Wartezeiten'],
+  ['Impfstoff', 'vaccine', '💉', 'der', 'Impfstoffe'],
+  ['Erreger', 'pathogen', '🦠', 'der', 'Erreger'],
+  ['Diagnose', 'diagnosis', '📋', 'die', 'Diagnosen'],
+  ['Therapie', 'therapy', '🧑‍⚕️', 'die', 'Therapien'],
+  ['chronisch', 'chronic', '♾️'],
+  ['ansteckend', 'contagious', '🤧'],
+  ['verträglich', 'well tolerated', '✅'],
+  ['verordnen', 'to prescribe', '📝'],
+  ['lindern', 'to relieve', '🪶'],
+  ['heilen', 'to heal, to cure', '🌿'],
+]);
+
+const living = vocabList(U, 'Healthy living', [
+  ['Ernährungsweise', 'diet, way of eating', '🥗', 'die', 'Ernährungsweisen'],
+  ['Bewegungsmangel', 'lack of exercise', '🛋️', 'der'],
+  ['Ausgleich', 'balance, compensation', '⚖️', 'der'],
+  ['Belastung', 'strain, burden', '🏋️', 'die', 'Belastungen'],
+  ['Ruhephase', 'rest period', '😴', 'die', 'Ruhephasen'],
+  ['Lebensstil', 'lifestyle', '🔁', 'der', 'Lebensstile'],
+  ['Vorbeugung', 'prevention', '🛡️', 'die'],
+  ['sich schonen', 'to take it easy', '🛌'],
+  ['sich auskurieren', 'to recover fully', '🌡️'],
+  ['regenerieren', 'to regenerate', '🔋'],
+  ['stärken', 'to strengthen', '💪'],
+  ['meiden', 'to avoid, to shun', '🚫'],
+  ['durchhalten', 'to persevere', '🏃'],
+]);
+
+const vocab = [...care, ...living];
+
+export const medizin: UnitContent = {
+  unit: unitC21({
+    id: U,
+    order: 6,
+    title: 'Medizin & Gesundheitswesen',
+    subtitle: 'Care, research, prevention and how-clauses with indem and ohne dass',
+    emoji: '⚕️',
+    goals: [
+      'Discuss the healthcare system, therapies and prevention',
+      'Say how something is achieved (indem) and what happens without something else (ohne dass)',
+      'Express proportion with je … desto',
+    ],
+    grammar: [
+      'indem: by doing – Man spart Energie, indem man das Licht ausmacht.',
+      'ohne dass: without – Er ging, ohne dass jemand es bemerkte.',
+      'je … desto / umso + comparative',
+      'insofern, als: in so far as',
+    ],
+    vocabFields: ['Medicine & care', 'Healthy living'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-care',
+      'flashcards',
+      meta(
+        'Medicine & care',
+        'Diagnose, Wechselwirkung, Pflegekraft – the healthcare vocabulary.',
+        ['vocabulary', 'c21-medicine'],
+        1,
+        6,
+      ),
+      flashcards(care),
+    ),
+    activity(
+      U,
+      'flash-living',
+      'flashcards',
+      meta(
+        'Healthy living',
+        'Bewegungsmangel, Ausgleich, regenerieren – prevention and lifestyle.',
+        ['vocabulary', 'c21-medicine'],
+        1,
+        5,
+      ),
+      flashcards(living),
+    ),
+    activity(
+      U,
+      'quiz-meaning',
+      'quiz',
+      meta('What does it mean?', 'Pick the English meaning.', ['vocabulary', 'c21-medicine'], 2, 5),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Wechselwirkung',
+          'Gesundheitswesen',
+          'Eingriff',
+          'Erreger',
+          'verträglich',
+          'lindern',
+          'Bewegungsmangel',
+          'Ausgleich',
+          'Lebensstil',
+          'sich auskurieren',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-care',
+      'memory',
+      meta(
+        'Match the words',
+        'German words and their meanings.',
+        ['vocabulary', 'c21-medicine'],
+        2,
+        4,
+      ),
+      memory(
+        byDe(
+          vocab,
+          'Facharzt',
+          'Impfstoff',
+          'Wartezeit',
+          'Therapie',
+          'chronisch',
+          'ansteckend',
+          'Belastung',
+          'Vorbeugung',
+        ),
+      ),
+    ),
+    activity(
+      U,
+      'listen-words',
+      'listen',
+      meta(
+        'Hear the medical words',
+        'Listen and pick the meaning.',
+        ['listening', 'c21-medicine'],
+        2,
+        4,
+      ),
+      listen(
+        byDe(
+          vocab,
+          'Diagnose',
+          'Vorsorgeuntersuchung',
+          'verordnen',
+          'heilen',
+          'Ruhephase',
+          'regenerieren',
+          'meiden',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'spell-medicine',
+      'spell',
+      meta(
+        'Spell the clinic',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'c21-medicine'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(vocab, 'Erreger', 'Therapie'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Impfstoff', 'Facharzt'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wechselwirkung', 'Ernährungsweise'), 'type').items,
+          ...spell(byDe(vocab, 'Gesundheitswesen'), 'type').items,
+          dictation(
+            'd1',
+            'Man beugt vor, indem man sich regelmäßig bewegt.',
+            'You prevent illness by exercising regularly.',
+          ),
+          dictation(
+            'd2',
+            'Je früher man behandelt, desto besser sind die Chancen.',
+            'The earlier you treat, the better the chances.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-how',
+      'gapfill',
+      meta(
+        'indem, ohne dass, je … desto',
+        'Say how something happens.',
+        ['grammar', 'c21-modal-clauses'],
+        2,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'h1',
+            'Man spart Energie, ___ man das Licht ausmacht.',
+            'indem',
+            ['indem', 'dass', 'damit', 'wenn'],
+            'You save energy by switching off the light.',
+            'indem = by doing something (the means).',
+          ),
+          gap(
+            'h2',
+            'Er verließ die Praxis, ohne ___ jemand es bemerkte.',
+            'dass',
+            ['dass', 'zu', 'ob', 'wenn'],
+            'He left the practice without anybody noticing.',
+            'ohne dass + clause when the subjects differ; ohne … zu when they are the same.',
+          ),
+          gap(
+            'h3',
+            '___ länger ich warte, desto nervöser werde ich.',
+            'Je',
+            ['Je', 'Desto', 'Wie', 'Als'],
+            'The longer I wait, the more nervous I get.',
+            'je + comparative (verb last) … desto + comparative (verb second).',
+          ),
+          gap(
+            'h4',
+            'Je mehr er sich bewegt, ___ besser schläft er.',
+            'desto',
+            ['desto', 'je', 'sodass', 'als'],
+            'The more he exercises, the better he sleeps.',
+          ),
+          gap(
+            'h5',
+            'Die Therapie ist nur insofern wirksam, ___ sie rechtzeitig beginnt.',
+            'als',
+            ['als', 'dass', 'wie', 'ob'],
+            'The therapy is only effective in so far as it starts in time.',
+            'insofern … als = to the extent that.',
+          ),
+          gap(
+            'h6',
+            'Das Fieber sank, ohne ___ man Medikamente brauchte.',
+            'dass',
+            ['dass', 'zu', 'damit', 'weil'],
+            'The fever went down without any need for medication.',
+          ),
+          typed(
+            'h7',
+            'Der Arzt lindert den Schmerz, ___ er eine Salbe verordnet.',
+            'indem',
+            'The doctor relieves the pain by prescribing an ointment.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-clauses',
+      'sortit',
+      meta(
+        'By doing, without or proportion?',
+        'Sort the sentences by the relation they express.',
+        ['grammar', 'c21-modal-clauses'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'What does the clause express?',
+        buckets: [
+          { id: 'means', label: 'indem (the means)', emoji: '🛠️' },
+          { id: 'without', label: 'ohne dass (without)', emoji: '🚫' },
+          { id: 'prop', label: 'je … desto (proportion)', emoji: '📈' },
+        ],
+        items: sortItems('c', [
+          ['Man beugt vor, indem man sich bewegt.', 'means'],
+          ['Er lindert den Schmerz, indem er eine Salbe aufträgt.', 'means'],
+          ['Sie stärkt ihr Immunsystem, indem sie gesund isst.', 'means'],
+          ['Er wurde geheilt, ohne dass Narben blieben.', 'without'],
+          ['Sie ging, ohne dass der Arzt sie untersucht hatte.', 'without'],
+          ['Das Fieber sank, ohne dass man Medikamente brauchte.', 'without'],
+          ['Je früher man behandelt, desto besser sind die Chancen.', 'prop'],
+          ['Je älter er wurde, umso vorsichtiger lebte er.', 'prop'],
+          ['Je länger die Wartezeit, desto größer der Frust.', 'prop'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'In the waiting room',
+        'Build sentences with indem, ohne dass and je … desto.',
+        ['grammar', 'word-order', 'c21-modal-clauses'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sw(
+            's1',
+            'You prevent illness by exercising regularly.',
+            'Man beugt Krankheiten vor, indem man sich regelmäßig bewegt.',
+          ),
+          sw(
+            's2',
+            'The earlier you treat, the better the chances.',
+            'Je früher man behandelt, desto besser sind die Chancen.',
+          ),
+          sw(
+            's3',
+            'He left the practice without anybody noticing.',
+            'Er verließ die Praxis, ohne dass jemand es bemerkte.',
+          ),
+          sw(
+            's4',
+            'She strengthens her immune system by eating healthily.',
+            'Sie stärkt ihr Immunsystem, indem sie sich gesund ernährt.',
+          ),
+          sw(
+            's5',
+            'The longer the waiting time, the greater the frustration.',
+            'Je länger die Wartezeit ist, desto größer wird der Frust.',
+          ),
+          sw(
+            's6',
+            'The doctor prescribed the drug without checking the interactions.',
+            'Der Arzt verordnete das Mittel, ohne die Wechselwirkungen zu prüfen.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-health',
+      'listen',
+      meta(
+        'Health news',
+        'Understand short health reports.',
+        ['listening', 'c21-medicine', 'c21-modal-clauses'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Wer sich schont, indem er mehr schläft, erholt sich schneller.',
+            'Those who take it easy by sleeping more recover faster.',
+            [
+              'Those who sleep less recover faster.',
+              'Sleeping more makes recovery slower.',
+              'Nobody recovers from the illness.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Der Eingriff verlief ohne Komplikationen, sodass die Patientin bald nach Hause durfte.',
+            'The operation went without complications, so the patient could soon go home.',
+            [
+              'The operation had complications, so the patient stayed.',
+              'The patient went home before the operation.',
+              'The operation was cancelled.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Je weniger Bewegung, desto höher ist das Risiko für Herzkrankheiten.',
+            'The less exercise, the higher the risk of heart disease.',
+            [
+              'The less exercise, the lower the risk of heart disease.',
+              'Exercise has no influence on the heart.',
+              'Heart disease is only caused by food.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Viele Patienten verlassen das Krankenhaus, ohne dass die Nachsorge geklärt ist.',
+            'Many patients leave the hospital without aftercare having been sorted out.',
+            [
+              'Many patients receive full aftercare before leaving.',
+              'Patients cannot leave the hospital.',
+              'The hospital refuses aftercare for everybody.',
+            ],
+          ),
+          heard(
+            'l5',
+            'Der neue Impfstoff gilt als gut verträglich, zumal Nebenwirkungen kaum auftraten.',
+            'The new vaccine is considered well tolerated, especially as side effects hardly occurred.',
+            [
+              'The new vaccine causes serious side effects.',
+              'The vaccine has not been tested.',
+              'Side effects occurred often.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'At the specialist',
+        'Ask about treatment and prevention in a precise way.',
+        ['communication', 'c21-medicine', 'c21-modal-clauses'],
+        3,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'consultation',
+            title: 'Im Sprechzimmer',
+            emoji: '🩺',
+            setting: 'A specialist discusses a chronic condition with you.',
+            turns: [
+              say(
+                'Dr. Winter',
+                'Wir können die Beschwerden lindern, ohne dass Sie Tabletten nehmen müssen.',
+                'We can relieve the symptoms without you having to take pills.',
+              ),
+              you(
+                'Wie soll das gehen? Ich dachte, nur Medikamente helfen.',
+                [
+                  'Wie soll das gehen? Ich denke, dass nur Medikamente helfen sollen helfen.',
+                  'Too many verbs at the end – keep the question simple.',
+                ],
+                [
+                  'Das glaube ich nicht, Sie lügen.',
+                  'Accusing the doctor is neither polite nor useful.',
+                ],
+              ),
+              say(
+                'Dr. Winter',
+                'Indem Sie Ihre Ernährung umstellen und sich mehr bewegen.',
+                'By changing your diet and exercising more.',
+              ),
+              you(
+                'Je konsequenter ich das durchhalte, desto besser werden die Werte?',
+                [
+                  'Je konsequenter ich das durchhalte, desto werden die Werte besser?',
+                  'After desto + comparative the verb comes second.',
+                ],
+                ['Je konsequenter ich das durchhalte, die Werte besser.', 'The verb is missing.'],
+              ),
+            ],
+          },
+          {
+            id: 'wait',
+            title: 'Die lange Wartezeit',
+            emoji: '⏳',
+            setting: 'You complain about waiting times, politely but clearly.',
+            turns: [
+              say(
+                'Empfang',
+                'Der Facharzt hat erst in drei Monaten einen Termin frei.',
+                'The specialist has no appointment for three months.',
+              ),
+              you(
+                'Das ist sehr lang, zumal meine Beschwerden zunehmen.',
+                [
+                  'Das ist sehr lang, zumal nehmen meine Beschwerden zu.',
+                  'zumal sends the verb to the end: zunehmen.',
+                ],
+                ['Dann gehe ich nie wieder zu Ihnen.', 'Too aggressive for a simple request.'],
+              ),
+              say(
+                'Empfang',
+                'Ich kann Sie auf die Warteliste setzen.',
+                'I can put you on the waiting list.',
+              ),
+              you(
+                'Gern. Können Sie mich anrufen, sobald etwas frei wird?',
+                [
+                  'Gern. Können Sie mich anrufen, sobald etwas wird frei?',
+                  'sobald-clauses end with the verb.',
+                ],
+                ['Gern. Ich rufe nie zurück.', 'This makes no sense as a reply.'],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'How-clause blitz',
+        'indem, ohne dass, je … desto – true or false?',
+        ['grammar', 'c21-modal-clauses'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Man heilt Wunden, indem man sie sauber hält.', true),
+          tf(
+            'b2',
+            'Man heilt Wunden, indem hält man sie sauber.',
+            false,
+            'The verb goes to the end.',
+          ),
+          tf('b3', 'Er ging, ohne dass jemand ihn sah.', true),
+          tf('b4', 'Er ging, ohne dass jemand sah ihn.', false),
+          tf('b5', 'Je mehr man übt, desto besser wird man.', true),
+          tf(
+            'b6',
+            'Je mehr man übt, desto wird man besser.',
+            false,
+            'After desto + comparative the verb is second.',
+          ),
+          tf('b7', 'Statt „desto“ kann man auch „umso“ sagen.', true),
+          tf('b8', 'Ein chronischer Schnupfen ist ansteckend.', false),
+          tf('b9', 'Bewegungsmangel bedeutet zu wenig Bewegung.', true),
+          tf('b10', 'Ein Erreger ist ein Medikament.', false, 'It is a pathogen.'),
+          tf('b11', 'Wer sich schont, ruht sich aus.', true),
+          tf('b12', 'Eine Diagnose stellt der Arzt.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Medical words and how-clauses in one round.',
+        ['vocabulary', 'grammar', 'c21-medicine'],
+        3,
+        6,
+      ),
+      {
+        questions: [
+          q('c1', 'Sie lernt, ___ sie täglich liest.', 'indem', ['dass', 'damit', 'zumal']),
+          q('c2', 'Er half ihr, ohne ___ sie darum bat.', 'dass', ['zu', 'ob', 'damit']),
+          q('c3', 'Je später, ___ teurer.', 'desto', ['je', 'als', 'wie']),
+          q('c4', 'Er ging, ohne sich zu ___.', 'verabschieden', [
+            'verabschiedet',
+            'verabschiede',
+            'verabschiedete',
+          ]),
+          q('c5', 'Sie besserte sich, ohne dass der Arzt ___ musste.', 'eingreifen', [
+            'eingegriffen',
+            'einzugreifen',
+            'eingreift',
+          ]),
+          q('c6', 'der Impfstoff', 'vaccine', ['pathogen', 'diagnosis', 'procedure']),
+          q('c7', 'lindern', 'to relieve', ['to heal', 'to prescribe', 'to avoid']),
+          q('c8', 'verträglich', 'well tolerated', ['chronic', 'contagious', 'harmful']),
+          q('c9', 'die Pflegekraft', 'care worker', ['specialist', 'patient', 'pharmacist']),
+          q('c10', 'die Vorbeugung', 'prevention', ['treatment', 'diagnosis', 'relief']),
+        ],
+      },
+    ),
+  ],
+};

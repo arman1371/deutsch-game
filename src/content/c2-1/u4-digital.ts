@@ -1,0 +1,686 @@
+import { byDe, flashcards, listen, memory, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  futur2Table,
+  gap,
+  heard,
+  meta,
+  q,
+  say,
+  sortItems,
+  sw,
+  tf,
+  typed,
+  unitC21,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'c2-1-digital';
+
+const digital = vocabList(U, 'Digital life', [
+  ['Vernetzung', 'networking, connectivity', '🕸️', 'die'],
+  ['Algorithmus', 'algorithm', '🧮', 'der', 'Algorithmen'],
+  ['Plattform', 'platform', '🏗️', 'die', 'Plattformen'],
+  ['Datenschutz', 'data protection', '🔒', 'der'],
+  ['Überwachung', 'surveillance', '👁️', 'die'],
+  ['Medienkompetenz', 'media literacy', '🧠', 'die'],
+  ['Reizüberflutung', 'sensory overload', '🌀', 'die'],
+  ['Ablenkung', 'distraction', '📵', 'die', 'Ablenkungen'],
+  ['Abhängigkeit', 'dependence', '⛓️', 'die', 'Abhängigkeiten'],
+  ['Datenleck', 'data leak', '💧', 'das', 'Datenlecks'],
+  ['Verschlüsselung', 'encryption', '🔐', 'die'],
+  ['digitalisieren', 'to digitise', '💾'],
+  ['vernetzen', 'to connect, to network', '🔗'],
+  ['überwachen', 'to monitor', '📹'],
+  ['analog', 'analogue', '📻'],
+  ['allgegenwärtig', 'omnipresent', '🌍'],
+]);
+
+const change = vocabList(U, 'Change & trends', [
+  ['Wandel', 'change, transformation', '🦋', 'der'],
+  ['Umbruch', 'upheaval, radical change', '🌋', 'der', 'Umbrüche'],
+  ['Vorreiter', 'pioneer', '🚩', 'der', 'Vorreiter'],
+  ['Zukunftsfähigkeit', 'viability for the future', '🌱', 'die'],
+  ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
+  ['Durchbruch', 'breakthrough', '💥', 'der', 'Durchbrüche'],
+  ['Auswirkung', 'effect, impact', '🌊', 'die', 'Auswirkungen'],
+  ['vollziehen', 'to carry out, to complete', '✔️'],
+  ['bewirken', 'to bring about', '⚙️'],
+  ['voraussichtlich', 'expected, probably', '🔮'],
+  ['schlagartig', 'suddenly, abruptly', '⚡'],
+  ['allmählich', 'gradually', '🐌'],
+  ['zwangsläufig', 'inevitably', '🧲'],
+  ['sich etablieren', 'to establish itself', '🏆'],
+]);
+
+const vocab = [...digital, ...change];
+
+export const digitalUnit: UnitContent = {
+  unit: unitC21({
+    id: U,
+    order: 4,
+    title: 'Digitalisierung & Wandel',
+    subtitle: 'Data, dependence, trends and the Futur II',
+    emoji: '🌐',
+    goals: [
+      'Weigh up benefits and risks of digitalisation',
+      'Describe results and consequences precisely',
+      'Say what will have happened by a future date, and guess about the past',
+    ],
+    grammar: [
+      'Result clauses: sodass, so … dass, dermaßen … dass',
+      'Result connectors: folglich, infolgedessen, somit',
+      'Futur II: werden + participle + haben/sein',
+    ],
+    vocabFields: ['Digital life', 'Change & trends'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-digital',
+      'flashcards',
+      meta(
+        'Digital life',
+        'Algorithmus, Datenleck, Medienkompetenz – living online.',
+        ['vocabulary', 'c21-digital-life'],
+        1,
+        6,
+      ),
+      flashcards(digital),
+    ),
+    activity(
+      U,
+      'flash-change',
+      'flashcards',
+      meta(
+        'Change & trends',
+        'Wandel, Umbruch, Durchbruch – describing transformation.',
+        ['vocabulary', 'c21-digital-life'],
+        1,
+        5,
+      ),
+      flashcards(change),
+    ),
+    activity(
+      U,
+      'quiz-meaning',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'Pick the English meaning.',
+        ['vocabulary', 'c21-digital-life'],
+        2,
+        5,
+      ),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Vernetzung',
+          'Reizüberflutung',
+          'Verschlüsselung',
+          'Umbruch',
+          'Vorreiter',
+          'Zukunftsfähigkeit',
+          'schlagartig',
+          'allmählich',
+          'zwangsläufig',
+          'sich etablieren',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-digital',
+      'memory',
+      meta(
+        'Match the words',
+        'German words and their meanings.',
+        ['vocabulary', 'c21-digital-life'],
+        2,
+        4,
+      ),
+      memory(
+        byDe(
+          vocab,
+          'Algorithmus',
+          'Datenschutz',
+          'Überwachung',
+          'Ablenkung',
+          'Abhängigkeit',
+          'Meilenstein',
+          'Durchbruch',
+          'Auswirkung',
+        ),
+      ),
+    ),
+    activity(
+      U,
+      'listen-words',
+      'listen',
+      meta(
+        'Hear the digital words',
+        'Listen and pick the meaning.',
+        ['listening', 'c21-digital-life'],
+        2,
+        4,
+      ),
+      listen(
+        byDe(
+          vocab,
+          'Plattform',
+          'Datenleck',
+          'Medienkompetenz',
+          'digitalisieren',
+          'überwachen',
+          'allgegenwärtig',
+          'bewirken',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'spell-digital',
+      'spell',
+      meta(
+        'Spell the digital world',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'c21-digital-life'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(vocab, 'Wandel', 'Plattform'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Datenleck', 'Umbruch'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Medienkompetenz', 'Abhängigkeit'), 'type').items,
+          ...spell(byDe(vocab, 'voraussichtlich'), 'type').items,
+          dictation(
+            'd1',
+            'Bis 2040 wird sich unser Alltag grundlegend verändert haben.',
+            'By 2040 our everyday life will have changed fundamentally.',
+          ),
+          dictation(
+            'd2',
+            'Das System fiel aus, sodass niemand arbeiten konnte.',
+            'The system failed, so nobody could work.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-result',
+      'gapfill',
+      meta(
+        'sodass, so … dass, folglich',
+        'Complete the result clauses and connectors.',
+        ['grammar', 'c21-consecutive'],
+        2,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'r1',
+            'Der Server fiel aus, ___ niemand arbeiten konnte.',
+            'sodass',
+            ['sodass', 'damit', 'obwohl', 'falls'],
+            'The server failed, so nobody could work.',
+            'sodass = with the result that; the verb goes to the end.',
+          ),
+          gap(
+            'r2',
+            'Das Netz war so langsam, ___ die Videokonferenz abbrach.',
+            'dass',
+            ['dass', 'sodass', 'weil', 'ob'],
+            'The network was so slow that the video conference broke off.',
+            'so + adjective … dass; sodass is written as one word without so before the adjective.',
+          ),
+          gap(
+            'r3',
+            'Er war dermaßen abgelenkt, ___ er den Termin vergaß.',
+            'dass',
+            ['dass', 'als', 'wenn', 'damit'],
+            'He was so distracted that he forgot the appointment.',
+          ),
+          gap(
+            'r4',
+            'Die Daten fehlen. ___ lässt sich nichts beweisen.',
+            'Folglich',
+            ['Folglich', 'Sodass', 'Obwohl', 'Damit'],
+            'The data are missing. Consequently nothing can be proved.',
+            'folglich is an adverb: it takes position 1 and the verb comes second.',
+          ),
+          gap(
+            'r5',
+            'Das System wurde gehackt. ___ blieb die Bank geschlossen.',
+            'Infolgedessen',
+            ['Infolgedessen', 'Sodass', 'Weil', 'Dass'],
+            'The system was hacked. As a result the bank stayed closed.',
+          ),
+          gap(
+            'r6',
+            'Die Kosten sind gesunken. ___ wird die Technik erschwinglich.',
+            'Somit',
+            ['Somit', 'Sodass', 'Zumal', 'Dass'],
+            'Costs have fallen. Thus the technology becomes affordable.',
+          ),
+          typed(
+            'r7',
+            'Er telefonierte derart laut, ___ alle im Zug zuhörten.',
+            'dass',
+            'He phoned so loudly that everybody on the train listened.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-result',
+      'sortit',
+      meta(
+        'Verb last or verb second?',
+        'Result clause or result connector?',
+        ['grammar', 'c21-consecutive'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'Where does the finite verb stand after the connector?',
+        buckets: [
+          { id: 'sub', label: 'Subordinate clause (verb last)', emoji: '🔚' },
+          { id: 'main', label: 'Main-clause connector (verb second)', emoji: '2️⃣' },
+        ],
+        items: sortItems('s', [
+          ['Der Server fiel aus, sodass niemand arbeiten konnte.', 'sub'],
+          ['Das Netz war so langsam, dass die Konferenz abbrach.', 'sub'],
+          ['Er war dermaßen müde, dass er einschlief.', 'sub'],
+          ['Die Daten fehlen. Folglich lässt sich nichts beweisen.', 'main'],
+          ['Das System wurde gehackt. Infolgedessen blieb die Bank zu.', 'main'],
+          ['Die Kosten sind gesunken. Somit wird die Technik billiger.', 'main'],
+          ['Es gab ein Datenleck. Daher mussten alle Passwörter erneuert werden.', 'main'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'conj-futur2',
+      'conjugation',
+      meta(
+        'ich werde gemacht haben …',
+        'Futur II = werden + participle + haben/sein.',
+        ['grammar', 'c21-futur-2'],
+        3,
+        5,
+      ),
+      {
+        tables: [
+          futur2Table('gelöst', 'haben', 'will have solved', ['ich', 'du', 'wir']),
+          futur2Table('gekommen', 'sein', 'will have come', ['du', 'er/sie/es', 'ihr']),
+          futur2Table('abgeschlossen', 'haben', 'will have completed', [
+            'ich',
+            'er/sie/es',
+            'sie/Sie',
+          ]),
+          futur2Table('gesunken', 'sein', 'will have fallen', ['wir', 'ihr', 'sie/Sie']),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-futur2',
+      'gapfill',
+      meta(
+        'Bis 2040 werden wir … haben',
+        'Futur II: completed by then, or a guess about the past.',
+        ['grammar', 'c21-futur-2'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'f1',
+            'Bis 2040 werden wir viele Prozesse digitalisiert ___.',
+            'haben',
+            ['haben', 'sein', 'werden', 'gehabt'],
+            'By 2040 we will have digitised many processes.',
+            'Futur II: werden + participle + haben/sein at the very end.',
+          ),
+          gap(
+            'f2',
+            'Bis Freitag ___ ich den Bericht geschrieben haben.',
+            'werde',
+            ['werde', 'würde', 'wurde', 'bin'],
+            'By Friday I will have written the report.',
+          ),
+          gap(
+            'f3',
+            'Sie ___ den Zug verpasst haben, sonst wäre sie längst da.',
+            'wird',
+            ['wird', 'werde', 'würde', 'hat'],
+            'She will have missed the train, otherwise she would be here by now.',
+            'Futur II also expresses a guess about the past.',
+          ),
+          gap(
+            'f4',
+            'In zehn Jahren wird sich vieles verändert ___.',
+            'haben',
+            ['haben', 'sein', 'worden', 'werden'],
+            'In ten years a lot will have changed.',
+            'sich verändern forms the Perfekt with haben.',
+          ),
+          gap(
+            'f5',
+            'Er wird schon nach Hause ___ sein.',
+            'gegangen',
+            ['gegangen', 'gehen', 'ging', 'gegeben'],
+            'He will have gone home by now.',
+          ),
+          gap(
+            'f6',
+            'Morgen um diese Zeit ___ wir schon in Wien angekommen sein.',
+            'werden',
+            ['werden', 'wird', 'würden', 'sind'],
+            'This time tomorrow we will already have arrived in Vienna.',
+          ),
+          gap(
+            'f7',
+            'Das Datenleck wird längst bemerkt worden ___.',
+            'sein',
+            ['sein', 'haben', 'werden', 'geworden'],
+            'The data leak will long since have been noticed.',
+            'Passive in Futur II: participle + worden sein.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'The digital future',
+        'Build sentences with result clauses and Futur II.',
+        ['grammar', 'word-order', 'c21-consecutive', 'c21-futur-2'],
+        3,
+        7,
+        // two grammar points: items name their lesson through the activity-level lesson
+      ),
+      {
+        items: [
+          sw(
+            's1',
+            'The network was so slow that the conference broke off.',
+            'Das Netz war so langsam, dass die Konferenz abbrach.',
+          ),
+          sw(
+            's2',
+            'By then, the new technology will have prevailed.',
+            'Bis dahin wird sich die neue Technik durchgesetzt haben.',
+          ),
+          sw(
+            's3',
+            'The costs fell, so the technology became affordable.',
+            'Die Kosten sanken, sodass die Technik erschwinglich wurde.',
+          ),
+          sw(
+            's4',
+            'The data are missing; consequently nothing can be proved.',
+            'Die Daten fehlen; folglich lässt sich nichts beweisen.',
+          ),
+          sw(
+            's5',
+            'She will have forgotten the password.',
+            'Sie wird das Passwort vergessen haben.',
+          ),
+          sw(
+            's6',
+            'By the end of the year we will have completed the migration.',
+            'Bis Jahresende werden wir die Umstellung abgeschlossen haben.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-news',
+      'listen',
+      meta(
+        'Tech news',
+        'Understand statements about the digital future.',
+        ['listening', 'c21-digital-life', 'c21-futur-2'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Bis zum Jahr 2035 wird sich der Online-Handel verdoppelt haben.',
+            'By 2035 online trade will have doubled.',
+            [
+              'In 2035 online trade will be ending.',
+              'Online trade doubled in 2035.',
+              'Online trade will never double.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Die Angreifer müssen das Datenleck monatelang genutzt haben.',
+            'The attackers must have used the data leak for months.',
+            [
+              'The attackers will use the data leak next month.',
+              'The data leak was closed after a month.',
+              'Nobody used the data leak.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Das Netz brach zusammen, sodass viele Kunden nicht bezahlen konnten.',
+            'The network collapsed, so many customers could not pay.',
+            [
+              'The network collapsed because customers could not pay.',
+              'Many customers paid although the network collapsed.',
+              'The network was repaired so customers could pay.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Wer ständig erreichbar ist, bemerkt die Ablenkung oft gar nicht mehr.',
+            'Those who are constantly reachable often no longer notice the distraction.',
+            [
+              'Those who are reachable are never distracted.',
+              'Distraction only affects people who are offline.',
+              'People notice every distraction immediately.',
+            ],
+          ),
+          heard(
+            'l5',
+            'Die Verschlüsselung wird zwangsläufig wichtiger werden.',
+            'Encryption will inevitably become more important.',
+            [
+              'Encryption has become less important.',
+              'Encryption is forbidden by law.',
+              'Encryption will disappear soon.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'Pros and cons online',
+        'Discuss risks and consequences of digitalisation.',
+        ['communication', 'c21-digital-life', 'c21-consecutive'],
+        3,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'risks',
+            title: 'Datenschutz im Alltag',
+            emoji: '🔒',
+            setting: 'You talk to a colleague after a data leak.',
+            turns: [
+              say(
+                'Mara',
+                'Hast du gehört? Bei unserem Anbieter gab es ein Datenleck.',
+                'Have you heard? There was a data leak at our provider.',
+              ),
+              you(
+                'Ja, die Passwörter lagen offen, sodass jeder sie lesen konnte.',
+                [
+                  'Ja, die Passwörter lagen offen, sodass konnte jeder sie lesen.',
+                  'sodass starts a subordinate clause: the verb goes to the end.',
+                ],
+                [
+                  'Ja, die Passwörter lagen offen, folglich jeder sie lesen konnte.',
+                  'folglich takes the verb second.',
+                ],
+              ),
+              say('Mara', 'Und was machen wir jetzt?', 'And what do we do now?'),
+              you(
+                'Wir ändern alle Zugangsdaten. Somit ist das Risiko vorerst gebannt.',
+                [
+                  'Wir ändern alle Zugangsdaten. Somit das Risiko ist vorerst gebannt.',
+                  'After somit the verb comes second.',
+                ],
+                ['Das hilft ja doch nichts.', 'Defeatist and not constructive.'],
+              ),
+            ],
+          },
+          {
+            id: 'future',
+            title: 'Wie wird unsere Arbeit in zehn Jahren aussehen?',
+            emoji: '🔭',
+            setting: 'A team lunch, the topic is the future of work.',
+            turns: [
+              say(
+                'Leon',
+                'Glaubst du, dass Büros dann überflüssig sind?',
+                'Do you think offices will be superfluous by then?',
+              ),
+              you(
+                'Bis dahin werden sich viele Arbeitsplätze nach Hause verlagert haben.',
+                [
+                  'Bis dahin werden sich viele Arbeitsplätze nach Hause verlagert sein.',
+                  'sich verlagern forms its perfect with haben.',
+                ],
+                [
+                  'Bis dahin haben sich viele Arbeitsplätze werden verlagert.',
+                  'Futur II: werden … verlagert haben.',
+                ],
+              ),
+              say('Leon', 'Und die Städte?', 'And the cities?'),
+              you(
+                'Die werden sich wohl stark gewandelt haben.',
+                [
+                  'Die werden sich wohl stark gewandelt.',
+                  'The auxiliary haben is missing at the end.',
+                ],
+                [
+                  'Die haben sich wohl stark wird gewandelt.',
+                  'Futur II needs werden in position 2.',
+                ],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'Digital blitz',
+        'Result clauses and Futur II – true or false?',
+        ['grammar', 'c21-consecutive', 'c21-futur-2'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Das Netz fiel aus, sodass niemand arbeiten konnte.', true),
+          tf(
+            'b2',
+            'Das Netz fiel aus, sodass niemand konnte arbeiten.',
+            false,
+            'The verb goes to the end.',
+          ),
+          tf('b3', 'Nach „folglich“ steht das Verb an zweiter Stelle.', true),
+          tf('b4', 'Bis 2040 werden wir viel erreicht haben.', true),
+          tf('b5', 'Bis 2040 werden wir viel erreicht sein.', false, 'erreichen takes haben.'),
+          tf(
+            'b6',
+            'Er wird den Termin vergessen haben, kann ein Futur II der Vermutung sein.',
+            true,
+          ),
+          tf('b7', 'Futur II bildet man mit werden + Infinitiv.', false, 'That is Futur I.'),
+          tf('b8', 'Ein Meilenstein ist ein wichtiger Schritt in einer Entwicklung.', true),
+          tf('b9', 'Zwangsläufig bedeutet „freiwillig“.', false, 'It means inevitably.'),
+          tf('b10', 'Wer analog arbeitet, benutzt keine digitale Technik.', true),
+          tf('b11', 'Ein Vorreiter folgt den anderen.', false, 'A pioneer goes first.'),
+          tf('b12', 'Die Verschlüsselung schützt Daten.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Digital words, result clauses and Futur II in one round.',
+        ['vocabulary', 'grammar', 'c21-digital-life'],
+        3,
+        6,
+      ),
+      {
+        questions: [
+          q('c1', 'Es regnete so stark, ___ die Straße überflutet wurde.', 'dass', [
+            'sodass',
+            'weil',
+            'ob',
+          ]),
+          q('c2', 'Die Preise sanken. ___ stieg die Nachfrage.', 'Folglich', [
+            'Sodass',
+            'Dass',
+            'Obwohl',
+          ]),
+          q('c3', 'Bis Montag werde ich es erledigt ___.', 'haben', ['sein', 'worden', 'werden']),
+          q('c4', 'Sie wird schon abgereist ___.', 'sein', ['haben', 'werden', 'worden']),
+          q('c5', 'Er wird die Mail wohl übersehen ___.', 'haben', ['sein', 'werden', 'worden']),
+          q('c6', 'die Reizüberflutung', 'sensory overload', [
+            'surveillance',
+            'distraction',
+            'dependence',
+          ]),
+          q('c7', 'der Durchbruch', 'breakthrough', ['milestone', 'upheaval', 'pioneer']),
+          q('c8', 'schlagartig', 'suddenly', ['gradually', 'inevitably', 'probably']),
+          q('c9', 'sich etablieren', 'to establish itself', [
+            'to digitise',
+            'to monitor',
+            'to bring about',
+          ]),
+          q('c10', 'Welches Wort ist das Gegenteil von „analog“?', 'digital', [
+            'allmählich',
+            'allgegenwärtig',
+            'vernetzt',
+          ]),
+        ],
+      },
+    ),
+  ],
+};

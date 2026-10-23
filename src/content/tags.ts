@@ -70,6 +70,16 @@ export const TAGS = {
   'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
   environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
   'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
+  // topics – C2.1
+  'c21-language-style': { label: 'Language, style & nuance', group: 'topic', emoji: '🖋️' },
+  'c21-working-world': { label: 'Working life today', group: 'topic', emoji: '🏢' },
+  'c21-economy': { label: 'Money & economy', group: 'topic', emoji: '📊' },
+  'c21-digital-life': { label: 'Digitalisation', group: 'topic', emoji: '🌐' },
+  'c21-ai-research': { label: 'AI & research', group: 'topic', emoji: '🧪' },
+  'c21-medicine': { label: 'Medicine & health systems', group: 'topic', emoji: '⚕️' },
+  'c21-wellbeing': { label: 'Mind & wellbeing', group: 'topic', emoji: '🧘' },
+  'c21-media-opinion': { label: 'Media & public opinion', group: 'topic', emoji: '📰' },
+  'c21-debate': { label: 'Debate & presentations', group: 'topic', emoji: '🎤' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -128,6 +138,25 @@ export const TAGS = {
   'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
+  // grammar points – C2.1
+  'c21-word-formation': {
+    label: 'Suffixes & prefixes (-bar, -los, un-)',
+    group: 'grammar',
+    emoji: '🧬',
+  },
+  'c21-noun-verb': { label: 'Noun-verb combinations', group: 'grammar', emoji: '🧩' },
+  'c21-contrast-cause': { label: 'während / zumal / dadurch dass', group: 'grammar', emoji: '⚖️' },
+  'c21-consecutive': { label: 'sodass / so … dass / folglich', group: 'grammar', emoji: '⛓️' },
+  'c21-futur-2': { label: 'Futur II', group: 'grammar', emoji: '🔭' },
+  'c21-reported-speech': { label: 'Konjunktiv I (reported speech)', group: 'grammar', emoji: '🗞️' },
+  'c21-modal-clauses': { label: 'indem / ohne dass / je … desto', group: 'grammar', emoji: '🛠️' },
+  'c21-unreal': { label: 'als ob / unreal comparisons & hindsight', group: 'grammar', emoji: '🪞' },
+  'c21-text-cohesion': {
+    label: 'dabei / dadurch / zudem (cohesion)',
+    group: 'grammar',
+    emoji: '🧵',
+  },
+  'c21-concession': { label: 'wenngleich / so … auch / allerdings', group: 'grammar', emoji: '🤔' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;
