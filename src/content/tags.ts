@@ -70,6 +70,16 @@ export const TAGS = {
   'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
   environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
   'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
+  // topics – C2.2
+  'c22-art': { label: 'Art & aesthetics', group: 'topic', emoji: '🖼️' },
+  'c22-literature': { label: 'Literature & reviews', group: 'topic', emoji: '📖' },
+  'c22-heritage': { label: 'Culture, history & rituals', group: 'topic', emoji: '🏛️' },
+  'c22-law': { label: 'Law & justice', group: 'topic', emoji: '⚖️' },
+  'c22-politics': { label: 'State & politics', group: 'topic', emoji: '🗳️' },
+  'c22-civic': { label: 'Civil society & volunteering', group: 'topic', emoji: '🙌' },
+  'c22-climate': { label: 'Globalisation, climate & nature', group: 'topic', emoji: '🌍' },
+  'c22-nuance': { label: 'Idioms, irony & nuance', group: 'topic', emoji: '🎭' },
+  'c22-stance': { label: 'Taking a stance', group: 'topic', emoji: '🧭' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -128,6 +138,27 @@ export const TAGS = {
   'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
+  // grammar points – C2.2
+  'c22-participial-attributes': {
+    label: 'Participles before nouns',
+    group: 'grammar',
+    emoji: '📐',
+  },
+  'c22-subjective-modals': { label: 'Subjective modal verbs', group: 'grammar', emoji: '🕵️' },
+  'c22-passive-forms': {
+    label: 'Passive in all tenses, Zustandspassiv',
+    group: 'grammar',
+    emoji: '🔁',
+  },
+  'c22-gerundive': { label: 'zu + Partizip I (Gerundiv)', group: 'grammar', emoji: '📏' },
+  'c22-formal-genitive': {
+    label: 'angesichts / infolge / seitens …',
+    group: 'grammar',
+    emoji: '📜',
+  },
+  'c22-prefix-verbs': { label: 'übersetzen or übersetzen?', group: 'grammar', emoji: '🔧' },
+  'c22-passive-alternatives': { label: 'Replacing the passive', group: 'grammar', emoji: '🔀' },
+  'c22-nuance-particles': { label: 'Modal particles & adverbs', group: 'grammar', emoji: '🎚️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

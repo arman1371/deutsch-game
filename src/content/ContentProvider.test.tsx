@@ -99,6 +99,7 @@ describe('level catalogue', () => {
     expect(getLevelMeta('a2-2')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('b1-1')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('b1-2')?.status).toBe('coming-soon');
+    expect(getLevelMeta('c2-2')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('nope')).toBeUndefined();
     for (const l of LEVELS) expect(Boolean(l.load)).toBe(l.status === 'available');
   });

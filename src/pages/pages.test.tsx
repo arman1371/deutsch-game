@@ -4,6 +4,7 @@ import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
 import a22 from '@/content/a2-2';
 import b11 from '@/content/b1-1';
+import c22 from '@/content/c2-2';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
@@ -31,6 +32,9 @@ describe('Home', () => {
     );
     expect(screen.getByTestId('level-b1-1')).toHaveTextContent(
       '0 / ' + b11.activities.length + ' games',
+    );
+    expect(screen.getByTestId('level-c2-2')).toHaveTextContent(
+      '0 / ' + c22.activities.length + ' games',
     );
     for (const soon of ['B1.2']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
@@ -257,6 +261,34 @@ describe('Level B1.1', () => {
     expect(screen.getByRole('button', { name: 'B1.1' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: /Glück im Alltag/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Lernen & Prüfungen/ })).not.toBeInTheDocument();
+  }, 30_000);
+});
+
+describe('Level C2.2', () => {
+  it('walks Home → C2.2 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-c2-2'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(c22.units.length);
+    expect(within(units).queryByTestId('unit-b1-1-glueck')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-c2-2-kunst'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(screen.getByRole('heading', { level: 1, name: 'Kunst & Ästhetik' })).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(c22.activities.filter((a) => a.unitId === 'c2-2-kunst').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('filters the library by the C2.2 level and only offers its units', async () => {
+    renderApp('/library?lvl=c2-2');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${c22.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'C2.2' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Kunst & Ästhetik/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Glück im Alltag/ })).not.toBeInTheDocument();
   }, 30_000);
 });
 
