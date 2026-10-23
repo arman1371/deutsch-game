@@ -16,7 +16,7 @@ read it, so it should always match the code.
 
 PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. It never
 loops: the bot commit only changes `graphify-out/`, which both this workflow and CI ignore (`paths-ignore`),
-and the run also stops if the head commit is the bot commit. Runs queue one at a time.
+and the run also stops if the head commit is the bot commit. A newer push cancels a still-running older run (each run builds from the latest `main`, so nothing is lost).
 
 Committed: `graph.json` and `GRAPH_REPORT.md`; everything else in `graphify-out/` is ignored (see `.gitignore`).
 
