@@ -407,6 +407,105 @@ export const LESSONS = {
       'Wenn ich das gewusst hätte, wäre ich gekommen.',
     ],
   },
+  'nominal-style': {
+    title: 'Nominal and verbal style',
+    rule: 'Written German often turns a clause into a noun phrase: weil er krank war → wegen seiner Krankheit, wenn man spart → beim Sparen, nachdem er gekommen war → nach seiner Ankunft. Nouns come with a preposition (or a genitive) and often a light verb (zur Verfügung stellen).',
+    examples: [
+      'Weil die Preise steigen → Aufgrund steigender Preise',
+      'Wenn man Schulden hat → Bei Schulden',
+      'Er entschied sich → Er traf eine Entscheidung.',
+    ],
+  },
+  'passive-substitutes': {
+    title: 'Passive substitutes',
+    rule: 'Instead of werden + participle, German uses: sein + zu + infinitive (Das ist zu beweisen = kann bewiesen werden), -bar / -lich adjectives (lösbar), sich lassen + infinitive (Das lässt sich lösen), bekommen + participle (Er bekam das Geld überwiesen) and the gerundive (die zu lösende Aufgabe).',
+    examples: [
+      'Der Fehler ist leicht zu beheben. = kann leicht behoben werden',
+      'Das Problem lässt sich nicht lösen.',
+      'Sie bekommt die Rechnung zugeschickt.',
+    ],
+  },
+  'subjective-modals': {
+    title: 'Subjective modal verbs',
+    rule: 'With a different meaning the modal verb reports or guesses: er soll reich sein = it is said that he is; er will es gesehen haben = he claims to; er muss krank sein = surely; er dürfte krank sein = probably; er kann krank sein = possibly. For the past: modal + Partizip II + haben/sein.',
+    examples: [
+      'Der Täter soll geflohen sein.',
+      'Sie will nichts gewusst haben.',
+      'Es muss geregnet haben.',
+    ],
+  },
+  'participial-clauses': {
+    title: 'Participles and participial clauses',
+    rule: 'The present participle (-d) describes an ongoing action, the past participle a finished one or a passive meaning: die steigenden Preise, das gelöste Problem. An extended attribute puts everything between article and noun: die von der Bank gewährte Hilfe. A participial phrase can also replace a clause: Am Ziel angekommen, ruhte er sich aus.',
+    examples: [
+      'die wachsende Stadt · das gelöste Rätsel',
+      'der von Forschern entwickelte Test',
+      'Müde vom Tag, ging sie früh ins Bett.',
+    ],
+  },
+  'written-prepositions': {
+    title: 'aufgrund, infolge, anhand …',
+    rule: 'Formal German uses prepositions with the genitive: aufgrund, infolge, angesichts, anlässlich, bezüglich, hinsichtlich, mithilfe, anhand, zugunsten, seitens, innerhalb, außerhalb, oberhalb, unterhalb. After them the noun is genitive: des/der + noun (-(e)s for masculine and neuter).',
+    examples: [
+      'Aufgrund des Regens fiel das Fest aus.',
+      'Anhand der Daten lässt sich das belegen.',
+      'Hinsichtlich der Kosten gibt es keine Bedenken.',
+    ],
+  },
+  'advanced-connectors': {
+    title: 'Advanced connectors',
+    rule: 'Adverbs like allerdings, vielmehr, folglich, andernfalls, infolgedessen, mittlerweile take position 1 and the verb follows. Conjunctions like sofern, falls, wenngleich, indem, sodass, ohne dass, dadurch, dass send the verb to the end of their clause.',
+    examples: [
+      'Das Angebot ist gut; allerdings ist es teuer.',
+      'Sofern es Ihnen passt, kommen wir morgen.',
+      'Sie sparte, indem sie auf das Auto verzichtete.',
+    ],
+  },
+  'adjective-complements': {
+    title: 'Adjectives with prepositions',
+    rule: 'Many adjectives and participles need a fixed preposition and a case, just like verbs: stolz auf (+ Akk.), abhängig von (+ Dat.), angewiesen auf (+ Akk.), bereit zu (+ Dat.), überzeugt von (+ Dat.). Learn them with the case; with a clause use da(r)- + preposition: Ich bin stolz darauf, dass …',
+    examples: [
+      'Sie ist stolz auf ihre Arbeit.',
+      'Wir sind darauf angewiesen, dass alle mithelfen.',
+      'Er ist von dem Plan überzeugt.',
+    ],
+  },
+  'infinitive-perfect': {
+    title: 'Infinitive in the past',
+    rule: 'To say that an action in the infinitive clause happened earlier, use the Partizip II + haben or sein + zu at the end: ohne gefragt zu haben, (an)statt gekommen zu sein, Er behauptet, das Buch gelesen zu haben.',
+    examples: [
+      'Er ging, ohne sich verabschiedet zu haben.',
+      'Sie behauptet, nie dort gewesen zu sein.',
+      'Ich bin froh, dich getroffen zu haben.',
+    ],
+  },
+  'modality-verbs': {
+    title: 'Modality verbs with zu',
+    rule: 'Some verbs behave like modal verbs but take an infinitive with zu: scheinen zu (seem), drohen zu (threaten), pflegen zu (usually do), vermögen zu (be able), haben zu / sein zu (must / can be). The past is formed with the infinitive in the past: Er scheint gegangen zu sein.',
+    examples: [
+      'Das Projekt droht zu scheitern.',
+      'Er pflegt montags früh zu kommen.',
+      'Sie scheint die Aufgabe verstanden zu haben.',
+    ],
+  },
+  'conditional-clauses': {
+    title: 'Conditions without wenn',
+    rule: 'A condition can be expressed by moving the verb to position 1: Sollte es Probleme geben, … (if there should be) · Hätte ich Zeit, würde ich helfen. · Wäre er pünktlich gewesen, … Other links: es sei denn, (dass) (unless), vorausgesetzt, (dass) (provided that), selbst wenn (even if).',
+    examples: [
+      'Sollte es Probleme geben, rufen Sie an.',
+      'Hätte ich Zeit gehabt, wäre ich gekommen.',
+      'Wir beginnen pünktlich, es sei denn, der Chef verspätet sich.',
+    ],
+  },
+  'quantities-graphs': {
+    title: 'Describing numbers and graphs',
+    rule: 'Shares: die Hälfte, ein Drittel, jeder Vierte. Approximation: rund, knapp, etwa, über. Change: steigen / sinken um (the difference) or auf (the new value), von … auf …; sich verdoppeln. Comparison: im Vergleich zu (+ Dat.), doppelt so hoch wie.',
+    examples: [
+      'Der Anteil stieg von 5 % auf 12 %.',
+      'Die Zahl wuchs um 20 %.',
+      'Knapp ein Drittel der Betriebe arbeitet ökologisch.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
