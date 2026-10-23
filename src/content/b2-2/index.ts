@@ -4,8 +4,11 @@ import { ernaehrung } from './u2-ernaehrung';
 import { studium } from './u3-studium';
 import { service2 } from './u4-service';
 import { gesundheit } from './u5-gesundheit';
+import { sprache } from './u6-sprache';
+import { wirtschaft } from './u7-wirtschaft';
+import { kunst } from './u8-kunst';
 
-const units = [beziehungen, ernaehrung, studium, service2, gesundheit];
+const units = [beziehungen, ernaehrung, studium, service2, gesundheit, sprache, wirtschaft, kunst];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
