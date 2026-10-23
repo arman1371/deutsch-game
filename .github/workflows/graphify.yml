@@ -1,0 +1,69 @@
+name: Graphify
+# Keeps the committed knowledge graph (graphify-out/) in sync with the code on every PR:
+# runs `graphify update .` on the PR branch and pushes a bot commit when the graph changed.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: graphify-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  update:
+    name: Update graph
+    runs-on: ubuntu-latest
+    # Fork / Dependabot PRs get a read-only token and no secrets, so nothing could be pushed back.
+    if: >-
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.actor != 'dependabot[bot]'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          # A PAT / app token makes the bot push trigger CI, SonarCloud and the preview again;
+          # pushes made with the default GITHUB_TOKEN start no workflows (see docs/graphify.md).
+          token: ${{ secrets.GRAPHIFY_TOKEN || github.token }}
+      - name: Skip graph-only commits
+        id: guard
+        run: |
+          if [ "$(git log -1 --format=%s)" = "chore(graph): graphify update" ]; then
+            echo "Head commit is the bot's own graph update – nothing to do."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.skip != 'true'
+        with: { python-version: '3.13' }
+      - name: Install Graphify
+        if: steps.guard.outputs.skip != 'true'
+        # Pinned so the output is reproducible; bump together with the local install.
+        run: pip install graphifyy==0.9.95
+      - name: graphify update .
+        if: steps.guard.outputs.skip != 'true'
+        # CI always starts without cache/manifest, so force the write even when a PR deletes code
+        # (Graphify otherwise refuses to replace graph.json with a smaller graph).
+        env: { GRAPHIFY_FORCE: '1' }
+        run: graphify update .
+      - name: Commit graph if it changed
+        if: steps.guard.outputs.skip != 'true'
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HAS_PAT: ${{ secrets.GRAPHIFY_TOKEN != '' }}
+        run: |
+          if ! .github/scripts/graph-changed.sh; then
+            echo "Graph is up to date."
+            git checkout -- graphify-out
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add graphify-out
+          git commit -m 'chore(graph): graphify update'
+          # A newer push to the branch cancels this run via `concurrency`; if we still lose the race,
+          # the run for that newer push updates the graph instead.
+          git push origin "HEAD:$HEAD_REF" || { echo "::warning::Branch moved on, graph not pushed."; exit 0; }
+          if [ "$HAS_PAT" != 'true' ]; then
+            echo "::warning::Pushed with GITHUB_TOKEN, so CI did not re-run on the graph commit. Add a GRAPHIFY_TOKEN secret (see docs/graphify.md)."
+          fi

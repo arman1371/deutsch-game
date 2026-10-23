@@ -6,3 +6,8 @@ test-results
 *.local
 .DS_Store
 dev-dist
+# Graphify: commit the graph, not the local caches (see docs/graphify.md)
+graphify-out/cache/
+graphify-out/manifest.json
+graphify-out/cost.json
+graphify-out/*.pending.json

@@ -49,6 +49,12 @@ Chromium set `PW_CHROMIUM_PATH=/path/to/chrome` instead.
 CI runs a SonarQube Cloud analysis with unit-test coverage on every PR and fails when the quality gate
 is red. Setup and the manual steps are in [docs/code-quality.md](docs/code-quality.md).
 
+## Code graph (Graphify)
+
+`graphify-out/` holds a [Graphify](https://github.com/Graphify-Labs/graphify) knowledge graph of the code.
+A workflow runs `graphify update .` on every PR and commits the refreshed graph to the PR branch; see
+[docs/graphify.md](docs/graphify.md).
+
 ## Hosting: Cloudflare Pages (free)
 
 See [docs/deployment.md](docs/deployment.md) for the full reasoning and steps. Short version:
