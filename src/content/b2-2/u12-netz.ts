@@ -1,0 +1,827 @@
+import {
+  byDe,
+  flashcards,
+  listen,
+  memory,
+  quizDeEn,
+  quizEmoji,
+  spell,
+  vocabList,
+} from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  hint,
+  meta,
+  q,
+  say,
+  sent,
+  sortItems,
+  tf,
+  typed,
+  unitB22,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'b2-2-netz';
+
+const law = vocabList(U, 'Crime & rights online', [
+  ['Straftat', 'criminal offence', '🚨', 'die', 'Straftaten'],
+  ['Cybermobbing', 'cyberbullying', '😢', 'das'],
+  ['Urheberrecht', 'copyright', '©️', 'das'],
+  ['Plagiat', 'plagiarism', '📄', 'das', 'Plagiate'],
+  ['Ghostwriter', 'ghostwriter', '👻', 'der', 'Ghostwriter'],
+  ['Betrug', 'fraud', '🎭', 'der'],
+  ['Phishing', 'phishing', '🎣', 'das'],
+  ['Identitätsdiebstahl', 'identity theft', '🪪', 'der'],
+  ['Hassrede', 'hate speech', '🤬', 'die'],
+  ['Verleumdung', 'slander, defamation', '🗯️', 'die', 'Verleumdungen'],
+  ['Persönlichkeitsrecht', 'personal rights', '🔒', 'das', 'Persönlichkeitsrechte'],
+  ['Haftung', 'liability', '🧾', 'die'],
+  ['haften', 'to be liable', '📎'],
+  ['strafbar', 'punishable by law', '⛔'],
+  ['rechtswidrig', 'unlawful', '🚷'],
+  ['Bußgeld', 'fine', '💶', 'das', 'Bußgelder'],
+  ['Verstoß', 'violation', '🚩', 'der', 'Verstöße'],
+  ['Ermittlung', 'investigation', '🕵️', 'die', 'Ermittlungen'],
+  ['Beweis', 'proof, evidence', '🧩', 'der', 'Beweise'],
+  ['Schadsoftware', 'malware', '🦠', 'die'],
+  ['Sicherheitslücke', 'security hole', '🕳️', 'die', 'Sicherheitslücken'],
+  ['Datenleck', 'data leak', '💧', 'das', 'Datenlecks'],
+  ['Verschlüsselung', 'encryption', '🔐', 'die'],
+]);
+
+const media = vocabList(U, 'Media & information', [
+  ['Desinformation', 'disinformation', '📰', 'die'],
+  ['Falschmeldung', 'false report', '🚫', 'die', 'Falschmeldungen'],
+  ['Faktencheck', 'fact check', '✔️', 'der', 'Faktenchecks'],
+  ['Glaubwürdigkeit', 'credibility', '🏅', 'die'],
+  ['Filterblase', 'filter bubble', '🫧', 'die', 'Filterblasen'],
+  ['Algorithmus', 'algorithm', '🧬', 'der', 'Algorithmen'],
+  ['Datenspeicherung', 'data storage', '💾', 'die'],
+  ['Pressefreiheit', 'freedom of the press', '🗞️', 'die'],
+  ['Hackerangriff', 'hacker attack', '💻', 'der', 'Hackerangriffe'],
+  ['Überwachung', 'surveillance', '👁️', 'die'],
+  ['Influencer', 'influencer', '🤳', 'der', 'Influencer'],
+  ['Reichweite', 'reach', '📡', 'die'],
+  ['Schleichwerbung', 'hidden advertising', '🕶️', 'die'],
+  ['Verbraucherschutz', 'consumer protection', '🛡️', 'der'],
+  ['Quellenangabe', 'source reference', '📚', 'die', 'Quellenangaben'],
+  ['verbreiten', 'to spread', '📢'],
+  ['manipulieren', 'to manipulate', '🎛️'],
+  ['Einwilligung', 'consent', '🤚', 'die'],
+]);
+
+const vocab = [...law, ...media];
+
+export const netz: UnitContent = {
+  unit: unitB22({
+    id: U,
+    order: 12,
+    title: 'Medien, Netz & Recht',
+    subtitle: 'Fake news, phishing, plagiarism, copyright and guessing what must have happened',
+    emoji: '🔐',
+    goals: [
+      'Discuss dangers, crime and rights on the internet',
+      'Judge the credibility of news and sources',
+      'Express certainty, probability and doubt about events with modal verbs',
+    ],
+    grammar: [
+      'Modal verbs for assumptions: Das muss ein Betrug sein. Das dürfte strafbar sein. Das könnte Phishing sein.',
+      'Impossibility: Das kann nicht stimmen. Das kann kein Zufall sein.',
+      'Assumptions about the past with the perfect infinitive: Er muss das Passwort vergessen haben. Sie dürfte schon abgereist sein.',
+    ],
+    vocabFields: ['Crime & rights online', 'Media & information'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-law',
+      'flashcards',
+      meta(
+        'Crime & rights online',
+        'Straftat, Urheberrecht, Phishing – what happens on the internet.',
+        ['vocabulary', 'media-law'],
+        1,
+        5,
+      ),
+      flashcards(law),
+    ),
+    activity(
+      U,
+      'flash-media',
+      'flashcards',
+      meta(
+        'Media & information',
+        'Desinformation, Filterblase, Pressefreiheit – news in the digital age.',
+        ['vocabulary', 'media-law'],
+        1,
+        5,
+      ),
+      flashcards(media),
+    ),
+    activity(
+      U,
+      'quiz-pictures',
+      'quiz',
+      meta('The net in pictures', 'Name what you see.', ['vocabulary', 'media-law'], 1, 4),
+      quizEmoji(
+        byDe(
+          vocab,
+          'Straftat',
+          'Phishing',
+          'Ghostwriter',
+          'Schadsoftware',
+          'Verschlüsselung',
+          'Influencer',
+          'Hackerangriff',
+          'Überwachung',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'quiz-words',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'Media and law words in English.',
+        ['vocabulary', 'media-law'],
+        2,
+        4,
+      ),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Urheberrecht',
+          'Verleumdung',
+          'Haftung',
+          'Bußgeld',
+          'Datenleck',
+          'Faktencheck',
+          'Reichweite',
+          'Schleichwerbung',
+          'Quellenangabe',
+          'Einwilligung',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-law',
+      'memory',
+      meta(
+        'Match the legal words',
+        'Pair German words about crime and rights with their meaning.',
+        ['vocabulary', 'media-law'],
+        2,
+        4,
+      ),
+      memory(byDe(law, 'Betrug', 'Beweis', 'Ermittlung', 'strafbar', 'rechtswidrig', 'Verstoß')),
+    ),
+    activity(
+      U,
+      'listen-words',
+      'listen',
+      meta(
+        'Hear the media words',
+        'Listen and pick the meaning.',
+        ['listening', 'media-law'],
+        2,
+        4,
+      ),
+      listen(
+        byDe(
+          vocab,
+          'Identitätsdiebstahl',
+          'Hassrede',
+          'Persönlichkeitsrecht',
+          'Sicherheitslücke',
+          'Glaubwürdigkeit',
+          'manipulieren',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'spell-words',
+      'spell',
+      meta(
+        'Spell the media words',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'media-law'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(law, 'Betrug', 'Plagiat'), 'unscramble').items,
+          ...spell(byDe(media, 'Hackerangriff'), 'unscramble').items,
+          ...spell(byDe(law, 'Beweis', 'Straftat'), 'type').items,
+          ...spell(byDe(media, 'Filterblase'), 'type').items,
+          dictation('d1', 'Das kann kein Zufall sein.', 'That cannot be a coincidence.'),
+          dictation(
+            'd2',
+            'Er muss das Passwort verraten haben.',
+            'He must have given away the password.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-modal-assumption',
+      'gapfill',
+      meta(
+        'Das muss Betrug sein',
+        'muss, dürfte, könnte, kann nicht – how sure are you?',
+        ['grammar', 'modal-assumption', 'media-law'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          hint(
+            gap(
+              'm1',
+              'Das ___ ein Betrug sein. Ich bin mir ganz sicher.',
+              'muss',
+              ['muss', 'darf', 'soll', 'will'],
+              'That must be fraud. I am quite sure.',
+              'muss + Infinitiv = sure conclusion',
+            ),
+            {
+              darf: 'darf means permission, not an assumption.',
+              soll: 'soll passes on what others say; here you draw your own conclusion.',
+              will: 'will is a claim about oneself, not an assumption.',
+            },
+          ),
+          hint(
+            gap(
+              'm2',
+              'Vielleicht ist die Mail gefälscht. Das ___ Phishing sein.',
+              'könnte',
+              ['könnte', 'muss', 'darf', 'will'],
+              'Maybe the mail is fake. That could be phishing.',
+              'könnte + Infinitiv = it is possible',
+            ),
+            {
+              muss: 'muss expresses certainty, but you only say “maybe”.',
+              darf: 'darf means permission, not possibility.',
+              will: 'will is a claim about oneself, not an assumption.',
+            },
+          ),
+          hint(
+            gap(
+              'm3',
+              'Das ist eindeutig falsch. Das ___ nicht stimmen.',
+              'kann',
+              ['kann', 'muss', 'dürfte', 'soll'],
+              'That is clearly wrong. That cannot be true.',
+              'kann nicht + Infinitiv = it is impossible',
+            ),
+            {
+              muss: 'muss nicht means “does not have to”, not “impossible”.',
+              dürfte: 'dürfte says “probably”; for impossible use kann nicht.',
+              soll: 'soll passes on what others say.',
+            },
+          ),
+          hint(
+            gap(
+              'm4',
+              'Die Verbreitung dieser Fotos ___ strafbar sein, aber ich bin kein Jurist.',
+              'dürfte',
+              ['dürfte', 'darf', 'soll', 'will'],
+              'Spreading these photos is probably punishable, but I am not a lawyer.',
+              'dürfte + Infinitiv = probably',
+            ),
+            {
+              darf: 'darf means permission, not probability.',
+              soll: 'soll passes on what others say; here you give your own guess.',
+              will: 'will is a claim about oneself, not an assumption.',
+            },
+          ),
+          hint(
+            gap(
+              'm5',
+              'Er ___ das Passwort vergessen haben. Anders ist es nicht zu erklären.',
+              'muss',
+              ['muss', 'darf', 'soll', 'will'],
+              'He must have forgotten the password. There is no other explanation.',
+              'muss + Infinitiv Perfekt = sure conclusion about the past',
+            ),
+            {
+              darf: 'darf means permission, not an assumption.',
+              soll: 'soll passes on what others say; here you draw your own conclusion.',
+              will: 'will is a claim about oneself, not an assumption.',
+            },
+          ),
+          hint(
+            gap(
+              'm6',
+              'Sie hat sofort geantwortet. Sie ___ die Mail nicht gelesen haben.',
+              'kann',
+              ['kann', 'muss', 'soll', 'will'],
+              'She replied immediately. She cannot have read the mail.',
+              'kann nicht + Infinitiv Perfekt = impossible in the past',
+            ),
+            {
+              muss: 'muss nicht means “does not have to”, not “impossible”.',
+              soll: 'soll passes on what others say.',
+              will: 'will is a claim about oneself.',
+            },
+          ),
+          hint(
+            gap(
+              'm7',
+              'Vielleicht war es so: Der Täter ___ das Passwort erraten haben.',
+              'könnte',
+              ['könnte', 'muss', 'darf', 'will'],
+              'Maybe it happened like this: the culprit could have guessed the password.',
+              'könnte + Infinitiv Perfekt = it is possible',
+            ),
+            {
+              muss: 'muss expresses certainty, but you only say “maybe”.',
+              darf: 'darf means permission, not possibility.',
+              will: 'will is a claim about oneself.',
+            },
+          ),
+          typed(
+            'm8',
+            'Er ist nicht gekommen. Er ___ den Termin vergessen haben. (Ich bin sicher.)',
+            'muss',
+            'He did not come. He must have forgotten the appointment.',
+            'muss + Infinitiv Perfekt = sure conclusion',
+          ),
+          hint(
+            gap(
+              'm9',
+              'Das ist unmöglich! Das ___ kein Zufall sein.',
+              'kann',
+              ['kann', 'muss', 'dürfte', 'soll'],
+              'That is impossible! That cannot be a coincidence.',
+              'kann kein … sein = it cannot be',
+            ),
+            {
+              muss: 'muss kein Zufall sein means “need not be a coincidence”.',
+              dürfte: 'dürfte says “probably”; the speaker is sure it is no coincidence.',
+              soll: 'soll passes on what others say.',
+            },
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-perfect-infinitive',
+      'gapfill',
+      meta(
+        'muss vergessen haben, dürfte abgereist sein',
+        'The perfect infinitive ends in haben or sein.',
+        ['grammar', 'modal-assumption', 'media-law'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          hint(
+            gap(
+              'f1',
+              'Er muss das Passwort verraten ___.',
+              'haben',
+              ['haben', 'sein', 'hat', 'worden'],
+              'He must have given away the password.',
+              'verraten → haben (transitive verb)',
+            ),
+            {
+              sein: 'verraten forms the Perfekt with haben.',
+              hat: 'After a modal verb the infinitive haben is needed, not hat.',
+              worden: 'worden belongs to the passive, not here.',
+            },
+          ),
+          hint(
+            gap(
+              'f2',
+              'Sie dürfte schon nach Hause gefahren ___.',
+              'sein',
+              ['sein', 'haben', 'ist', 'gewesen'],
+              'She has probably already driven home.',
+              'fahren (movement) → sein',
+            ),
+            {
+              haben: 'fahren (movement to a place) forms the Perfekt with sein.',
+              ist: 'After a modal verb the infinitive sein is needed, not ist.',
+              gewesen: 'gewesen is the participle of sein; it does not fit here.',
+            },
+          ),
+          hint(
+            gap(
+              'f3',
+              'Der Hacker könnte hier eingedrungen ___.',
+              'sein',
+              ['sein', 'haben', 'ist', 'worden'],
+              'The hacker may have got in here.',
+              'eindringen (movement) → sein',
+            ),
+            {
+              haben: 'eindringen forms the Perfekt with sein.',
+              ist: 'After a modal verb the infinitive sein is needed, not ist.',
+              worden: 'worden belongs to the passive, not here.',
+            },
+          ),
+          hint(
+            gap(
+              'f4',
+              'Sie kann die Datei nicht gelöscht ___.',
+              'haben',
+              ['haben', 'sein', 'hat', 'worden'],
+              'She cannot have deleted the file.',
+              'löschen → haben (transitive verb)',
+            ),
+            {
+              sein: 'löschen forms the Perfekt with haben.',
+              hat: 'After a modal verb the infinitive haben is needed, not hat.',
+              worden: 'worden belongs to the passive, not here.',
+            },
+          ),
+          hint(
+            gap(
+              'f5',
+              'Er muss gestern sehr müde gewesen ___.',
+              'sein',
+              ['sein', 'haben', 'war', 'worden'],
+              'He must have been very tired yesterday.',
+              'gewesen sein = perfect infinitive of sein',
+            ),
+            {
+              haben: 'sein forms the Perfekt with sein: gewesen sein.',
+              war: 'After a modal verb the infinitive sein is needed, not war.',
+              worden: 'worden belongs to the passive, not here.',
+            },
+          ),
+          typed(
+            'f6',
+            'Das Konto muss gehackt worden ___.',
+            'sein',
+            'The account must have been hacked.',
+            'passive perfect infinitive: worden sein',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-certainty',
+      'sortit',
+      meta(
+        'How sure is the speaker?',
+        'Sort the assumptions by certainty.',
+        ['grammar', 'modal-assumption', 'media-law'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'How sure is the speaker?',
+        buckets: [
+          { id: 'sure', label: 'sure (muss)', emoji: '💯' },
+          { id: 'probable', label: 'probable (dürfte)', emoji: '👍' },
+          { id: 'possible', label: 'possible (könnte)', emoji: '🤔' },
+          { id: 'impossible', label: 'impossible (kann nicht)', emoji: '🚫' },
+        ],
+        items: sortItems('c', [
+          ['Das muss ein Betrug sein.', 'sure'],
+          ['Er muss sein Passwort vergessen haben.', 'sure'],
+          ['Hier muss ein Hacker eingedrungen sein.', 'sure'],
+          ['Der Täter muss das Passwort gekannt haben.', 'sure'],
+          ['Das dürfte strafbar sein.', 'probable'],
+          ['Sie dürfte die Mail schon gelesen haben.', 'probable'],
+          ['Das könnte Phishing sein.', 'possible'],
+          ['Er könnte die Datei kopiert haben.', 'possible'],
+          ['Das kann nicht stimmen.', 'impossible'],
+          ['Sie kann das nicht gewusst haben.', 'impossible'],
+          ['Das kann kein Zufall sein.', 'impossible'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'Build the sentence',
+        'Assumptions with modal verbs.',
+        ['grammar', 'modal-assumption', 'media-law'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sent('s1', 'That must be fraud.', ['Das', 'muss', 'ein', 'Betrug', 'sein.']),
+          sent('s2', 'He must have forgotten the password.', [
+            'Er',
+            'muss',
+            'das',
+            'Passwort',
+            'vergessen',
+            'haben.',
+          ]),
+          sent('s3', 'That is probably punishable.', ['Das', 'dürfte', 'strafbar', 'sein.']),
+          sent('s4', 'She cannot have known that.', [
+            'Sie',
+            'kann',
+            'das',
+            'nicht',
+            'gewusst',
+            'haben.',
+          ]),
+          sent('s5', 'That could be phishing.', ['Das', 'könnte', 'Phishing', 'sein.']),
+          sent('s6', 'The hacker may have got in here.', [
+            'Der',
+            'Hacker',
+            'könnte',
+            'hier',
+            'eingedrungen',
+            'sein.',
+          ]),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-talk',
+      'listen',
+      meta(
+        'Guessing what happened',
+        'Listen to assumptions about the net.',
+        ['listening', 'media-law'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Die Mail muss Phishing sein, denn die Adresse ist falsch.',
+            'The mail must be phishing because the address is wrong.',
+            [
+              'The mail is from my bank and is safe.',
+              'The mail was deleted by the bank.',
+              'The address is correct, so the mail is probably genuine.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Der Student kann den Text nicht selbst geschrieben haben.',
+            'The student cannot have written the text himself.',
+            [
+              'The student wrote the whole text himself.',
+              'The student is not allowed to write the text.',
+              'The student does not want to write the text.',
+            ],
+          ),
+          heard('l3', 'Das Foto dürfte gefälscht sein.', 'The photo is probably fake.', [
+            'The photo is certainly real.',
+            'The photo must not be published.',
+            'The photo was taken yesterday.',
+          ]),
+          heard(
+            'l4',
+            'Jemand könnte mein Konto gehackt haben.',
+            'Someone might have hacked my account.',
+            [
+              'Someone has deleted my account on purpose.',
+              'My account is perfectly safe.',
+              'I have hacked someone else’s account.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'Phishing and plagiarism',
+        'Judge a suspicious mail and a suspicious paper.',
+        ['communication', 'media-law', 'modal-assumption'],
+        2,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'mail',
+            title: 'Verdächtige Mail',
+            emoji: '🎣',
+            setting: 'A colleague shows you an email that looks like it is from her bank.',
+            turns: [
+              say(
+                'Kollegin',
+                'Schau mal: Die Bank will, dass ich mein Passwort eingebe. Ist die Mail echt?',
+                'Look: the bank wants me to enter my password. Is the mail genuine?',
+              ),
+              you(
+                'Das muss Phishing sein. Banken fragen nie per Mail nach dem Passwort.',
+                [
+                  'Das darf Phishing sein. Banken fragen nie per Mail nach dem Passwort.',
+                  'darf means permission; your certainty is muss.',
+                ],
+                [
+                  'Das soll Phishing sein. Banken fragen nie per Mail nach dem Passwort.',
+                  'soll passes on what others say; here you draw your own conclusion: muss.',
+                ],
+              ),
+              say(
+                'Kollegin',
+                'Aber die Absenderadresse sieht richtig aus.',
+                'But the sender address looks right.',
+              ),
+              you(
+                'Jemand könnte die Adresse gefälscht haben.',
+                [
+                  'Jemand könnte die Adresse fälschen haben.',
+                  'An assumption about the past needs the participle: gefälscht haben.',
+                ],
+                [
+                  'Jemand könnte die Adresse gefälscht sein.',
+                  'fälschen forms the perfect infinitive with haben.',
+                ],
+              ),
+              say(
+                'Kollegin',
+                'Ich habe leider schon auf den Link geklickt …',
+                'Unfortunately I have already clicked on the link …',
+              ),
+              you(
+                'Dann dürfte noch nichts passiert sein, wenn du sofort dein Passwort änderst.',
+                [
+                  'Dann darf noch nichts passiert sein, wenn du sofort dein Passwort änderst.',
+                  'darf means permission; probability is dürfte.',
+                ],
+                [
+                  'Dann dürfte noch nichts passiert haben, wenn du sofort dein Passwort änderst.',
+                  'passieren forms the Perfekt with sein: passiert sein.',
+                ],
+              ),
+            ],
+          },
+          {
+            id: 'plagiat',
+            title: 'Verdacht auf Plagiat',
+            emoji: '📄',
+            setting: 'A professor and you discuss a suspicious term paper.',
+            turns: [
+              say(
+                'Professorin',
+                'Dieser Abschnitt klingt ganz anders als der Rest der Arbeit.',
+                'This section sounds completely different from the rest of the paper.',
+              ),
+              you(
+                'Der Student kann den Abschnitt nicht selbst geschrieben haben.',
+                [
+                  'Der Student kann den Abschnitt nicht selbst schreiben haben.',
+                  'An assumption about the past needs the participle: geschrieben haben.',
+                ],
+                [
+                  'Der Student muss den Abschnitt nicht selbst geschrieben haben.',
+                  'muss nicht means “does not have to”; for “impossible” use kann nicht.',
+                ],
+              ),
+              say(
+                'Professorin',
+                'Vielleicht hat ein Ghostwriter geholfen.',
+                'Maybe a ghostwriter helped.',
+              ),
+              you(
+                'Das könnte sein, aber wir haben keinen Beweis.',
+                [
+                  'Das darf sein, aber wir haben keinen Beweis.',
+                  'darf means permission here; possibility is könnte.',
+                ],
+                [
+                  'Das will sein, aber wir haben keinen Beweis.',
+                  'will is a claim about oneself; possibility is könnte.',
+                ],
+              ),
+              say('Professorin', 'Wie sollen wir vorgehen?', 'How should we proceed?'),
+              you(
+                'Wir sollten zuerst mit dem Studenten sprechen.',
+                [
+                  'Wir dürften zuerst mit dem Studenten sprechen.',
+                  'dürfte expresses probability, not a suggestion; sollten gives advice.',
+                ],
+                [
+                  'Wir sollten zuerst mit dem Studenten gesprochen haben.',
+                  'This is a suggestion for the future, so no perfect infinitive.',
+                ],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'Assumption blitz',
+        'Modal verbs and media words – true or false?',
+        ['grammar', 'modal-assumption', 'media-law'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Das muss ein Irrtum sein.', true),
+          tf('b2', 'Er muss das Passwort vergessen haben.', true),
+          tf(
+            'b3',
+            'Er muss das Passwort vergessen sein.',
+            false,
+            'vergessen forms the perfect infinitive with haben.',
+          ),
+          tf('b4', 'Das kann nicht stimmen.', true),
+          tf(
+            'b5',
+            '„Das muss nicht stimmen“ heißt: Das ist unmöglich.',
+            false,
+            'muss nicht means “does not have to”.',
+          ),
+          tf('b6', 'Mit „dürfte“ sagt man: Das ist wahrscheinlich so.', true),
+          tf('b7', 'Sie dürfte schon abgereist sein.', true),
+          tf(
+            'b8',
+            'Sie dürfte schon abgereist haben.',
+            false,
+            'abreisen forms the perfect infinitive with sein.',
+          ),
+          tf('b9', 'Ein Plagiat gibt fremde Texte als eigene aus.', true),
+          tf('b10', 'Ein Ghostwriter schreibt Texte, die andere als ihre eigenen ausgeben.', true),
+          tf(
+            'b11',
+            'Phishing ist ein Hobby für Angler.',
+            false,
+            'Phishing means stealing data with fake messages.',
+          ),
+          tf('b12', 'Eine Filterblase zeigt uns vor allem Meinungen, die wir schon kennen.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Assumptions and media vocabulary in one round.',
+        ['vocabulary', 'grammar', 'media-law'],
+        3,
+        5,
+      ),
+      {
+        questions: [
+          q('c1', 'Das ___ ein Fehler sein – ich bin mir sicher.', 'muss', [
+            'darf',
+            'soll',
+            'will',
+          ]),
+          q('c2', 'Es ist unmöglich: Er ___ das nicht getan haben.', 'kann', [
+            'muss',
+            'dürfte',
+            'soll',
+          ]),
+          q('c3', 'Vielleicht war es so: Der Täter ___ das Passwort erraten haben.', 'könnte', [
+            'muss',
+            'will',
+            'darf',
+          ]),
+          q('c4', 'Sie muss die Mail gelöscht ___.', 'haben', ['sein', 'werden', 'worden']),
+          q('c5', 'Die Tür ist offen. Jemand muss eingebrochen ___.', 'sein', [
+            'haben',
+            'werden',
+            'worden',
+          ]),
+          q('c6', 'das Plagiat', 'plagiarism', ['summary', 'quotation', 'translation']),
+          q('c7', 'die Verleumdung', 'slander, defamation', ['praise', 'agreement', 'report']),
+          q('c8', 'die Glaubwürdigkeit', 'credibility', [
+            'faith community',
+            'generosity',
+            'probability',
+          ]),
+          q('c9', 'das Urheberrecht', 'copyright', ['right of way', 'tenancy law', 'civil rights']),
+          q('c10', 'strafbar', 'punishable by law', ['sentenced already', 'tax-free', 'dangerous']),
+        ],
+      },
+    ),
+  ],
+};
