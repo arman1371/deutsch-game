@@ -52,7 +52,7 @@ is red. Setup and the manual steps are in [docs/code-quality.md](docs/code-quali
 ## Code graph (Graphify)
 
 `graphify-out/` holds a [Graphify](https://github.com/Graphify-Labs/graphify) knowledge graph of the code.
-A workflow runs `graphify update .` on every PR and commits the refreshed graph to the PR branch; see
+A workflow runs `graphify update .` after every push to `main` and commits the refreshed graph; see
 [docs/graphify.md](docs/graphify.md).
 
 ## Hosting: Cloudflare Pages (free)

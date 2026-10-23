@@ -4,20 +4,20 @@
 (`graph.json`, `GRAPH_REPORT.md`, `graph.html`). AI assistants and `graphify query` / `path` / `explain`
 read it, so it should always match the code.
 
-## The PR workflow
+## The workflow
 
-`.github/workflows/graphify.yml` runs on every PR opened from a branch of this repo:
+`.github/workflows/graphify.yml` runs after every push to `main` (and on demand via _Run workflow_):
 
-1. checks out the PR branch and installs the pinned `graphifyy` version from PyPI;
-2. runs `graphify update .` (code-only AST extraction, no LLM, no API key; `GRAPHIFY_FORCE=1` so a PR
+1. checks out `main` and installs the pinned `graphifyy` version from PyPI;
+2. runs `graphify update .` (code-only AST extraction, no LLM, no API key; `GRAPHIFY_FORCE=1` so a commit
    that deletes code can shrink the graph);
-3. runs `.github/scripts/graph-changed.sh`, which compares `graphify-out/` with the branch while ignoring
+3. runs `.github/scripts/graph-changed.sh`, which compares `graphify-out/` with the commit while ignoring
    what changes on every run (the commit hash in `graph.json`, the directory/date heading of the report);
-4. if the graph really changed, pushes one commit `chore(graph): graphify update` to the PR branch.
+4. if the graph really changed, pushes one commit `chore(graph): graphify update` to `main`.
 
-It never loops: a run whose head commit is that bot commit stops straight away, and a run that finds no
-change commits nothing. A newer push to the PR cancels the older run. PRs from forks and Dependabot are
-skipped because their token cannot push.
+PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. It never
+loops: the bot commit only changes `graphify-out/`, which both this workflow and CI ignore (`paths-ignore`),
+and the run also stops if the head commit is the bot commit. Runs queue one at a time.
 
 Committed: `graph.json`, `GRAPH_REPORT.md`, `graph.html` and the small label files. Ignored (local
 state only, see `.gitignore`): `cache/`, `manifest.json` (stores file mtimes, so it would change on
@@ -25,19 +25,16 @@ every checkout), `cost.json`, `*.pending.json`.
 
 ## Repo settings
 
-- **Settings → Actions → General → Workflow permissions**: the workflow asks for `contents: write`
-  itself, which works with the default settings. If the repo or org forces read-only tokens, allow
-  "Read and write permissions".
-- **`GRAPHIFY_DEPLOY_KEY` secret (recommended)**: GitHub does not start workflows for pushes made with the
-  default `GITHUB_TOKEN`, so without it CI and SonarCloud do not re-run on the bot commit and a branch
-  ruleset that requires those checks would block the merge. Create a key pair with
+- **Pushing to `main`**: if `main` is protected by a ruleset or branch protection (PR required, required
+  checks), the bot's direct push is rejected unless it can bypass. Use a deploy key and add **Deploy keys**
+  to the ruleset's bypass list (or exempt the PAT's owner).
+- **`GRAPHIFY_DEPLOY_KEY` secret (recommended)**: create a key pair with
   `ssh-keygen -t ed25519 -N "" -C graphify-bot -f graphify_key`, add `graphify_key.pub` under
   **Settings → Deploy keys** with **Allow write access** ticked, and save the private `graphify_key` as an
-  Actions secret named `GRAPHIFY_DEPLOY_KEY`. Delete the local key files afterwards. The bot commit then
-  triggers CI, SonarCloud and the Cloudflare preview like any push. If a ruleset blocks the push, add
-  **Deploy keys** to its bypass list. A fine-grained PAT (Contents: read and write) saved as
-  `GRAPHIFY_TOKEN` works the same way if you prefer that.
-- Branch protection must allow pushes to PR branches from Actions (the default).
+  Actions secret named `GRAPHIFY_DEPLOY_KEY`. Delete the local key files afterwards. A fine-grained PAT
+  (Contents: read and write) saved as `GRAPHIFY_TOKEN` works the same way.
+- Without either secret the workflow falls back to `GITHUB_TOKEN`, which only works if `main` is
+  unprotected and Workflow permissions allow writes.
 
 ## Locally
 
