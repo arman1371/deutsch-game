@@ -39,8 +39,8 @@ jobs:
         with: { python-version: '3.13' }
       - name: Install Graphify
         if: steps.guard.outputs.skip != 'true'
-        # Pinned so the output is reproducible; bump together with the local install.
-        run: pip install graphifyy==0.9.95
+        # Same version as the committed graph and the local install, so output stays reproducible.
+        run: pip install graphifyy==0.9.63
       - name: graphify update .
         if: steps.guard.outputs.skip != 'true'
         # CI always starts without cache/manifest, so force the write even when a commit deletes code
@@ -50,7 +50,8 @@ jobs:
       - name: Commit graph if it changed
         if: steps.guard.outputs.skip != 'true'
         run: |
-          if ! .github/scripts/graph-changed.sh; then
+          # Graphify leaves the files untouched when the code graph did not change.
+          if [ -z "$(git status --porcelain -- graphify-out)" ]; then
             echo "Graph is up to date."
             exit 0
           fi

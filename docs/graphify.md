@@ -11,17 +11,14 @@ read it, so it should always match the code.
 1. checks out `main` and installs the pinned `graphifyy` version from PyPI;
 2. runs `graphify update .` (code-only AST extraction, no LLM, no API key; `GRAPHIFY_FORCE=1` so a commit
    that deletes code can shrink the graph);
-3. runs `.github/scripts/graph-changed.sh`, which compares `graphify-out/` with the commit while ignoring
-   what changes on every run (the commit hash in `graph.json`, the directory/date heading of the report);
-4. if the graph really changed, pushes one commit `chore(graph): graphify update` to `main`.
+3. if Graphify changed `graphify-out/` (it leaves the files alone when the code graph is the same, e.g. after
+   docs-only commits), pushes one commit `chore(graph): graphify update` to `main`.
 
 PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. It never
 loops: the bot commit only changes `graphify-out/`, which both this workflow and CI ignore (`paths-ignore`),
 and the run also stops if the head commit is the bot commit. Runs queue one at a time.
 
-Committed: `graph.json`, `GRAPH_REPORT.md`, `graph.html` and the small label files. Ignored (local
-state only, see `.gitignore`): `cache/`, `manifest.json` (stores file mtimes, so it would change on
-every checkout), `cost.json`, `*.pending.json`.
+Committed: `graph.json` and `GRAPH_REPORT.md`; everything else in `graphify-out/` is ignored (see `.gitignore`).
 
 ## Repo settings
 
@@ -39,7 +36,7 @@ every checkout), `cost.json`, `*.pending.json`.
 ## Locally
 
 ```sh
-pipx install graphifyy==0.9.95   # same version as the workflow
+pipx install graphifyy==0.9.63   # same version as the workflow
 graphify update .
 ```
 
