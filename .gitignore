@@ -7,3 +7,6 @@ test-results
 .DS_Store
 dev-dist
 *.graphify-bak
+graphify-out/*
+!graphify-out/graph.json
+!graphify-out/GRAPH_REPORT.md
