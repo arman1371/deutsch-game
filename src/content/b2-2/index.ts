@@ -9,6 +9,7 @@ import { wirtschaft } from './u7-wirtschaft';
 import { kunst } from './u8-kunst';
 import { geschichte } from './u9-geschichte';
 import { stadt } from './u10-stadt';
+import { druck } from './u11-druck';
 
 const units = [
   beziehungen,
@@ -21,6 +22,7 @@ const units = [
   kunst,
   geschichte,
   stadt,
+  druck,
 ];
 
 const content: LevelContent = {
