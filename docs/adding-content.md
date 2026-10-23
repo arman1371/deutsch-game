@@ -1,37 +1,45 @@
 # Adding content
 
-## A new level (e.g. A2.2)
+## A new level (e.g. B1.1)
 
-A1.2 (`src/content/a1-2/`) and A2.1 (`src/content/a2-1/`) are the worked examples: ten units, one file per
-unit, plus `index.ts`. A2.1 re-exports the A1.2 authoring helpers from `a2-1/helpers.ts` and only adds
-`unit21` and `reflexiveTable`; copy that file as the starting point for the next level.
+A1.2 (`src/content/a1-2/`), A2.1 (`src/content/a2-1/`) and A2.2 (`src/content/a2-2/`) are the worked examples:
+one file per unit, plus `index.ts`. A2.1 re-exports the A1.2 authoring helpers from `a2-1/helpers.ts` and only
+adds `unit21` and `reflexiveTable`; A2.2 does the same from `a2-2/helpers.ts` and adds `unit22`, `k2Table`
+(Konjunktiv II), `passiveTable`, `reflexiveDativeTable` and `adjGap` (adjective endings generated from
+`src/lib/german/adjectives.ts`). Copy the helpers file of the latest level as the starting point.
 
-1. Create `src/content/a2-2/` with `index.ts` that default-exports a `LevelContent`
+**Integrity between levels:** before writing a level, map its syllabus against the units that exist (see
+`docs/a2-2-coverage.md`): what is new, what extends an earlier topic and what is only reviewed. A level's
+`content.test.ts` should also check that its word cards do not repeat vocabulary from earlier levels
+(`REVIEW_WORDS` lists the deliberate exceptions).
+
+1. Create `src/content/b1-1/` with `index.ts` that default-exports a `LevelContent`
    (copy the shape of `src/content/a1-2/index.ts`) and one file per unit (`u1-….ts`).
-   Unit and activity ids are prefixed with the level id (`a2-2-…`); units pass `levelId: 'a2-2'`
-   (`unit12()` in `a1-2/helpers.ts` shows how – copy or generalise it).
+   Unit and activity ids are prefixed with the level id (`b1-1-…`); units pass `levelId: 'b1-1'`
+   (`unit22()` in `a2-2/helpers.ts` shows how – copy or generalise it).
 2. In `src/content/levels.ts` change the entry to `status: 'available'` and add
-   `load: () => import('./a2-2')`.
+   `load: () => import('./b1-1')`, then add the next "coming soon" level.
 3. Add two three-line test files that reuse the shared harnesses:
-   - `content.test.ts` → `describeLevelContent('A2.2', content, 'a2-2')` (`src/test/contentSuite.ts`: schema,
+   - `content.test.ts` → `describeLevelContent('B1.1', content, 'b1-1')` (`src/test/contentSuite.ts`: schema,
      unique ids, canonical tags, unit shape, distinguishable items, level prefix),
    - `playability.test.tsx` → `describePlayability(content)` (`src/test/playability.tsx`: every activity is
      completed perfectly through the real engine).
 4. Add new tags (topics/grammar points) to `src/content/tags.ts` first – filters pick them up automatically.
-   The Library has a **Level** facet (`?lvl=a2-1`) that appears as soon as more than one level has units.
-5. Add an e2e flow for the new level (`e2e/a1-2.spec.ts` and `e2e/a2-1.spec.ts` play one activity per engine and
-   touch every unit) and add its pages to `e2e/a11y.spec.ts`. `e2e/helpers.ts` (`allActivities`) and `src/test/app.tsx`
+   The Library has a **Level** facet (`?lvl=a2-2`) that appears as soon as more than one level has units.
+5. Add an e2e flow for the new level (`e2e/a1-2.spec.ts`, `e2e/a2-1.spec.ts` and `e2e/a2-2.spec.ts` play one
+   activity per engine and touch every unit) and add its pages to `e2e/a11y.spec.ts`. `e2e/helpers.ts` (`allActivities`) and `src/test/app.tsx`
    need the new pack added to their lists.
 
 Everything else – Home, level page, library, review and progress – is driven by the catalogue.
 
-### Authoring helpers (A1.2, reused by A2.1)
+### Authoring helpers (A1.2, reused by A2.1 and A2.2)
 
 `src/content/a1-2/helpers.ts` keeps hand-written items short: `gap`/`typed` (gap fill), `q` (quiz question,
 answer first), `sent`, `tf` (blitz), `say`/`you` (dialogue turns), `heard`/`dictation`, `sortItems`,
 `table`/`sepTable`/`pastTable`/`customTable` (conjugation grids) and `readRound`/`setRound` (clock).
 `reflexiveTable` builds a reflexive grid from `reflexiveForms`. German grammar helpers live in `src/lib/german`
-(`conjugate`, `conjugatePreterite`, `reflexiveForms`, ordinals and dates in `ordinals.ts`, prices, numbers and
+(`conjugate`, `conjugatePreterite` (regular, strong and mixed verbs), `konjunktiv2`, `passiveForms`,
+`reflexiveForms`, `reflexiveDativeForms`, `adjectiveEnding` / `declineAdjective` in `adjectives.ts`, ordinals and dates in `ordinals.ts`, prices, numbers and
 years (`yearToGerman`) in `numbers.ts`, clock time in `time.ts`) – generate forms from them
 instead of typing them twice.
 

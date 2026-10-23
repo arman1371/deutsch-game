@@ -2,6 +2,7 @@ import { screen, waitFor, within } from '@testing-library/react';
 import content from '@/content/a1-1';
 import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
+import a22 from '@/content/a2-2';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
@@ -24,7 +25,10 @@ describe('Home', () => {
     expect(screen.getByTestId('level-a2-1')).toHaveTextContent(
       '0 / ' + a21.activities.length + ' games',
     );
-    for (const soon of ['A2.2']) {
+    expect(screen.getByTestId('level-a2-2')).toHaveTextContent(
+      '0 / ' + a22.activities.length + ' games',
+    );
+    for (const soon of ['B1.1']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -93,7 +97,7 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/a2-2');
+    renderApp('/levels/b1-1');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });
@@ -182,6 +186,45 @@ describe('Level A2.1', () => {
     expect(screen.getByRole('button', { name: 'A2.1' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: /Online & Apps/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /In der Stadt/ })).not.toBeInTheDocument();
+  }, 30_000);
+});
+
+describe('Level A2.2', () => {
+  it('walks Home → A2.2 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-a2-2'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(a22.units.length);
+    expect(within(units).queryByTestId('unit-a2-1-online')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-a2-2-lernen'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Lernen & Prüfungen' }),
+    ).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(a22.activities.filter((a) => a.unitId === 'a2-2-lernen').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('filters the library by the A2.2 level and only offers its units', async () => {
+    renderApp('/library?lvl=a2-2');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${a22.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'A2.2' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Lernen & Prüfungen/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Online & Apps/ })).not.toBeInTheDocument();
+  }, 30_000);
+
+  it('finds the pronunciation games through the skill filter', async () => {
+    renderApp('/library?lvl=a2-2&skill=pronunciation');
+    const pronunciation = a22.activities.filter((a) => a.tags.includes('pronunciation')).length;
+    expect(pronunciation).toBeGreaterThan(0);
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(`${pronunciation} games`),
+    );
   }, 30_000);
 });
 

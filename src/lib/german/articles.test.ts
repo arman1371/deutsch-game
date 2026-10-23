@@ -42,6 +42,24 @@ describe('articles', () => {
     expect(possessive('Ihr', 'm', 'acc')).toBe('Ihren');
   });
 
+  it('gives the dative: dem / der / dem / den, einem / einer, keinem, meinem', () => {
+    expect(['m', 'f', 'n', 'pl'].map((g) => definiteArticle(g as 'm', 'dat'))).toEqual([
+      'dem',
+      'der',
+      'dem',
+      'den',
+    ]);
+    expect(indefiniteArticle('m', 'dat')).toBe('einem');
+    expect(indefiniteArticle('f', 'dat')).toBe('einer');
+    expect(indefiniteArticle('pl', 'dat')).toBe('');
+    expect(negativeArticle('f', 'dat')).toBe('keiner');
+    expect(negativeArticle('pl', 'dat')).toBe('keinen');
+    expect(possessive('mein', 'm', 'dat')).toBe('meinem');
+    expect(possessive('mein', 'f', 'dat')).toBe('meiner');
+    expect(possessive('mein', 'pl', 'dat')).toBe('meinen');
+    expect(possessive('euer', 'n', 'dat')).toBe('eurem');
+  });
+
   it('maps an article back to a gender', () => {
     expect(genderOfArticle('der')).toBe('m');
     expect(genderOfArticle('die')).toBe('f');

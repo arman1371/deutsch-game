@@ -15,6 +15,20 @@ async function expectNoViolations(page: Page, label: string) {
   expect(summary, `${label}: accessibility violations`).toEqual([]);
 }
 
+/**
+ * axe measures contrast on the current frame, so wait for a few frames in which every entrance animation
+ * (pop, shake) has finished. A fixed timeout is not enough on a slow runner.
+ */
+async function settle(page: Page) {
+  await page.evaluate(async () => {
+    const frame = () => new Promise<void>((done) => requestAnimationFrame(() => done()));
+    for (let i = 0; i < 3; i++) {
+      await frame();
+      await Promise.allSettled(document.getAnimations().map((a) => a.finished));
+    }
+  });
+}
+
 const PAGES: [string, string, string][] = [
   ['home', '/', 'Start your first game'],
   ['level', '/levels/a1-1', 'A1.1'],
@@ -23,6 +37,8 @@ const PAGES: [string, string, string][] = [
   ['unit A1.2', '/levels/a1-2/units/a1-2-stadt', 'In der Stadt'],
   ['level A2.1', '/levels/a2-1', 'A2.1'],
   ['unit A2.1', '/levels/a2-1/units/a2-1-online', 'Online & Apps'],
+  ['level A2.2', '/levels/a2-2', 'A2.2'],
+  ['unit A2.2', '/levels/a2-2/units/a2-2-lernen', 'Lernen & Prüfungen'],
   ['library', '/library', 'Game library'],
   ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
@@ -50,7 +66,7 @@ for (const scheme of ['light', 'dark'] as const) {
       await expectNoViolations(page, 'quiz question');
       await page.keyboard.press('1');
       await expect(page.getByTestId('feedback')).toBeVisible();
-      await page.waitForTimeout(500); // let the pop animation finish – axe measures contrast on the settled frame
+      await settle(page);
       await expectNoViolations(page, 'quiz feedback');
     });
 
@@ -76,11 +92,19 @@ for (const scheme of ['light', 'dark'] as const) {
       'a2-1-beruf-spell-cv',
       'a2-1-aemter-sort-offices',
       'a2-1-bahn-clock-timetable',
+      'a2-2-reisen-listen-r-l',
+      'a2-2-kunst-gap-adjectives-1',
+      'a2-2-post-conj-post',
+      'a2-2-feste-sort-final-sounds',
+      'a2-2-lernen-quiz-stress',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);
         await page.getByTestId('start').click();
-        await page.waitForTimeout(300);
+        // the game itself is a lazy chunk: wait until the intro and the loading fallback are gone
+        await expect(page.getByTestId('start')).toHaveCount(0);
+        await expect(page.getByRole('status').filter({ hasText: /loading/i })).toHaveCount(0);
+        await settle(page);
         await expectNoViolations(page, id);
       });
     }
