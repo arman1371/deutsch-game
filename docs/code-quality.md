@@ -11,7 +11,7 @@ Every push to `main` and every pull request is analysed on [SonarQube Cloud](htt
    job and therefore the PR checks. SonarQube Cloud also decorates the PR with its summary comment.
 
 What is analysed: `src/` as sources, `*.test.ts(x)`, `src/test/` and `e2e/` as tests. Coverage is unit
-coverage only (Playwright does not feed it). The level packs under `src/content/<level>/` are excluded
+coverage only (Playwright does not feed it). The level packs under `src/content/<level>/` and the lesson table `src/content/lessons.ts` are excluded
 from duplication detection because their repeated shape is learning data, not copied code.
 
 PRs from forks (and Dependabot) get no secrets, so the job is skipped there instead of failing.
