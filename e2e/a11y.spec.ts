@@ -19,7 +19,10 @@ const PAGES: [string, string, string][] = [
   ['home', '/', 'Start your first game'],
   ['level', '/levels/a1-1', 'A1.1'],
   ['unit', '/levels/a1-1/units/a1-1-hallo', 'Hallo & Tschüss'],
+  ['level A1.2', '/levels/a1-2', 'A1.2'],
+  ['unit A1.2', '/levels/a1-2/units/a1-2-stadt', 'In der Stadt'],
   ['library', '/library', 'Game library'],
+  ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
   ['settings', '/settings', 'Settings'],
   ['play intro', '/play/a1-1-hallo-time-of-day?seed=1', 'Greeting for the time of day'],
@@ -60,6 +63,12 @@ for (const scheme of ['light', 'dark'] as const) {
       'a1-1-hallo-dialogues',
       'a1-1-zahlen-dictation-phone',
       'a1-1-hallo-flash',
+      'a1-2-wohnen-sort-rooms',
+      'a1-2-termine-clock-appointments',
+      'a1-2-kleidung-market-clothes',
+      'a1-2-alltag-dialogues-life',
+      'a1-2-arbeit-conj-past',
+      'a1-2-termine-dictation',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);

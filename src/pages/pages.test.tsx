@@ -1,8 +1,9 @@
 import { screen, waitFor, within } from '@testing-library/react';
 import content from '@/content/a1-1';
+import a12 from '@/content/a1-2';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
-import { activityById, playQuiz, renderApp, resetStores } from '@/test/app';
+import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
 
 beforeEach(resetStores);
 
@@ -16,7 +17,10 @@ describe('Home', () => {
     expect(screen.getByTestId('level-a1-1')).toHaveTextContent(
       '0 / ' + content.activities.length + ' games',
     );
-    for (const soon of ['A1.2', 'A2.1', 'A2.2']) {
+    expect(screen.getByTestId('level-a1-2')).toHaveTextContent(
+      '0 / ' + a12.activities.length + ' games',
+    );
+    for (const soon of ['A2.1', 'A2.2']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -85,32 +89,91 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/a1-2');
+    renderApp('/levels/a2-1');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
+  });
+});
+
+describe('Level A1.2', () => {
+  it('walks Home → A1.2 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-a1-2'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(a12.units.length);
+    expect(within(units).queryByTestId('unit-a1-1-hallo')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-a1-2-stadt'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(screen.getByRole('heading', { level: 1, name: 'In der Stadt' })).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(a12.activities.filter((a) => a.unitId === 'a1-2-stadt').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('continues in A1.2 once every A1.1 game is finished', async () => {
+    for (const a of content.activities)
+      useProgressStore
+        .getState()
+        .recordResult(a.id, { correct: 1, total: 1, played: [], mistakes: [] });
+    renderApp('/');
+    expect(
+      await screen.findByRole('heading', { name: 'Continue where you left off' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(a12.activities[0]!.title)).toBeInTheDocument();
+    expect(screen.getByTestId('level-a1-1')).toHaveTextContent(
+      `${content.activities.length} / ${content.activities.length} games`,
+    );
+  });
+
+  it('filters the library by level and only offers that level’s units', async () => {
+    const { user } = renderApp('/library?lvl=a1-2');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${a12.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'A1.2' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /In der Stadt/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Hallo & Tschüss/ })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'A1.2' }));
+    await user.click(screen.getByRole('button', { name: 'A1.1' }));
+    expect(screen.getByTestId('result-count')).toHaveTextContent(
+      `${content.activities.length} games`,
+    );
+    expect(screen.getByRole('button', { name: /Hallo & Tschüss/ })).toBeInTheDocument();
+  });
+
+  it('finds the new grammar tags in the library', async () => {
+    const { user } = renderApp('/library');
+    await user.click(await screen.findByText(/Filters/));
+    await user.click(screen.getByRole('button', { name: /Dative/ }));
+    const dative = allActivities.filter((a) => a.tags.includes('dative')).length;
+    expect(dative).toBeGreaterThan(10);
+    expect(screen.getByTestId('result-count')).toHaveTextContent(`${dative} games`);
   });
 });
 
 describe('Library', () => {
   it('lists every game and filters by game type, topic and unit', async () => {
     const { user } = renderApp('/library');
-    const total = content.activities.length;
+    const total = allActivities.length;
     await waitFor(() =>
       expect(screen.getByTestId('result-count')).toHaveTextContent(`${total} games`),
     );
 
     await user.click(screen.getByText(/Filters/));
     await user.click(screen.getByRole('button', { name: /Market stand/ }));
-    const market = content.activities.filter((a) => a.gameType === 'market').length;
+    const market = allActivities.filter((a) => a.gameType === 'market').length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${market} games`);
     expect(screen.getAllByTestId('activity-card')).toHaveLength(market);
 
     await user.click(screen.getByRole('button', { name: 'Clear filters' }));
     await user.click(screen.getByRole('button', { name: /Accusative/ }));
-    const acc = content.activities.filter((a) => a.tags.includes('accusative')).length;
+    const acc = allActivities.filter((a) => a.tags.includes('accusative')).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${acc} games`);
 
     await user.click(screen.getByRole('button', { name: /Hard/ }));
-    const hard = content.activities.filter(
+    const hard = allActivities.filter(
       (a) => a.tags.includes('accusative') && a.difficulty === 3,
     ).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${hard} games`);

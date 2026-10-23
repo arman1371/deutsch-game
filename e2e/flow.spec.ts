@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import content from '../src/content/a1-1';
-import { activity, captureSpeech, playPerfectly, SEED } from './helpers';
+import { activity, allActivities, captureSpeech, playPerfectly, SEED } from './helpers';
 
 test.beforeEach(async ({ page }) => {
   await captureSpeech(page);
@@ -71,9 +71,9 @@ test.describe('learning path', () => {
   test('coming-soon levels are listed but not playable', async ({ page }) => {
     await page.goto('/');
     await expect(
-      page.getByRole('heading', { name: 'A1.2' }).locator('xpath=ancestor::li'),
+      page.getByRole('heading', { name: 'A2.1' }).locator('xpath=ancestor::li'),
     ).toContainText('Coming soon');
-    await page.goto('/levels/a1-2');
+    await page.goto('/levels/a2-1');
     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
   });
 });
@@ -83,18 +83,18 @@ test.describe('game library and filters', () => {
     page,
   }) => {
     await page.goto('/library');
-    await expect(page.getByTestId('result-count')).toHaveText(`${content.activities.length} games`);
+    await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     await page.getByText(/^Filters/).click();
 
     await page.getByRole('button', { name: /Market stand/ }).click();
-    const market = content.activities.filter((a) => a.gameType === 'market');
+    const market = allActivities.filter((a) => a.gameType === 'market');
     await expect(page.getByTestId('result-count')).toHaveText(`${market.length} games`);
     await expect(page).toHaveURL(/type=market/);
     await expect(page.getByTestId('activity-card')).toHaveCount(market.length);
 
     await page.getByRole('button', { name: 'Clear filters' }).click();
     await page.getByRole('button', { name: /Separable verbs/ }).click();
-    const separable = content.activities.filter((a) => a.tags.includes('separable-verbs'));
+    const separable = allActivities.filter((a) => a.tags.includes('separable-verbs'));
     await expect(page.getByTestId('result-count')).toHaveText(`${separable.length} games`);
     await page.getByRole('button', { name: 'Hard' }).click();
     const hard = separable.filter((a) => a.difficulty === 3).length;

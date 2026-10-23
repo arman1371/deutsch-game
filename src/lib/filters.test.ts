@@ -18,6 +18,16 @@ describe('filters', () => {
     expect(ids({})).toEqual(['act-1', 'act-2', 'act-3']);
   });
 
+  it('filters by level through the unit', () => {
+    const mixed = [...units.slice(0, 1), { ...units[1]!, levelId: 'a1-2' }];
+    const byLevel = (levels: string[]) =>
+      filterActivities(activities, { ...EMPTY_FILTERS, levels }, mixed).map((a) => a.id);
+    expect(byLevel(['a1-1'])).toEqual(['act-1', 'act-2']);
+    expect(byLevel(['a1-2'])).toEqual(['act-3']);
+    expect(byLevel(['a1-1', 'a1-2'])).toEqual(['act-1', 'act-2', 'act-3']);
+    expect(byLevel(['a2-1'])).toEqual([]);
+  });
+
   it('buckets durations', () => {
     expect(durationBucket(2)).toBe('quick');
     expect(durationBucket(3)).toBe('quick');
@@ -47,14 +57,21 @@ describe('filters', () => {
   it('counts active filters', () => {
     expect(activeFilterCount(EMPTY_FILTERS)).toBe(0);
     expect(
-      activeFilterCount({ ...EMPTY_FILTERS, q: ' x ', units: ['a', 'b'], difficulty: [1] }),
-    ).toBe(4);
+      activeFilterCount({
+        ...EMPTY_FILTERS,
+        q: ' x ',
+        levels: ['a1-2'],
+        units: ['a', 'b'],
+        difficulty: [1],
+      }),
+    ).toBe(5);
   });
 
   it('round-trips through URL params and drops invalid values', () => {
     const f = {
       ...EMPTY_FILTERS,
       q: 'hallo',
+      levels: ['a1-2'],
       units: ['u1'],
       skills: ['grammar' as const],
       types: ['quiz' as const],

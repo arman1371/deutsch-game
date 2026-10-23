@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { expect, type Page } from '@playwright/test';
-import content from '../src/content/a1-1';
+import a11 from '../src/content/a1-1';
+import a12 from '../src/content/a1-2';
 import type { Activity } from '../src/content/schema';
 import { parseTime, timeToGerman } from '../src/lib/german/time';
 import { totalCents } from '../src/games/market/logic';
@@ -9,8 +10,11 @@ import { priceToGerman } from '../src/lib/german/numbers';
 
 export const SEED = 1;
 
+/** Every activity of every available level. */
+export const allActivities: Activity[] = [...a11.activities, ...a12.activities];
+
 export const activity = (id: string): Activity => {
-  const a = content.activities.find((x) => x.id === id);
+  const a = allActivities.find((x) => x.id === id);
   if (!a) throw new Error(`Unknown activity ${id}`);
   return a;
 };

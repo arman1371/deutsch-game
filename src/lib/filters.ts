@@ -6,6 +6,7 @@ export type DurationBucket = 'quick' | 'medium' | 'long';
 
 export interface FilterState {
   q: string;
+  levels: string[];
   units: string[];
   skills: TagId[];
   topics: TagId[];
@@ -17,6 +18,7 @@ export interface FilterState {
 
 export const EMPTY_FILTERS: FilterState = {
   q: '',
+  levels: [],
   units: [],
   skills: [],
   topics: [],
@@ -58,7 +60,12 @@ const hasAny = <T>(selected: readonly T[], test: (v: T) => boolean) =>
   selected.length === 0 || selected.some(test);
 
 /** Within one facet options are OR-ed, across facets they are AND-ed. */
-export function matchesFilters(activity: Activity, f: FilterState, unitTitle?: string): boolean {
+export function matchesFilters(
+  activity: Activity,
+  f: FilterState,
+  unitTitle?: string,
+  levelId?: string,
+): boolean {
   const q = f.q.trim().toLowerCase();
   if (q) {
     const haystack = [
@@ -74,6 +81,7 @@ export function matchesFilters(activity: Activity, f: FilterState, unitTitle?: s
   }
   const tagged = (group: TagId[]) => hasAny(group, (t) => activity.tags.includes(t));
   return (
+    hasAny(f.levels, (l) => l === levelId) &&
     hasAny(f.units, (u) => u === activity.unitId) &&
     tagged(f.skills) &&
     tagged(f.topics) &&
@@ -89,13 +97,17 @@ export function filterActivities(
   f: FilterState,
   units: readonly Unit[] = [],
 ): Activity[] {
-  const titles = new Map(units.map((u) => [u.id, u.title]));
-  return activities.filter((a) => matchesFilters(a, f, titles.get(a.unitId)));
+  const byId = new Map(units.map((u) => [u.id, u]));
+  return activities.filter((a) => {
+    const unit = byId.get(a.unitId);
+    return matchesFilters(a, f, unit?.title, unit?.levelId);
+  });
 }
 
 export function activeFilterCount(f: FilterState): number {
   return (
     (f.q.trim() ? 1 : 0) +
+    f.levels.length +
     f.units.length +
     f.skills.length +
     f.topics.length +
@@ -113,6 +125,7 @@ export function filtersFromParams(p: URLSearchParams): FilterState {
     list(p.get(key)).filter((t): t is TagId => isTagId(t) && tagsInGroup(group).includes(t));
   return {
     q: p.get('q') ?? '',
+    levels: list(p.get('lvl')),
     units: list(p.get('unit')),
     skills: tagList('skill', 'skill'),
     topics: tagList('topic', 'topic'),
@@ -133,6 +146,7 @@ export function filtersToParams(f: FilterState): URLSearchParams {
   const p = new URLSearchParams();
   const set = (k: string, v: readonly (string | number)[]) => v.length && p.set(k, v.join(','));
   if (f.q.trim()) p.set('q', f.q.trim());
+  set('lvl', f.levels);
   set('unit', f.units);
   set('skill', f.skills);
   set('topic', f.topics);

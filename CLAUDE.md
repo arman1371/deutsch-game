@@ -1,6 +1,6 @@
 # Deutsch Spielplatz – notes for Claude
 
-Vite + React 19 + TypeScript + Tailwind 4 SPA with games for learning German (A1.1 done; later levels are
+Vite + React 19 + TypeScript + Tailwind 4 SPA with games for learning German (A1.1 and A1.2 done; later levels are
 content packs). Read `docs/architecture.md` and `docs/adding-content.md` before changing structure.
 
 ## Rules of this repo

@@ -45,6 +45,7 @@ export const en = {
     none: 'No games match these filters.',
     playQueue: 'Play these in order',
     filters: 'Filters',
+    level: 'Level',
   },
   review: {
     title: 'Fehlerkiste',

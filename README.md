@@ -1,11 +1,12 @@
 # Deutsch Spielplatz 🎮🇩🇪
 
-Interactive games for learning German – one level at a time. **A1.1** is complete (8 units, 114 games);
-A1.2 and beyond plug in as content packs without touching the engines.
+Interactive games for learning German – one level at a time. **A1.1** (8 units, 114 games) and
+**A1.2** (10 units, 159 games: town, housing, work, health, clothing, travel, celebrations, appointments,
+offices and everyday life) are complete; later levels plug in as content packs without touching the engines.
 
 - **13 game engines**: flashcards, quiz, memory, listen & pick, spell it, sentence builder, gap fill,
   sort it (drag & drop), conjugation grid, blitz, dialogue, clock master, market stand.
-- **Tagged and filterable**: filter the library by unit, skill, topic, grammar point, game type,
+- **Tagged and filterable**: filter the library by level, unit, skill, topic, grammar point, game type,
   difficulty and length – or play the guided **step-by-step path** of a unit. Any filtered list can be
   played as a queue.
 - **Fehlerkiste**: wrong answers go into a Leitner box and come back for review.
