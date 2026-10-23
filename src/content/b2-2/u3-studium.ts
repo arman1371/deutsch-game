@@ -1,0 +1,784 @@
+import { byDe, flashcards, listen, memory, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  hint,
+  meta,
+  q,
+  say,
+  sent,
+  sortItems,
+  tf,
+  typed,
+  unitB22,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'b2-2-studium';
+
+const campus = vocabList(U, 'Studying at university', [
+  ['Studiengang', 'degree programme', '🎓', 'der', 'Studiengänge'],
+  ['Fachbereich', 'department', '🏛️', 'der', 'Fachbereiche'],
+  ['Studienplatz', 'place on a course', '💺', 'der', 'Studienplätze'],
+  ['Zulassung', 'admission', '✅', 'die', 'Zulassungen'],
+  ['Bewerbungsfrist', 'application deadline', '⏳', 'die', 'Bewerbungsfristen'],
+  ['Motivationsschreiben', 'letter of motivation', '✉️', 'das', 'Motivationsschreiben'],
+  ['Hörsaal', 'lecture hall', '🏟️', 'der', 'Hörsäle'],
+  ['Vorlesung', 'lecture', '🎤', 'die', 'Vorlesungen'],
+  ['Seminar', 'seminar', '🗣️', 'das', 'Seminare'],
+  ['Hausarbeit', 'term paper', '📄', 'die', 'Hausarbeiten'],
+  ['Abschlussarbeit', 'final thesis', '📕', 'die', 'Abschlussarbeiten'],
+  ['Regelstudienzeit', 'standard period of study', '📆', 'die'],
+  ['Prüfungsordnung', 'examination regulations', '📜', 'die', 'Prüfungsordnungen'],
+  ['Studienabbruch', 'dropping out', '🚪', 'der', 'Studienabbrüche'],
+  ['sich einschreiben', 'to enrol', '📝'],
+  ['belegen', 'to enrol in (a course)', '📚'],
+]);
+
+const money = vocabList(U, 'Funding & student life', [
+  ['Stipendium', 'scholarship', '🏅', 'das', 'Stipendien'],
+  ['BAföG', 'state student grant (BAföG)', '🏦', 'das'],
+  ['Studiengebühren', 'tuition fees', '💶', 'die'],
+  ['Nebenjob', 'part-time job', '🧑‍🍳', 'der', 'Nebenjobs'],
+  ['Studienfinanzierung', 'funding of studies', '💰', 'die'],
+  ['Bildungsweg', 'educational path', '🛤️', 'der', 'Bildungswege'],
+  ['Auslandssemester', 'semester abroad', '✈️', 'das', 'Auslandssemester'],
+  ['Promotion', 'doctorate', '🎩', 'die', 'Promotionen'],
+  ['Studienberatung', 'student advisory service', '🧑‍🏫', 'die'],
+  ['Wohnheim', 'student residence', '🏢', 'das', 'Wohnheime'],
+  ['Mensa', 'university canteen', '🍲', 'die', 'Mensen'],
+  ['Kommilitone', 'fellow student', '🧑‍🤝‍🧑', 'der', 'Kommilitonen'],
+  ['Quereinsteiger', 'career changer, lateral entrant', '↪️', 'der', 'Quereinsteiger'],
+  ['promovieren', 'to do a doctorate', '🏁'],
+  ['fördern', 'to support, to fund', '🌱'],
+]);
+
+const vocab = [...campus, ...money];
+
+export const studium: UnitContent = {
+  unit: unitB22({
+    id: U,
+    order: 3,
+    title: 'Studium & Bildung',
+    subtitle: 'Applying to university, funding your studies and talking about consequences',
+    emoji: '🎓',
+    goals: [
+      'Understand a university brochure and apply for a place',
+      'Discuss funding, advice and the path through your studies',
+      'Express consequences and results precisely',
+    ],
+    grammar: [
+      'Consequences: folglich, infolgedessen, somit, so … dass, zu … als dass + Konjunktiv II',
+      'Noun-verb phrases: eine Entscheidung treffen, in Anspruch nehmen, zur Verfügung stellen, in Frage stellen',
+      'Word formation: negation with un-, in-/il-/ir- and -los',
+    ],
+    vocabFields: ['Studying at university', 'Funding & student life'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-campus',
+      'flashcards',
+      meta(
+        'Studying at university',
+        'Studiengang, Hörsaal, Hausarbeit – life on campus.',
+        ['vocabulary', 'university-study'],
+        1,
+        5,
+      ),
+      flashcards(campus),
+    ),
+    activity(
+      U,
+      'flash-money',
+      'flashcards',
+      meta(
+        'Funding & student life',
+        'Stipendium, Nebenjob, Auslandssemester – paying for and shaping your studies.',
+        ['vocabulary', 'university-study'],
+        1,
+        5,
+      ),
+      flashcards(money),
+    ),
+    activity(
+      U,
+      'quiz-words',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'University words in English.',
+        ['vocabulary', 'university-study'],
+        2,
+        4,
+      ),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Fachbereich',
+          'Zulassung',
+          'Bewerbungsfrist',
+          'Regelstudienzeit',
+          'Prüfungsordnung',
+          'Studienabbruch',
+          'Stipendium',
+          'Studienfinanzierung',
+          'Quereinsteiger',
+          'promovieren',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-campus',
+      'memory',
+      meta(
+        'Match the campus words',
+        'Pair German university words with their meaning.',
+        ['vocabulary', 'university-study'],
+        2,
+        4,
+      ),
+      memory(
+        byDe(campus, 'Vorlesung', 'Seminar', 'Hörsaal', 'Hausarbeit', 'Studienplatz', 'belegen'),
+      ),
+    ),
+    activity(
+      U,
+      'listen-words',
+      'listen',
+      meta(
+        'Hear the study words',
+        'Listen and pick the meaning.',
+        ['listening', 'university-study'],
+        2,
+        4,
+      ),
+      listen(
+        byDe(
+          vocab,
+          'Studiengang',
+          'Abschlussarbeit',
+          'Kommilitone',
+          'Wohnheim',
+          'Promotion',
+          'sich einschreiben',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'spell-words',
+      'spell',
+      meta(
+        'Spell the study words',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'university-study'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(campus, 'Hörsaal', 'Seminar'), 'unscramble').items,
+          ...spell(byDe(money, 'Stipendium'), 'unscramble').items,
+          ...spell(byDe(campus, 'Hausarbeit', 'Zulassung'), 'type').items,
+          ...spell(byDe(money, 'Nebenjob'), 'type').items,
+          dictation(
+            'd1',
+            'Die Bewerbungsfrist endet am fünfzehnten Juli.',
+            'The application deadline ends on 15 July.',
+          ),
+          dictation(
+            'd2',
+            'Viele Studierende finanzieren sich durch einen Nebenjob.',
+            'Many students pay their way with a part-time job.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-consequences',
+      'gapfill',
+      meta(
+        'folglich, sodass, als dass',
+        'Choose the connector that expresses the consequence.',
+        ['grammar', 'consecutive-connectors', 'university-study'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          hint(
+            gap(
+              'k1',
+              'Er hatte kaum Zeit zum Lernen, ___ musste er das Seminar abbrechen.',
+              'folglich',
+              ['folglich', 'sodass', 'weil', 'damit'],
+              'He hardly had time to study, so he had to drop the seminar.',
+              'folglich opens a main clause: the verb comes second.',
+            ),
+            {
+              sodass:
+                'sodass starts a subordinate clause with the verb at the end. Here the verb (musste) is in second position.',
+              weil: 'weil gives a reason and sends the verb to the end.',
+              damit: 'damit expresses a purpose, not a consequence.',
+            },
+          ),
+          hint(
+            gap(
+              'k2',
+              'Die Studiengebühren sind zu hoch, ___ ich sie allein bezahlen könnte.',
+              'als dass',
+              ['als dass', 'sodass', 'weil', 'damit'],
+              'The tuition fees are too high for me to pay on my own.',
+              'zu … , als dass + Konjunktiv II',
+            ),
+            {
+              sodass: 'sodass states a real result. “too … to” needs als dass + Konjunktiv II.',
+              weil: 'weil gives a reason, not a consequence.',
+              damit: 'damit expresses a purpose.',
+            },
+          ),
+          hint(
+            gap(
+              'k3',
+              'Der Hörsaal war so überfüllt, ___ viele auf dem Boden sitzen mussten.',
+              'dass',
+              ['dass', 'sodass', 'weil', 'ob'],
+              'The lecture hall was so crowded that many had to sit on the floor.',
+              'so + adjective … dass',
+            ),
+            {
+              sodass:
+                'With so before the adjective use dass (so überfüllt, dass). sodass is one word without a so before the adjective.',
+              weil: 'weil gives a reason, not a result.',
+              ob: 'ob means “whether”.',
+            },
+          ),
+          hint(
+            gap(
+              'k4',
+              'Es gab nur wenige Studienplätze, ___ konnten nicht alle Bewerber zugelassen werden.',
+              'infolgedessen',
+              ['infolgedessen', 'obwohl', 'sodass', 'während'],
+              'There were only a few places, so not all applicants could be admitted.',
+              'infolgedessen: verb in second position',
+            ),
+            {
+              obwohl: 'obwohl means “although” and sends the verb to the end.',
+              sodass: 'sodass sends the verb to the end; here konnten is in second position.',
+              während: 'während means “while” or “whereas”.',
+            },
+          ),
+          hint(
+            gap(
+              'k5',
+              'Die Frist ist abgelaufen. ___ ist eine Bewerbung nicht mehr möglich.',
+              'Somit',
+              ['Somit', 'Denn', 'Obwohl', 'Dass'],
+              'The deadline has passed. Therefore an application is no longer possible.',
+              'somit = therefore',
+            ),
+            {
+              Denn: 'denn gives a reason and does not start a sentence.',
+              Obwohl: 'Obwohl starts a clause with the verb at the end.',
+              Dass: 'Dass starts a subordinate clause.',
+            },
+          ),
+          hint(
+            typed(
+              'k6',
+              'Sie war zu müde, ___ dass sie noch hätte lernen können.',
+              'als',
+              'She was too tired to be able to study any more.',
+              'zu … , als dass + Konjunktiv II (hätte … lernen können)',
+            ),
+            { so: 'For “too … to” use als dass, not so dass.' },
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-noun-verb',
+      'gapfill',
+      meta(
+        'eine Entscheidung treffen …',
+        'Complete the fixed noun-verb phrases.',
+        ['grammar', 'noun-verb-phrases', 'university-study'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          hint(
+            gap(
+              'v1',
+              'Er musste eine schwierige Entscheidung ___.',
+              'treffen',
+              ['treffen', 'machen', 'geben', 'tun'],
+              'He had to make a difficult decision.',
+              'eine Entscheidung treffen',
+            ),
+            {
+              machen:
+                'The fixed phrase is eine Entscheidung treffen (machen is used for Fehler or Pläne).',
+              geben: 'geben does not combine with Entscheidung.',
+              tun: 'tun does not combine with Entscheidung.',
+            },
+          ),
+          hint(
+            gap(
+              'v2',
+              'Viele Studierende nehmen die Studienberatung in ___.',
+              'Anspruch',
+              ['Anspruch', 'Rücksicht', 'Frage', 'Verfügung'],
+              'Many students make use of the advisory service.',
+              'in Anspruch nehmen',
+            ),
+            {
+              Rücksicht: 'Rücksicht nehmen means “to show consideration”, without in.',
+              Frage: 'in Frage stellen means “to question”.',
+              Verfügung: 'zur Verfügung stehen/stellen means “to be/make available”.',
+            },
+          ),
+          hint(
+            gap(
+              'v3',
+              'Der Professor stellt die Ergebnisse der Studie in ___.',
+              'Frage',
+              ['Frage', 'Anspruch', 'Ordnung', 'Not'],
+              'The professor questions the results of the study.',
+              'in Frage stellen',
+            ),
+            {
+              Anspruch: 'in Anspruch nehmen means “to make use of”.',
+              Ordnung: 'in Ordnung bringen means “to put right”.',
+              Not: 'in Not geraten means “to get into trouble”.',
+            },
+          ),
+          hint(
+            gap(
+              'v4',
+              'Die Universität stellt allen Studierenden Lernräume zur ___.',
+              'Verfügung',
+              ['Verfügung', 'Hand', 'Seite', 'Nutzung'],
+              'The university provides study rooms for all students.',
+              'zur Verfügung stellen',
+            ),
+            {
+              Hand: 'zur Hand haben means “to have to hand”, but stellen goes with Verfügung.',
+              Seite: 'zur Seite stehen means “to support”.',
+              Nutzung: 'The fixed phrase uses Verfügung.',
+            },
+          ),
+          hint(
+            gap(
+              'v5',
+              'Er nimmt keine Rücksicht ___ seine Mitbewohner.',
+              'auf',
+              ['auf', 'für', 'an', 'zu'],
+              'He shows no consideration for his flatmates.',
+              'Rücksicht nehmen auf + Akkusativ',
+            ),
+            {
+              für: 'The fixed phrase is Rücksicht nehmen auf.',
+              an: 'an does not go with Rücksicht.',
+              zu: 'zu does not go with Rücksicht.',
+            },
+          ),
+          typed(
+            'v6',
+            'Wir ___ das Thema morgen im Seminar zur Diskussion.',
+            'stellen',
+            'We will put the topic up for discussion in the seminar tomorrow.',
+            'zur Diskussion stellen',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-negation',
+      'sortit',
+      meta(
+        'Not … : un-, in-, -los',
+        'Sort the adjectives by how they express “not” or “without”.',
+        ['grammar', 'word-formation', 'university-study'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'Which prefix or suffix makes the negative?',
+        buckets: [
+          { id: 'un', label: 'un-', emoji: '🚫' },
+          { id: 'in', label: 'in- / il- / ir-', emoji: '⛔' },
+          { id: 'los', label: '-los', emoji: '🕳️' },
+        ],
+        items: sortItems('w', [
+          ['unpünktlich', 'un'],
+          ['unzufrieden', 'un'],
+          ['unmöglich', 'un'],
+          ['unbezahlbar', 'un'],
+          ['inaktiv', 'in'],
+          ['intolerant', 'in'],
+          ['illegal', 'in'],
+          ['irrelevant', 'in'],
+          ['sinnlos', 'los'],
+          ['erfolglos', 'los'],
+          ['arbeitslos', 'los'],
+          ['hoffnungslos', 'los'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'Build the sentence',
+        'Consequences and noun-verb phrases.',
+        ['grammar', 'consecutive-connectors', 'noun-verb-phrases'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sent('s1', 'There are few places, so not all applicants can be admitted.', [
+            'Es',
+            'gibt',
+            'wenige',
+            'Studienplätze,',
+            'folglich',
+            'können',
+            'nicht',
+            'alle',
+            'Bewerber',
+            'zugelassen',
+            'werden.',
+          ]),
+          sent('s2', 'The lecture hall was so full that many had to stand.', [
+            'Der',
+            'Hörsaal',
+            'war',
+            'so',
+            'voll,',
+            'dass',
+            'viele',
+            'stehen',
+            'mussten.',
+          ]),
+          sent('s3', 'She made a difficult decision.', [
+            'Sie',
+            'hat',
+            'eine',
+            'schwierige',
+            'Entscheidung',
+            'getroffen.',
+          ]),
+          sent('s4', 'The university provides study rooms for all students.', [
+            'Die',
+            'Universität',
+            'stellt',
+            'allen',
+            'Studierenden',
+            'Lernräume',
+            'zur',
+            'Verfügung.',
+          ]),
+          sent('s5', 'He showed no consideration for his flatmates.', [
+            'Er',
+            'hat',
+            'keine',
+            'Rücksicht',
+            'auf',
+            'seine',
+            'Mitbewohner',
+            'genommen.',
+          ]),
+          sent('s6', 'The fees are too high for me to be able to pay them.', [
+            'Die',
+            'Gebühren',
+            'sind',
+            'zu',
+            'hoch,',
+            'als',
+            'dass',
+            'ich',
+            'sie',
+            'bezahlen',
+            'könnte.',
+          ]),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-talk',
+      'listen',
+      meta(
+        'Campus talk',
+        'Listen to students and advisers.',
+        ['listening', 'university-study'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Die Bewerbungsfrist läuft bald ab, folglich sollten Sie sich beeilen.',
+            'The application deadline expires soon, so you should hurry.',
+            [
+              'The deadline has already been extended.',
+              'You should apply next year instead.',
+              'The application is free until the deadline.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Ein Stipendium hat mir das Auslandssemester ermöglicht.',
+            'A scholarship made my semester abroad possible.',
+            [
+              'A scholarship forced me to stay at home.',
+              'I paid for my semester abroad with my savings.',
+              'My semester abroad was cancelled.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Die Regelstudienzeit beträgt sechs Semester, aber viele brauchen länger.',
+            'The standard period of study is six semesters, but many need longer.',
+            [
+              'The standard period is two semesters.',
+              'Nobody takes longer than six semesters.',
+              'Students must finish after ten semesters.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Ich arbeite in der Mensa, um mein Studium zu finanzieren.',
+            'I work in the canteen to pay for my studies.',
+            [
+              'I study the canteen as a subject.',
+              'I eat in the canteen every day for free.',
+              'I wish the canteen were cheaper.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'Advice and funding',
+        'Get advice on an application and talk about paying for your studies.',
+        ['communication', 'university-study', 'consecutive-connectors'],
+        2,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'advice',
+            title: 'In der Studienberatung',
+            emoji: '🧑‍🏫',
+            setting: 'You visit the student advisory service before the application deadline.',
+            turns: [
+              say(
+                'Beraterin',
+                'Guten Tag. Wie kann ich Ihnen helfen?',
+                'Hello. How can I help you?',
+              ),
+              you(
+                'Ich möchte eine Entscheidung zwischen zwei Studiengängen treffen.',
+                [
+                  'Ich möchte eine Entscheidung zwischen zwei Studiengängen machen.',
+                  'The fixed phrase is eine Entscheidung treffen.',
+                ],
+                [
+                  'Ich möchte eine Entscheidung zwischen zwei Studiengängen treffe.',
+                  'After möchte the verb stays in the infinitive: treffen.',
+                ],
+              ),
+              say(
+                'Beraterin',
+                'Die Bewerbungsfrist läuft bald ab. Haben Sie schon ein Motivationsschreiben?',
+                'The application deadline expires soon. Do you already have a letter of motivation?',
+              ),
+              you(
+                'Noch nicht. Ich hatte kaum Zeit, folglich bin ich nicht fertig geworden.',
+                [
+                  'Noch nicht. Ich hatte kaum Zeit, folglich ich bin nicht fertig geworden.',
+                  'After folglich the verb comes directly: folglich bin ich.',
+                ],
+                [
+                  'Noch nicht. Ich hatte kaum Zeit, sodass bin ich nicht fertig geworden.',
+                  'sodass sends the verb to the end: sodass ich nicht fertig geworden bin.',
+                ],
+              ),
+              say(
+                'Beraterin',
+                'Unsere Schreibberatung steht Ihnen kostenlos zur Verfügung.',
+                'Our writing advice is available to you free of charge.',
+              ),
+              you(
+                'Vielen Dank, das nehme ich gern in Anspruch.',
+                [
+                  'Vielen Dank, das mache ich gern in Anspruch.',
+                  'The fixed phrase is in Anspruch nehmen.',
+                ],
+                ['Vielen Dank, das nehme ich gern zu Anspruch.', 'in Anspruch nehmen – with in.'],
+              ),
+            ],
+          },
+          {
+            id: 'funding',
+            title: 'Wie finanziere ich das Studium?',
+            emoji: '💶',
+            setting: 'Your fellow student Tom is worried about money.',
+            turns: [
+              say(
+                'Tom',
+                'Das Studium ist zu teuer, als dass ich es allein bezahlen könnte.',
+                'Studying is too expensive for me to pay for on my own.',
+              ),
+              you(
+                'Hast du schon an ein Stipendium gedacht?',
+                ['Hast du schon über ein Stipendium gedacht?', 'denken an + Akkusativ.'],
+                [
+                  'Hast du schon ein Stipendium gedacht an?',
+                  'The preposition belongs before its object.',
+                ],
+              ),
+              say(
+                'Tom',
+                'Nein. Ich dachte, dafür bin ich nicht gut genug.',
+                'No. I thought I am not good enough for that.',
+              ),
+              you(
+                'Versuch es doch! Du hast ja nichts zu verlieren.',
+                ['Versuch es doch! Du hat ja nichts zu verlieren.', 'du hast.'],
+                ['Versuch es doch! Du hast ja nichts verlieren.', 'nichts zu verlieren – with zu.'],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'Campus blitz',
+        'Consequences, noun-verb phrases and vocabulary – true or false?',
+        ['grammar', 'consecutive-connectors', 'noun-verb-phrases'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Es regnete stark, folglich fiel das Fest aus.', true),
+          tf(
+            'b2',
+            'Es regnete stark, folglich das Fest fiel aus.',
+            false,
+            'After folglich the verb is in second position.',
+          ),
+          tf('b3', 'Er war so müde, dass er einschlief.', true),
+          tf(
+            'b4',
+            'Er war sodass müde, dass er einschlief.',
+            false,
+            'Either so … dass or sodass – not both.',
+          ),
+          tf('b5', 'Es ist zu spät, als dass wir noch helfen könnten.', true),
+          tf(
+            'b6',
+            'Es ist zu spät, als dass wir noch helfen können.',
+            false,
+            'als dass takes the Konjunktiv II: könnten.',
+          ),
+          tf('b7', 'Man trifft eine Entscheidung.', true),
+          tf(
+            'b8',
+            'Man macht eine Entscheidung.',
+            false,
+            'The fixed phrase is eine Entscheidung treffen.',
+          ),
+          tf('b9', 'Die Studienberatung steht zur Verfügung.', true),
+          tf(
+            'b10',
+            'Unmöglich bedeutet, dass etwas möglich ist.',
+            false,
+            'un- negates the adjective.',
+          ),
+          tf('b11', 'Ein Hörsaal ist ein Raum für Vorlesungen.', true),
+          tf(
+            'b12',
+            'Die Mensa ist ein Wohnheim für Studierende.',
+            false,
+            'The Mensa is the canteen.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'University words, consequences and noun-verb phrases in one round.',
+        ['vocabulary', 'grammar', 'university-study'],
+        3,
+        5,
+      ),
+      {
+        questions: [
+          q('c1', 'Der Kurs war voll, ___ konnte ich mich nicht mehr anmelden.', 'folglich', [
+            'sodass',
+            'weil',
+            'dass',
+          ]),
+          q('c2', 'Er ist so krank, ___ er nicht kommen kann.', 'dass', ['sodass', 'weil', 'ob']),
+          q('c3', 'Er arbeitet zu viel, als dass er gesund ___ könnte.', 'bleiben', [
+            'bleibt',
+            'geblieben',
+            'zu bleiben',
+          ]),
+          q('c4', 'in Anspruch ___', 'nehmen', ['machen', 'geben', 'treffen']),
+          q('c5', 'zur Verfügung ___', 'stellen', ['nehmen', 'treffen', 'tun']),
+          q('c6', 'ohne Arbeit (adjective):', 'arbeitslos', [
+            'unarbeitig',
+            'inarbeit',
+            'arbeitslich',
+          ]),
+          q('c7', 'der Studiengang', 'degree programme', [
+            'lecture hall',
+            'canteen',
+            'scholarship',
+          ]),
+          q('c8', 'die Zulassung', 'admission', ['deadline', 'tuition fee', 'thesis']),
+          q('c9', 'sich einschreiben', 'to enrol', [
+            'to apply for a job',
+            'to drop out',
+            'to fund',
+          ]),
+          q('c10', 'das Stipendium', 'scholarship', ['seminar', 'part-time job', 'residence']),
+        ],
+      },
+    ),
+  ],
+};

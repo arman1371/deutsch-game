@@ -70,6 +70,19 @@ export const TAGS = {
   'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
   environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
   'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
+  // topics – B2.2
+  'relationships-diversity': { label: 'Relationships & diversity', group: 'topic', emoji: '🫂' },
+  nutrition: { label: 'Nutrition & food', group: 'topic', emoji: '🥗' },
+  'university-study': { label: 'University & studying', group: 'topic', emoji: '🎓' },
+  'service-complaints': { label: 'Service & complaints', group: 'topic', emoji: '🛎️' },
+  'health-fitness': { label: 'Health & fitness', group: 'topic', emoji: '💪' },
+  'language-regions': { label: 'Language & regions', group: 'topic', emoji: '🗺️' },
+  'economy-tourism': { label: 'Economy, tourism & money', group: 'topic', emoji: '💶' },
+  'art-creativity': { label: 'Art & creativity', group: 'topic', emoji: '🎨' },
+  'contemporary-history': { label: 'Contemporary history', group: 'topic', emoji: '🕊️' },
+  'city-sustainability': { label: 'City, mobility & sustainability', group: 'topic', emoji: '🚲' },
+  'stress-decisions': { label: 'Stress, work & decisions', group: 'topic', emoji: '⏱️' },
+  'media-law': { label: 'Media, internet & law', group: 'topic', emoji: '🔐' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -128,6 +141,53 @@ export const TAGS = {
   'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
+  // grammar points – B2.2
+  'noun-prepositions': { label: 'Nouns with prepositions', group: 'grammar', emoji: '📎' },
+  'comparative-clauses': { label: 'anders als / genauso … wie', group: 'grammar', emoji: '🟰' },
+  'modal-hearsay': { label: 'sollen / wollen: hearsay', group: 'grammar', emoji: '📢' },
+  nominalisation: { label: 'Verbs → nouns (Nominalisierung)', group: 'grammar', emoji: '🗂️' },
+  'consecutive-connectors': {
+    label: 'folglich / infolgedessen / als dass',
+    group: 'grammar',
+    emoji: '⤵️',
+  },
+  'noun-verb-phrases': { label: 'Noun-verb phrases', group: 'grammar', emoji: '🧩' },
+  'passive-alternatives': { label: 'Alternatives to the passive', group: 'grammar', emoji: '🔀' },
+  'irgend-pronouns': { label: 'irgend- / manche / sämtliche', group: 'grammar', emoji: '❓' },
+  'modal-clauses': { label: 'indem / dadurch, dass / durch', group: 'grammar', emoji: '🛠️' },
+  'extended-participle': {
+    label: 'Extended participle (erweitertes Partizip)',
+    group: 'grammar',
+    emoji: '🚂',
+  },
+  'adversative-connectors': {
+    label: 'während / wohingegen / hingegen',
+    group: 'grammar',
+    emoji: '↔️',
+  },
+  'concessive-advanced': {
+    label: 'wenngleich / dennoch / zwar … aber',
+    group: 'grammar',
+    emoji: '🙄',
+  },
+  'relative-wer': {
+    label: 'wer / wen / wem … (generalising relatives)',
+    group: 'grammar',
+    emoji: '🔎',
+  },
+  'stative-passive': { label: 'Zustandspassiv (ist … gemacht)', group: 'grammar', emoji: '🧱' },
+  'perfekt-double-infinitive': {
+    label: 'Perfekt with double infinitive',
+    group: 'grammar',
+    emoji: '👂',
+  },
+  'adjective-prepositions': {
+    label: 'Adjectives with prepositions',
+    group: 'grammar',
+    emoji: '🔗',
+  },
+  'konjunktiv-1': { label: 'Indirect speech (Konjunktiv I)', group: 'grammar', emoji: '🗨️' },
+  'modal-assumption': { label: 'Assumptions with modal verbs', group: 'grammar', emoji: '🕵️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

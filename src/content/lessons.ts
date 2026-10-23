@@ -407,6 +407,169 @@ export const LESSONS = {
       'Wenn ich das gewusst hätte, wäre ich gekommen.',
     ],
   },
+  // ---- B2.2 ----
+  'noun-prepositions': {
+    title: 'Nouns with fixed prepositions',
+    rule: 'Many nouns take a fixed preposition that has to be learnt with the noun and its case: die Angst vor + Dat., die Hoffnung auf + Akk., das Interesse an + Dat., der Streit um + Akk. In questions the preposition joins wo(r)-: Worauf hoffst du?',
+    examples: [
+      'die Angst vor dem Versagen',
+      'die Hoffnung auf einen Neuanfang',
+      'das Interesse an Kunst',
+    ],
+  },
+  'comparative-clauses': {
+    title: 'Comparing with als and wie',
+    rule: 'Equal: so / genauso … wie. Unequal: comparative + als. Both can introduce a whole clause with the verb at the end, often in the Plusquamperfekt: schöner, als ich gedacht hatte. anders als and ganz anders, als … compare unlike things; je nachdem, ob … says it depends.',
+    examples: [
+      'Es war genauso teuer, wie ich erwartet hatte.',
+      'Das Studium war schwerer, als ich gedacht hatte.',
+      'Sie ist ganz anders, als man sagt.',
+    ],
+  },
+  'modal-hearsay': {
+    title: 'sollen and wollen: reporting claims',
+    rule: 'sollen = “it is said that” (you heard it from others), wollen = “claims that” (the subject says it of themselves). For things in the past use the infinitive Perfekt: haben / sein at the end after the participle.',
+    examples: [
+      'Der Koch soll sehr berühmt sein.',
+      'Er will das nie gesagt haben.',
+      'Die Suppe soll sehr gesund sein.',
+    ],
+  },
+  nominalisation: {
+    title: 'From verbs and clauses to nouns',
+    rule: 'Written German often turns verbs into nouns: infinitive (das Rauchen), -ung (die Entscheidung), -en-stem (der Verzicht). A clause becomes a noun phrase with a preposition: weil er krank war → wegen seiner Krankheit; wenn man liest → beim Lesen; indem man spart → durch Sparen.',
+    examples: [
+      'Wenn man isst, soll man nicht lesen. → Beim Essen soll man nicht lesen.',
+      'Weil das Obst teuer ist → wegen der hohen Obstpreise',
+      'entscheiden → die Entscheidung',
+    ],
+  },
+  'consecutive-connectors': {
+    title: 'Expressing consequences',
+    rule: 'sodass / so … dass start a clause with the verb at the end. In a new main clause folglich, infolgedessen, somit and daher are followed by the verb. zu … , als dass + Konjunktiv II means “too … to”: Es ist zu spät, als dass wir noch helfen könnten.',
+    examples: [
+      'Er hatte kaum Zeit, folglich musste er absagen.',
+      'Es regnete so stark, dass das Fest ausfiel.',
+      'Die Miete ist zu hoch, als dass ich sie zahlen könnte.',
+    ],
+  },
+  'noun-verb-phrases': {
+    title: 'Noun-verb phrases',
+    rule: 'Formal German prefers fixed combinations of a noun and a verb: eine Entscheidung treffen, in Anspruch nehmen, zur Verfügung stehen, in Frage stellen, Bescheid geben. The noun carries the meaning, the verb is fixed and has to be learnt with it.',
+    examples: [
+      'eine Entscheidung treffen (= entscheiden)',
+      'Rücksicht auf jemanden nehmen',
+      'Das Angebot steht zur Verfügung.',
+    ],
+  },
+  'passive-alternatives': {
+    title: 'Alternatives to the passive',
+    rule: 'Instead of the passive you can use man + active verb, sich lassen + infinitive (Das lässt sich lösen), sein + zu + infinitive (Das ist zu lösen) or an adjective in -bar / -lich (lösbar). The impersonal passive has no subject: Hier wird gearbeitet. Heute wird getanzt.',
+    examples: [
+      'Das Problem lässt sich lösen.',
+      'Der Antrag ist bis Freitag einzureichen.',
+      'Hier darf nicht geraucht werden.',
+    ],
+  },
+  'irgend-pronouns': {
+    title: 'irgend-, manche, sämtliche',
+    rule: 'irgend- makes a word indefinite: irgendwer, irgendetwas, irgendwo, irgendein. For quantities use einige, manche, mehrere, etliche, sämtliche (all) or jeglich-; after them adjectives take plural endings: manche junge Leute, einige gute Ideen.',
+    examples: [
+      'Hat irgendjemand meinen Schlüssel gesehen?',
+      'Manche Menschen trainieren täglich.',
+      'Sämtliche Kosten werden erstattet.',
+    ],
+  },
+  'modal-clauses': {
+    title: 'How? By what means?',
+    rule: 'indem (by …ing) and dadurch, dass give the means in a clause with the verb at the end. Short forms: durch + accusative, mithilfe von + dative, mittels + genitive. ohne … zu / ohne dass name what is missing.',
+    examples: [
+      'Man bleibt fit, indem man regelmäßig trainiert.',
+      'Er verbesserte sich dadurch, dass er jeden Tag übte.',
+      'Mithilfe einer App zählt sie ihre Schritte.',
+    ],
+  },
+  'extended-participle': {
+    title: 'The extended participle',
+    rule: 'Before a noun a participle can carry extra information: article + information + participle with adjective ending + noun. Partizip I (-d) = at the same time (die lachenden Kinder), Partizip II = finished or passive (das in Köln gegründete Unternehmen). Check by turning it into a relative clause.',
+    examples: [
+      'das vom Kunden bestellte Produkt',
+      'die an der Uni studierenden Frauen',
+      'ein seit Jahren geplantes Projekt',
+    ],
+  },
+  'adversative-connectors': {
+    title: 'Expressing contrast',
+    rule: 'während and wohingegen start a clause with the verb at the end. dagegen, hingegen, jedoch and demgegenüber begin a main clause, so the verb follows them directly. im Gegensatz zu takes the dative; einerseits … andererseits weighs two sides.',
+    examples: [
+      'Er mag Berge, wohingegen sie das Meer liebt.',
+      'Sie lebt in der Stadt, er hingegen wohnt auf dem Land.',
+      'Im Gegensatz zu Wien ist Graz ruhiger.',
+    ],
+  },
+  'concessive-advanced': {
+    title: 'Despite that: concessive connectors',
+    rule: 'obwohl, obgleich, wenngleich and auch wenn start clauses with the verb at the end. dennoch and trotzdem open a main clause: verb second. zwar … aber / jedoch concede a point before the counter-argument. trotz and ungeachtet take the genitive.',
+    examples: [
+      'Wenngleich es teuer ist, kaufe ich es.',
+      'Es regnete, dennoch gingen wir spazieren.',
+      'Er ist zwar jung, aber sehr erfahren.',
+    ],
+  },
+  'relative-wer': {
+    title: 'wer, wen, wem … as relative pronouns',
+    rule: 'wer / wen / wem / wessen introduce a clause about unspecified people (“whoever”), was about things. The case follows the verb of the relative clause; the main clause often starts with der / den / dem. The verb of the relative clause goes to the end.',
+    examples: [
+      'Wer zu spät kommt, muss draußen warten.',
+      'Wem es nicht gefällt, der kann gehen.',
+      'Was glänzt, ist nicht immer Gold.',
+    ],
+  },
+  'stative-passive': {
+    title: 'werden or sein with the participle?',
+    rule: 'werden + participle describes the process (Das Bild wird restauriert). sein + participle describes the result (Das Bild ist restauriert). The Zustandspassiv answers “What state is it in?”, so it is only possible when the action can be finished.',
+    examples: [
+      'Das Fenster wird geöffnet. (process)',
+      'Das Fenster ist geöffnet. (state)',
+      'Die Ausstellung ist täglich geöffnet.',
+    ],
+  },
+  'perfekt-double-infinitive': {
+    title: 'Perfekt with a double infinitive',
+    rule: 'With modal verbs and with hören, sehen, lassen + infinitive the Perfekt uses the infinitive instead of the participle: Ich habe ihn kommen hören. In a subordinate clause haben stands before the two infinitives: …, weil ich ihn habe kommen hören.',
+    examples: [
+      'Wir haben das Auto reparieren lassen.',
+      'Ich habe sie singen hören.',
+      'Er sagte, dass er hat gehen müssen.',
+    ],
+  },
+  'adjective-prepositions': {
+    title: 'Adjectives with fixed prepositions',
+    rule: 'Many adjectives need a fixed preposition and case: stolz auf + Akk., zufrieden mit + Dat., abhängig von + Dat., verantwortlich für + Akk., interessiert an + Dat., bereit zu + Dat. Questions use wo(r)-: Worauf bist du stolz?',
+    examples: [
+      'Sie ist stolz auf ihre Tochter.',
+      'Wir sind mit dem Service zufrieden.',
+      'Er ist von seinen Eltern abhängig.',
+    ],
+  },
+  'konjunktiv-1': {
+    title: 'Indirect speech with Konjunktiv I',
+    rule: 'Konjunktiv I is built from the infinitive stem + -e (er gehe, sie habe, er sei). If it looks like the indicative (ich, wir, sie plural), use Konjunktiv II or würde + infinitive. Past: sei / habe + participle. The tense of the original is not kept: only the verb mood shows that someone is quoting.',
+    examples: [
+      'Sie sagte, sie sei müde.',
+      'Er behauptet, er habe nichts gewusst.',
+      'Sie meinten, sie hätten keine Zeit.',
+    ],
+  },
+  'modal-assumption': {
+    title: 'Assumptions with modal verbs',
+    rule: 'Present: muss (sure), dürfte (probably), könnte (maybe) + infinitive. Past: modal + infinitive Perfekt: Er muss es vergessen haben. kann nicht … sein means it is impossible. Add wohl or vielleicht for a weaker guess.',
+    examples: [
+      'Er muss krank sein.',
+      'Sie dürfte schon abgereist sein.',
+      'Das kann nicht stimmen.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
@@ -445,6 +608,21 @@ const COVERS: Partial<Record<TagId, readonly TagId[]>> = {
   'modal-verbs': ['verb-conjugation'],
   'verbs-with-prepositions': ['accusative', 'dative'],
   'verb-conjugation': ['pronouns'],
+  'konjunktiv-1': ['konjunktiv-2'],
+  'modal-hearsay': ['modal-verbs', 'perfekt'],
+  'modal-assumption': ['modal-verbs', 'perfekt'],
+  'perfekt-double-infinitive': ['perfekt', 'modal-verbs'],
+  'concessive-advanced': ['concessive-clauses', 'subordinate-clauses', 'connectors'],
+  'consecutive-connectors': ['subordinate-clauses', 'connectors'],
+  'adversative-connectors': ['subordinate-clauses', 'connectors'],
+  'modal-clauses': ['subordinate-clauses', 'infinitive-zu'],
+  'comparative-clauses': ['comparison', 'subordinate-clauses'],
+  'relative-wer': ['relative-clauses', 'subordinate-clauses'],
+  'stative-passive': ['passive'],
+  'passive-alternatives': ['passive'],
+  'extended-participle': ['adjective-endings'],
+  'adjective-prepositions': ['verbs-with-prepositions'],
+  'noun-prepositions': ['verbs-with-prepositions'],
 };
 
 /**
