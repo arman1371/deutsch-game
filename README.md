@@ -44,6 +44,11 @@ npm run dev          # http://localhost:5173
 First e2e run on a fresh machine: `npx playwright install chromium`. In sandboxes that ship their own
 Chromium set `PW_CHROMIUM_PATH=/path/to/chrome` instead.
 
+## Code quality
+
+CI runs a SonarQube Cloud analysis with unit-test coverage on every PR and fails when the quality gate
+is red. Setup and the manual steps are in [docs/code-quality.md](docs/code-quality.md).
+
 ## Hosting: Cloudflare Pages (free)
 
 See [docs/deployment.md](docs/deployment.md) for the full reasoning and steps. Short version:
@@ -63,7 +68,7 @@ src/
   store/        progress + settings (zustand, persisted), storage repository seam
   i18n/         UI strings (English) + t()
 e2e/            Playwright specs (engines, flows, a11y/axe, keyboard, mobile)
-docs/           adding-content.md, deployment.md, architecture.md
+docs/           adding-content.md, deployment.md, architecture.md, code-quality.md
 ```
 
 ## Extending
