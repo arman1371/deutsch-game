@@ -346,6 +346,67 @@ export const LESSONS = {
       'Gehen Sie an der Kirche vorbei.',
     ],
   },
+  plusquamperfekt: {
+    title: 'Plusquamperfekt',
+    rule: 'Use it for something that happened before another past event. Form: hatte/war (simple past of haben/sein) + participle at the end. After nachdem the clause is in the Plusquamperfekt and the main clause in the Präteritum or Perfekt.',
+    examples: [
+      'Ich hatte schon gegessen. · Sie war schon gegangen.',
+      'Nachdem er gefrühstückt hatte, ging er zur Arbeit.',
+    ],
+  },
+  'concessive-clauses': {
+    title: 'obwohl and trotzdem',
+    rule: 'Both express a contrast you would not expect. obwohl starts a subordinate clause, so the verb goes to the end. trotzdem is an adverb that links two main clauses: it takes position 1 and the verb follows directly.',
+    examples: ['Obwohl es regnet, gehe ich spazieren.', 'Es regnet. Trotzdem gehe ich spazieren.'],
+  },
+  'genitive-prepositions': {
+    title: 'wegen, trotz, während',
+    rule: 'These prepositions take the genitive: des/eines + noun with -s or -es for masculine and neuter, der/einer for feminine and plural. In everyday speech you often hear the dative, but in writing use the genitive.',
+    examples: ['wegen des Wetters · trotz der Kälte', 'während der Arbeit · innerhalb einer Woche'],
+  },
+  'infinitive-zu': {
+    title: 'Infinitive with zu',
+    rule: 'After many verbs and expressions (versuchen, vergessen, anfangen, Lust haben, es ist wichtig) the second verb is an infinitive with zu at the end of the clause. With separable verbs zu goes between prefix and verb. statt … zu and ohne … zu work the same way.',
+    examples: [
+      'Ich versuche, mehr Sport zu machen.',
+      'Vergiss nicht, die Tür abzuschließen.',
+      'Er ging, ohne Tschüss zu sagen.',
+    ],
+  },
+  'two-part-conjunctions': {
+    title: 'Two-part conjunctions',
+    rule: 'Some conjunctions come in pairs: nicht nur … sondern auch (not only … but also), sowohl … als auch (both … and), entweder … oder (either … or), weder … noch (neither … nor), zwar … aber (admittedly … but).',
+    examples: [
+      'Sie spricht nicht nur Deutsch, sondern auch Spanisch.',
+      'Wir fahren entweder mit dem Zug oder mit dem Bus.',
+      'Ich habe weder Zeit noch Geld.',
+    ],
+  },
+  'adjectives-as-nouns': {
+    title: 'Adjectives as nouns',
+    rule: 'An adjective can become a noun for a person: it is written with a capital letter but keeps its adjective ending, which depends on the article and the case, just like before a noun.',
+    examples: [
+      'der Bekannte · ein Bekannter · eine Bekannte',
+      'die Erwachsenen · mit einem Verwandten',
+    ],
+  },
+  'futur-1': {
+    title: 'Futur I',
+    rule: 'werden (conjugated, position 2) + infinitive at the end. It is used for plans, promises and predictions; for simple plans Germans usually prefer the present tense with a time word.',
+    examples: [
+      'Ich werde nächstes Jahr in Berlin studieren.',
+      'Es wird morgen regnen.',
+      'Wirst du mir helfen?',
+    ],
+  },
+  'konjunktiv-2-past': {
+    title: 'Konjunktiv II of the past',
+    rule: 'For unreal situations and regrets in the past: hätte or wäre + participle at the end. Use wäre with verbs that form the Perfekt with sein. With a modal verb: hätte + infinitive + modal infinitive.',
+    examples: [
+      'Ich hätte früher aufstehen sollen.',
+      'Wenn ich das gewusst hätte, wäre ich gekommen.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
