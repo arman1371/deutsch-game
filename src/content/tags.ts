@@ -83,6 +83,19 @@ export const TAGS = {
   'city-sustainability': { label: 'City, mobility & sustainability', group: 'topic', emoji: '🚲' },
   'stress-decisions': { label: 'Stress, work & decisions', group: 'topic', emoji: '⏱️' },
   'media-law': { label: 'Media, internet & law', group: 'topic', emoji: '🔐' },
+  // topics – B1.2
+  colleagues: { label: 'Colleagues & conflicts', group: 'topic', emoji: '🧑‍💼' },
+  'digital-world': { label: 'Computers & digital life', group: 'topic', emoji: '🖥️' },
+  'consumer-rights': { label: 'Consumption & consumer rights', group: 'topic', emoji: '🛍️' },
+  'further-education': { label: 'Further education & courses', group: 'topic', emoji: '📖' },
+  'rules-manners': { label: 'Rules & cultural differences', group: 'topic', emoji: '📜' },
+  volunteering: { label: 'Volunteering', group: 'topic', emoji: '🙌' },
+  'politics-society': { label: 'Politics & society', group: 'topic', emoji: '🗳️' },
+  history: { label: 'History', group: 'topic', emoji: '🏛️' },
+  'city-country': { label: 'City, country & tourism', group: 'topic', emoji: '🏙️' },
+  'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
+  'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
+  'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -188,6 +201,20 @@ export const TAGS = {
   },
   'konjunktiv-1': { label: 'Indirect speech (Konjunktiv I)', group: 'grammar', emoji: '🗨️' },
   'modal-assumption': { label: 'Assumptions with modal verbs', group: 'grammar', emoji: '🕵️' },
+  // grammar points – B1.2
+  'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
+  'als-ob': { label: 'als ob', group: 'grammar', emoji: '🫥' },
+  'participles-as-adjectives': {
+    label: 'Participles as adjectives',
+    group: 'grammar',
+    emoji: '🏃',
+  },
+  'modal-particles': { label: 'Modal particles (doch, ja, mal)', group: 'grammar', emoji: '🧂' },
+  'indem-ohne-dass': { label: 'indem / ohne dass / statt dass', group: 'grammar', emoji: '🛠️' },
+  'passive-past': { label: 'Passive: wurde / ist … worden', group: 'grammar', emoji: '📜' },
+  'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
+  'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
+  'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;
