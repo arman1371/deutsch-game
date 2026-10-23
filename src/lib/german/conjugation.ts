@@ -100,6 +100,14 @@ const IRREGULAR: Record<string, Forms> = {
     ihr: 'ladet',
     'sie/Sie': 'laden',
   },
+  gefallen: {
+    ich: 'gefalle',
+    du: 'gefällst',
+    'er/sie/es': 'gefällt',
+    wir: 'gefallen',
+    ihr: 'gefallt',
+    'sie/Sie': 'gefallen',
+  },
   lassen: {
     ich: 'lasse',
     du: 'lässt',
@@ -239,6 +247,11 @@ const IRREGULAR: Record<string, Forms> = {
   },
 };
 
+/** -e- before the ending: arbeitest, öffnest, zeichnest, atmest (but not wohnst, lernst). */
+function needsE(stem: string): boolean {
+  return /(t|d)$/.test(stem) || /[^aeiouäöülrhmn][nm]$/.test(stem) || /chn$/.test(stem);
+}
+
 /** Present tense. Regular verbs follow the stem + ending rule, incl. -t/-d and -s/-ß/-z stems. */
 export function conjugate(infinitive: string): Forms {
   const known = IRREGULAR[infinitive];
@@ -247,7 +260,7 @@ export function conjugate(infinitive: string): Forms {
     throw new Error(`Cannot conjugate "${infinitive}"`);
   }
   const stem = infinitive.endsWith('en') ? infinitive.slice(0, -2) : infinitive.slice(0, -1);
-  const eStem = /(t|d)$/.test(stem) || /[^aeiouäöülrhmn][nm]$/.test(stem);
+  const eStem = needsE(stem);
   const sStem = /(s|ß|z|x)$/.test(stem);
   const du = sStem ? `${stem}t` : `${stem}${eStem ? 'est' : 'st'}`;
   const er = `${stem}${eStem ? 'et' : 't'}`;
@@ -352,7 +365,7 @@ const MIXED_PRETERITE: Record<string, string> = {
 /** Weak ich/er form: stem + -te, with -ete after t/d and consonant + n/m (arbeitete, öffnete). */
 function weakPreterite(infinitive: string): string {
   const stem = infinitive.endsWith('en') ? infinitive.slice(0, -2) : infinitive.slice(0, -1);
-  const eStem = /(t|d)$/.test(stem) || /[^aeiouäöülrhmn][nm]$/.test(stem);
+  const eStem = needsE(stem);
   return `${stem}${eStem ? 'ete' : 'te'}`;
 }
 

@@ -161,6 +161,26 @@ describe('A2.2 verb forms', () => {
     expect(conjugate('empfehlen')['er/sie/es']).toBe('empfiehlt');
   });
 
+  it('inserts the e in -chn- stems and knows gefallen', () => {
+    expect(row('zeichnen')).toEqual([
+      'zeichne',
+      'zeichnest',
+      'zeichnet',
+      'zeichnen',
+      'zeichnet',
+      'zeichnen',
+    ]);
+    expect(conjugatePreterite('zeichnen')['ich']).toBe('zeichnete');
+    expect(row('gefallen')).toEqual([
+      'gefalle',
+      'gefällst',
+      'gefällt',
+      'gefallen',
+      'gefallt',
+      'gefallen',
+    ]);
+  });
+
   it('forms the simple past of regular verbs', () => {
     expect(past('machen')).toEqual([
       'machte',
