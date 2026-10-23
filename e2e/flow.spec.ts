@@ -93,6 +93,7 @@ test.describe('game library and filters', () => {
     await expect(page.getByTestId('activity-card')).toHaveCount(market.length);
 
     await page.getByRole('button', { name: 'Clear filters' }).click();
+    await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     await page.getByRole('button', { name: /Separable verbs/ }).click();
     const separable = allActivities.filter((a) => a.tags.includes('separable-verbs'));
     await expect(page.getByTestId('result-count')).toHaveText(`${separable.length} games`);

@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 import a11 from '../src/content/a1-1';
 import a12 from '../src/content/a1-2';
 import a21 from '../src/content/a2-1';
-import { activity, captureSpeech, playPerfectly } from './helpers';
+import { activity, allActivities, captureSpeech, playPerfectly } from './helpers';
 
 test.beforeEach(async ({ page }) => {
   await captureSpeech(page);
@@ -77,12 +77,11 @@ test.describe('A2.1 – library', () => {
       [/weil \/ wenn clauses/, 'subordinate-clauses'],
     ] as const) {
       await page.getByRole('button', { name: label }).click();
-      const n = [...a11.activities, ...a12.activities, ...a21.activities].filter((a) =>
-        a.tags.includes(tag as never),
-      ).length;
+      const n = allActivities.filter((a) => a.tags.includes(tag as never)).length;
       expect(n).toBeGreaterThan(3);
       await expect(page.getByTestId('result-count')).toHaveText(`${n} games`);
       await page.getByRole('button', { name: 'Clear filters' }).click();
+      await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     }
   });
 

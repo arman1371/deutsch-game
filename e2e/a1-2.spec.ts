@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import a11 from '../src/content/a1-1';
 import a12 from '../src/content/a1-2';
-import { activity, captureSpeech, playPerfectly, SEED } from './helpers';
+import { activity, allActivities, captureSpeech, playPerfectly, SEED } from './helpers';
 
 test.beforeEach(async ({ page }) => {
   await captureSpeech(page);
@@ -76,10 +76,11 @@ test.describe('A1.2 – library', () => {
       [/Wo\? \/ Wohin\?/, 'two-way-prepositions'],
     ] as const) {
       await page.getByRole('button', { name: label }).click();
-      const n = a12.activities.filter((a) => a.tags.includes(tag as never)).length;
+      const n = allActivities.filter((a) => a.tags.includes(tag as never)).length;
       expect(n).toBeGreaterThan(3);
       await expect(page.getByTestId('result-count')).toHaveText(`${n} games`);
       await page.getByRole('button', { name: 'Clear filters' }).click();
+      await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     }
   });
 
