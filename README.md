@@ -149,6 +149,11 @@ language dimension in the content schema, routes or level catalogue, text-to-spe
 and grammar helpers live in `src/lib/german/`. Adding a second language means introducing that dimension
 first; please open an issue to discuss the approach before writing content.
 
+### Code graph
+
+`graphify-out/` holds a [Graphify](https://github.com/Graphify-Labs/graphify) knowledge graph of the code.
+A workflow refreshes it after every push to `main`; see [docs/graphify.md](docs/graphify.md).
+
 ## Roadmap
 
 - German **B1.2** and later levels
