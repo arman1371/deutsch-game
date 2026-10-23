@@ -3,8 +3,11 @@ import { zeit } from './u1-zeit';
 import { digital } from './u2-digital';
 import { sprache } from './u3-sprache';
 import { manieren } from './u4-manieren';
+import { tourismus } from './u5-tourismus';
+import { arbeit } from './u6-arbeit';
+import { lebenswege } from './u7-lebenswege';
 
-const units = [zeit, digital, sprache, manieren];
+const units = [zeit, digital, sprache, manieren, tourismus, arbeit, lebenswege];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
