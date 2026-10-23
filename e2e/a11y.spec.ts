@@ -39,6 +39,8 @@ const PAGES: [string, string, string][] = [
   ['unit A2.1', '/levels/a2-1/units/a2-1-online', 'Online & Apps'],
   ['level A2.2', '/levels/a2-2', 'A2.2'],
   ['unit A2.2', '/levels/a2-2/units/a2-2-lernen', 'Lernen & Prüfungen'],
+  ['level B1.1', '/levels/b1-1', 'B1.1'],
+  ['unit B1.1', '/levels/b1-1/units/b1-1-glueck', 'Glück im Alltag'],
   ['library', '/library', 'Game library'],
   ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
@@ -97,6 +99,11 @@ for (const scheme of ['light', 'dark'] as const) {
       'a2-2-post-conj-post',
       'a2-2-feste-sort-final-sounds',
       'a2-2-lernen-quiz-stress',
+      'b1-1-glueck-sort-n-ng-nk',
+      'b1-1-glueck-memory-idioms',
+      'b1-1-zukunft-conj-futur',
+      'b1-1-wohnen-sort-two-part',
+      'b1-1-feiern-dialogues',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);

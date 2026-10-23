@@ -7,6 +7,7 @@ import a11 from '@/content/a1-1';
 import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
 import a22 from '@/content/a2-2';
+import b11 from '@/content/b1-1';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
 import { useProgressStore } from '@/store/progressStore';
@@ -22,10 +23,11 @@ export const allActivities: Activity[] = [
   ...a12.activities,
   ...a21.activities,
   ...a22.activities,
+  ...b11.activities,
 ];
-export const allUnits = [...a11.units, ...a12.units, ...a21.units, ...a22.units];
+export const allUnits = [...a11.units, ...a12.units, ...a21.units, ...a22.units, ...b11.units];
 
-/** Render the whole app at a URL with the real A1.1, A1.2, A2.1 and A2.2 content. */
+/** Render the whole app at a URL with the real A1.1 to B1.1 content. */
 export function renderApp(path = '/') {
   const router = createTestRouter([path]);
   const user = userEvent.setup();

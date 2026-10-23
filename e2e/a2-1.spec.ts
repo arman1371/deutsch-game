@@ -9,13 +9,13 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('A2.1 – level navigation', () => {
-  test('Home lists A2.1 as available and B1.1 as coming soon', async ({ page }) => {
+  test('Home lists A2.1 as available and B1.2 as coming soon', async ({ page }) => {
     await page.goto('/');
     const card = page.getByTestId('level-a2-1');
     await expect(card).toContainText('A2.1');
     await expect(card).toContainText(`0 / ${a21.activities.length} games`);
     await expect(
-      page.getByRole('heading', { name: 'B1.1' }).locator('xpath=ancestor::li'),
+      page.getByRole('heading', { name: 'B1.2' }).locator('xpath=ancestor::li'),
     ).toContainText('Coming soon');
   });
 
@@ -73,7 +73,7 @@ test.describe('A2.1 – library', () => {
     await page.getByText(/^Filters/).click();
     for (const [label, tag] of [
       [/Reflexive verbs/, 'reflexive-verbs'],
-      [/Genitive with names/, 'genitive'],
+      [/Genitive \(Annas/, 'genitive'],
       [/weil \/ wenn clauses/, 'subordinate-clauses'],
     ] as const) {
       await page.getByRole('button', { name: label }).click();

@@ -60,6 +60,16 @@ export const TAGS = {
   'post-phone': { label: 'Post & phone', group: 'topic', emoji: '📮' },
   'money-banking': { label: 'Money & banking', group: 'topic', emoji: '🏦' },
   'life-stages': { label: 'Life stages', group: 'topic', emoji: '🧒' },
+  // topics – B1.1
+  'luck-happiness': { label: 'Luck & happiness', group: 'topic', emoji: '🍀' },
+  'tv-film': { label: 'TV, series & film', group: 'topic', emoji: '📺' },
+  'language-learning': { label: 'Languages & misunderstandings', group: 'topic', emoji: '🗣️' },
+  'customer-service': { label: 'Customer service', group: 'topic', emoji: '🧾' },
+  'living-together': { label: 'Living together', group: 'topic', emoji: '🏘️' },
+  friendship: { label: 'Friendship & character', group: 'topic', emoji: '🤝' },
+  'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
+  environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
+  'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -86,7 +96,7 @@ export const TAGS = {
   'polite-forms': { label: 'würde / könnte', group: 'grammar', emoji: '🎩' },
   // grammar points – A2.1
   'reflexive-verbs': { label: 'Reflexive verbs', group: 'grammar', emoji: '🪞' },
-  genitive: { label: 'Genitive with names', group: 'grammar', emoji: '👑' },
+  genitive: { label: 'Genitive (Annas, des, der)', group: 'grammar', emoji: '👑' },
   'indefinite-pronouns': { label: 'man / jemand / etwas / welche', group: 'grammar', emoji: '❔' },
   'subordinate-clauses': { label: 'weil / wenn clauses', group: 'grammar', emoji: '🔚' },
   connectors: { label: 'deshalb / trotzdem / dann', group: 'grammar', emoji: '➡️' },
@@ -105,6 +115,19 @@ export const TAGS = {
   'word-formation': { label: 'Word formation', group: 'grammar', emoji: '🧱' },
   lassen: { label: 'lassen', group: 'grammar', emoji: '🤲' },
   'route-prepositions': { label: 'durch / entlang / vorbei', group: 'grammar', emoji: '🛣️' },
+  // grammar points – B1.1
+  plusquamperfekt: { label: 'Plusquamperfekt', group: 'grammar', emoji: '⏮️' },
+  'concessive-clauses': { label: 'obwohl / trotzdem', group: 'grammar', emoji: '🤷' },
+  'genitive-prepositions': { label: 'wegen / trotz / während', group: 'grammar', emoji: '🧷' },
+  'infinitive-zu': { label: 'Infinitive with zu', group: 'grammar', emoji: '➰' },
+  'two-part-conjunctions': {
+    label: 'nicht nur … sondern auch',
+    group: 'grammar',
+    emoji: '🪢',
+  },
+  'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
+  'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
+  'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;
