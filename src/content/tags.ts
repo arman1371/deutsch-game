@@ -83,7 +83,7 @@ export const TAGS = {
   'subordinate-clauses': { label: 'weil / wenn clauses', group: 'grammar', emoji: '🔚' },
   connectors: { label: 'deshalb / zuerst – dann', group: 'grammar', emoji: '➡️' },
   superlative: { label: 'Superlative', group: 'grammar', emoji: '🏆' },
-  'dative-prepositions': { label: 'Dative prepositions', group: 'grammar', emoji: '🧲' },
+  'dative-prepositions': { label: 'mit / von / zu / seit', group: 'grammar', emoji: '🧲' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;
