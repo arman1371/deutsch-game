@@ -691,7 +691,7 @@ export const arbeit: UnitContent = {
       'dialogue',
       meta(
         'Emergency, hospital, training',
-        'A call for help, a broken leg and a training course.',
+        'A call for help, a broken leg, a training course and a business e-mail.',
         ['communication', 'health-body', 'work-jobs'],
         3,
         8,
@@ -802,6 +802,52 @@ export const arbeit: UnitContent = {
                 [
                   'Danke, Frau Doktor. Ich hoffe, ob alles gut wird.',
                   'ob means “whether”; dass introduces a statement.',
+                ],
+              ),
+            ],
+          },
+          {
+            id: 'email',
+            title: 'A business e-mail',
+            emoji: '📧',
+            setting: 'A colleague and you write an e-mail to a customer.',
+            turns: [
+              say(
+                'Kollegin',
+                'Wir schreiben dem Kunden eine E-Mail. Wie beginnen wir?',
+                'We are writing an e-mail to the customer. How do we begin?',
+              ),
+              you(
+                'Sehr geehrte Damen und Herren,',
+                [
+                  'Hallo Leute,',
+                  'A business e-mail to a customer begins formally: Sehr geehrte Damen und Herren.',
+                ],
+                ['Liebe Grüße,', 'Liebe Grüße is a closing for friends, not an opening.'],
+              ),
+              say(
+                'Kollegin',
+                'Und was schreiben wir zur Rechnung?',
+                'And what do we write about the invoice?',
+              ),
+              you(
+                'Anbei sende ich Ihnen die Rechnung. Bei Rückfragen rufen Sie mich gern an.',
+                [
+                  'Anbei ich sende Ihnen die Rechnung. Bei Rückfragen rufen Sie mich gern an.',
+                  'The verb is in second position: Anbei sende ich …',
+                ],
+                [
+                  'Anbei sende ich dir die Rechnung. Bei Rückfragen rufen Sie mich gern an.',
+                  'In a formal e-mail use Ihnen, not dir.',
+                ],
+              ),
+              say('Kollegin', 'Und zum Schluss?', 'And at the end?'),
+              you(
+                'Mit freundlichen Grüßen, Kim Park',
+                ['Liebe Grüße, Kim Park', 'Liebe Grüße is too informal for business.'],
+                [
+                  'Mit freundliche Grüße, Kim Park',
+                  'mit takes the dative plural: mit freundlichen Grüßen.',
                 ],
               ),
             ],

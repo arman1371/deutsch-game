@@ -189,6 +189,45 @@ describe('Level A2.1', () => {
   }, 30_000);
 });
 
+describe('Level A2.2', () => {
+  it('walks Home → A2.2 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-a2-2'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(a22.units.length);
+    expect(within(units).queryByTestId('unit-a2-1-online')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-a2-2-lernen'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(
+      screen.getByRole('heading', { level: 1, name: 'Lernen & Prüfungen' }),
+    ).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(a22.activities.filter((a) => a.unitId === 'a2-2-lernen').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('filters the library by the A2.2 level and only offers its units', async () => {
+    renderApp('/library?lvl=a2-2');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${a22.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'A2.2' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Lernen & Prüfungen/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Online & Apps/ })).not.toBeInTheDocument();
+  }, 30_000);
+
+  it('finds the pronunciation games through the skill filter', async () => {
+    renderApp('/library?lvl=a2-2&skill=pronunciation');
+    const pronunciation = a22.activities.filter((a) => a.tags.includes('pronunciation')).length;
+    expect(pronunciation).toBeGreaterThan(0);
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(`${pronunciation} games`),
+    );
+  }, 30_000);
+});
+
 describe('Library', () => {
   it('lists every game and filters by game type, topic and unit', async () => {
     const { user } = renderApp('/library');

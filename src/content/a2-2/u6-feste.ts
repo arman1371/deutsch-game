@@ -78,6 +78,12 @@ const values = vocabList(U, 'Clichés & values', [
   ['tolerant', 'tolerant', '🌈'],
   ['offen', 'open, open-minded', '🚪'],
   ['respektieren', 'to respect', '🤲'],
+  ['Politik', 'politics', '🗞️', 'die'],
+  ['Wahl', 'election', '☑️', 'die', 'Wahlen'],
+  ['Regierung', 'government', '🏢', 'die', 'Regierungen'],
+  ['Demokratie', 'democracy', '🗽', 'die', 'Demokratien'],
+  ['Partei', 'party (political)', '🎈', 'die', 'Parteien'],
+  ['wählen', 'to vote, to choose', '🖐️'],
   ['Niemand ist perfekt.', 'Nobody is perfect.', '🙃'],
 ]);
 
@@ -182,7 +188,7 @@ export const feste: UnitContent = {
       'flashcards',
       meta(
         'Clichés & values',
-        'Klischee, Wert, Toleranz – talking about cultures.',
+        'Klischee, Wert, Toleranz, Politik – talking about culture and society.',
         ['vocabulary', 'customs-etiquette'],
         1,
         5,
