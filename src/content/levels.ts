@@ -52,7 +52,7 @@ export const LEVELS: LevelMeta[] = [
     id: 'c1-1',
     title: 'C1.1',
     subtitle:
-      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society',
+      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society (volunteering)',
     status: 'available',
     load: () => import('./c1-1'),
   },

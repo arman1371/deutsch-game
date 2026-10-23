@@ -9,6 +9,7 @@ import { lebenswege } from './u7-lebenswege';
 import { studium } from './u8-studium';
 import { konsum } from './u9-konsum';
 import { wirtschaft } from './u10-wirtschaft';
+import { gesellschaft } from './u11-gesellschaft';
 
 const units = [
   zeit,
@@ -21,6 +22,7 @@ const units = [
   studium,
   konsum,
   wirtschaft,
+  gesellschaft,
 ];
 
 const content: LevelContent = {
