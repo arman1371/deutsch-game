@@ -16,7 +16,8 @@ read it, so it should always match the code.
 
 PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. The
 bot commit carries `[skip ci]`, so it starts no workflow (no loop, no CI or Sonar run) and no Cloudflare
-build; the graph does not affect the app. A newer push cancels a still-running older run (each run builds
+build; the graph does not affect the app. (Never put that skip marker in a normal commit message: it
+would skip CI for that commit too.) A newer push cancels a still-running older run (each run builds
 from the latest `main`, so nothing is lost).
 
 Committed: `graph.json` and `GRAPH_REPORT.md`; everything else in `graphify-out/` is ignored (see `.gitignore`).
