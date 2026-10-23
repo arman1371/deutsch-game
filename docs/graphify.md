@@ -12,11 +12,12 @@ read it, so it should always match the code.
 2. runs `graphify update .` (code-only AST extraction, no LLM, no API key; `GRAPHIFY_FORCE=1` so a commit
    that deletes code can shrink the graph);
 3. if Graphify changed `graphify-out/` (it leaves the files alone when the code graph is the same, e.g. after
-   docs-only commits), pushes one commit `chore(graph): graphify update` to `main`.
+   docs-only commits), pushes one commit `chore(graph): graphify update [skip ci]` to `main`.
 
-PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. It never
-loops: the bot commit only changes `graphify-out/`, which both this workflow and CI ignore (`paths-ignore`),
-and the run also stops if the head commit is the bot commit. A newer push cancels a still-running older run (each run builds from the latest `main`, so nothing is lost).
+PRs do not touch the graph, so it can lag one merge behind and PRs never conflict on `graph.json`. The
+bot commit carries `[skip ci]`, so it starts no workflow (no loop, no CI or Sonar run) and no Cloudflare
+build; the graph does not affect the app. A newer push cancels a still-running older run (each run builds
+from the latest `main`, so nothing is lost).
 
 Committed: `graph.json` and `GRAPH_REPORT.md`; everything else in `graphify-out/` is ignored (see `.gitignore`).
 
