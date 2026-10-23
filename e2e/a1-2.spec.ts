@@ -63,7 +63,10 @@ test.describe('A1.2 – library', () => {
     await expect(page.getByRole('button', { name: /Hallo & Tschüss/ })).toHaveCount(0);
 
     await page.getByRole('button', { name: 'A1.2', exact: true }).click();
+    // wait until the deselection is rendered; otherwise the next click still sees A1.2 as selected
+    await expect(page.getByTestId('result-count')).toHaveText(`${allActivities.length} games`);
     await page.getByRole('button', { name: 'A1.1', exact: true }).click();
+    await expect(page).toHaveURL(/lvl=a1-1$/);
     await expect(page.getByTestId('result-count')).toHaveText(`${a11.activities.length} games`);
   });
 

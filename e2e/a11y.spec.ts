@@ -15,6 +15,20 @@ async function expectNoViolations(page: Page, label: string) {
   expect(summary, `${label}: accessibility violations`).toEqual([]);
 }
 
+/**
+ * axe measures contrast on the current frame, so wait for a few frames in which every entrance animation
+ * (pop, shake) has finished. A fixed timeout is not enough on a slow runner.
+ */
+async function settle(page: Page) {
+  await page.evaluate(async () => {
+    const frame = () => new Promise<void>((done) => requestAnimationFrame(() => done()));
+    for (let i = 0; i < 3; i++) {
+      await frame();
+      await Promise.allSettled(document.getAnimations().map((a) => a.finished));
+    }
+  });
+}
+
 const PAGES: [string, string, string][] = [
   ['home', '/', 'Start your first game'],
   ['level', '/levels/a1-1', 'A1.1'],
@@ -52,7 +66,7 @@ for (const scheme of ['light', 'dark'] as const) {
       await expectNoViolations(page, 'quiz question');
       await page.keyboard.press('1');
       await expect(page.getByTestId('feedback')).toBeVisible();
-      await page.waitForTimeout(500); // let the pop animation finish – axe measures contrast on the settled frame
+      await settle(page);
       await expectNoViolations(page, 'quiz feedback');
     });
 
@@ -87,7 +101,9 @@ for (const scheme of ['light', 'dark'] as const) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);
         await page.getByTestId('start').click();
-        await page.waitForTimeout(300);
+        // the game itself is a lazy chunk: wait until it has mounted (the frame shows its counter)
+        await expect(page.getByTestId('counter')).toBeVisible();
+        await settle(page);
         await expectNoViolations(page, id);
       });
     }
