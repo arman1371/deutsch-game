@@ -7,8 +7,21 @@ import { gesundheit } from './u5-gesundheit';
 import { sprache } from './u6-sprache';
 import { wirtschaft } from './u7-wirtschaft';
 import { kunst } from './u8-kunst';
+import { geschichte } from './u9-geschichte';
+import { stadt } from './u10-stadt';
 
-const units = [beziehungen, ernaehrung, studium, service2, gesundheit, sprache, wirtschaft, kunst];
+const units = [
+  beziehungen,
+  ernaehrung,
+  studium,
+  service2,
+  gesundheit,
+  sprache,
+  wirtschaft,
+  kunst,
+  geschichte,
+  stadt,
+];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
