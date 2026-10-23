@@ -1,0 +1,35 @@
+import { describeLevelContent } from '@/test/contentSuite';
+import { label } from '../builders';
+import a11 from '../a1-1';
+import a12 from '../a1-2';
+import a21 from '../a2-1';
+import a22 from '../a2-2';
+import content from './index';
+
+describeLevelContent('B1.1', content, 'b1-1');
+
+/**
+ * Words that B1.1 deliberately revisits in a new function (e.g. a verb that now takes a preposition).
+ * Everything else must be new vocabulary – B1.1 never re-teaches a word card from an earlier level.
+ */
+const REVIEW_WORDS = new Set<string>([]);
+
+/** Compare words by their bare lemma, so "der Tipp" and "Tipp" count as the same word. */
+const key = (v: Parameters<typeof label>[0]) =>
+  label(v)
+    .replace(/^((der|die|das) )+/i, '')
+    .toLowerCase();
+
+describe('B1.1 vocabulary integrity', () => {
+  it('does not repeat vocabulary from A1.1, A1.2, A2.1 or A2.2', () => {
+    const earlier = new Set([...a11.vocab, ...a12.vocab, ...a21.vocab, ...a22.vocab].map(key));
+    const repeated = content.vocab.map(key).filter((k) => earlier.has(k) && !REVIEW_WORDS.has(k));
+    expect(repeated).toEqual([]);
+  });
+
+  it('does not teach a word twice inside B1.1', () => {
+    const all = content.vocab.map(key);
+    const dup = all.filter((k, i) => all.indexOf(k) !== i && !REVIEW_WORDS.has(k));
+    expect(dup).toEqual([]);
+  });
+});
