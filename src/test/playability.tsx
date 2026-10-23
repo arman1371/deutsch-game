@@ -3,15 +3,20 @@
  * the answers written in its config – no unreachable sentences, unmatched typed answers, etc.
  */
 import { Suspense } from 'react';
-import { render, screen, waitFor, within, act } from '@testing-library/react';
+import { render, screen, waitFor, within, act, configure } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { gameComponents } from '@/games/registry';
+import { gameComponents, gameLoaders } from '@/games/registry';
 import { buildDeck } from '@/games/memory/logic';
 import { parseTime, timeToGerman } from '@/lib/german/time';
 import { totalCents } from '@/games/market/logic';
 import { priceToGerman } from '@/lib/german/numbers';
 import type { Activity, LevelContent } from '@/content/schema';
 import type { GameResult } from '@/lib/scoring';
+
+// Testing Library only advances fake timers itself when it sees a `jest` global; without it every
+// user action waits for a real clock tick (~20 ms) and a level suite takes minutes instead of seconds.
+(globalThis as { jest?: unknown }).jest = { advanceTimersByTime: vi.advanceTimersByTime };
+configure({ asyncUtilTimeout: 60_000 });
 
 type User = ReturnType<typeof userEvent.setup>;
 const SEED = 7;
@@ -212,6 +217,11 @@ async function solve<T extends Activity['gameType']>(
 }
 
 export function describePlayability(content: LevelContent) {
+  // Fake-timer waits burn fake time, so a game's lazy chunk must already be loaded when it renders.
+  beforeAll(async () => {
+    await Promise.all(Object.values(gameLoaders).map((load) => (load as () => Promise<unknown>)()));
+  });
+
   describe.each(content.units.map((u) => [u.title, u.id] as const))(
     'Playability – %s',
     (_title, unitId) => {
