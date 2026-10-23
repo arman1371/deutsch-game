@@ -1,15 +1,8 @@
 # Lingoat 🐐🎮
 
-[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=lingoat.games&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lingoat.games)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=lingoat.games&metric=coverage)](https://sonarcloud.io/summary/new_code?id=lingoat.games)
-[![Reliability rating](https://sonarcloud.io/api/project_badges/measure?project=lingoat.games&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=lingoat.games)
-[![Maintainability rating](https://sonarcloud.io/api/project_badges/measure?project=lingoat.games&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=lingoat.games)
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=lingoat.games&amp;metric=alert_status)](https://sonarcloud.io/summary/new_code?id=lingoat.games)
 [![CI](https://github.com/arman1371/lingoat.games/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/arman1371/lingoat.games/actions/workflows/ci.yml)
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Flingoat.games&label=lingoat.games)](https://lingoat.games)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![React 19](https://img.shields.io/badge/React_19-20232A?logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)
-![Cloudflare Workers](https://img.shields.io/badge/Cloudflare_Workers-F38020?logo=cloudflare&logoColor=white)
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Flingoat.games&amp;label=lingoat.games)](https://lingoat.games)
 
 **Learn a language by playing games.** This repository is the open-source code of
 **[lingoat.games](https://lingoat.games)**: short, focused games that follow the CEFR levels unit by
