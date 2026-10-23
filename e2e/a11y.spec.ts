@@ -101,8 +101,9 @@ for (const scheme of ['light', 'dark'] as const) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);
         await page.getByTestId('start').click();
-        // the game itself is a lazy chunk: wait until it has mounted (the frame shows its counter)
-        await expect(page.getByTestId('counter')).toBeVisible();
+        // the game itself is a lazy chunk: wait until the intro and the loading fallback are gone
+        await expect(page.getByTestId('start')).toHaveCount(0);
+        await expect(page.getByRole('status').filter({ hasText: /loading/i })).toHaveCount(0);
         await settle(page);
         await expectNoViolations(page, id);
       });
