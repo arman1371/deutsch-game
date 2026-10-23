@@ -81,3 +81,15 @@ describe('Sentence', () => {
     );
   });
 });
+
+describe('Sentence grammar hints', () => {
+  it('shows the item lesson only after a wrong order', async () => {
+    const one = {
+      items: [{ ...config.items[0]!, lesson: 'questions' as const }],
+    };
+    const { user } = renderGame(Sentence, one);
+    await place(user, ['heißt', 'Wie', 'du?']);
+    await user.click(screen.getByRole('button', { name: 'Check' }));
+    expect(screen.getByTestId('mini-lesson')).toHaveTextContent('Asking questions');
+  });
+});

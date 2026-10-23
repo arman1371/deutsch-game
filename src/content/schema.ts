@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { PRONOUNS } from '@/lib/german/conjugation';
 import { TAG_IDS, type TagId } from './tags';
+import { LESSON_IDS, type LessonId } from './lessons';
 
 const id = z.string().min(1);
 const text = z.string().min(1);
@@ -13,6 +14,27 @@ const options = z
   .min(2)
   .max(6)
   .refine((o) => new Set(o).size === o.length, 'options must be unique');
+
+// ---- grammar hints (shown after a wrong answer, see src/content/lessons.ts) ---------------------
+const lessonId = z.enum(LESSON_IDS as [LessonId, ...LessonId[]]);
+/**
+ * Optional hint fields for grammar items. `lesson` names the mini lesson to show after a mistake
+ * (activities fall back to the lesson of their grammar tag); `why` maps a wrong option – or an
+ * expected wrong typed answer – to one sentence on why it is wrong. Leave both out for vocabulary
+ * items: a meaning mistake gets no lesson.
+ */
+const hintFields = {
+  lesson: lessonId.optional(),
+  why: z.record(z.string(), text).optional(),
+};
+const whyFitsOptions = (i: {
+  answer: string;
+  options?: readonly string[];
+  why?: Record<string, string>;
+}) =>
+  !i.why ||
+  Object.keys(i.why).every((k) => k !== i.answer && (!i.options || i.options.includes(k)));
+const WHY_MESSAGE = 'why keys must be wrong options';
 
 // ---- per-game configs -------------------------------------------------------------------------
 export const FlashcardsConfig = z.object({
@@ -35,6 +57,7 @@ const choiceBase = {
   options,
   answer: text,
   explanation: z.string().optional(),
+  ...hintFields,
 };
 export const QuizConfig = z.object({
   questions: z
@@ -46,7 +69,8 @@ export const QuizConfig = z.object({
           emoji: z.string().optional(),
           speak: z.string().optional(),
         })
-        .refine((q) => q.options.includes(q.answer), 'answer must be one of the options'),
+        .refine((q) => q.options.includes(q.answer), 'answer must be one of the options')
+        .refine(whyFitsOptions, WHY_MESSAGE),
     )
     .min(1),
 });
@@ -63,7 +87,8 @@ export const ListenConfig = z.object({
     .array(
       z
         .object({ ...choiceBase, speak: text, transcript: z.string().optional() })
-        .refine((q) => q.options.includes(q.answer), 'answer must be one of the options'),
+        .refine((q) => q.options.includes(q.answer), 'answer must be one of the options')
+        .refine(whyFitsOptions, WHY_MESSAGE),
     )
     .min(1),
 });
@@ -95,6 +120,7 @@ export const SentenceConfig = z.object({
         /** other full sentences that are also correct (alternative word orders) */
         alsoAccept: z.array(text).optional(),
         explanation: z.string().optional(),
+        lesson: hintFields.lesson,
       }),
     )
     .min(1),
@@ -112,11 +138,13 @@ export const GapfillConfig = z.object({
           options: options.optional(),
           translation: z.string().optional(),
           explanation: z.string().optional(),
+          ...hintFields,
         })
         .refine(
           (i) => !i.options || i.options.includes(i.answer),
           'answer must be one of the options',
-        ),
+        )
+        .refine(whyFitsOptions, WHY_MESSAGE),
     )
     .min(1),
 });
@@ -157,6 +185,7 @@ export const ConjugationConfig = z.object({
           .record(PronounEnum, text)
           .refine((f) => PRONOUNS.every((p) => f[p]), 'all six forms required'),
         blanks: z.array(PronounEnum).min(1),
+        lesson: hintFields.lesson,
       }),
     )
     .min(1),
@@ -247,6 +276,8 @@ const base = {
   tags: z.array(tagIdSchema).min(1),
   difficulty: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   estMinutes: z.number().int().min(1).max(15),
+  /** mini lesson for every item of a grammar activity whose tags name several grammar points */
+  lesson: lessonId.optional(),
 };
 
 export const ActivitySchema = z.discriminatedUnion('gameType', [

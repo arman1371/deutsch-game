@@ -6,6 +6,8 @@ import { useContent } from '@/content/ContentProvider';
 import { getItems, withItems } from '@/content/items';
 import type { Activity } from '@/content/schema';
 import { GAME_HELP, gameComponents } from '@/games/registry';
+import { ActivityLessonContext } from '@/games/shared/hints';
+import { lessonForTags } from '@/content/lessons';
 import { playUrl } from '@/app/path';
 import { GAME_TYPE_LABELS } from '@/lib/filters';
 import { parseSeed, randomSeed } from '@/lib/rng';
@@ -158,12 +160,14 @@ function PlayView({ activityId }: { activityId: string }) {
             </p>
           }
         >
-          <Game
-            key={`${activity.id}-${run}`}
-            config={activity.config}
-            seed={seed}
-            onFinish={onFinish}
-          />
+          <ActivityLessonContext value={activity.lesson ?? lessonForTags(activity.tags)}>
+            <Game
+              key={`${activity.id}-${run}`}
+              config={activity.config}
+              seed={seed}
+              onFinish={onFinish}
+            />
+          </ActivityLessonContext>
         </Suspense>
       )}
     </div>

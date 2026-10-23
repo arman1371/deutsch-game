@@ -1,0 +1,221 @@
+import { conjugate } from '@/lib/german/conjugation';
+import { verbForms, type HintOverlay } from '../hints';
+
+/**
+ * Mini lessons for A2.1 items whose activity mixes grammar points (unit challenges, sentence
+ * builders, weil/denn gaps). Vocabulary and meaning questions are left out on purpose.
+ */
+export const hints: HintOverlay = {
+  'a2-1-online-gap-perfekt-sep': { '*': 'separable-verbs' },
+  'a2-1-online-sentences': {
+    s1: 'perfekt',
+    s2: 'separable-verbs',
+    s3: 'perfekt',
+    s4: 'perfekt',
+    s5: 'perfekt',
+    s6: 'perfekt',
+    s7: 'separable-verbs',
+    s8: 'perfekt',
+    s9: 'modal-verbs',
+  },
+  'a2-1-freizeit-challenge': {
+    c1: 'connectors',
+    c2: 'connectors',
+    c3: 'prepositions-of-time',
+    c4: 'indefinite-pronouns',
+    c8: 'separable-verbs',
+    c9: 'separable-verbs',
+    c10: 'indefinite-pronouns',
+  },
+  'a2-1-wetter-sentences': {
+    s1: 'subordinate-clauses',
+    s2: 'comparison',
+    s3: 'conjunctions',
+    s4: 'subordinate-clauses',
+    s5: 'comparison',
+    s6: 'comparison',
+    s7: 'comparison',
+    s8: 'word-order',
+    s9: 'subordinate-clauses',
+  },
+  'a2-1-wetter-challenge': {
+    c1: 'comparison',
+    c2: verbForms(conjugate('bleiben'), 'ich', 'subordinate-clauses'),
+    c3: verbForms(conjugate('regnen'), 'er/sie/es', 'subordinate-clauses'),
+    c4: 'comparison',
+    c8: 'comparison',
+    c9: 'comparison',
+  },
+  'a2-1-bahn-challenge': {
+    c1: 'comparison',
+    c2: 'comparison',
+    c3: 'dative-prepositions',
+    c4: {
+      lesson: 'dative-prepositions',
+      why: {
+        zu: 'zu is for people and places like zum Bahnhof – cities take nach.',
+        in: 'in Hamburg answers Wo? – travelling to a city is nach Hamburg.',
+        mit: 'mit means with – the destination city takes nach.',
+      },
+    },
+    c8: {
+      lesson: 'dative-prepositions',
+      why: {
+        nach: 'nach is for cities and countries – for a place with an article use zu: zum Bahnhof.',
+        zu: 'zu + dem contracts: zum Bahnhof.',
+        bei: 'bei means at or near – the way to a place is zu: zum Bahnhof.',
+      },
+    },
+    c9: 'comparison',
+    c10: {
+      lesson: 'perfekt',
+      why: { geverpasst: 'Verbs starting with ver-, be- or er- get no ge-: verpasst.' },
+    },
+  },
+  'a2-1-wohnung-challenge': {
+    c1: 'two-way-prepositions',
+    c2: 'two-way-prepositions',
+    c3: 'two-way-prepositions',
+    c4: {
+      lesson: 'two-way-prepositions',
+      why: {
+        legt: 'legen is the movement (Wohin?) – for the position (Wo?) use liegen.',
+        stellt: 'stellen is the movement (Wohin?) – a book on a bed lies: liegt.',
+      },
+    },
+    c5: {
+      lesson: 'two-way-prepositions',
+      why: {
+        liege: 'liegen is the position (Wo?) – putting something down (Wohin?) is legen.',
+        stehe: 'stehen is a position – putting something down is legen.',
+      },
+    },
+    c9: 'separable-verbs',
+    c10: 'two-way-prepositions',
+  },
+  'a2-1-aemter-gap-pronouns': { '*': 'indefinite-pronouns' },
+  'a2-1-aemter-challenge': {
+    c1: verbForms(conjugate('können'), 'er/sie/es', 'indefinite-pronouns'),
+    c2: verbForms(conjugate('müssen'), 'er/sie/es', 'indefinite-pronouns'),
+    c3: 'indefinite-pronouns',
+    c4: 'indefinite-pronouns',
+    c5: 'indefinite-pronouns',
+    c6: 'indefinite-pronouns',
+    c10: 'indefinite-pronouns',
+  },
+  'a2-1-familie-sentences': {
+    s1: 'genitive',
+    s2: 'dative',
+    s3: 'dative',
+    s4: 'word-order',
+    s6: 'genitive',
+    s7: 'object-pronouns',
+    s9: 'object-pronouns',
+  },
+  'a2-1-familie-challenge': {
+    c1: 'genitive',
+    c2: 'dative',
+    c3: {
+      lesson: 'object-pronouns',
+      why: {
+        ihnen: 'ihnen is dative (to them) – besuchen needs the accusative: sie.',
+        ihr: 'ihr is dative singular (to her) – meine Eltern are plural accusative: sie.',
+        es: 'es replaces a neuter noun – Eltern is plural: sie.',
+      },
+    },
+    c4: 'object-pronouns',
+    c7: 'dative',
+    c8: 'object-pronouns',
+    c10: {
+      lesson: 'object-pronouns',
+      why: {
+        sie: 'sie is nominative/accusative – the receiver of geben is dative: ihr (to her).',
+        ihm: 'ihm is the dative of er – my sister is feminine: ihr.',
+        ihnen: 'ihnen is dative plural (to them) – one sister: ihr.',
+      },
+    },
+  },
+  'a2-1-schule-gap-weil-denn': {
+    w1: 'subordinate-clauses',
+    w2: 'conjunctions',
+    w3: 'subordinate-clauses',
+    w4: 'conjunctions',
+    w5: 'subordinate-clauses',
+    w6: 'conjunctions',
+    w7: 'subordinate-clauses',
+    w8: 'conjunctions',
+  },
+  'a2-1-schule-challenge': {
+    c1: 'prepositions-of-time',
+    c2: 'prepositions-of-time',
+    c3: 'subordinate-clauses',
+    c4: 'conjunctions',
+    c8: {
+      lesson: 'perfekt',
+      why: { gebestanden: 'Verbs starting with be-, ver- or er- get no ge-: bestanden.' },
+    },
+    c9: {
+      lesson: 'perfekt',
+      why: { gestudiert: 'Verbs ending in -ieren get no ge-: studiert.' },
+    },
+    c10: verbForms(conjugate('möchten'), 'ich', 'subordinate-clauses'),
+  },
+  'a2-1-jobsuche-gap-deshalb': {
+    d1: 'connectors',
+    d2: 'connectors',
+    d3: 'connectors',
+    d4: verbForms(conjugate('arbeiten'), 'er/sie/es', 'connectors'),
+    d5: 'connectors',
+    d6: 'subordinate-clauses',
+    d7: 'conjunctions',
+    d8: 'connectors',
+  },
+  'a2-1-jobsuche-sentences': {
+    s1: 'reflexive-verbs',
+    s2: 'reflexive-verbs',
+    s3: 'connectors',
+    s4: 'reflexive-verbs',
+    s5: 'reflexive-verbs',
+    s6: 'word-order',
+    s7: 'word-order',
+    s8: 'connectors',
+    s9: 'verbs-with-prepositions',
+  },
+  'a2-1-jobsuche-challenge': {
+    c1: {
+      lesson: 'verb-conjugation',
+      why: {
+        bewirbe: 'The e → i change only happens with du and er/sie/es: ich bewerbe, du bewirbst.',
+        bewerbt: 'bewerbt is the ihr form – for ich it is bewerbe.',
+        bewirbst: 'bewirbst is the du form – for ich it is bewerbe.',
+      },
+    },
+    c2: 'reflexive-verbs',
+    c3: 'reflexive-verbs',
+    c4: 'verbs-with-prepositions',
+    c5: 'connectors',
+    c6: 'subordinate-clauses',
+  },
+  'a2-1-beruf-gap-reasons': {
+    v1: 'subordinate-clauses',
+    v2: 'connectors',
+    v3: 'subordinate-clauses',
+    v4: 'connectors',
+    v5: 'subordinate-clauses',
+    v6: 'connectors',
+    v7: 'subordinate-clauses',
+    v8: 'subordinate-clauses',
+  },
+  'a2-1-beruf-challenge': {
+    c1: 'perfekt',
+    c2: {
+      lesson: 'perfekt',
+      why: { georganisiert: 'Verbs ending in -ieren get no ge-: organisiert.' },
+    },
+    c3: 'perfekt',
+    c4: 'prepositions-of-time',
+    c5: 'prepositions-of-time',
+    c6: 'subordinate-clauses',
+    c7: 'connectors',
+  },
+};

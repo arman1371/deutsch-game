@@ -43,3 +43,16 @@ export function withItems(activity: Activity, ids: readonly string[]): Activity 
 export function itemCount(activity: Activity): number {
   return getItems(activity).length;
 }
+
+/** Copy of the activity with every item replaced by `fn(item)` (ids must stay the same). */
+export function mapItems<T extends { id: string }>(
+  activity: Activity,
+  fn: (item: T) => T,
+): Activity {
+  const key = ITEMS_KEY[activity.gameType];
+  const config = activity.config as unknown as Record<string, T[]>;
+  return {
+    ...activity,
+    config: { ...config, [key]: (config[key] ?? []).map(fn) },
+  } as unknown as Activity;
+}

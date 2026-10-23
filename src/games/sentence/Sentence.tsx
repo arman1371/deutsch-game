@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/Button';
 import { SpeakButton } from '@/components/ui/SpeakButton';
 import { t } from '@/i18n';
 import { FeedbackFooter, GameFrame, verdictTitle } from '../shared/GameFrame';
+import { MistakeHint } from '../shared/MistakeHint';
 import { useSequence } from '../shared/useSequence';
 import type { GameProps } from '../types';
 import { buildTiles, isCorrectSentence, moveItem, sentenceOf } from './logic';
@@ -95,6 +96,7 @@ export function Sentence({ config, seed, onFinish }: GameProps<'sentence'>) {
                   <strong>{correctSentence}</strong>
                 </p>
                 {item.explanation ? <p>{item.explanation}</p> : null}
+                {verdict === 'wrong' ? <MistakeHint lesson={item.lesson} /> : null}
               </>
             }
             isLast={seq.isLast}

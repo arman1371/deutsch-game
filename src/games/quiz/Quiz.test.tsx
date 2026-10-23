@@ -60,3 +60,40 @@ describe('Quiz', () => {
     expect(screen.getByTestId('feedback')).toBeInTheDocument();
   });
 });
+
+describe('Quiz grammar hints', () => {
+  const grammar = {
+    questions: [
+      {
+        id: 'g1',
+        prompt: 'Ich sehe ___ Mann.',
+        options: ['den', 'dem', 'der'],
+        answer: 'den',
+        lesson: 'accusative' as const,
+        why: { der: 'der is the subject form.' },
+      },
+    ],
+  };
+
+  it('explains a wrong grammar pick with its why and a mini lesson', async () => {
+    const { user } = renderGame(Quiz, grammar);
+    await user.click(screen.getByRole('button', { name: 'der' }));
+    expect(screen.getByTestId('mistake-why')).toHaveTextContent('der is the subject form.');
+    expect(screen.getByTestId('mini-lesson')).toHaveTextContent('Accusative (Wen? Was?)');
+  });
+
+  it('falls back to a generated contrast between grammar words', async () => {
+    const { user } = renderGame(Quiz, grammar);
+    await user.click(screen.getByRole('button', { name: 'dem' }));
+    expect(screen.getByTestId('mistake-why')).toHaveTextContent('“dem” is masculine/neuter dative');
+  });
+
+  it('shows no hint for a correct answer or a vocabulary mistake', async () => {
+    const { user } = renderGame(Quiz, grammar);
+    await user.click(screen.getByRole('button', { name: 'den' }));
+    expect(screen.queryByTestId('mistake-hint')).not.toBeInTheDocument();
+    const vocab = renderGame(Quiz, config);
+    await vocab.user.click(screen.getAllByRole('button', { name: /thanks/ })[0]!);
+    expect(screen.queryByTestId('mistake-hint')).not.toBeInTheDocument();
+  });
+});

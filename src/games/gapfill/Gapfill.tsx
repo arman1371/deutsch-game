@@ -6,6 +6,8 @@ import { t } from '@/i18n';
 import { ChoiceList } from '../shared/ChoiceList';
 import { FeedbackFooter, GameFrame, verdictTitle } from '../shared/GameFrame';
 import { shuffledOptions } from '../shared/choices';
+import { MistakeHint } from '../shared/MistakeHint';
+import { mistakeWhy } from '../shared/hints';
 import { useSequence } from '../shared/useSequence';
 import type { GameProps } from '../types';
 
@@ -55,6 +57,9 @@ export function Gapfill({ config, seed, onFinish }: GameProps<'gapfill'>) {
                   {after}
                 </p>
                 {item.explanation ? <p>{item.explanation}</p> : null}
+                {verdict === 'wrong' ? (
+                  <MistakeHint why={mistakeWhy(item, picked ?? typed)} lesson={item.lesson} />
+                ) : null}
               </>
             }
             isLast={seq.isLast}

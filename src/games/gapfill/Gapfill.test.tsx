@@ -58,3 +58,28 @@ describe('Gapfill', () => {
     expect(screen.getByTestId('feedback')).toHaveAttribute('data-kind', 'wrong');
   });
 });
+
+describe('Gapfill grammar hints', () => {
+  it('shows the mini lesson after a wrong typed answer, with a why for expected mistakes', async () => {
+    const { user } = renderGame(Gapfill, {
+      items: [
+        {
+          id: 'p1',
+          text: 'Ich habe Fußball ___.',
+          answer: 'gespielt',
+          lesson: 'perfekt' as const,
+          why: { gespielen: 'spielen is regular: ge-…-t.' },
+        },
+      ],
+    });
+    await user.type(screen.getByLabelText('Missing word'), 'Gespielen{Enter}');
+    expect(screen.getByTestId('mistake-why')).toHaveTextContent('spielen is regular');
+    expect(screen.getByTestId('mini-lesson')).toHaveAttribute('data-lesson', 'perfekt');
+  });
+
+  it('shows nothing for a vocabulary item', async () => {
+    const { user } = renderGame(Gapfill, chips);
+    await user.click(screen.getByRole('button', { name: 'Nacht' }));
+    expect(screen.queryByTestId('mistake-hint')).not.toBeInTheDocument();
+  });
+});

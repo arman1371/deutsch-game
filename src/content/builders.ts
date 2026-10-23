@@ -1,5 +1,6 @@
 import type { Activity, ConfigOf, GameType, Unit, Vocab } from './schema';
 import type { TagId } from './tags';
+import type { LessonId } from './lessons';
 import { createRng, hashString, pickMany, shuffle } from '@/lib/rng';
 
 /** [german, english, emoji, article?, plural?] – compact way to author vocabulary. */
@@ -50,6 +51,8 @@ export interface Meta {
   tags: TagId[];
   difficulty: 1 | 2 | 3;
   estMinutes: number;
+  /** see `lesson` in schema.ts – only needed when the tags mix several grammar points */
+  lesson?: LessonId;
 }
 
 export function activity<T extends GameType>(

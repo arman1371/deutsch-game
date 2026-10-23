@@ -3,6 +3,8 @@ import { SpeakButton } from '@/components/ui/SpeakButton';
 import { ChoiceList } from '../shared/ChoiceList';
 import { FeedbackFooter, GameFrame, verdictTitle } from '../shared/GameFrame';
 import { shuffledOptions } from '../shared/choices';
+import { MistakeHint } from '../shared/MistakeHint';
+import { mistakeWhy } from '../shared/hints';
 import { useSequence } from '../shared/useSequence';
 import type { GameProps } from '../types';
 
@@ -41,6 +43,9 @@ export function Quiz({ config, seed, onFinish }: GameProps<'quiz'>) {
                   </p>
                 ) : null}
                 {q.explanation ? <p>{q.explanation}</p> : null}
+                {!correct && picked !== null ? (
+                  <MistakeHint why={mistakeWhy(q, picked)} lesson={q.lesson} />
+                ) : null}
               </>
             }
             isLast={seq.isLast}
