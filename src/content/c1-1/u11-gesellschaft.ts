@@ -1,9 +1,10 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
   gap,
   heard,
+  hint,
   lx,
   meta,
   q,
@@ -20,17 +21,17 @@ import type { UnitContent } from './types';
 const U = 'c1-1-gesellschaft';
 
 const volunteering = vocabList(U, 'Volunteering & associations', [
-  ['Ehrenamt', 'voluntary office, unpaid civic role', '🤝', 'das', 'Ehrenämter'],
+  ['Vereinsleben', 'club life, life of associations', '🤝', 'das'],
   ['Freiwilligenarbeit', 'volunteer work', '🙋', 'die'],
   ['Gemeinwohl', 'the common good', '🌍', 'das'],
   ['Zusammenhalt', 'social cohesion', '🧩', 'der'],
-  ['Spende', 'donation', '🎁', 'die', 'Spenden'],
-  ['Bürgerinitiative', 'citizens’ initiative', '📣', 'die', 'Bürgerinitiativen'],
+  ['Spendenaufruf', 'appeal for donations', '🎁', 'der', 'Spendenaufrufe'],
+  ['Bürgerbegehren', 'citizens’ petition for a referendum', '📣', 'das', 'Bürgerbegehren'],
   ['Selbsthilfegruppe', 'self-help group', '🪑', 'die', 'Selbsthilfegruppen'],
-  ['Aufwandsentschädigung', 'expense allowance', '🧾', 'die', 'Aufwandsentschädigungen'],
+  ['Ehrenamtspauschale', 'flat-rate allowance for volunteers', '🧾', 'die', 'Ehrenamtspauschalen'],
   ['Mitgliedsbeitrag', 'membership fee', '💳', 'der', 'Mitgliedsbeiträge'],
   ['Stiftung', 'foundation', '🏛️', 'die', 'Stiftungen'],
-  ['sich engagieren', 'to get involved', '✋'],
+  ['sich beteiligen', 'to take part, to get involved', '✋'],
   ['spenden', 'to donate', '💶'],
   ['gemeinnützig', 'charitable, non-profit', '❤️'],
   ['unentgeltlich', 'unpaid, free of charge', '🆓'],
@@ -52,6 +53,49 @@ const society = vocabList(U, 'Society, generations & fairness', [
   ['benachteiligt', 'disadvantaged', '⬇️'],
   ['uneigennützig', 'selfless', '🕊️'],
 ]);
+
+const WHY_MODAL: Record<string, Record<string, string>> = {
+  g1: {
+    'lässt sich': 'lässt sich is followed by a plain infinitive, so zu … would not fit.',
+    hat: 'haben + zu needs an acting subject; the application does not act.',
+    wird: 'wird + zu is not a modal alternative.',
+  },
+  g2: {
+    ist: 'sein needs zu before the infinitive (ist … zu lösen); here the infinitive stands alone.',
+    'hat sich': 'There is no haben + sich construction.',
+    wird: 'wird + infinitive would be Futur, not “can be solved”.',
+  },
+  g3: {
+    sind: 'sein + zu is passive in meaning; the members act, so use haben + zu.',
+    lassen: 'lassen would need sich and no zu.',
+    werden: 'werden + zu is not a modal alternative.',
+  },
+  g4: {
+    um: 'um … zu expresses purpose; after sein the plain zu is needed.',
+    zum: 'zum is zu + dem and stands before a noun.',
+    am: 'am is an + dem and does not fit before an infinitive.',
+  },
+  g5: {
+    absetzlich: 'The suffix for “can be …-ed” is -bar here.',
+    absetzend: 'absetzend is an active participle: “deducting”.',
+    abgesetzt: 'abgesetzt says it has been deducted, not that it can be.',
+  },
+  g6: {
+    ist: 'ist would need zu and no sich.',
+    hat: 'There is no haben + sich construction.',
+    kann: 'kann sich + infinitive is not used; say lässt sich.',
+  },
+  g7: {
+    ist: 'The board acts, so haben + zu, not sein + zu.',
+    lässt: 'lassen would need sich and no zu.',
+    wird: 'wird + zu is not a modal alternative.',
+  },
+  g8: {
+    haben: 'The rules do not act: haben + zu needs an acting subject.',
+    'lassen sich': 'lassen sich takes a plain infinitive, no zu.',
+    werden: 'werden + zu is not a modal alternative.',
+  },
+};
 
 const vocab = [...volunteering, ...society];
 
@@ -83,7 +127,7 @@ export const gesellschaft: UnitContent = {
       'flashcards',
       meta(
         'Volunteering & associations',
-        'Ehrenamt, Spende, Gemeinwohl – the words of civic engagement.',
+        'Vereinsleben, Gemeinwohl, Ehrenamtspauschale – the words of civic engagement.',
         ['vocabulary', 'society-volunteering'],
         1,
         5,
@@ -119,7 +163,7 @@ export const gesellschaft: UnitContent = {
           vocab,
           'Gemeinwohl',
           'Zusammenhalt',
-          'Aufwandsentschädigung',
+          'Ehrenamtspauschale',
           'Generationenvertrag',
           'Überalterung',
           'Chancengleichheit',
@@ -305,7 +349,7 @@ export const gesellschaft: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(volunteering, 'Spende', 'Stiftung'), 'unscramble').items,
+          ...spell(byDe(volunteering, 'Stiftung', 'Zusammenhalt'), 'unscramble').items,
           ...spell(byDe(society, 'Vielfalt'), 'unscramble').items,
           ...spell(byDe(volunteering, 'Gemeinwohl'), 'type').items,
           ...spell(byDe(society, 'Zivilcourage', 'Wohlstand'), 'type').items,
@@ -395,7 +439,7 @@ export const gesellschaft: UnitContent = {
             'The rules must be strictly observed.',
             'The rules are the object, so use sein + zu (passive meaning).',
           ),
-        ],
+        ].map((i) => hint(i, WHY_MODAL[i.id]!)),
       },
     ),
     activity(
@@ -714,7 +758,7 @@ export const gesellschaft: UnitContent = {
             'general knowledge',
             'shared flat',
           ]),
-          q('c8', 'die Aufwandsentschädigung', 'expense allowance', [
+          q('c8', 'die Ehrenamtspauschale', 'flat-rate allowance for volunteers', [
             'membership fee',
             'salary',
             'tax refund',

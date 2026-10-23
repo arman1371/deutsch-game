@@ -82,6 +82,19 @@ export const TAGS = {
   consumption: { label: 'Consumption & luxury', group: 'topic', emoji: '🛍️' },
   economy: { label: 'Economy & globalisation', group: 'topic', emoji: '🌐' },
   'society-volunteering': { label: 'Society & volunteering', group: 'topic', emoji: '🫶' },
+  // topics – B1.2
+  colleagues: { label: 'Colleagues & conflicts', group: 'topic', emoji: '🧑‍💼' },
+  'digital-world': { label: 'Computers & digital life', group: 'topic', emoji: '🖥️' },
+  'consumer-rights': { label: 'Consumption & consumer rights', group: 'topic', emoji: '🛍️' },
+  'further-education': { label: 'Further education & courses', group: 'topic', emoji: '📖' },
+  'rules-manners': { label: 'Rules & cultural differences', group: 'topic', emoji: '📜' },
+  volunteering: { label: 'Volunteering', group: 'topic', emoji: '🙌' },
+  'politics-society': { label: 'Politics & society', group: 'topic', emoji: '🗳️' },
+  history: { label: 'History', group: 'topic', emoji: '🏛️' },
+  'city-country': { label: 'City, country & tourism', group: 'topic', emoji: '🏙️' },
+  'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
+  'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
+  'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -152,11 +165,25 @@ export const TAGS = {
   'concessive-restrictive': { label: 'wenngleich / es sei denn', group: 'grammar', emoji: '⚖️' },
   'es-functions': { label: 'Functions of es', group: 'grammar', emoji: '🔤' },
   intensifiers: { label: 'Graduating adjectives', group: 'grammar', emoji: '🎚️' },
-  'consecutive-clauses': { label: 'zu … als dass / sodass', group: 'grammar', emoji: '⛓️' },
+  'unreal-consecutive': { label: 'zu … als dass / so … dass', group: 'grammar', emoji: '⛓️' },
   'participial-attributes': { label: 'Participles before nouns', group: 'grammar', emoji: '🧬' },
   'prefix-verbs': { label: 'Separable & inseparable prefixes', group: 'grammar', emoji: '🪛' },
   'nominal-style': { label: 'Nominal style', group: 'grammar', emoji: '🏛️' },
   'modal-alternatives': { label: 'sein … zu / sich lassen', group: 'grammar', emoji: '🔀' },
+  // grammar points – B1.2
+  'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
+  'als-ob': { label: 'als ob', group: 'grammar', emoji: '🫥' },
+  'participles-as-adjectives': {
+    label: 'Participles as adjectives',
+    group: 'grammar',
+    emoji: '🏃',
+  },
+  'modal-particles': { label: 'Modal particles (doch, ja, mal)', group: 'grammar', emoji: '🧂' },
+  'indem-ohne-dass': { label: 'indem / ohne dass / statt dass', group: 'grammar', emoji: '🛠️' },
+  'passive-past': { label: 'Passive: wurde / ist … worden', group: 'grammar', emoji: '📜' },
+  'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
+  'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
+  'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

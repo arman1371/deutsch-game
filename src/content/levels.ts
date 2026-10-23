@@ -45,14 +45,22 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'b1-2',
     title: 'B1.2',
-    subtitle: 'Opinions, discussions, longer texts and the B1 exam',
+    subtitle:
+      'Colleagues, digital life, consumer rights, courses, customs, volunteering, politics, history, city and country, home and Europe, theatre and the B1 exam',
+    status: 'available',
+    load: () => import('./b1-2'),
+  },
+  {
+    id: 'b2-1',
+    title: 'B2.1',
+    subtitle: 'Arguing in depth, news and media, work and society at upper-intermediate level',
     status: 'coming-soon',
   },
   {
     id: 'c1-1',
     title: 'C1.1',
     subtitle:
-      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society (volunteering)',
+      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society',
     status: 'available',
     load: () => import('./c1-1'),
   },

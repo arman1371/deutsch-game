@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -158,7 +158,7 @@ export const lebenswege: UnitContent = {
       meta(
         'Career stories',
         'Listen to short stories about careers and goals.',
-        ['listening', 'career-goals', 'consecutive-clauses'],
+        ['listening', 'career-goals', 'unreal-consecutive'],
         3,
         5,
       ),
@@ -287,7 +287,7 @@ export const lebenswege: UnitContent = {
       meta(
         'so … dass, zu … als dass',
         'Real result or impossible result?',
-        ['grammar', 'consecutive-clauses', 'career-goals'],
+        ['grammar', 'unreal-consecutive', 'career-goals'],
         3,
         6,
       ),
@@ -367,7 +367,7 @@ export const lebenswege: UnitContent = {
       meta(
         'Write the result clause',
         'Type the missing word.',
-        ['grammar', 'consecutive-clauses', 'career-goals'],
+        ['grammar', 'unreal-consecutive', 'career-goals'],
         3,
         6,
       ),
@@ -426,7 +426,7 @@ export const lebenswege: UnitContent = {
       meta(
         'Results and limits',
         'Build the result clauses.',
-        ['grammar', 'consecutive-clauses', 'word-order'],
+        ['grammar', 'unreal-consecutive', 'word-order'],
         3,
         7,
       ),
@@ -520,7 +520,7 @@ export const lebenswege: UnitContent = {
       meta(
         'A fresh start',
         'Advise a friend who wants to change careers and keep resolutions.',
-        ['communication', 'career-goals', 'consecutive-clauses'],
+        ['communication', 'career-goals', 'unreal-consecutive'],
         3,
         7,
       ),
@@ -616,7 +616,7 @@ export const lebenswege: UnitContent = {
       meta(
         'Result blitz',
         'so … dass or zu … als dass – right or wrong?',
-        ['grammar', 'consecutive-clauses'],
+        ['grammar', 'unreal-consecutive'],
         3,
         2,
       ),
@@ -672,7 +672,7 @@ export const lebenswege: UnitContent = {
       {
         questions: [
           lx(
-            'consecutive-clauses',
+            'unreal-consecutive',
             q('c1', 'Er war so erschöpft, ___ er sofort einschlief.', 'dass', [
               'als dass',
               'damit',
@@ -680,7 +680,7 @@ export const lebenswege: UnitContent = {
             ]),
           ),
           lx(
-            'consecutive-clauses',
+            'unreal-consecutive',
             q('c2', 'Sie ist zu vorsichtig, ___ sie so ein Risiko eingehen würde.', 'als dass', [
               'dass',
               'sodass',
@@ -688,11 +688,11 @@ export const lebenswege: UnitContent = {
             ]),
           ),
           lx(
-            'consecutive-clauses',
+            'unreal-consecutive',
             q('c3', 'Er ist zu ehrlich, als dass er lügen ___.', 'würde', ['wird', 'will', 'hat']),
           ),
           lx(
-            'consecutive-clauses',
+            'unreal-consecutive',
             q('c4', 'Er ging, ___ sich zu verabschieden.', 'ohne', [
               'ohne dass',
               'sodass',
@@ -700,7 +700,7 @@ export const lebenswege: UnitContent = {
             ]),
           ),
           lx(
-            'consecutive-clauses',
+            'unreal-consecutive',
             q('c5', 'Sie sparte lange, ___ sie sich ein Haus kaufen konnte.', 'sodass', [
               'als dass',
               'obwohl',

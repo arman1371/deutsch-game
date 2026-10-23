@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -26,7 +26,7 @@ const manners = vocabList(U, 'Etiquette & tact', [
   ['Takt', 'tact', '🕊️', 'der'],
   ['Fingerspitzengefühl', 'sensitivity, tactfulness', '🤏', 'das'],
   ['Fauxpas', 'faux pas, blunder', '🙊', 'der', 'Fauxpas'],
-  ['Gepflogenheit', 'custom, usual practice', '📜', 'die', 'Gepflogenheiten'],
+  ['Umgangston', 'tone (of interaction)', '📜', 'der'],
   ['Zurückhaltung', 'reserve, restraint', '🤐', 'die'],
   ['taktvoll', 'tactful', '🌹'],
   ['zuvorkommend', 'obliging, courteous', '🛎️'],
@@ -116,7 +116,7 @@ export const manieren: UnitContent = {
       quizDeEn(
         byDe(
           vocab,
-          'Gepflogenheit',
+          'Umgangston',
           'Zurückhaltung',
           'zuvorkommend',
           'rüpelhaft',

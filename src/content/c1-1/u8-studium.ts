@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -42,14 +42,14 @@ const research = vocabList(U, 'Intelligence & research', [
   ['Eignungstest', 'aptitude test', '🧩', 'der', 'Eignungstests'],
   ['Erkenntnis', 'insight, finding', '💡', 'die', 'Erkenntnisse'],
   ['Hypothese', 'hypothesis', '❓', 'die', 'Hypothesen'],
-  ['Gedächtnis', 'memory', '🧠', 'das'],
+  ['Lernfähigkeit', 'capacity to learn', '🧠', 'die'],
   ['Auffassungsgabe', 'ability to grasp things', '⚡', 'die'],
   ['Lernstrategie', 'learning strategy', '🗺️', 'die', 'Lernstrategien'],
   ['Merkfähigkeit', 'ability to remember', '🗃️', 'die'],
   ['belegen', 'to prove, to document', '📎'],
   ['widerlegen', 'to refute', '🚫'],
   ['auswerten', 'to evaluate', '📊'],
-  ['veröffentlichen', 'to publish', '📰'],
+  ['publizieren', 'to publish (scholarly)', '📰'],
   ['nachweisen', 'to demonstrate, to prove', '🔬'],
 ]);
 

@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -25,7 +25,7 @@ const luxury = vocabList(U, 'Luxury & consumer habits', [
   ['Markenartikel', 'branded product', '🏷️', 'der', 'Markenartikel'],
   ['Spontankauf', 'impulse purchase', '🛒', 'der', 'Spontankäufe'],
   ['Kaufrausch', 'shopping spree', '🤑', 'der'],
-  ['Wegwerfgesellschaft', 'throwaway society', '🗑️', 'die'],
+  ['Überflussgesellschaft', 'affluent society', '🗑️', 'die'],
   ['Überfluss', 'abundance, surplus', '🌊', 'der'],
   ['Verschwendung', 'waste', '💸', 'die'],
   ['Konsumverhalten', 'consumer behaviour', '📈', 'das'],
@@ -260,7 +260,7 @@ export const konsum: UnitContent = {
         items: [
           ...spell(byDe(luxury, 'Luxusgut', 'Verzicht'), 'unscramble').items,
           ...spell(byDe(sustainable, 'Reparatur'), 'unscramble').items,
-          ...spell(byDe(luxury, 'Wegwerfgesellschaft'), 'type').items,
+          ...spell(byDe(luxury, 'Überflussgesellschaft'), 'type').items,
           ...spell(byDe(sustainable, 'Lebensdauer', 'Obsoleszenz'), 'type').items,
           dictation(
             'd1',
@@ -659,8 +659,8 @@ export const konsum: UnitContent = {
             ]),
           ),
           q('c6', 'das Statussymbol', 'status symbol', ['quality label', 'luxury good', 'brand']),
-          q('c7', 'die Wegwerfgesellschaft', 'throwaway society', [
-            'consumer society',
+          q('c7', 'die Überflussgesellschaft', 'affluent society', [
+            'throwaway society',
             'swap meet',
             'waste prevention',
           ]),

@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -25,7 +25,7 @@ const platforms = vocabList(U, 'Platforms & smartphones', [
   ['Algorithmus', 'algorithm', '🧮', 'der', 'Algorithmen'],
   ['Reichweite', 'reach', '📡', 'die', 'Reichweiten'],
   ['Nutzer', 'user', '🧑‍💻', 'der', 'Nutzer'],
-  ['Bildschirmzeit', 'screen time', '📵', 'die'],
+  ['Reizüberflutung', 'sensory overload', '📵', 'die'],
   ['Suchtgefahr', 'risk of addiction', '⚠️', 'die'],
   ['Filterblase', 'filter bubble', '🫧', 'die', 'Filterblasen'],
   ['Datenspur', 'data trail', '👣', 'die', 'Datenspuren'],

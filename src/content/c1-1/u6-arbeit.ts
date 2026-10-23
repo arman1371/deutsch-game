@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -31,7 +31,7 @@ const pay = vocabList(U, 'Pay slip & contract', [
   ['Befristung', 'fixed term', '⏲️', 'die', 'Befristungen'],
   ['Festanstellung', 'permanent position', '📌', 'die', 'Festanstellungen'],
   ['Tarifvertrag', 'collective agreement', '📃', 'der', 'Tarifverträge'],
-  ['Betriebsrat', 'works council', '🧑‍⚖️', 'der', 'Betriebsräte'],
+  ['Betriebsvereinbarung', 'works agreement', '🧑‍⚖️', 'die', 'Betriebsvereinbarungen'],
   ['Gehaltsverhandlung', 'salary negotiation', '🤝', 'die', 'Gehaltsverhandlungen'],
 ]);
 
@@ -119,7 +119,7 @@ export const arbeit: UnitContent = {
           'Vergütung',
           'Zuschlag',
           'Befristung',
-          'Betriebsrat',
+          'Betriebsvereinbarung',
           'Belegschaft',
           'Durchsetzungsvermögen',
           'Konkurrenzdruck',

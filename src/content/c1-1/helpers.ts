@@ -24,6 +24,7 @@ export {
   typed,
   you,
 } from '../b1-1/helpers';
+export { hint } from '../b1-2/helpers';
 
 export const unitC11 = (u: Omit<Unit, 'levelId'>): Unit => unit({ ...u, levelId: 'c1-1' });
 

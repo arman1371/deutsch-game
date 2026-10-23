@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -27,12 +27,12 @@ const economy = vocabList(U, 'Economy & globalisation', [
   ['Arbeitslosenquote', 'unemployment rate', '🧮', 'die', 'Arbeitslosenquoten'],
   ['Inflation', 'inflation', '🎈', 'die'],
   ['Handelsabkommen', 'trade agreement', '🤝', 'das', 'Handelsabkommen'],
-  ['Lieferkette', 'supply chain', '⛓️', 'die', 'Lieferketten'],
+  ['Zulieferer', 'supplier', '⛓️', 'der', 'Zulieferer'],
   ['Verlagerung', 'relocation, shift', '🚚', 'die', 'Verlagerungen'],
   ['Standort', 'location, site', '📍', 'der', 'Standorte'],
   ['Marktführer', 'market leader', '🥇', 'der', 'Marktführer'],
   ['Wettbewerbsfähigkeit', 'competitiveness', '🏁', 'die'],
-  ['Globalisierung', 'globalisation', '🌐', 'die'],
+  ['Weltmarkt', 'world market', '🌐', 'der', 'Weltmärkte'],
   ['Abhängigkeit', 'dependence', '🔗', 'die', 'Abhängigkeiten'],
 ]);
 
@@ -83,7 +83,7 @@ export const wirtschaft: UnitContent = {
       'flashcards',
       meta(
         'Economy & globalisation',
-        'Strukturwandel, Lieferkette, Marktführer – the language of the business pages.',
+        'Strukturwandel, Zulieferer, Marktführer – the language of the business pages.',
         ['vocabulary', 'economy'],
         1,
         5,
@@ -299,7 +299,7 @@ export const wirtschaft: UnitContent = {
         items: [
           ...spell(byDe(economy, 'Standort', 'Inflation'), 'unscramble').items,
           ...spell(byDe(finance, 'Bilanz'), 'unscramble').items,
-          ...spell(byDe(economy, 'Globalisierung'), 'type').items,
+          ...spell(byDe(economy, 'Weltmarkt'), 'type').items,
           ...spell(byDe(finance, 'Anschubfinanzierung', 'Insolvenz'), 'type').items,
           dictation(
             'd1',

@@ -4,6 +4,8 @@ import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
 import a22 from '@/content/a2-2';
 import b11 from '@/content/b1-1';
+import b12 from '@/content/b1-2';
+import c11 from '@/content/c1-1';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
@@ -32,7 +34,13 @@ describe('Home', () => {
     expect(screen.getByTestId('level-b1-1')).toHaveTextContent(
       '0 / ' + b11.activities.length + ' games',
     );
-    for (const soon of ['B1.2']) {
+    expect(screen.getByTestId('level-b1-2')).toHaveTextContent(
+      '0 / ' + b12.activities.length + ' games',
+    );
+    expect(screen.getByTestId('level-c1-1')).toHaveTextContent(
+      '0 / ' + c11.activities.length + ' games',
+    );
+    for (const soon of ['B2.1']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -101,7 +109,7 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/b1-2');
+    renderApp('/levels/b2-1');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });
@@ -257,6 +265,62 @@ describe('Level B1.1', () => {
     expect(screen.getByRole('button', { name: 'B1.1' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('button', { name: /Glück im Alltag/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Lernen & Prüfungen/ })).not.toBeInTheDocument();
+  }, 30_000);
+});
+
+describe('Level B1.2', () => {
+  it('walks Home → B1.2 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-b1-2'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(b12.units.length);
+    expect(within(units).queryByTestId('unit-b1-1-glueck')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-b1-2-kollegen'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(screen.getByRole('heading', { level: 1, name: 'Unter Kollegen' })).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(b12.activities.filter((a) => a.unitId === 'b1-2-kollegen').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('filters the library by the B1.2 level and only offers its units', async () => {
+    renderApp('/library?lvl=b1-2');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${b12.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'B1.2' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Unter Kollegen/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Glück im Alltag/ })).not.toBeInTheDocument();
+  }, 30_000);
+});
+
+describe('Level C1.1', () => {
+  it('walks Home → C1.1 → first unit and shows its guided path', async () => {
+    const { user } = renderApp('/');
+    await user.click(await screen.findByTestId('level-c1-1'));
+    const units = await screen.findByRole('list', { name: 'Units' });
+    expect(within(units).getAllByTestId(/^unit-/)).toHaveLength(c11.units.length);
+    expect(within(units).queryByTestId('unit-b1-2-kollegen')).not.toBeInTheDocument();
+    await user.click(screen.getByTestId('unit-c1-1-zeit'));
+    const path = await screen.findByRole('list', { name: 'Guided path' });
+    expect(screen.getByRole('heading', { level: 1, name: 'Zeit und Tempo' })).toBeInTheDocument();
+    const steps = within(path).getAllByRole('listitem');
+    expect(steps).toHaveLength(c11.activities.filter((a) => a.unitId === 'c1-1-zeit').length);
+    expect(steps[0]).toHaveAttribute('data-state', 'current');
+  });
+
+  it('filters the library by the C1.1 level and only offers its units', async () => {
+    renderApp('/library?lvl=c1-1');
+    await waitFor(() =>
+      expect(screen.getByTestId('result-count')).toHaveTextContent(
+        `${c11.activities.length} games`,
+      ),
+    );
+    expect(screen.getByRole('button', { name: 'C1.1' })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /Zeit und Tempo/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Unter Kollegen/ })).not.toBeInTheDocument();
   }, 30_000);
 });
 
