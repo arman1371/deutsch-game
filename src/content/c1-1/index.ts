@@ -6,8 +6,22 @@ import { manieren } from './u4-manieren';
 import { tourismus } from './u5-tourismus';
 import { arbeit } from './u6-arbeit';
 import { lebenswege } from './u7-lebenswege';
+import { studium } from './u8-studium';
+import { konsum } from './u9-konsum';
+import { wirtschaft } from './u10-wirtschaft';
 
-const units = [zeit, digital, sprache, manieren, tourismus, arbeit, lebenswege];
+const units = [
+  zeit,
+  digital,
+  sprache,
+  manieren,
+  tourismus,
+  arbeit,
+  lebenswege,
+  studium,
+  konsum,
+  wirtschaft,
+];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),
