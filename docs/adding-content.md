@@ -75,6 +75,16 @@ Order = guided path order (easy → hard). Aim for vocabulary → listening/spel
 
 - Always show nouns with their article (`der Apfel`) and plural where useful.
 - Wrong options should be _plausible_ mistakes (verb endings, der/die/das, word order).
-- Give a one-line `explanation` for grammar items – it is shown after a mistake.
+- Give a one-line `explanation` for grammar items – it is shown after every answer.
+- Grammar hints after a **wrong** answer (never for vocabulary/meaning mistakes):
+  - **Mini lessons** live in `src/content/lessons.ts`, one per grammar tag. An activity with the `grammar`
+    skill tag and one main grammar point gets its lesson automatically (`lessonForTags`); set `lesson` on
+    an item (or in the activity meta) when an activity mixes grammar points, e.g. a unit challenge.
+  - **`why`** maps a wrong option (or an expected wrong typed answer) to one sentence on why it is wrong.
+    Wrong articles/pronouns (`dem` vs `den`, `mir` vs `mich`), wrong adjective endings (`adjGap`) and
+    another person's verb form (conjugation grids, `verbForms`) are explained automatically.
+  - Existing levels add hints in `<level>/hints.ts` (a `HintOverlay` merged by `withHints` in `index.ts`);
+    new content can write `lesson` / `why` directly on its items. The shared content suite checks that
+    only grammar activities carry hints.
 - Sentence builder: attach punctuation to the last word, keep capitalisation as in the sentence (grading
   ignores case/punctuation) and list other valid word orders in `alsoAccept`.

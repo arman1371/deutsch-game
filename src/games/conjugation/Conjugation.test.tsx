@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { conjugate } from '@/lib/german/conjugation';
 import { renderGame } from '@/test/render';
 import Conjugation from './Conjugation';
-import { gradeTable } from './logic';
+import { conjugationWhy, gradeTable } from './logic';
 
 const forms = conjugate('sein');
 const config = {
@@ -81,5 +81,26 @@ describe('Conjugation', () => {
     await user.click(screen.getByRole('button', { name: 'ö' }));
     await user.type(input, 'nnen');
     expect(input).toHaveValue('können');
+  });
+});
+
+describe('conjugationWhy', () => {
+  it('names the person whose form was typed', () => {
+    const values = { ich: 'bist', du: 'bist' };
+    const { cells } = gradeTable(forms, ['ich', 'du'], values);
+    expect(conjugationWhy(forms, cells, values)).toBe(
+      '“bist” is the du form – for ich it is “bin”.',
+    );
+    expect(conjugationWhy(forms, { ich: 'wrong' }, { ich: 'xyz' })).toBeUndefined();
+  });
+
+  it('shows the why and the lesson after a wrong table', async () => {
+    const { user } = renderGame(Conjugation, {
+      tables: [{ ...config.tables[0]!, lesson: 'verb-conjugation' as const }],
+    });
+    await user.type(screen.getByLabelText('ich'), 'ist');
+    await user.type(screen.getByLabelText('du'), 'bist{Enter}');
+    expect(screen.getByTestId('mistake-why')).toHaveTextContent('“ist” is the er/sie/es form');
+    expect(screen.getByTestId('mini-lesson')).toBeInTheDocument();
   });
 });

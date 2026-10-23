@@ -1,4 +1,6 @@
 import type { LevelContent } from '../schema';
+import { withHints } from '../hints';
+import { hints } from './hints';
 import { hallo } from './u1-hallo';
 import { wer } from './u2-wer';
 import { woher } from './u3-woher';
@@ -13,7 +15,10 @@ const units = [hallo, wer, woher, zahlen, familie, freizeit, tag, einkaufen];
 const content: LevelContent = {
   units: units.map((u) => u.unit),
   vocab: units.flatMap((u) => u.vocab),
-  activities: units.flatMap((u) => u.activities),
+  activities: withHints(
+    units.flatMap((u) => u.activities),
+    hints,
+  ),
 };
 
 export default content;

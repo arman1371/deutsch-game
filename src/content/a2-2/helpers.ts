@@ -5,10 +5,12 @@ import {
   reflexiveForms,
 } from '@/lib/german/conjugation';
 import { adjectiveEnding, declineAdjective, type DeclensionKind } from '@/lib/german/adjectives';
+import { adjectiveRule } from '@/lib/german/forms';
 import type { Case, Gender } from '@/lib/german/articles';
 import { unit } from '../builders';
 import type { Unit } from '../schema';
 import { customTable, gap } from '../a1-2/helpers';
+import { adjectiveHint } from '../hints';
 
 /** The A2.2 units share the A1.2 authoring helpers; only the level id and the grammar tables are new. */
 export {
@@ -93,6 +95,7 @@ const ENDING_ORDER = ['e', 'en', 'er', 'es', 'em'] as const;
  * Gap item for an adjective ending. The blank holds the whole declined adjective and the base form
  * follows the sentence in brackets: adjGap('a1', 'Ich kaufe den ___ Mantel.', 'neu', 'definite',
  * 'm', 'acc', …) → answer "neuen" with the other endings (neue, neuer, neues) as chips.
+ * Each wrong chip gets a generated "why", and the rule is the explanation unless one is given.
  */
 export const adjGap = (
   id: string,
@@ -109,5 +112,13 @@ export const adjGap = (
   const wrong = ENDING_ORDER.map((e) => `${stem}${e}`)
     .filter((o) => o !== answer)
     .slice(0, 3);
-  return gap(id, `${text} (${adjective})`, answer, [answer, ...wrong], translation, explanation);
+  const item = gap(
+    id,
+    `${text} (${adjective})`,
+    answer,
+    [answer, ...wrong],
+    translation,
+    explanation ?? adjectiveRule(kind, gender, c),
+  );
+  return { ...item, ...adjectiveHint(kind, gender, c)(item) };
 };

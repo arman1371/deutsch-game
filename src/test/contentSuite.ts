@@ -38,6 +38,16 @@ export function describeLevelContent(name: string, content: LevelContent, levelI
       for (const a of content.activities) expect(a.id.startsWith(a.unitId)).toBe(true);
     });
 
+    it('gives grammar hints (lesson / why) only to grammar activities', () => {
+      for (const a of content.activities) {
+        if (a.tags.includes('grammar')) continue;
+        expect(a.lesson, a.id).toBeUndefined();
+        for (const i of getItems(a) as { id: string; lesson?: string; why?: object }[]) {
+          expect(i.lesson ?? i.why, `${a.id}/${i.id}`).toBeUndefined();
+        }
+      }
+    });
+
     describe.each(content.units.map((u) => [u.title, u.id] as const))('%s', (_title, unitId) => {
       const acts: Activity[] = content.activities.filter((a) => a.unitId === unitId);
 

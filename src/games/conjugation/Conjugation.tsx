@@ -4,9 +4,10 @@ import { UmlautKeyboard } from '@/components/ui/UmlautKeyboard';
 import { t } from '@/i18n';
 import type { Pronoun } from '@/lib/german/conjugation';
 import { FeedbackFooter, GameFrame, verdictTitle } from '../shared/GameFrame';
+import { MistakeHint } from '../shared/MistakeHint';
 import { useSequence } from '../shared/useSequence';
 import type { GameProps } from '../types';
-import { gradeTable, pronounOrder, type CellVerdicts } from './logic';
+import { conjugationWhy, gradeTable, pronounOrder, type CellVerdicts } from './logic';
 
 export function Conjugation({ config, seed, onFinish }: GameProps<'conjugation'>) {
   const seq = useSequence(config.tables, seed, onFinish);
@@ -41,7 +42,19 @@ export function Conjugation({ config, seed, onFinish }: GameProps<'conjugation'>
           <FeedbackFooter
             kind={overall}
             title={verdictTitle(overall)}
-            detail={overall !== 'correct' ? <p>Check the highlighted forms in the table.</p> : null}
+            detail={
+              overall !== 'correct' ? (
+                <>
+                  <p>Check the highlighted forms in the table.</p>
+                  {overall === 'wrong' && cells ? (
+                    <MistakeHint
+                      why={conjugationWhy(table.forms, cells, values)}
+                      lesson={table.lesson}
+                    />
+                  ) : null}
+                </>
+              ) : null
+            }
             isLast={seq.isLast}
             onNext={next}
           />
