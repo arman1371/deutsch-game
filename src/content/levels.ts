@@ -48,6 +48,14 @@ export const LEVELS: LevelMeta[] = [
     subtitle: 'Opinions, discussions, longer texts and the B1 exam',
     status: 'coming-soon',
   },
+  {
+    id: 'c1-1',
+    title: 'C1.1',
+    subtitle:
+      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society',
+    status: 'available',
+    load: () => import('./c1-1'),
+  },
 ];
 
 export function getLevelMeta(id: string): LevelMeta | undefined {

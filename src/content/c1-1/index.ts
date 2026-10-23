@@ -1,0 +1,16 @@
+import type { LevelContent } from '../schema';
+import { zeit } from './u1-zeit';
+import { digital } from './u2-digital';
+import { sprache } from './u3-sprache';
+import { manieren } from './u4-manieren';
+
+const units = [zeit, digital, sprache, manieren];
+
+const content: LevelContent = {
+  units: units.map((u) => u.unit),
+  vocab: units.flatMap((u) => u.vocab),
+  activities: units.flatMap((u) => u.activities),
+};
+
+export default content;
+export type { UnitContent } from './types';
