@@ -70,6 +70,6 @@ topic, grammar, game type, difficulty, duration + free text. Within a facet opti
 - `src/content/**`: schema, ids, tags and **playability** – every activity is solved through the real engine.
   Both checks are shared harnesses (`src/test/contentSuite.ts`, `src/test/playability.tsx`) that each level
   pack calls with its content.
-- `src/pages/pages.test.tsx`: whole app in jsdom with the real A1.1 to B1.2 content.
+- `src/pages/pages.test.tsx`: whole app in jsdom with the real A1.1 to B2.2 content.
 - `e2e/`: Playwright on desktop + mobile: all engines, navigation, filters, persistence, review, keyboard, axe;
-  `e2e/a1-2.spec.ts`, `e2e/a2-1.spec.ts`, `e2e/a2-2.spec.ts`, `e2e/b1-1.spec.ts` and `e2e/b1-2.spec.ts` cover the level navigation, the level facet and one activity per engine and unit.
+  `e2e/a1-2.spec.ts`, `e2e/a2-1.spec.ts`, `e2e/a2-2.spec.ts`, `e2e/b1-1.spec.ts`, `e2e/b1-2.spec.ts` and `e2e/b2-2.spec.ts` cover the level navigation, the level facet and one activity per engine and unit.

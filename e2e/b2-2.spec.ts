@@ -76,7 +76,7 @@ test.describe('B2.2 – library', () => {
       [/Indirect speech \(Konjunktiv I\)/, 'konjunktiv-1'],
       [/Assumptions with modal verbs/, 'modal-assumption'],
       [/Nouns with prepositions/, 'noun-prepositions'],
-      [/Passive alternatives/, 'passive-alternatives'],
+      [/Alternatives to the passive/, 'passive-alternatives'],
       [/Media, internet & law/, 'media-law'],
     ] as const) {
       await page.getByRole('button', { name: label }).click();

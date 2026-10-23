@@ -14,19 +14,20 @@ not support a second language yet (see [Roadmap](#roadmap)).
 
 ## What's in it today
 
-| Level    | Units | Games | Topics (short)                                                              |
-| -------- | ----: | ----: | --------------------------------------------------------------------------- |
-| **A1.1** |     8 |   114 | greetings, family, hobbies, time, shopping                                  |
-| **A1.2** |    10 |   159 | town, housing, work, health, clothing, travel, appointments                 |
-| **A2.1** |    10 |   158 | internet and apps, weather, transport, flat hunting, school, job search     |
-| **A2.2** |    12 |   190 | learning and exams, sport, music and art, festivals, bank, emergencies      |
-| **B1.1** |    12 |   173 | news stories, health, the world of work, environment, technology, regrets   |
-| **B1.2** |    12 |   149 | colleagues, digital life, consumer rights, politics, history, home, theatre |
-| B2.1     |     – |     – | coming soon                                                                 |
+| Level    | Units | Games | Topics (short)                                                               |
+| -------- | ----: | ----: | ---------------------------------------------------------------------------- |
+| **A1.1** |     8 |   114 | greetings, family, hobbies, time, shopping                                   |
+| **A1.2** |    10 |   159 | town, housing, work, health, clothing, travel, appointments                  |
+| **A2.1** |    10 |   158 | internet and apps, weather, transport, flat hunting, school, job search      |
+| **A2.2** |    12 |   190 | learning and exams, sport, music and art, festivals, bank, emergencies       |
+| **B1.1** |    12 |   173 | news stories, health, the world of work, environment, technology, regrets    |
+| **B1.2** |    12 |   149 | colleagues, digital life, consumer rights, politics, history, home, theatre  |
+| B2.1     |     – |     – | coming soon                                                                  |
+| **B2.2** |    12 |   173 | relationships, nutrition, university, art, sustainable cities, media and law |
 
 Unit lists are researched from course books, Goethe exam documents and the CEFR rather than invented; see
 [docs/a2-2-coverage.md](docs/a2-2-coverage.md), [docs/b1-1-coverage.md](docs/b1-1-coverage.md) and
-[docs/b1-2-coverage.md](docs/b1-2-coverage.md).
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md) and [docs/b2-2-coverage.md](docs/b2-2-coverage.md).
 
 ### Features
 
