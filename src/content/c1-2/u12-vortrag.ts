@@ -118,7 +118,9 @@ export const vortrag: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Stichwortzettel', 'Fazit', 'Einwand', 'Konsens', 'schlüssig', 'hervorheben')),
+      memory(
+        byDe(vocab, 'Stichwortzettel', 'Fazit', 'Einwand', 'Konsens', 'schlüssig', 'hervorheben'),
+      ),
     ),
     activity(
       U,
@@ -201,11 +203,7 @@ export const vortrag: UnitContent = {
         items: [
           ...spell(byDe(vocab, 'Konsens', 'Fazit', 'Einwand'), 'unscramble').items,
           ...spell(byDe(vocab, 'Kernaussage', 'Gegenargument', 'Wortmeldung'), 'type').items,
-          dictation(
-            'd1',
-            'Ich nehme dazu gern Stellung.',
-            'I am happy to comment on that.',
-          ),
+          dictation('d1', 'Ich nehme dazu gern Stellung.', 'I am happy to comment on that.'),
           dictation(
             'd2',
             'Das Ergebnis ist schlüssig begründet.',
@@ -465,7 +463,13 @@ export const vortrag: UnitContent = {
             'hingegen',
             'ländlich.',
           ]),
-          sent('s6', 'May I briefly interrupt you?', ['Darf', 'ich', 'Sie', 'kurz', 'unterbrechen?']),
+          sent('s6', 'May I briefly interrupt you?', [
+            'Darf',
+            'ich',
+            'Sie',
+            'kurz',
+            'unterbrechen?',
+          ]),
         ],
       },
     ),
@@ -609,12 +613,28 @@ export const vortrag: UnitContent = {
         questions: [
           q('c1', 'Er nahm kritisch zum Plan ___.', 'Stellung', ['Haltung', 'Platz', 'Aussicht']),
           q('c2', 'Das Gesetz tritt in ___.', 'Kraft', ['Macht', 'Wirkung', 'Frage']),
-          q('c3', 'Sie übte scharfe ___ an dem Vorschlag.', 'Kritik', ['Meinung', 'Einwand', 'Antwort']),
+          q('c3', 'Sie übte scharfe ___ an dem Vorschlag.', 'Kritik', [
+            'Meinung',
+            'Einwand',
+            'Antwort',
+          ]),
           q('c4', 'Wir müssen eine Entscheidung ___.', 'treffen', ['machen', 'halten', 'nehmen']),
-          q('c5', 'Die Stadt ist teuer, das Dorf ___ günstig.', 'hingegen', ['folglich', 'sofern', 'indem']),
-          q('c6', 'Der Plan ist riskant. ___ ist er teuer.', 'Darüber hinaus', ['Hingegen', 'Andernfalls', 'Demnach']),
+          q('c5', 'Die Stadt ist teuer, das Dorf ___ günstig.', 'hingegen', [
+            'folglich',
+            'sofern',
+            'indem',
+          ]),
+          q('c6', 'Der Plan ist riskant. ___ ist er teuer.', 'Darüber hinaus', [
+            'Hingegen',
+            'Andernfalls',
+            'Demnach',
+          ]),
           q('c7', 'der Standpunkt', 'point of view', ['objection', 'consensus', 'outline']),
-          q('c8', 'veranschaulichen', 'to illustrate', ['to object', 'to summarise', 'to interrupt']),
+          q('c8', 'veranschaulichen', 'to illustrate', [
+            'to object',
+            'to summarise',
+            'to interrupt',
+          ]),
           q('c9', 'Eine Fragerunde findet statt …', 'nach dem Vortrag', [
             'vor der Gliederung',
             'ohne Zuhörer',

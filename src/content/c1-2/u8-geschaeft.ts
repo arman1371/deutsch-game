@@ -118,7 +118,15 @@ export const geschaeft: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Niederlassung', 'Tagesordnung', 'Tabu', 'Hierarchie', 'förmlich', 'zurückhaltend'),
+        byDe(
+          vocab,
+          'Niederlassung',
+          'Tagesordnung',
+          'Tabu',
+          'Hierarchie',
+          'förmlich',
+          'zurückhaltend',
+        ),
       ),
     ),
     activity(
@@ -201,7 +209,8 @@ export const geschaeft: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Konzern', 'Tabu', 'Lieferant'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Gepflogenheit', 'Visitenkarte', 'Auslandsentsendung'), 'type').items,
+          ...spell(byDe(vocab, 'Gepflogenheit', 'Visitenkarte', 'Auslandsentsendung'), 'type')
+            .items,
           dictation(
             'd1',
             'Der Termin dauert mindestens eine Stunde.',
@@ -589,13 +598,28 @@ export const geschaeft: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Er sprach derart leise, dass niemand ihn verstand.', true),
-          tf('b2', 'Infolgedessen steht am Ende des Satzes das Verb.', false, 'It is an adverb: the verb follows it.'),
+          tf(
+            'b2',
+            'Infolgedessen steht am Ende des Satzes das Verb.',
+            false,
+            'It is an adverb: the verb follows it.',
+          ),
           tf('b3', 'Man gewinnt Vertrauen, indem man zuverlässig ist.', true),
-          tf('b4', 'Indem man zuverlässig ist, man gewinnt Vertrauen.', false, 'The main clause must start with the verb: gewinnt man.'),
+          tf(
+            'b4',
+            'Indem man zuverlässig ist, man gewinnt Vertrauen.',
+            false,
+            'The main clause must start with the verb: gewinnt man.',
+          ),
           tf('b5', 'So schnell wie möglich bedeutet: möglichst bald.', true),
           tf('b6', 'Je mehr Übung, desto weniger Fehler.', true),
           tf('b7', 'Mindestens zwei Stunden heißt: höchstens zwei Stunden.', false),
-          tf('b8', 'Ein Fettnäpfchen ist ein kleiner Topf für Butter.', false, 'It is a social blunder.'),
+          tf(
+            'b8',
+            'Ein Fettnäpfchen ist ein kleiner Topf für Butter.',
+            false,
+            'It is a social blunder.',
+          ),
           tf('b9', 'Ein Kompromiss ist eine Einigung, bei der beide nachgeben.', true),
           tf('b10', 'Förmlich bedeutet: sehr locker.', false),
           tf('b11', 'Ein Tabu ist ein Thema, über das man nicht spricht.', true),
@@ -617,11 +641,19 @@ export const geschaeft: UnitContent = {
       {
         questions: [
           q('c1', 'Er war ___ müde, dass er einschlief.', 'derart', ['sooft', 'ehe', 'sofern']),
-          q('c2', 'Man lernt eine Sprache, ___ man viel spricht.', 'indem', ['obwohl', 'sodass', 'ehe']),
+          q('c2', 'Man lernt eine Sprache, ___ man viel spricht.', 'indem', [
+            'obwohl',
+            'sodass',
+            'ehe',
+          ]),
           q('c3', 'Sie ging, ___ dass jemand sie bemerkte.', 'ohne', ['damit', 'indem', 'sodass']),
           q('c4', 'Je früher, ___ besser.', 'desto', ['als', 'wie', 'so']),
           q('c5', 'Wir antworten ___ schnell wie möglich.', 'so', ['am', 'als', 'je']),
-          q('c6', 'Das war die ___ Besprechung des Jahres.', 'längste', ['längsten', 'am längsten', 'länger']),
+          q('c6', 'Das war die ___ Besprechung des Jahres.', 'längste', [
+            'längsten',
+            'am längsten',
+            'länger',
+          ]),
           q('c7', 'das Zugeständnis', 'concession', ['agenda', 'supplier', 'branch']),
           q('c8', 'hartnäckig', 'persistent', ['reserved', 'formal', 'intercultural']),
           q('c9', 'Die Gepflogenheiten eines Landes sind …', 'seine Bräuche und Regeln', [
@@ -629,7 +661,11 @@ export const geschaeft: UnitContent = {
             'seine Reisedauer',
             'seine Konzerne',
           ]),
-          q('c10', 'Der Termin dauert ___ eine Stunde. (nicht länger)', 'höchstens', ['mindestens', 'meistens', 'selten']),
+          q('c10', 'Der Termin dauert ___ eine Stunde. (nicht länger)', 'höchstens', [
+            'mindestens',
+            'meistens',
+            'selten',
+          ]),
         ],
       },
     ),

@@ -83,6 +83,19 @@ export const TAGS = {
   teamwork: { label: 'Teamwork & meetings', group: 'topic', emoji: '👥' },
   sustainability: { label: 'Farming & sustainability', group: 'topic', emoji: '🌾' },
   'presenting-moderating': { label: 'Presenting & moderating', group: 'topic', emoji: '🎤' },
+  // topics – B1.2
+  colleagues: { label: 'Colleagues & conflicts', group: 'topic', emoji: '🧑‍💼' },
+  'digital-world': { label: 'Computers & digital life', group: 'topic', emoji: '🖥️' },
+  'consumer-rights': { label: 'Consumption & consumer rights', group: 'topic', emoji: '🛍️' },
+  'further-education': { label: 'Further education & courses', group: 'topic', emoji: '📖' },
+  'rules-manners': { label: 'Rules & cultural differences', group: 'topic', emoji: '📜' },
+  volunteering: { label: 'Volunteering', group: 'topic', emoji: '🙌' },
+  'politics-society': { label: 'Politics & society', group: 'topic', emoji: '🗳️' },
+  history: { label: 'History', group: 'topic', emoji: '🏛️' },
+  'city-country': { label: 'City, country & tourism', group: 'topic', emoji: '🏙️' },
+  'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
+  'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
+  'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -145,14 +158,36 @@ export const TAGS = {
   'nominal-style': { label: 'Nominal & verbal style', group: 'grammar', emoji: '📰' },
   'passive-substitutes': { label: 'Passive substitutes', group: 'grammar', emoji: '🔁' },
   'subjective-modals': { label: 'Subjective modal verbs', group: 'grammar', emoji: '🕵️' },
-  'participial-clauses': { label: 'Participles & participial clauses', group: 'grammar', emoji: '✂️' },
+  'participial-clauses': {
+    label: 'Participles & participial clauses',
+    group: 'grammar',
+    emoji: '✂️',
+  },
   'written-prepositions': { label: 'aufgrund / infolge / anhand', group: 'grammar', emoji: '📜' },
   'advanced-connectors': { label: 'allerdings / sofern / indem', group: 'grammar', emoji: '🧵' },
   'adjective-complements': { label: 'stolz auf, abhängig von', group: 'grammar', emoji: '🪝' },
   'infinitive-perfect': { label: 'ohne … gesehen zu haben', group: 'grammar', emoji: '⏪' },
   'quantities-graphs': { label: 'Numbers, shares & graphs', group: 'grammar', emoji: '📈' },
   'modality-verbs': { label: 'scheinen zu, drohen zu, pflegen zu', group: 'grammar', emoji: '🎚️' },
-  'conditional-clauses': { label: 'Sollte … / Hätte … / es sei denn', group: 'grammar', emoji: '🧪' },
+  'conditional-clauses': {
+    label: 'Sollte … / Hätte … / es sei denn',
+    group: 'grammar',
+    emoji: '🧪',
+  },
+  // grammar points – B1.2
+  'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
+  'als-ob': { label: 'als ob', group: 'grammar', emoji: '🫥' },
+  'participles-as-adjectives': {
+    label: 'Participles as adjectives',
+    group: 'grammar',
+    emoji: '🏃',
+  },
+  'modal-particles': { label: 'Modal particles (doch, ja, mal)', group: 'grammar', emoji: '🧂' },
+  'indem-ohne-dass': { label: 'indem / ohne dass / statt dass', group: 'grammar', emoji: '🛠️' },
+  'passive-past': { label: 'Passive: wurde / ist … worden', group: 'grammar', emoji: '📜' },
+  'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
+  'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
+  'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

@@ -118,7 +118,9 @@ export const forschung: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Hypothese', 'Stichprobe', 'Patent', 'Mikrochip', 'umstritten', 'ausgereift')),
+      memory(
+        byDe(vocab, 'Hypothese', 'Stichprobe', 'Patent', 'Mikrochip', 'umstritten', 'ausgereift'),
+      ),
     ),
     activity(
       U,
@@ -200,17 +202,14 @@ export const forschung: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Tüftler', 'Sensor', 'Patent'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Versuchsaufbau', 'Ethikkommission', 'Gebrauchsanweisung'), 'type').items,
+          ...spell(byDe(vocab, 'Versuchsaufbau', 'Ethikkommission', 'Gebrauchsanweisung'), 'type')
+            .items,
           dictation(
             'd1',
             'Mittels eines Sensors wird die Temperatur gemessen.',
             'The temperature is measured by means of a sensor.',
           ),
-          dictation(
-            'd2',
-            'Die Daten müssen nachvollziehbar sein.',
-            'The data must be traceable.',
-          ),
+          dictation('d2', 'Die Daten müssen nachvollziehbar sein.', 'The data must be traceable.'),
         ],
       },
     ),
@@ -581,9 +580,19 @@ export const forschung: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Die wachsende Zahl bedeutet: die Zahl wächst gerade.', true),
-          tf('b2', 'Der entwickelte Test bedeutet: der Test wird gerade entwickelt.', false, 'Partizip II: the test has been developed.'),
+          tf(
+            'b2',
+            'Der entwickelte Test bedeutet: der Test wird gerade entwickelt.',
+            false,
+            'Partizip II: the test has been developed.',
+          ),
           tf('b3', 'Mittels eines Computers wurde die Auswertung gemacht.', true),
-          tf('b4', 'Mittels einem Computer wurde die Auswertung gemacht.', false, 'mittels + genitive.'),
+          tf(
+            'b4',
+            'Mittels einem Computer wurde die Auswertung gemacht.',
+            false,
+            'mittels + genitive.',
+          ),
           tf('b5', 'Mangels Geld wurde das Projekt beendet. = Weil Geld fehlte, …', true),
           tf('b6', 'Gemäß den Regeln ist das erlaubt.', true),
           tf('b7', 'Laut bedeutet: wegen.', false, 'laut = according to.'),
@@ -608,11 +617,31 @@ export const forschung: UnitContent = {
       ),
       {
         questions: [
-          q('c1', 'Die ___ Preise bereiten vielen Sorgen.', 'steigenden', ['gestiegenen', 'steigen', 'steigt']),
-          q('c2', 'Der in Berlin ___ Forscher gewann einen Preis.', 'arbeitende', ['gearbeitete', 'arbeitet', 'arbeiten']),
-          q('c3', 'Die ___ Ergebnisse sind sehr interessant.', 'veröffentlichten', ['veröffentlichenden', 'veröffentlicht', 'veröffentlichen']),
-          q('c4', '___ eines Mikroskops sah sie die Zellen.', 'Mittels', ['Laut', 'Mangels', 'Dank']),
-          q('c5', '___ des Zeitdrucks wurde nur eine Probe untersucht.', 'Angesichts', ['Mittels', 'Zwecks', 'Gemäß']),
+          q('c1', 'Die ___ Preise bereiten vielen Sorgen.', 'steigenden', [
+            'gestiegenen',
+            'steigen',
+            'steigt',
+          ]),
+          q('c2', 'Der in Berlin ___ Forscher gewann einen Preis.', 'arbeitende', [
+            'gearbeitete',
+            'arbeitet',
+            'arbeiten',
+          ]),
+          q('c3', 'Die ___ Ergebnisse sind sehr interessant.', 'veröffentlichten', [
+            'veröffentlichenden',
+            'veröffentlicht',
+            'veröffentlichen',
+          ]),
+          q('c4', '___ eines Mikroskops sah sie die Zellen.', 'Mittels', [
+            'Laut',
+            'Mangels',
+            'Dank',
+          ]),
+          q('c5', '___ des Zeitdrucks wurde nur eine Probe untersucht.', 'Angesichts', [
+            'Mittels',
+            'Zwecks',
+            'Gemäß',
+          ]),
           q('c6', 'Gemäß ___ Vorschriften wird gearbeitet.', 'den', ['der', 'des', 'die']),
           q('c7', 'die Stichprobe', 'sample', ['hypothesis', 'journal', 'patent']),
           q('c8', 'bahnbrechend', 'groundbreaking', ['controversial', 'refined', 'traceable']),
@@ -621,7 +650,11 @@ export const forschung: UnitContent = {
             'schreibt Gebrauchsanweisungen',
             'finanziert Patente',
           ]),
-          q('c10', 'Am Ziel ___, jubelte das Team.', 'angekommen', ['ankommend', 'ankam', 'ankommen']),
+          q('c10', 'Am Ziel ___, jubelte das Team.', 'angekommen', [
+            'ankommend',
+            'ankam',
+            'ankommen',
+          ]),
         ],
       },
     ),

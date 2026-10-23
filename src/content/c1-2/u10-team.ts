@@ -110,13 +110,7 @@ export const team10: UnitContent = {
       U,
       'memory-words',
       'memory',
-      meta(
-        'Team pairs',
-        'Find the German word and its meaning.',
-        ['vocabulary', 'teamwork'],
-        2,
-        4,
-      ),
+      meta('Team pairs', 'Find the German word and its meaning.', ['vocabulary', 'teamwork'], 2, 4),
       memory(
         byDe(vocab, 'Meilenstein', 'Engpass', 'Absprache', 'Vermittler', 'sachlich', 'delegieren'),
       ),
@@ -201,17 +195,16 @@ export const team10: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Engpass', 'Teamgeist', 'Absprache'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Zuständigkeit', 'Verlaufsprotokoll', 'Meinungsverschiedenheit'), 'type').items,
+          ...spell(
+            byDe(vocab, 'Zuständigkeit', 'Verlaufsprotokoll', 'Meinungsverschiedenheit'),
+            'type',
+          ).items,
           dictation(
             'd1',
             'Sollte es Probleme geben, melden Sie sich bitte.',
             'Should there be problems, please get in touch.',
           ),
-          dictation(
-            'd2',
-            'Das Projekt droht zu scheitern.',
-            'The project threatens to fail.',
-          ),
+          dictation('d2', 'Das Projekt droht zu scheitern.', 'The project threatens to fail.'),
         ],
       },
     ),
@@ -434,7 +427,13 @@ export const team10: UnitContent = {
             'verspätet',
             'sich.',
           ]),
-          sent('s3', 'The project threatens to fail.', ['Das', 'Projekt', 'droht', 'zu', 'scheitern.']),
+          sent('s3', 'The project threatens to fail.', [
+            'Das',
+            'Projekt',
+            'droht',
+            'zu',
+            'scheitern.',
+          ]),
           sent('s4', 'The colleague seems to have understood the task.', [
             'Der',
             'Kollege',
@@ -580,12 +579,30 @@ export const team10: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Sollte es regnen, bleiben wir zu Hause.', true),
-          tf('b2', 'Sollte es regnet, bleiben wir zu Hause.', false, 'After Sollte: the infinitive (regnen).'),
+          tf(
+            'b2',
+            'Sollte es regnet, bleiben wir zu Hause.',
+            false,
+            'After Sollte: the infinitive (regnen).',
+          ),
           tf('b3', 'Hätte ich Zeit, würde ich kommen.', true),
           tf('b4', 'Es sei denn bedeutet: außer wenn.', true),
-          tf('b5', 'Das Projekt scheint zu scheitern. = Es sieht so aus, als würde es scheitern.', true),
-          tf('b6', 'Er pflegt, zu spät zu kommen, bedeutet: er kommt selten zu spät.', false, 'pflegen zu = usually.'),
-          tf('b7', 'Die Mitarbeiter haben die Regeln zu beachten. = Sie müssen sie beachten.', true),
+          tf(
+            'b5',
+            'Das Projekt scheint zu scheitern. = Es sieht so aus, als würde es scheitern.',
+            true,
+          ),
+          tf(
+            'b6',
+            'Er pflegt, zu spät zu kommen, bedeutet: er kommt selten zu spät.',
+            false,
+            'pflegen zu = usually.',
+          ),
+          tf(
+            'b7',
+            'Die Mitarbeiter haben die Regeln zu beachten. = Sie müssen sie beachten.',
+            true,
+          ),
           tf('b8', 'Ein Engpass ist eine Stelle, an der es hakt.', true),
           tf('b9', 'Eine Schuldzuweisung ist eine sachliche Rückmeldung.', false),
           tf('b10', 'Ein Vermittler hilft, einen Streit zu lösen.', true),
@@ -607,12 +624,32 @@ export const team10: UnitContent = {
       ),
       {
         questions: [
-          q('c1', '___ er rechtzeitig gekommen, wäre alles gut gegangen.', 'Wäre', ['Hätte', 'Sollte', 'Würde']),
+          q('c1', '___ er rechtzeitig gekommen, wäre alles gut gegangen.', 'Wäre', [
+            'Hätte',
+            'Sollte',
+            'Würde',
+          ]),
           q('c2', '___ Sie Fragen haben, rufen Sie an.', 'Sollten', ['Sollen', 'Würden', 'Wären']),
-          q('c3', 'Er kommt, ___, es regnet.', 'es sei denn', ['sofern', 'selbst wenn', 'nur dass']),
-          q('c4', 'Die Lage droht ___.', 'zu eskalieren', ['eskalieren', 'eskaliert', 'eskalierend']),
-          q('c5', 'Sie scheint den Termin ___.', 'vergessen zu haben', ['zu vergessen', 'vergessen haben zu', 'vergessen']),
-          q('c6', 'Du ___ nicht zu kommen, wenn du keine Zeit hast.', 'brauchst', ['brauchen', 'brauchte', 'braucht']),
+          q('c3', 'Er kommt, ___, es regnet.', 'es sei denn', [
+            'sofern',
+            'selbst wenn',
+            'nur dass',
+          ]),
+          q('c4', 'Die Lage droht ___.', 'zu eskalieren', [
+            'eskalieren',
+            'eskaliert',
+            'eskalierend',
+          ]),
+          q('c5', 'Sie scheint den Termin ___.', 'vergessen zu haben', [
+            'zu vergessen',
+            'vergessen haben zu',
+            'vergessen',
+          ]),
+          q('c6', 'Du ___ nicht zu kommen, wenn du keine Zeit hast.', 'brauchst', [
+            'brauchen',
+            'brauchte',
+            'braucht',
+          ]),
           q('c7', 'die Zuständigkeit', 'responsibility', ['feedback', 'bottleneck', 'milestone']),
           q('c8', 'beilegen', 'to settle', ['to delegate', 'to escalate', 'to mediate']),
           q('c9', 'Ein Verlaufsprotokoll …', 'hält fest, was in der Sitzung geschah', [

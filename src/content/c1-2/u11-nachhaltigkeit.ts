@@ -117,7 +117,9 @@ export const nachhaltigkeit: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Ertrag', 'Saatgut', 'Tagung', 'Teilnehmerzahl', 'regional', 'bedenklich')),
+      memory(
+        byDe(vocab, 'Ertrag', 'Saatgut', 'Tagung', 'Teilnehmerzahl', 'regional', 'bedenklich'),
+      ),
     ),
     activity(
       U,
@@ -386,12 +388,7 @@ export const nachhaltigkeit: UnitContent = {
             'the seed blown away by the wind',
             'Partizip II + ending: verweht → verwehte.',
           ),
-          typed(
-            'p8',
-            'die ___ Bevölkerung (wachsen)',
-            'wachsende',
-            'the growing population',
-          ),
+          typed('p8', 'die ___ Bevölkerung (wachsen)', 'wachsende', 'the growing population'),
         ],
       },
     ),
@@ -542,11 +539,7 @@ export const nachhaltigkeit: UnitContent = {
                   'That would not be climate-friendly.',
                 ],
               ),
-              say(
-                'Kollegin',
-                'Und das Essen?',
-                'And the food?',
-              ),
+              say('Kollegin', 'Und das Essen?', 'And the food?'),
               you(
                 'Jedes zweite Gericht kann vegetarisch sein. Das ist umweltschonend und bei Gästen beliebt.',
                 [
@@ -578,7 +571,12 @@ export const nachhaltigkeit: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Der Anteil stieg von 5 auf 12 Prozent. Er ist um 7 Punkte gestiegen.', true),
-          tf('b2', 'Die Zahl stieg um 20 Prozent bedeutet: Sie erreichte 20 Prozent.', false, 'um = the size of the change.'),
+          tf(
+            'b2',
+            'Die Zahl stieg um 20 Prozent bedeutet: Sie erreichte 20 Prozent.',
+            false,
+            'um = the size of the change.',
+          ),
           tf('b3', 'Knapp ein Drittel bedeutet: etwas weniger als 33 Prozent.', true),
           tf('b4', 'Jeder zweite Landwirt bedeutet: etwa die Hälfte.', true),
           tf('b5', 'Doppelt so hoch wie früher heißt: halb so hoch.', false),
@@ -608,11 +606,27 @@ export const nachhaltigkeit: UnitContent = {
           q('c1', 'Der Preis ist ___ 8 % auf 12 € gestiegen.', 'von', ['um', 'bis', 'auf']),
           q('c2', 'Die Preise sind ___ 8 % gestiegen.', 'um', ['von', 'auf', 'bis']),
           q('c3', 'Jedes ___ Haus hat Solarzellen.', 'dritte', ['dritter', 'dritten', 'drei']),
-          q('c4', 'Die Grafik zeigt die ___ Zahl der Besucher. (zunehmen)', 'zunehmende', ['zugenommene', 'zunehmen', 'zunehmend']),
-          q('c5', 'Die ___ Werte sind falsch. (angeben)', 'angegebenen', ['angebenden', 'angeben', 'angebend']),
-          q('c6', 'Im ___ zu früher ist der Ertrag höher.', 'Vergleich', ['Gegensatz', 'Verhältnis', 'Unterschied']),
+          q('c4', 'Die Grafik zeigt die ___ Zahl der Besucher. (zunehmen)', 'zunehmende', [
+            'zugenommene',
+            'zunehmen',
+            'zunehmend',
+          ]),
+          q('c5', 'Die ___ Werte sind falsch. (angeben)', 'angegebenen', [
+            'angebenden',
+            'angeben',
+            'angebend',
+          ]),
+          q('c6', 'Im ___ zu früher ist der Ertrag höher.', 'Vergleich', [
+            'Gegensatz',
+            'Verhältnis',
+            'Unterschied',
+          ]),
           q('c7', 'die Artenvielfalt', 'biodiversity', ['yield', 'fertiliser', 'seed']),
-          q('c8', 'umweltschonend', 'environmentally friendly', ['questionable', 'regional', 'conventional']),
+          q('c8', 'umweltschonend', 'environmentally friendly', [
+            'questionable',
+            'regional',
+            'conventional',
+          ]),
           q('c9', 'Ein Biobetrieb verzichtet auf …', 'chemische Pflanzenschutzmittel', [
             'jegliche Ernte',
             'das Grundwasser',

@@ -119,7 +119,15 @@ export const psychologie: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Empathie', 'Erziehung', 'Gerücht', 'Einfluss', 'widerstandsfähig', 'Veranlagung'),
+        byDe(
+          vocab,
+          'Empathie',
+          'Erziehung',
+          'Gerücht',
+          'Einfluss',
+          'widerstandsfähig',
+          'Veranlagung',
+        ),
       ),
     ),
     activity(
@@ -434,7 +442,14 @@ export const psychologie: UnitContent = {
             'Missverständnis',
             'sein.',
           ]),
-          sent('s4', 'He is probably already at home.', ['Er', 'dürfte', 'schon', 'zu', 'Hause', 'sein.']),
+          sent('s4', 'He is probably already at home.', [
+            'Er',
+            'dürfte',
+            'schon',
+            'zu',
+            'Hause',
+            'sein.',
+          ]),
           sent('s5', 'The test subjects are said to have been very nervous.', [
             'Die',
             'Versuchspersonen',
@@ -559,7 +574,12 @@ export const psychologie: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Er soll sehr reich sein. = Man sagt, dass er sehr reich ist.', true),
-          tf('b2', 'Er will sehr reich sein. = Man sagt, dass er sehr reich ist.', false, 'wollen = he claims it himself.'),
+          tf(
+            'b2',
+            'Er will sehr reich sein. = Man sagt, dass er sehr reich ist.',
+            false,
+            'wollen = he claims it himself.',
+          ),
           tf('b3', 'Sie muss krank gewesen sein. = Sie war sicher krank.', true),
           tf('b4', 'Sie muss krank gewesen haben.', false, 'sein-participle: krank gewesen sein.'),
           tf('b5', 'Er dürfte bald kommen. = Er kommt wahrscheinlich bald.', true),
@@ -586,12 +606,32 @@ export const psychologie: UnitContent = {
       ),
       {
         questions: [
-          q('c1', 'Man erzählt, dass er Millionär ist. = Er ___ Millionär sein.', 'soll', ['will', 'muss', 'darf']),
-          q('c2', 'Sie sagt von sich: Ich war nie dort. = Sie ___ nie dort gewesen sein.', 'will', ['soll', 'muss', 'kann']),
-          q('c3', 'Er hat sicher gelogen. = Er ___ gelogen haben.', 'muss', ['soll', 'will', 'darf']),
+          q('c1', 'Man erzählt, dass er Millionär ist. = Er ___ Millionär sein.', 'soll', [
+            'will',
+            'muss',
+            'darf',
+          ]),
+          q('c2', 'Sie sagt von sich: Ich war nie dort. = Sie ___ nie dort gewesen sein.', 'will', [
+            'soll',
+            'muss',
+            'kann',
+          ]),
+          q('c3', 'Er hat sicher gelogen. = Er ___ gelogen haben.', 'muss', [
+            'soll',
+            'will',
+            'darf',
+          ]),
           q('c4', 'Er dürfte schon ___ sein.', 'angekommen', ['ankommen', 'ankam', 'an gekommen']),
-          q('c5', 'Eine Aufgabe, die man lösen kann, ist …', 'lösbar', ['löslich', 'lösend', 'lösartig']),
-          q('c6', 'ohne Hoffnung', 'hoffnungslos', ['hoffnungsvoll', 'hoffnungsreich', 'hoffnungsbar']),
+          q('c5', 'Eine Aufgabe, die man lösen kann, ist …', 'lösbar', [
+            'löslich',
+            'lösend',
+            'lösartig',
+          ]),
+          q('c6', 'ohne Hoffnung', 'hoffnungslos', [
+            'hoffnungsvoll',
+            'hoffnungsreich',
+            'hoffnungsbar',
+          ]),
           q('c7', 'die Veranlagung', 'predisposition', ['upbringing', 'rumour', 'influence']),
           q('c8', 'bezweifeln', 'to doubt', ['to prove', 'to observe', 'to claim']),
           q('c9', 'Ein Gerücht ist …', 'eine unbestätigte Nachricht', [

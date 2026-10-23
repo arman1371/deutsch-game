@@ -1,4 +1,4 @@
-import { byDe, flashcards, listen, memory, quizDeEn, spell, vocabList } from '../builders';
+import { byDe, flashcards, memory, quizDeEn, spell, vocabList } from '../builders';
 import {
   activity,
   dictation,
@@ -122,7 +122,17 @@ export const finanzen: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Überschuldung', 'Gläubiger', 'Verzugszinsen', 'Rücklage', 'Sparbuch', 'Spende')),
+      memory(
+        byDe(
+          vocab,
+          'Überschuldung',
+          'Gläubiger',
+          'Verzugszinsen',
+          'Rücklage',
+          'Sparbuch',
+          'Spende',
+        ),
+      ),
     ),
     activity(
       U,
@@ -601,7 +611,12 @@ export const finanzen: UnitContent = {
           tf('b1', 'Aufgrund der Preise sparen viele Haushalte.', true),
           tf('b2', 'Aufgrund dem Regen fiel das Fest aus.', false, 'aufgrund takes the genitive.'),
           tf('b3', 'Angesichts der Lage wurde gehandelt.', true),
-          tf('b4', 'Angesichts den Preisen wurde gehandelt.', false, 'angesichts takes the genitive: der Preise.'),
+          tf(
+            'b4',
+            'Angesichts den Preisen wurde gehandelt.',
+            false,
+            'angesichts takes the genitive: der Preise.',
+          ),
           tf('b5', 'Der Gläubiger leiht Geld und möchte es zurück.', true),
           tf('b6', 'Ein Schuldner ist jemand, der Geld verleiht.', false, 'A debtor owes money.'),
           tf('b7', 'Bei Schulden sollte man eine Beratung aufsuchen.', true),

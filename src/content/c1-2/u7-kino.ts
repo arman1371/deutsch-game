@@ -202,11 +202,7 @@ export const kino: UnitContent = {
           ...spell(byDe(vocab, 'Schnitt', 'Werk', 'Kulisse'), 'unscramble').items,
           ...spell(byDe(vocab, 'Uraufführung', 'Schaffenskraft', 'Vernissage'), 'type').items,
           dictation('d1', 'Der Film läuft mit Untertiteln.', 'The film is shown with subtitles.'),
-          dictation(
-            'd2',
-            'Ihr Interesse an Kunst wächst.',
-            'Her interest in art is growing.',
-          ),
+          dictation('d2', 'Ihr Interesse an Kunst wächst.', 'Her interest in art is growing.'),
         ],
       },
     ),
@@ -405,7 +401,13 @@ export const kino: UnitContent = {
       ),
       {
         items: [
-          sent('s1', 'Her interest in art is growing.', ['Ihr', 'Interesse', 'an', 'Kunst', 'wächst.']),
+          sent('s1', 'Her interest in art is growing.', [
+            'Ihr',
+            'Interesse',
+            'an',
+            'Kunst',
+            'wächst.',
+          ]),
           sent('s2', 'The film is thrilling; however, it is too long.', [
             'Der',
             'Film',
@@ -443,7 +445,14 @@ export const kino: UnitContent = {
             'möglich',
             'gewesen.',
           ]),
-          sent('s6', 'His fear of criticism is great.', ['Seine', 'Angst', 'vor', 'Kritik', 'ist', 'groß.']),
+          sent('s6', 'His fear of criticism is great.', [
+            'Seine',
+            'Angst',
+            'vor',
+            'Kritik',
+            'ist',
+            'groß.',
+          ]),
         ],
       },
     ),
@@ -560,7 +569,12 @@ export const kino: UnitContent = {
           tf('b1', 'Sich interessieren für → das Interesse an.', true),
           tf('b2', 'Hoffen auf → die Hoffnung für.', false, 'die Hoffnung auf.'),
           tf('b3', 'Die Angst vor Kritik ist ein Nomen mit Präposition.', true),
-          tf('b4', 'Allerdings steht nach dem Verb am Satzende.', false, 'Allerdings is an adverb; the verb follows it directly.'),
+          tf(
+            'b4',
+            'Allerdings steht nach dem Verb am Satzende.',
+            false,
+            'Allerdings is an adverb; the verb follows it directly.',
+          ),
           tf('b5', 'Mittlerweile bedeutet: inzwischen.', true),
           tf('b6', 'Sondern vielmehr steht nach einer Verneinung.', true),
           tf('b7', 'Der Abspann kommt am Anfang des Films.', false),
@@ -585,14 +599,39 @@ export const kino: UnitContent = {
       ),
       {
         questions: [
-          q('c1', 'Er wartet auf die Premiere. = Seine Vorfreude ___ die Premiere ist groß.', 'auf', ['an', 'für', 'über']),
-          q('c2', 'Sie streiten über Kunst. = Der Streit ___ Kunst dauert an.', 'über', ['auf', 'vor', 'an']),
-          q('c3', 'Der Plot ist originell. ___ fehlt dem Film das Tempo.', 'Allerdings', ['Deshalb', 'Sodass', 'Sooft']),
-          q('c4', 'Früher war sie Malerin; ___ dreht sie Filme.', 'mittlerweile', ['sonst', 'zudem', 'folglich']),
-          q('c5', 'Kein Zufall, sondern ___ Absicht.', 'vielmehr', ['allerdings', 'zudem', 'sonst']),
+          q(
+            'c1',
+            'Er wartet auf die Premiere. = Seine Vorfreude ___ die Premiere ist groß.',
+            'auf',
+            ['an', 'für', 'über'],
+          ),
+          q('c2', 'Sie streiten über Kunst. = Der Streit ___ Kunst dauert an.', 'über', [
+            'auf',
+            'vor',
+            'an',
+          ]),
+          q('c3', 'Der Plot ist originell. ___ fehlt dem Film das Tempo.', 'Allerdings', [
+            'Deshalb',
+            'Sodass',
+            'Sooft',
+          ]),
+          q('c4', 'Früher war sie Malerin; ___ dreht sie Filme.', 'mittlerweile', [
+            'sonst',
+            'zudem',
+            'folglich',
+          ]),
+          q('c5', 'Kein Zufall, sondern ___ Absicht.', 'vielmehr', [
+            'allerdings',
+            'zudem',
+            'sonst',
+          ]),
           q('c6', 'der Abspann', 'end credits', ['premiere', 'cast', 'subtitle']),
           q('c7', 'einfallsreich', 'inventive', ['unprofitable', 'thrilling', 'remote']),
-          q('c8', 'Wer finanziert einen Künstler?', 'ein Mäzen', ['ein Regisseur', 'ein Cutter', 'ein Statist']),
+          q('c8', 'Wer finanziert einen Künstler?', 'ein Mäzen', [
+            'ein Regisseur',
+            'ein Cutter',
+            'ein Statist',
+          ]),
           q('c9', 'Die Uraufführung ist …', 'die erste öffentliche Vorführung', [
             'der letzte Drehtag',
             'die Kritik am Film',

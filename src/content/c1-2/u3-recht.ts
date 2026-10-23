@@ -203,12 +203,12 @@ export const recht: UnitContent = {
         items: [
           ...spell(byDe(vocab, 'Urteil', 'Angeklagte', 'Anklage'), 'unscramble').items,
           ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schadensersatz', 'Verstoß'), 'type').items,
+          dictation('d1', 'Der Beweis ist nicht zu widerlegen.', 'The evidence cannot be refuted.'),
           dictation(
-            'd1',
-            'Der Beweis ist nicht zu widerlegen.',
-            'The evidence cannot be refuted.',
+            'd2',
+            'Das Urteil wurde gestern verkündet.',
+            'The verdict was announced yesterday.',
           ),
-          dictation('d2', 'Das Urteil wurde gestern verkündet.', 'The verdict was announced yesterday.'),
         ],
       },
     ),
@@ -500,10 +500,7 @@ export const recht: UnitContent = {
               ),
               you(
                 'Dann legen wir den Einspruch heute noch ein.',
-                [
-                  'Dann legen wir den Einspruch heute noch.',
-                  'einlegen is separable: legen … ein.',
-                ],
+                ['Dann legen wir den Einspruch heute noch.', 'einlegen is separable: legen … ein.'],
                 [
                   'Dann vergessen wir die Frist lieber.',
                   'That would be a mistake – the deadline is binding.',
@@ -569,12 +566,22 @@ export const recht: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Der Fehler lässt sich beheben.', true),
-          tf('b2', 'Der Fehler lässt sich beheben werden.', false, 'lassen sich takes a plain infinitive.'),
+          tf(
+            'b2',
+            'Der Fehler lässt sich beheben werden.',
+            false,
+            'lassen sich takes a plain infinitive.',
+          ),
           tf('b3', 'Die Rechnung ist sofort zu bezahlen.', true),
           tf('b4', 'Die Rechnung ist sofort bezahlen zu.', false, 'zu goes before the infinitive.'),
           tf('b5', 'Er bekam die Strafe erlassen.', true),
           tf('b6', 'Er bekam die Strafe zu erlassen.', false),
-          tf('b7', 'Ein Beweis, der sich nicht widerlegen lässt, ist widerlegbar.', false, 'That would be unrefutable (unwiderlegbar).'),
+          tf(
+            'b7',
+            'Ein Beweis, der sich nicht widerlegen lässt, ist widerlegbar.',
+            false,
+            'That would be unrefutable (unwiderlegbar).',
+          ),
           tf('b8', 'Der Fall ist nie aufgeklärt worden.', true),
           tf('b9', 'Der Fall ist nie aufgeklärt geworden.', false, 'Passive Perfekt uses worden.'),
           tf('b10', 'Ein Freispruch bedeutet, dass der Angeklagte nicht verurteilt wird.', true),
@@ -596,14 +603,26 @@ export const recht: UnitContent = {
       ),
       {
         questions: [
-          q('c1', 'Das Gesetz ist leicht ___.', 'zu verstehen', ['verstehen zu', 'verstanden', 'verstehend']),
+          q('c1', 'Das Gesetz ist leicht ___.', 'zu verstehen', [
+            'verstehen zu',
+            'verstanden',
+            'verstehend',
+          ]),
           q('c2', 'Das Problem ___ sich nicht lösen.', 'lässt', ['lasst', 'wird', 'ist']),
           q('c3', 'Sie ___ die Vorladung zugeschickt.', 'bekam', ['wurde', 'hatte', 'ließ']),
-          q('c4', 'Die zu ___ Fragen sind schwierig.', 'beantwortenden', ['beantwortende', 'beantwortet', 'beantworten']),
+          q('c4', 'Die zu ___ Fragen sind schwierig.', 'beantwortenden', [
+            'beantwortende',
+            'beantwortet',
+            'beantworten',
+          ]),
           q('c5', 'Der Fall ist gelöst ___.', 'worden', ['geworden', 'wurde', 'werden']),
           q('c6', 'verurteilen', 'to convict', ['to arrest', 'to acquit', 'to charge']),
           q('c7', 'das Bußgeld', 'fine', ['bail', 'tax', 'compensation']),
-          q('c8', 'Die Staatsanwaltschaft erhebt …', 'Anklage', ['Haftung', 'Bewährung', 'Freispruch']),
+          q('c8', 'Die Staatsanwaltschaft erhebt …', 'Anklage', [
+            'Haftung',
+            'Bewährung',
+            'Freispruch',
+          ]),
           q('c9', 'ein Verstoß gegen eine Vorschrift', 'a violation of a regulation', [
             'an exception to a rule',
             'a new law',

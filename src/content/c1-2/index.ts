@@ -12,7 +12,20 @@ import { team10 } from './u10-team';
 import { nachhaltigkeit } from './u11-nachhaltigkeit';
 import { vortrag } from './u12-vortrag';
 
-const units = [finanzen, gesundheit, recht, psychologie, stadt, literatur, kino, geschaeft, forschung, team10, nachhaltigkeit, vortrag];
+const units = [
+  finanzen,
+  gesundheit,
+  recht,
+  psychologie,
+  stadt,
+  literatur,
+  kino,
+  geschaeft,
+  forschung,
+  team10,
+  nachhaltigkeit,
+  vortrag,
+];
 
 const content: LevelContent = {
   units: units.map((u) => u.unit),

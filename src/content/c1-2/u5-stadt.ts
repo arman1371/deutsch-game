@@ -118,7 +118,15 @@ export const stadt: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Leerstand', 'Quartier', 'Abwanderung', 'Aussteiger', 'abgelegen', 'beschaulich'),
+        byDe(
+          vocab,
+          'Leerstand',
+          'Quartier',
+          'Abwanderung',
+          'Aussteiger',
+          'abgelegen',
+          'beschaulich',
+        ),
       ),
     ),
     activity(
@@ -594,7 +602,12 @@ export const stadt: UnitContent = {
           tf('b3', 'Die Stadt ist abhängig von Touristen.', true),
           tf('b4', 'Die Stadt ist abhängig auf Touristen.', false, 'abhängig von + dative.'),
           tf('b5', 'Sofern es regnet, bleiben wir zu Hause. = Wenn es regnet, …', true),
-          tf('b6', 'Andernfalls steht am Satzende das Verb.', false, 'It is an adverb: verb in position 2.'),
+          tf(
+            'b6',
+            'Andernfalls steht am Satzende das Verb.',
+            false,
+            'It is an adverb: verb in position 2.',
+          ),
           tf('b7', 'Wenngleich es teuer ist, kaufen sie das Haus. = Obwohl es teuer ist, …', true),
           tf('b8', 'Landflucht bedeutet: viele Menschen ziehen aufs Land.', false),
           tf('b9', 'Ein Ballungsraum ist ein dicht besiedeltes Gebiet.', true),
@@ -618,11 +631,27 @@ export const stadt: UnitContent = {
       {
         questions: [
           q('c1', 'Sie ist begeistert ___ der Idee.', 'von', ['auf', 'an', 'für']),
-          q('c2', 'Wir sind ___ angewiesen, dass es nicht regnet.', 'darauf', ['davon', 'dafür', 'darüber']),
+          q('c2', 'Wir sind ___ angewiesen, dass es nicht regnet.', 'darauf', [
+            'davon',
+            'dafür',
+            'darüber',
+          ]),
           q('c3', '___ ihr Zeit habt, besucht uns!', 'Sofern', ['Obwohl', 'Damit', 'Dennoch']),
-          q('c4', 'Wir sparen, ___ wir weniger Auto fahren.', 'indem', ['obwohl', 'falls', 'wenngleich']),
-          q('c5', 'Spar jetzt; ___ reicht das Geld nicht.', 'andernfalls', ['sofern', 'indem', 'wenngleich']),
-          q('c6', 'die Wohnungsnot', 'housing shortage', ['vacancy', 'infrastructure', 'rural exodus']),
+          q('c4', 'Wir sparen, ___ wir weniger Auto fahren.', 'indem', [
+            'obwohl',
+            'falls',
+            'wenngleich',
+          ]),
+          q('c5', 'Spar jetzt; ___ reicht das Geld nicht.', 'andernfalls', [
+            'sofern',
+            'indem',
+            'wenngleich',
+          ]),
+          q('c6', 'die Wohnungsnot', 'housing shortage', [
+            'vacancy',
+            'infrastructure',
+            'rural exodus',
+          ]),
           q('c7', 'beschaulich', 'tranquil', ['anonymous', 'remote', 'expensive']),
           q('c8', 'Landflucht', 'rural exodus', ['green space', 'neighbourhood', 'fine dust']),
           q('c9', 'Ein Aussteiger …', 'verlässt das gewohnte Leben', [

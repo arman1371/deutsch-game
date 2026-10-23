@@ -204,11 +204,7 @@ export const literatur: UnitContent = {
         items: [
           ...spell(byDe(vocab, 'Reim', 'Verlag', 'Handlung'), 'unscramble').items,
           ...spell(byDe(vocab, 'Kurzgeschichte', 'Metapher', 'Schreibwerkstatt'), 'type').items,
-          dictation(
-            'd1',
-            'Lesen ist das pure Glück.',
-            'Reading is pure happiness.',
-          ),
+          dictation('d1', 'Lesen ist das pure Glück.', 'Reading is pure happiness.'),
           dictation(
             'd2',
             'Sie hat ihren ersten Roman verfasst.',
@@ -394,12 +390,7 @@ export const literatur: UnitContent = {
             'Someone doing an apprenticeship is an apprentice.',
             '-ling nouns are masculine (der Lehrling, der Liebling).',
           ),
-          typed(
-            's8',
-            'erfinden → die Erfind___',
-            'ung',
-            'to invent → the invention',
-          ),
+          typed('s8', 'erfinden → die Erfind___', 'ung', 'to invent → the invention'),
         ],
       },
     ),
@@ -553,11 +544,7 @@ export const literatur: UnitContent = {
                   'You cannot praise the twist without having read the story.',
                 ],
               ),
-              say(
-                'Leiterin',
-                'Und der Schauplatz?',
-                'And the setting?',
-              ),
+              say('Leiterin', 'Und der Schauplatz?', 'And the setting?'),
               you(
                 'Den Schauplatz beschreibt die Autorin so anschaulich, dass man ihn fast sehen kann.',
                 [
@@ -589,11 +576,21 @@ export const literatur: UnitContent = {
         seconds: 60,
         statements: [
           tf('b1', 'Sobald das Buch erschien, wurde es gekauft.', true),
-          tf('b2', 'Sobald das Buch erschien wurde, es gekauft.', false, 'In the sobald-clause the verb is at the end; the main clause then starts with the verb.'),
+          tf(
+            'b2',
+            'Sobald das Buch erschien wurde, es gekauft.',
+            false,
+            'In the sobald-clause the verb is at the end; the main clause then starts with the verb.',
+          ),
           tf('b3', 'Ehe du abgibst, lies den Text noch einmal. = Bevor du abgibst …', true),
           tf('b4', 'Sooft heißt: ein einziges Mal.', false, 'sooft = every time.'),
           tf('b5', 'Der Autor kürzt, damit die Leser es leichter haben.', true),
-          tf('b6', 'Er kürzt den Text, damit den Text zu straffen.', false, 'um … zu is needed for the same subject.'),
+          tf(
+            'b6',
+            'Er kürzt den Text, damit den Text zu straffen.',
+            false,
+            'um … zu is needed for the same subject.',
+          ),
           tf('b7', 'Die Freiheit ist ein Nomen mit der Endung -heit.', true),
           tf('b8', 'Das Erlebnis ist feminin.', false, '-nis nouns are mostly neuter.'),
           tf('b9', 'Eine Leseratte liest sehr wenig.', false),
@@ -616,7 +613,11 @@ export const literatur: UnitContent = {
       ),
       {
         questions: [
-          q('c1', '___ er den Roman beendet hatte, feierte er mit Freunden.', 'Nachdem', ['Ehe', 'Sooft', 'Solange']),
+          q('c1', '___ er den Roman beendet hatte, feierte er mit Freunden.', 'Nachdem', [
+            'Ehe',
+            'Sooft',
+            'Solange',
+          ]),
           q('c2', 'Mach eine Pause, ___ du weiterschreibst.', 'ehe', ['nachdem', 'sooft', 'seit']),
           q('c3', 'Sie kürzt, ___ den Text lesbarer zu machen.', 'um', ['damit', 'dass', 'weil']),
           q('c4', 'Er erklärt es genau, ___ alle es verstehen.', 'damit', ['um', 'ohne', 'dass']),
@@ -629,7 +630,11 @@ export const literatur: UnitContent = {
             'ist ein Gedicht',
             'beschreibt den Schauplatz',
           ]),
-          q('c10', 'Den Roman ___ die Autorin in zwei Jahren.', 'schrieb', ['schreibt sie', 'sie schrieb', 'schrieben']),
+          q('c10', 'Den Roman ___ die Autorin in zwei Jahren.', 'schrieb', [
+            'schreibt sie',
+            'sie schrieb',
+            'schrieben',
+          ]),
         ],
       },
     ),

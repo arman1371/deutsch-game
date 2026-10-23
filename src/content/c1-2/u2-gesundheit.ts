@@ -121,7 +121,15 @@ export const gesundheit: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Wirkstoff', 'Dosis', 'Rückstand', 'Haltbarkeit', 'Heilung', 'Unverträglichkeit'),
+        byDe(
+          vocab,
+          'Wirkstoff',
+          'Dosis',
+          'Rückstand',
+          'Haltbarkeit',
+          'Heilung',
+          'Unverträglichkeit',
+        ),
       ),
     ),
     activity(
