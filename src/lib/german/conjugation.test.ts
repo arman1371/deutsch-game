@@ -181,6 +181,12 @@ describe('A2.2 verb forms', () => {
     ]);
   });
 
+  it('knows benehmen and stoßen', () => {
+    expect(conjugate('benehmen').du).toBe('benimmst');
+    expect(conjugate('stoßen')['er/sie/es']).toBe('stößt');
+    expect(conjugate('stoßen').ihr).toBe('stoßt');
+  });
+
   it('forms the simple past of regular verbs', () => {
     expect(past('machen')).toEqual([
       'machte',

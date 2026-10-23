@@ -100,6 +100,22 @@ const IRREGULAR: Record<string, Forms> = {
     ihr: 'ladet',
     'sie/Sie': 'laden',
   },
+  benehmen: {
+    ich: 'benehme',
+    du: 'benimmst',
+    'er/sie/es': 'benimmt',
+    wir: 'benehmen',
+    ihr: 'benehmt',
+    'sie/Sie': 'benehmen',
+  },
+  stoßen: {
+    ich: 'stoße',
+    du: 'stößt',
+    'er/sie/es': 'stößt',
+    wir: 'stoßen',
+    ihr: 'stoßt',
+    'sie/Sie': 'stoßen',
+  },
   gefallen: {
     ich: 'gefalle',
     du: 'gefällst',
