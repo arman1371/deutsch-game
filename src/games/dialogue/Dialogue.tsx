@@ -3,6 +3,7 @@ import { SpeakButton } from '@/components/ui/SpeakButton';
 import { ChoiceList } from '../shared/ChoiceList';
 import { FeedbackFooter, GameFrame } from '../shared/GameFrame';
 import { shuffledOptions } from '../shared/choices';
+import { useAnswerSound } from '../shared/useAnswerSound';
 import { useSequence } from '../shared/useSequence';
 import type { GameProps } from '../types';
 
@@ -16,7 +17,7 @@ interface Line {
 }
 
 export function Dialogue({ config, seed, onFinish }: GameProps<'dialogue'>) {
-  const seq = useSequence(config.scenes, seed, onFinish, { shuffleItems: false });
+  const seq = useSequence(config.scenes, seed, onFinish, { shuffleItems: false, sounds: false });
   const scene = seq.item;
   return <SceneView key={scene.id} scene={scene} seed={seed} seq={seq} />;
 }
@@ -30,6 +31,7 @@ function SceneView({
   seed: number;
   seq: ReturnType<typeof useSequence<Scene>>;
 }) {
+  const playAnswerSound = useAnswerSound();
   const [wrongPicks, setWrongPicks] = useState<string[]>([]);
   const [hint, setHint] = useState<string | null>(null);
   const [lines, setLines] = useState<Line[]>(() => collectNpcLines(scene, 0).lines);
@@ -54,6 +56,7 @@ function SceneView({
   const pick = (text: string) => {
     if (!youTurn) return;
     const option = youTurn.options.find((o) => o.text === text)!;
+    playAnswerSound(option.correct);
     if (!option.correct) {
       setWrongPicks((w) => [...w, text]);
       setHint(option.feedback ?? 'Not the best reply here – try another one.');

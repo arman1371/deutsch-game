@@ -7,7 +7,7 @@ import { GameFrame } from '../shared/GameFrame';
 import type { GameProps } from '../types';
 
 export function Flashcards({ config, seed, onFinish }: GameProps<'flashcards'>) {
-  const seq = useSequence(config.cards, seed, onFinish);
+  const seq = useSequence(config.cards, seed, onFinish, { sounds: false });
   const [flipped, setFlipped] = useState(false);
   const card = seq.item;
   useAutoSpeak(card.speak, !flipped);

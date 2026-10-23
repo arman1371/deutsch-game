@@ -70,6 +70,15 @@ export function SettingsPage() {
           ]}
         />
         <label className="flex min-h-11 items-center justify-between gap-3 font-extrabold text-ink">
+          {t('settings.sounds')}
+          <input
+            type="checkbox"
+            className="h-6 w-6"
+            checked={s.sounds}
+            onChange={(e) => s.set({ sounds: e.target.checked })}
+          />
+        </label>
+        <label className="flex min-h-11 items-center justify-between gap-3 font-extrabold text-ink">
           {t('settings.autoSpeak')}
           <input
             type="checkbox"

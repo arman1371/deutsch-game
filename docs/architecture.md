@@ -52,6 +52,11 @@ interface GameProps<T extends GameType> {
 Sequential engines use `useSequence` (shuffle, first-try verdicts, finish) and `GameFrame` / `FeedbackFooter`.
 Every item has a stable `id`; that id is what the Fehlerkiste stores.
 
+Answer sounds: `useSequence` plays a tiny synthesized right/wrong cue (`src/lib/sfx.ts`, Web Audio, no asset
+files) for every verdict. Dialogue (a cue per reply), blitz and memory call `useAnswerSound()` themselves;
+dialogue and self-graded flashcards pass `sounds: false` to `useSequence`. The "Sound effects" setting mutes
+them.
+
 ## Tags and filters
 
 `src/content/tags.ts` is the single vocabulary (skill / topic / grammar). Filter facets: level, unit, skill,
