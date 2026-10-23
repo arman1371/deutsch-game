@@ -56,6 +56,14 @@ export const LEVELS: LevelMeta[] = [
     subtitle: 'Arguing in depth, news and media, work and society at upper-intermediate level',
     status: 'coming-soon',
   },
+  {
+    id: 'b2-2',
+    title: 'B2.2',
+    subtitle:
+      'Relationships, nutrition, university, complaints, fitness, regional languages, economy and tourism, art, recent history, sustainable cities, stress and decisions, media and law',
+    status: 'available',
+    load: () => import('./b2-2'),
+  },
 ];
 
 export function getLevelMeta(id: string): LevelMeta | undefined {
