@@ -76,6 +76,22 @@ const IRREGULAR: Record<string, Forms> = {
     ihr: 'trefft',
     'sie/Sie': 'treffen',
   },
+  helfen: {
+    ich: 'helfe',
+    du: 'hilfst',
+    'er/sie/es': 'hilft',
+    wir: 'helfen',
+    ihr: 'helft',
+    'sie/Sie': 'helfen',
+  },
+  geben: {
+    ich: 'gebe',
+    du: 'gibst',
+    'er/sie/es': 'gibt',
+    wir: 'geben',
+    ihr: 'gebt',
+    'sie/Sie': 'geben',
+  },
   laden: {
     ich: 'lade',
     du: 'lädst',

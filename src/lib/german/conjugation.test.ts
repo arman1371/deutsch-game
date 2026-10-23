@@ -134,3 +134,14 @@ describe('laden', () => {
     expect(conjugate('laden')['er/sie/es']).toBe('lädt');
   });
 });
+
+describe('geben and helfen', () => {
+  it('helfen: du hilfst, er hilft', () => {
+    expect(conjugate('helfen')['er/sie/es']).toBe('hilft');
+  });
+
+  it('changes the stem vowel: du gibst, er gibt (abgeben)', () => {
+    expect(conjugate('geben').du).toBe('gibst');
+    expect(separableForms('ab', 'geben')['er/sie/es']).toBe('gibt ab');
+  });
+});
