@@ -17,6 +17,7 @@ export const TAGS = {
   listening: { label: 'Listening', group: 'skill', emoji: '🎧' },
   spelling: { label: 'Spelling', group: 'skill', emoji: '🔤' },
   communication: { label: 'Conversation', group: 'skill', emoji: '💬' },
+  pronunciation: { label: 'Pronunciation', group: 'skill', emoji: '🗣️' },
   // topics
   greetings: { label: 'Greetings', group: 'topic', emoji: '👋' },
   introductions: { label: 'Introductions', group: 'topic', emoji: '🤝' },
@@ -52,6 +53,13 @@ export const TAGS = {
   'school-education': { label: 'School & education', group: 'topic', emoji: '🎓' },
   'job-search': { label: 'Job search', group: 'topic', emoji: '🔍' },
   'cv-career': { label: 'CV & career', group: 'topic', emoji: '📑' },
+  // topics – A2.2
+  sport: { label: 'Sport & fans', group: 'topic', emoji: '⚽' },
+  'music-art': { label: 'Music & art', group: 'topic', emoji: '🎨' },
+  'customs-etiquette': { label: 'Customs & etiquette', group: 'topic', emoji: '🎩' },
+  'post-phone': { label: 'Post & phone', group: 'topic', emoji: '📮' },
+  'money-banking': { label: 'Money & banking', group: 'topic', emoji: '🏦' },
+  'life-stages': { label: 'Life stages', group: 'topic', emoji: '🧒' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -70,7 +78,7 @@ export const TAGS = {
   'object-pronouns': { label: 'mich, dich, ihn… / mir, dir…', group: 'grammar', emoji: '👉' },
   'two-way-prepositions': { label: 'Wo? / Wohin?', group: 'grammar', emoji: '📍' },
   imperative: { label: 'Imperative', group: 'grammar', emoji: '📣' },
-  'past-tense': { label: 'war / hatte', group: 'grammar', emoji: '⏪' },
+  'past-tense': { label: 'Präteritum (war, ging …)', group: 'grammar', emoji: '⏪' },
   perfekt: { label: 'Perfekt', group: 'grammar', emoji: '✔️' },
   comparison: { label: 'Comparison', group: 'grammar', emoji: '⚖️' },
   'ordinal-numbers': { label: 'Ordinal numbers', group: 'grammar', emoji: '🥇' },
@@ -79,11 +87,24 @@ export const TAGS = {
   // grammar points – A2.1
   'reflexive-verbs': { label: 'Reflexive verbs', group: 'grammar', emoji: '🪞' },
   genitive: { label: 'Genitive with names', group: 'grammar', emoji: '👑' },
-  'indefinite-pronouns': { label: 'einen / welche / etwas / man', group: 'grammar', emoji: '❔' },
+  'indefinite-pronouns': { label: 'man / jemand / etwas / welche', group: 'grammar', emoji: '❔' },
   'subordinate-clauses': { label: 'weil / wenn clauses', group: 'grammar', emoji: '🔚' },
-  connectors: { label: 'deshalb / zuerst – dann', group: 'grammar', emoji: '➡️' },
+  connectors: { label: 'deshalb / trotzdem / dann', group: 'grammar', emoji: '➡️' },
   superlative: { label: 'Superlative', group: 'grammar', emoji: '🏆' },
   'dative-prepositions': { label: 'mit / von / zu / seit', group: 'grammar', emoji: '🧲' },
+  // grammar points – A2.2
+  'konjunktiv-2': { label: 'Konjunktiv II', group: 'grammar', emoji: '💭' },
+  'relative-clauses': { label: 'Relative clauses', group: 'grammar', emoji: '🔗' },
+  'indirect-questions': { label: 'Indirect questions', group: 'grammar', emoji: '🙋' },
+  'temporal-clauses': { label: 'als / wenn / bis / seitdem', group: 'grammar', emoji: '⏳' },
+  'purpose-clauses': { label: 'damit / um … zu', group: 'grammar', emoji: '🎯' },
+  passive: { label: 'Passive voice', group: 'grammar', emoji: '🔄' },
+  'verbs-with-prepositions': { label: 'Verbs with prepositions', group: 'grammar', emoji: '📎' },
+  'adjective-endings': { label: 'Adjective endings', group: 'grammar', emoji: '🏷️' },
+  'n-declension': { label: 'n-Deklination', group: 'grammar', emoji: '🅽' },
+  'word-formation': { label: 'Word formation', group: 'grammar', emoji: '🧱' },
+  lassen: { label: 'lassen', group: 'grammar', emoji: '🤲' },
+  'route-prepositions': { label: 'durch / entlang / vorbei', group: 'grammar', emoji: '🛣️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

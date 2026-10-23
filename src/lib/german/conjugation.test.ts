@@ -1,7 +1,10 @@
 import {
   conjugate,
   conjugatePreterite,
+  konjunktiv2,
+  passiveForms,
   PRONOUNS,
+  reflexiveDativeForms,
   reflexiveForms,
   separableForms,
 } from './conjugation';
@@ -106,8 +109,8 @@ describe('conjugatePreterite', () => {
     expect(conjugatePreterite('dürfen')['du']).toBe('durftest');
   });
 
-  it('throws for verbs it does not know', () => {
-    expect(() => conjugatePreterite('gehen')).toThrow();
+  it('throws for verbs it cannot form', () => {
+    expect(() => conjugatePreterite('tun')).toThrow();
   });
 });
 
@@ -143,5 +146,85 @@ describe('geben and helfen', () => {
   it('changes the stem vowel: du gibst, er gibt (abgeben)', () => {
     expect(conjugate('geben').du).toBe('gibst');
     expect(separableForms('ab', 'geben')['er/sie/es']).toBe('gibt ab');
+  });
+});
+
+describe('A2.2 verb forms', () => {
+  const past = (v: string) => PRONOUNS.map((p) => conjugatePreterite(v)[p]);
+  const k2 = (v: string) => PRONOUNS.map((p) => konjunktiv2(v)[p]);
+
+  it('knows lassen and a few more irregular present forms', () => {
+    expect(row('lassen')).toEqual(['lasse', 'lässt', 'lässt', 'lassen', 'lasst', 'lassen']);
+    expect(conjugate('waschen').du).toBe('wäschst');
+    expect(conjugate('brechen')['er/sie/es']).toBe('bricht');
+    expect(conjugate('vergessen').du).toBe('vergisst');
+    expect(conjugate('empfehlen')['er/sie/es']).toBe('empfiehlt');
+  });
+
+  it('forms the simple past of regular verbs', () => {
+    expect(past('machen')).toEqual([
+      'machte',
+      'machtest',
+      'machte',
+      'machten',
+      'machtet',
+      'machten',
+    ]);
+    expect(past('arbeiten')).toEqual([
+      'arbeitete',
+      'arbeitetest',
+      'arbeitete',
+      'arbeiteten',
+      'arbeitetet',
+      'arbeiteten',
+    ]);
+    expect(conjugatePreterite('öffnen')['ich']).toBe('öffnete');
+    expect(conjugatePreterite('wandern')['er/sie/es']).toBe('wanderte');
+  });
+
+  it('forms the simple past of strong and mixed verbs', () => {
+    expect(past('gehen')).toEqual(['ging', 'gingst', 'ging', 'gingen', 'gingt', 'gingen']);
+    expect(past('finden')).toEqual(['fand', 'fandest', 'fand', 'fanden', 'fandet', 'fanden']);
+    expect(past('sitzen')).toEqual(['saß', 'saßest', 'saß', 'saßen', 'saßt', 'saßen']);
+    expect(past('denken')).toEqual([
+      'dachte',
+      'dachtest',
+      'dachte',
+      'dachten',
+      'dachtet',
+      'dachten',
+    ]);
+    expect(conjugatePreterite('kommen')['er/sie/es']).toBe('kam');
+    expect(conjugatePreterite('bringen')['ich']).toBe('brachte');
+  });
+
+  it('forms Konjunktiv II', () => {
+    expect(k2('sein')).toEqual(['wäre', 'wärst', 'wäre', 'wären', 'wärt', 'wären']);
+    expect(k2('haben')).toEqual(['hätte', 'hättest', 'hätte', 'hätten', 'hättet', 'hätten']);
+    expect(k2('werden')[0]).toBe('würde');
+    expect(k2('können')[2]).toBe('könnte');
+    expect(k2('sollen')[1]).toBe('solltest');
+    expect(() => konjunktiv2('gehen')).toThrow();
+  });
+
+  it('forms reflexive verbs with a dative pronoun', () => {
+    const f = reflexiveDativeForms('waschen');
+    expect(f.ich).toBe('wasche mir');
+    expect(f.du).toBe('wäschst dir');
+    expect(f['er/sie/es']).toBe('wäscht sich');
+    expect(f.wir).toBe('waschen uns');
+    expect(reflexiveDativeForms('merken').ihr).toBe('merkt euch');
+  });
+
+  it('forms the present passive', () => {
+    const f = passiveForms('informiert');
+    expect(PRONOUNS.map((p) => f[p])).toEqual([
+      'werde informiert',
+      'wirst informiert',
+      'wird informiert',
+      'werden informiert',
+      'werdet informiert',
+      'werden informiert',
+    ]);
   });
 });

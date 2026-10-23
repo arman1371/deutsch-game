@@ -29,7 +29,15 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'a2-2',
     title: 'A2.2',
-    subtitle: 'Work, services and longer conversations',
+    subtitle:
+      'Learning, sport, neighbours, music, wishes, post, travel, banking and the world of work',
+    status: 'available',
+    load: () => import('./a2-2'),
+  },
+  {
+    id: 'b1-1',
+    title: 'B1.1',
+    subtitle: 'Opinions, longer texts and everyday situations',
     status: 'coming-soon',
   },
 ];

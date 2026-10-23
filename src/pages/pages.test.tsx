@@ -2,6 +2,7 @@ import { screen, waitFor, within } from '@testing-library/react';
 import content from '@/content/a1-1';
 import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
+import a22 from '@/content/a2-2';
 import { useProgressStore } from '@/store/progressStore';
 import { useSettingsStore } from '@/store/settingsStore';
 import { activityById, allActivities, playQuiz, renderApp, resetStores } from '@/test/app';
@@ -24,7 +25,10 @@ describe('Home', () => {
     expect(screen.getByTestId('level-a2-1')).toHaveTextContent(
       '0 / ' + a21.activities.length + ' games',
     );
-    for (const soon of ['A2.2']) {
+    expect(screen.getByTestId('level-a2-2')).toHaveTextContent(
+      '0 / ' + a22.activities.length + ' games',
+    );
+    for (const soon of ['B1.1']) {
       expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
         'Coming soon',
       );
@@ -93,7 +97,7 @@ describe('Level and unit pages', () => {
   });
 
   it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/a2-2');
+    renderApp('/levels/b1-1');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });

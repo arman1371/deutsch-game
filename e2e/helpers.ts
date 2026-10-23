@@ -3,6 +3,7 @@ import { expect, type Page } from '@playwright/test';
 import a11 from '../src/content/a1-1';
 import a12 from '../src/content/a1-2';
 import a21 from '../src/content/a2-1';
+import a22 from '../src/content/a2-2';
 import type { Activity } from '../src/content/schema';
 import { parseTime, timeToGerman } from '../src/lib/german/time';
 import { totalCents } from '../src/games/market/logic';
@@ -12,7 +13,12 @@ import { priceToGerman } from '../src/lib/german/numbers';
 export const SEED = 1;
 
 /** Every activity of every available level. */
-export const allActivities: Activity[] = [...a11.activities, ...a12.activities, ...a21.activities];
+export const allActivities: Activity[] = [
+  ...a11.activities,
+  ...a12.activities,
+  ...a21.activities,
+  ...a22.activities,
+];
 
 export const activity = (id: string): Activity => {
   const a = allActivities.find((x) => x.id === id);
