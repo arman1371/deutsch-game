@@ -100,5 +100,10 @@ subject and object clauses and continuing relative clauses (Aspekte neu K3), whi
   planning, farming and data vocabulary; no word card is repeated (checked by the test).
 - Vocabulary that clashed with an earlier word card (for example _Schulden_, _Währung_, _Zeuge_, _Erfindung_) was
   replaced by a more specific word; the words still appear in sentences.
+- **C1.1** (merged first) already teaches _nominal style_ and _subjective modal verbs_ and owns those two grammar
+  tags and mini lessons; C1.2 reuses the tags and extends the practice (written prepositions, passive substitutes,
+  participial clauses and modality verbs are C1.2's own tags, next to C1.1's `modal-alternatives` and
+  `participial-attributes`). Word cards that clashed with B1.2, B2.1, B2.2 or C1.1 were replaced by more specific
+  words.
 - Sibling levels (B1.2, B2.x, C1.1) that are merged later are compared automatically by the same test; if a word
   card clashes, replace it in the later level.

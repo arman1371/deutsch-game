@@ -68,7 +68,7 @@ test.describe('C1.2 – library', () => {
     await page.goto('/library');
     await page.getByText(/^Filters/).click();
     for (const [label, tag] of [
-      [/Nominal & verbal style/, 'nominal-style'],
+      [/Nominal style/, 'nominal-style'],
       [/Passive substitutes/, 'passive-substitutes'],
       [/Subjective modal verbs/, 'subjective-modals'],
       [/Participles & participial clauses/, 'participial-clauses'],
