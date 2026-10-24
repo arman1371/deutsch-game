@@ -144,6 +144,16 @@ export const TAGS = {
   science: { label: 'Science & research', group: 'topic', emoji: '🔬' },
   'travel-mobility': { label: 'Travel & mobility', group: 'topic', emoji: '🧳' },
   'climate-global': { label: 'Climate & globalisation', group: 'topic', emoji: '🌍' },
+  // topics – C2.2
+  'c22-art': { label: 'Art & aesthetics', group: 'topic', emoji: '🖼️' },
+  'c22-literature': { label: 'Literature & reviews', group: 'topic', emoji: '📖' },
+  'c22-heritage': { label: 'Culture, history & rituals', group: 'topic', emoji: '🏛️' },
+  'c22-law': { label: 'Law & justice', group: 'topic', emoji: '⚖️' },
+  'c22-politics': { label: 'State & politics', group: 'topic', emoji: '🗳️' },
+  'c22-civic': { label: 'Civil society & volunteering', group: 'topic', emoji: '🙌' },
+  'c22-climate': { label: 'Globalisation, climate & nature', group: 'topic', emoji: '🌍' },
+  'c22-nuance': { label: 'Idioms, irony & nuance', group: 'topic', emoji: '🎭' },
+  'c22-stance': { label: 'Taking a stance', group: 'topic', emoji: '🧭' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -330,6 +340,27 @@ export const TAGS = {
   'auch-wenn': { label: 'auch wenn / zwar … aber', group: 'grammar', emoji: '🙄' },
   adversative: { label: 'während / dagegen / hingegen', group: 'grammar', emoji: '⚔️' },
   nominalisation: { label: 'Nominalisation', group: 'grammar', emoji: '🏗️' },
+  // grammar points – C2.2
+  'c22-participial-attributes': {
+    label: 'Long participial attributes',
+    group: 'grammar',
+    emoji: '📐',
+  },
+  'c22-subjective-modals': { label: 'Modals & modality verbs (C2)', group: 'grammar', emoji: '🕵️' },
+  'c22-passive-forms': {
+    label: 'Passive in every tense, state passive',
+    group: 'grammar',
+    emoji: '🔁',
+  },
+  'c22-gerundive': { label: 'zu + Partizip I (Gerundiv)', group: 'grammar', emoji: '📏' },
+  'c22-formal-genitive': {
+    label: 'angesichts / infolge / seitens …',
+    group: 'grammar',
+    emoji: '📜',
+  },
+  'c22-prefix-verbs': { label: 'übersetzen or übersetzen?', group: 'grammar', emoji: '🔧' },
+  'c22-passive-alternatives': { label: 'Replacing the passive', group: 'grammar', emoji: '🔀' },
+  'c22-nuance-particles': { label: 'Nuance particles & adverbs', group: 'grammar', emoji: '🎚️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

@@ -8,14 +8,11 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('A1.2 – level navigation', () => {
-  test('Home lists A1.2 as available and C2.2 as coming soon', async ({ page }) => {
+  test('Home lists A1.2 as available', async ({ page }) => {
     await page.goto('/');
     const card = page.getByTestId('level-a1-2');
     await expect(card).toContainText('A1.2');
     await expect(card).toContainText(`0 / ${a12.activities.length} games`);
-    await expect(
-      page.getByRole('heading', { name: 'C2.2' }).locator('xpath=ancestor::li'),
-    ).toContainText('Coming soon');
   });
 
   test('Home → A1.2 → unit shows the ten units and a guided path', async ({ page }) => {

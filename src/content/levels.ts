@@ -93,8 +93,10 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'c2-2',
     title: 'C2.2',
-    subtitle: 'Mastery of register, style and rhetoric at near-native level',
-    status: 'coming-soon',
+    subtitle:
+      'Art, literature, heritage, law, politics, civil society, climate, idioms and arguing at near-native level',
+    status: 'available',
+    load: () => import('./c2-2'),
   },
 ];
 

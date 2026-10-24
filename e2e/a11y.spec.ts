@@ -53,6 +53,8 @@ const PAGES: [string, string, string][] = [
   ['unit C1.1', '/levels/c1-1/units/c1-1-zeit', 'Zeit und Tempo'],
   ['level C2.1', '/levels/c2-1', 'C2.1'],
   ['unit C2.1', '/levels/c2-1/units/c2-1-sprache', 'Sprache & Zwischentöne'],
+  ['level C2.2', '/levels/c2-2', 'C2.2'],
+  ['unit C2.2', '/levels/c2-2/units/c2-2-kunst', 'Kunst & Ästhetik'],
   ['library', '/library', 'Game library'],
   ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
@@ -142,6 +144,10 @@ for (const scheme of ['light', 'dark'] as const) {
       'c2-1-ki-conj-k1',
       'c2-1-wirtschaft-sort-relations',
       'c2-1-debatte-dialogues',
+      'c2-2-kulturerbe-conj-passive',
+      'c2-2-staat-sort-prepositions',
+      'c2-2-nuancen-gap-particles',
+      'c2-2-stellung-dialogues',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);

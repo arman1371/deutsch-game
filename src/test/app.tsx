@@ -14,6 +14,7 @@ import b21 from '@/content/b2-1';
 import b22 from '@/content/b2-2';
 import c11 from '@/content/c1-1';
 import c21 from '@/content/c2-1';
+import c22 from '@/content/c2-2';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
 import { useProgressStore } from '@/store/progressStore';
@@ -36,6 +37,7 @@ export const allActivities: Activity[] = [
   ...b22.activities,
   ...c11.activities,
   ...c21.activities,
+  ...c22.activities,
 ];
 export const allUnits = [
   ...a11.units,
@@ -49,6 +51,7 @@ export const allUnits = [
   ...b22.units,
   ...c11.units,
   ...c21.units,
+  ...c22.units,
 ];
 
 /** Render the whole app at a URL with the real A1.1 to C2.1 content. */

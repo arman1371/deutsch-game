@@ -992,6 +992,74 @@ export const LESSONS = {
       'So gut die Idee auch klingt, sie ist zu teuer.',
     ],
   },
+  // ---- C2.2 ----
+  'c22-participial-attributes': {
+    title: 'Participles before nouns',
+    rule: 'Partizip I (infinitive + d) is active and simultaneous: die strahlende Farbe = die Farbe, die strahlt. Partizip II usually has a passive, completed meaning: das gemalte Bild = das Bild, das gemalt wurde. Both take adjective endings and can be extended by details placed before them.',
+    examples: [
+      'die steigenden Preise · das restaurierte Gemälde',
+      'das vom Künstler 1912 gemalte Bild',
+      'der seit Jahren geschlossene Saal',
+    ],
+  },
+  'c22-subjective-modals': {
+    title: 'Modal verbs that judge or report',
+    rule: 'With an infinitive (or a perfect infinitive: gelesen haben) modal verbs report or assess: er soll = it is said that he; er will = he claims; er muss = surely; er dürfte / könnte = probably / perhaps; er kann nicht = surely not. Past reference: modal + participle + haben / sein.',
+    examples: [
+      'Der Autor soll zehn Jahre an dem Roman gearbeitet haben.',
+      'Sie will das Buch nie gelesen haben.',
+      'Das muss ein Irrtum gewesen sein.',
+    ],
+  },
+  'c22-passive-forms': {
+    title: 'Passive in every tense',
+    rule: 'Vorgangspassiv = werden + participle (the process): wurde gebaut, ist gebaut worden (worden, not geworden), wird gebaut werden. Zustandspassiv = sein + participle (the resulting state): Das Tor ist geöffnet. With a modal verb: Das muss geprüft werden.',
+    examples: [
+      'Das Denkmal wurde 1895 enthüllt.',
+      'Es ist saniert worden.',
+      'Das Museum ist montags geschlossen.',
+    ],
+  },
+  'c22-gerundive': {
+    title: 'zu + Partizip I',
+    rule: 'zu + Partizip I before a noun means "that can or must be …-ed": die zu erwartende Entscheidung = die Entscheidung, die erwartet werden muss. With a separable verb zu sits inside: das abzuschließende Verfahren. In predicates the same idea is sein + zu + infinitive: Der Antrag ist zu prüfen.',
+    examples: [
+      'die zu erwartende Entscheidung',
+      'das nicht zu unterschätzende Risiko',
+      'Die Frist ist einzuhalten.',
+    ],
+  },
+  'c22-formal-genitive': {
+    title: 'Formal genitive prepositions',
+    rule: 'Written and official German uses many prepositions with the genitive: angesichts (in view of), infolge (as a result of), aufgrund (because of), hinsichtlich (regarding), seitens (on the part of), zwecks (for the purpose of), mittels (by means of), zugunsten (in favour of), anstelle (instead of).',
+    examples: [
+      'angesichts der steigenden Kosten',
+      'infolge eines Formfehlers · seitens der Behörde',
+      'zugunsten der Kläger',
+    ],
+  },
+  'c22-prefix-verbs': {
+    title: 'Separable or inseparable?',
+    rule: 'über-, unter-, um-, durch-, hinter- and wider- can be separable (stressed prefix, literal meaning) or inseparable (stressed stem, figurative meaning, no ge- in the participle). Compare: Er setzt uns über (ferries us across) with Er übersetzt den Text (translates).',
+    examples: [
+      'Sie fährt das Schild um. · Sie umfährt die Baustelle.',
+      'Er stellt sich unter. · Er unterstellt ihr Absicht.',
+    ],
+  },
+  'c22-passive-alternatives': {
+    title: 'Ways to avoid the passive',
+    rule: 'Instead of werden + participle you can use man (Man löst das Problem), sich lassen + infinitive (Das lässt sich lösen = can be solved), sein + zu + infinitive (Das ist zu lösen), an adjective in -bar or -lich (lösbar, verständlich) or bekommen + participle (Er bekommt das Buch geschenkt).',
+    examples: [
+      'Das Problem lässt sich lösen.',
+      'Der Vertrag ist bis Freitag zu unterschreiben.',
+      'Die Regel ist nicht nachvollziehbar.',
+    ],
+  },
+  'c22-nuance-particles': {
+    title: 'Modal particles and adverbs',
+    rule: 'Particles colour a sentence without changing what it says: doch (contrary to expectation), ja (as you know), eben / halt (it cannot be changed), wohl (probably), eigentlich (actually), schon (admittedly), immerhin (at least). They are unstressed, never stand first and cannot be negated.',
+    examples: ['Das ist ja interessant!', 'Das ist eben so.', 'Du hast es doch versprochen!'],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
