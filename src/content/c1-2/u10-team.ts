@@ -74,7 +74,7 @@ export const team10: UnitContent = {
       meta(
         'Teamwork',
         'Zuständigkeit, Meilenstein, Engpass – working together in a project.',
-        ['vocabulary', 'teamwork'],
+        ['vocabulary', 'meetings-teamwork'],
         1,
         5,
       ),
@@ -87,7 +87,7 @@ export const team10: UnitContent = {
       meta(
         'Conflict & feedback',
         'Meinungsverschiedenheit, Schuldzuweisung, Feedbackgespräch – when people disagree.',
-        ['vocabulary', 'teamwork'],
+        ['vocabulary', 'meetings-teamwork'],
         1,
         4,
       ),
@@ -100,7 +100,7 @@ export const team10: UnitContent = {
       meta(
         'What does it mean?',
         'Match the teamwork words to their meaning.',
-        ['vocabulary', 'teamwork'],
+        ['vocabulary', 'meetings-teamwork'],
         1,
         4,
       ),
@@ -110,7 +110,13 @@ export const team10: UnitContent = {
       U,
       'memory-words',
       'memory',
-      meta('Team pairs', 'Find the German word and its meaning.', ['vocabulary', 'teamwork'], 2, 4),
+      meta(
+        'Team pairs',
+        'Find the German word and its meaning.',
+        ['vocabulary', 'meetings-teamwork'],
+        2,
+        4,
+      ),
       memory(
         byDe(vocab, 'Meilenstein', 'Engpass', 'Absprache', 'Vermittler', 'sachlich', 'delegieren'),
       ),
@@ -122,7 +128,7 @@ export const team10: UnitContent = {
       meta(
         'In the team meeting',
         'Listen to statements from a meeting and pick what they say.',
-        ['listening', 'teamwork'],
+        ['listening', 'meetings-teamwork'],
         2,
         5,
       ),
@@ -188,7 +194,7 @@ export const team10: UnitContent = {
       meta(
         'Spell the team words',
         'Unscramble, type and write what you hear.',
-        ['spelling', 'teamwork'],
+        ['spelling', 'meetings-teamwork'],
         2,
         5,
       ),
@@ -213,7 +219,7 @@ export const team10: UnitContent = {
       meta(
         'Factual or accusing?',
         'Which sentences help to settle a conflict?',
-        ['communication', 'teamwork'],
+        ['communication', 'meetings-teamwork'],
         2,
         3,
       ),
@@ -473,7 +479,7 @@ export const team10: UnitContent = {
       meta(
         'Team meeting and conflict talk',
         'Distribute tasks and settle a disagreement.',
-        ['communication', 'teamwork'],
+        ['communication', 'meetings-teamwork'],
         2,
         7,
       ),
@@ -616,7 +622,7 @@ export const team10: UnitContent = {
       meta(
         'Unit challenge',
         'Teamwork vocabulary, conditions and modality verbs in one round.',
-        ['vocabulary', 'grammar', 'teamwork'],
+        ['vocabulary', 'grammar', 'meetings-teamwork'],
         3,
         5,
       ),

@@ -45,6 +45,10 @@ const PAGES: [string, string, string][] = [
   ['unit C1.2', '/levels/c1-2/units/c1-2-finanzen', 'Finanzen'],
   ['level B1.2', '/levels/b1-2', 'B1.2'],
   ['unit B1.2', '/levels/b1-2/units/b1-2-kollegen', 'Unter Kollegen'],
+  ['level B2.1', '/levels/b2-1', 'B2.1'],
+  ['unit B2.1', '/levels/b2-1/units/b2-1-beziehungen', 'Beziehungen & Gefühle'],
+  ['level B2.2', '/levels/b2-2', 'B2.2'],
+  ['unit B2.2', '/levels/b2-2/units/b2-2-beziehungen', 'Beziehungen & Vielfalt'],
   ['library', '/library', 'Game library'],
   ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
@@ -59,6 +63,8 @@ for (const scheme of ['light', 'dark'] as const) {
 
     for (const [name, url, heading] of PAGES) {
       test(`${name} has no WCAG A/AA violations`, async ({ page }) => {
+        // The library renders every game card; axe needs longer as the catalogue grows.
+        if (url.startsWith('/library')) test.slow();
         await page.goto(url);
         await expect(page.getByRole('heading', { name: heading }).first()).toBeVisible();
         await expectNoViolations(page, name);
@@ -115,6 +121,15 @@ for (const scheme of ['light', 'dark'] as const) {
       'b1-2-geschichte-conj-passive-past',
       'b1-2-diskussion-sort-presentation',
       'b1-2-regeln-gap-particles',
+      'b2-1-besitz-conj-k1',
+      'b2-1-wohnen-gap-conditions',
+      'b2-1-medien-sort-reference',
+      'b2-1-unterwegs-dialogues',
+      'b2-1-wohlbefinden-challenge',
+      'b2-2-druck-conj-konjunktiv-1',
+      'b2-2-netz-sort-certainty',
+      'b2-2-kunst-gap-passive',
+      'b2-2-stadt-dialogues',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);

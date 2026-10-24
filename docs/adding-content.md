@@ -1,17 +1,17 @@
 # Adding content
 
-## A new level (e.g. B1.2)
+## A new level (e.g. B2.2)
 
-A1.2 (`src/content/a1-2/`), A2.1 (`src/content/a2-1/`), A2.2 (`src/content/a2-2/`), B1.1 (`src/content/b1-1/`) and B1.2 (`src/content/b1-2/`) are the worked examples:
+A1.2 (`src/content/a1-2/`), A2.1 (`src/content/a2-1/`), A2.2 (`src/content/a2-2/`), B1.1 (`src/content/b1-1/`), B1.2 (`src/content/b1-2/`), B2.1 (`src/content/b2-1/`) and B2.2 (`src/content/b2-2/`) are the worked examples:
 one file per unit, plus `index.ts`. A2.1 re-exports the A1.2 authoring helpers from `a2-1/helpers.ts` and only
 adds `unit21` and `reflexiveTable`; A2.2 does the same from `a2-2/helpers.ts` and adds `unit22`, `k2Table`
 (Konjunktiv II), `passiveTable`, `reflexiveDativeTable` and `adjGap` (adjective endings generated from
 `src/lib/german/adjectives.ts`). B1.1 (`b1-1/helpers.ts`) adds `unitB11` and generated compound-tense tables:
 `pqpTable` (Plusquamperfekt), `futurTable` (Futur I), `k2PastTable` (Konjunktiv II of the past) and
-`passiveModalTable` (muss … gemacht werden). B1.2 (`b1-2/helpers.ts`) adds `unitB12`, `passivePastTable` / `passivePerfektTable` and `hint` (attaches `why` and `lesson` to an item). Copy the helpers file of the latest level as the starting point.
+`passiveModalTable` (muss … gemacht werden). B1.2 (`b1-2/helpers.ts`) adds `unitB12`, `passivePastTable` / `passivePerfektTable` and `hint` (attaches `why` and `lesson` to an item). B2.1 (`b2-1/helpers.ts`) adds `unitB21`, `statePassiveTable` (Zustandspassiv), `futur2Table` and `k1Table` (Konjunktiv I). B2.2 (`b2-2/helpers.ts`) adds only `unitB22` and re-uses `k1Table`. Copy the helpers file of the latest level as the starting point.
 
 **Integrity between levels:** before writing a level, map its syllabus against the units that exist (see
-`docs/a2-2-coverage.md`, `docs/b1-1-coverage.md` and `docs/b1-2-coverage.md`, which also lists the course books and exam documents the
+`docs/a2-2-coverage.md`, `docs/b1-1-coverage.md`, `docs/b1-2-coverage.md`, `docs/b2-1-coverage.md` and `docs/b2-2-coverage.md`, which also lists the course books and exam documents the
 unit list was researched from): what is new, what extends an earlier topic and what is only reviewed. A level's
 `content.test.ts` should also check that its word cards do not repeat vocabulary from earlier levels
 (`REVIEW_WORDS` lists the deliberate exceptions).
