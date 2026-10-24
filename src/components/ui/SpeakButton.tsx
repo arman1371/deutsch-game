@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { speak, ttsSupported } from '@/lib/tts';
 import { useSettingsStore } from '@/store/settingsStore';
 import { t } from '@/i18n';
+import { Icon } from './Icon';
 
 interface Props {
   text: string;
@@ -14,7 +15,7 @@ export function SpeakButton({ text, label, size = 'md' }: Props) {
   const rate = useSettingsStore((s) => s.ttsRate);
   const [playing, setPlaying] = useState(false);
   const supported = ttsSupported();
-  const dims = size === 'lg' ? 'h-16 w-16 text-3xl' : 'h-12 w-12 text-xl';
+  const dims = size === 'lg' ? 'h-16 w-16' : 'h-12 w-12';
   return (
     <button
       type="button"
@@ -25,9 +26,9 @@ export function SpeakButton({ text, label, size = 'md' }: Props) {
         setPlaying(true);
         speak(text, { rate, onEnd: () => setPlaying(false) });
       }}
-      className={`press inline-flex shrink-0 items-center justify-center rounded-full bg-primary-soft text-ink shadow-[0_3px_0_var(--border)] disabled:opacity-40 ${dims} ${playing ? 'ring-2 ring-primary' : ''}`}
+      className={`press inline-flex shrink-0 items-center justify-center rounded-full bg-primary-soft text-primary shadow-[0_3px_0_var(--primary-soft-border)] disabled:opacity-40 ${dims} ${playing ? 'ring-2 ring-primary' : ''}`}
     >
-      <span aria-hidden="true">🔊</span>
+      <Icon name="volume" size={size === 'lg' ? 32 : 24} />
     </button>
   );
 }

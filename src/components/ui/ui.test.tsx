@@ -8,6 +8,9 @@ import { Button } from './Button';
 import { Card } from './Card';
 import { Chip, Tag } from './Chip';
 import { Confetti } from './Confetti';
+import { Icon, type IconName } from './Icon';
+import { ICON_PATHS } from './iconPaths';
+import { IconButton } from './IconButton';
 import { FeedbackBanner } from './FeedbackBanner';
 import { ProgressBar } from './ProgressBar';
 import { SpeakButton } from './SpeakButton';
@@ -167,5 +170,65 @@ describe('ActivityCard', () => {
     expect(link).toHaveTextContent('Up next');
     expect(screen.getByRole('img', { name: '2 of 3 stars' })).toBeInTheDocument();
     expect(screen.getByText('Unit: Unit One')).toBeInTheDocument();
+  });
+});
+
+describe('Icon and IconButton', () => {
+  it('Icon is decorative by default and named when given a title', () => {
+    const { container, rerender } = render(<Icon name="star" />);
+    expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
+    expect(container.querySelectorAll('path')).toHaveLength(1);
+    rerender(<Icon name="trophy" title="Trophy" filled size={32} />);
+    expect(screen.getByRole('img', { name: 'Trophy' })).toHaveAttribute('width', '32');
+    expect(container.querySelectorAll('path').length).toBeGreaterThan(1);
+  });
+  it('every icon path set is non-empty', () => {
+    const names = Object.keys(ICON_PATHS) as IconName[];
+    expect(names).toHaveLength(58);
+    for (const n of names) expect(ICON_PATHS[n].length).toBeGreaterThan(5);
+  });
+  it('IconButton is named by aria-label and fires clicks', async () => {
+    const onClick = vi.fn();
+    render(<IconButton icon="close" aria-label="Close" onClick={onClick} />);
+    await userEvent.setup().click(screen.getByRole('button', { name: 'Close' }));
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('design-system tones', () => {
+  it('Tag supports every tone and Chip shows a check when selected', () => {
+    render(
+      <>
+        {(
+          ['neutral', 'primary', 'success', 'warning', 'error', 'info', 'xp', 'streak'] as const
+        ).map((tone) => (
+          <Tag key={tone} tone={tone}>
+            {tone}
+          </Tag>
+        ))}
+        <Chip selected onToggle={() => {}}>
+          Picked
+        </Chip>
+      </>,
+    );
+    expect(screen.getByText('streak')).toHaveClass('bg-streak-soft');
+    expect(screen.getByRole('button', { name: 'Picked' }).querySelector('svg')).not.toBeNull();
+  });
+  it('ProgressBar has XP and streak tones; Card can be interactive or selected', () => {
+    const { container } = render(
+      <>
+        <ProgressBar value={0.5} label="xp" tone="xp" />
+        <ProgressBar value={0.5} label="streak" tone="streak" />
+        <Card interactive data-testid="i">
+          a
+        </Card>
+        <Card selected data-testid="s">
+          b
+        </Card>
+      </>,
+    );
+    expect(container.querySelector('[aria-label="xp"] > div')).toHaveClass('bg-accent');
+    expect(screen.getByTestId('s')).toHaveClass('border-primary');
+    expect(screen.getByTestId('i').className).toContain('0_3px_0');
   });
 });

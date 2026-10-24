@@ -85,7 +85,7 @@ function Shell() {
                   end={n.end}
                   className={({ isActive }) =>
                     `relative flex min-h-14 flex-col items-center justify-center gap-0.5 px-3 text-xs font-bold md:min-h-11 md:flex-row md:gap-2 md:rounded-xl md:text-sm ${
-                      isActive ? 'text-primary md:bg-primary-soft' : 'text-muted hover:text-ink'
+                      isActive ? 'text-primary md:bg-primary-soft md:text-on-primary-soft' : 'text-muted hover:text-ink'
                     }`
                   }
                 >
