@@ -1,51 +1,146 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/fredoka';
+@import '@fontsource-variable/plus-jakarta-sans';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-/* Design tokens – semantic colours switch with the theme; Tailwind utilities read them below. */
+/*
+ * Design tokens from the Penpot design system (file "LingoatGames", light theme).
+ * Semantic colours switch with the theme; Tailwind utilities read them in @theme below.
+ */
 :root {
-  --bg: #f4f6fb;
+  --bg: #fbfaf8;
   --surface: #ffffff;
-  --surface-2: #eaeef7;
-  --text: #0f172a;
-  --text-muted: #475569;
-  --border: #cbd5e1;
-  --primary: #4338ca;
-  --primary-hover: #3730a3;
-  --primary-edge: #2e2788;
-  --primary-soft: #e0e7ff;
+  --surface-2: #f6f4f1;
+  --sunken: #edeae5;
+  --text: #1b1917;
+  --text-muted: #5a554f;
+  --border: #ddd9d2;
+  --border-strong: #c3beb5;
+  --primary: #584bca;
+  --primary-hover: #4b40a7;
+  --primary-edge: #3e3684;
+  --primary-soft: #f3f1fd;
+  --primary-soft-border: #cdc9f8;
+  --on-primary-soft: #4b40a7;
   --on-primary: #ffffff;
-  --success: #15803d;
-  --success-soft: #dcfce7;
-  --danger: #b91c1c;
-  --danger-soft: #fee2e2;
-  --warning: #b45309;
-  --warning-soft: #fef3c7;
-  --accent: #f59e0b;
-  --focus: #1d4ed8;
+  --success: #13754d;
+  --success-edge: #135e3f;
+  --success-soft: #ecf7f3;
+  --success-soft-border: #b4e1cf;
+  --on-success-soft: #135e3f;
+  --danger: #c74044;
+  --danger-edge: #a6373a;
+  --danger-soft: #fdf0f1;
+  --danger-soft-border: #f7c4c6;
+  --on-danger-soft: #842f31;
+  --warning: #926718;
+  --warning-soft: #fff9ed;
+  --warning-soft-border: #ffe6b8;
+  --on-warning-soft: #6c4d16;
+  --info: #2b70ce;
+  --info-edge: #265faa;
+  --info-soft: #eef5fe;
+  --info-soft-border: #bcd6f9;
+  --on-info-soft: #224d87;
+  --accent: #ffb020;
+  --xp-soft: #fff2db;
+  --on-xp-soft: #6c4d16;
+  --streak: #ff6b2c;
+  --streak-soft: #fff3ee;
+  --on-streak-soft: #92411f;
+  --focus: #6355e8;
+  --overlay: rgb(27 25 23 / 0.55);
+  --shadow-1: 0 1px 2px rgb(27 25 23 / 0.06), 0 1px 3px rgb(27 25 23 / 0.05);
+  --shadow-2: 0 2px 8px rgb(27 25 23 / 0.08), 0 1px 2px rgb(27 25 23 / 0.05);
+  --shadow-3: 0 8px 24px rgb(27 25 23 / 0.12), 0 2px 6px rgb(27 25 23 / 0.06);
+  --shadow-4: 0 16px 40px rgb(27 25 23 / 0.18), 0 4px 12px rgb(27 25 23 / 0.08);
+  --game-flashcards-bg: #ede8ff;
+  --game-flashcards-fg: #543fa4;
+  --game-flashcards-solid: #7c5cff;
+  --game-quiz-bg: #e4edfe;
+  --game-quiz-fg: #2b579e;
+  --game-quiz-solid: #3b82f6;
+  --game-gapfill-bg: #def5f3;
+  --game-gapfill-fg: #137267;
+  --game-gapfill-solid: #14b8a6;
+  --game-sentence-bg: #fce5f1;
+  --game-sentence-fg: #993365;
+  --game-sentence-solid: #ec4899;
+  --game-listen-bg: #feebde;
+  --game-listen-fg: #a14e13;
+  --game-listen-solid: #f97316;
+  --game-spell-bg: #eef8de;
+  --game-spell-fg: #4f7613;
+  --game-spell-solid: #84cc16;
+  --game-memory-bg: #dcf5f9;
+  --game-memory-fg: #0b7181;
+  --game-memory-solid: #06b6d4;
+  --game-blitz-bg: #fde5e5;
+  --game-blitz-fg: #9b3030;
+  --game-blitz-solid: #ef4444;
+  --game-sortit-bg: #f3e7fe;
+  --game-sortit-fg: #6f3b9f;
+  --game-sortit-solid: #a855f7;
+  --game-dialogue-bg: #fde4e8;
+  --game-dialogue-fg: #9e2d40;
+  --game-dialogue-solid: #f43f5e;
+  --game-conjugation-bg: #def5ed;
+  --game-conjugation-fg: #117956;
+  --game-conjugation-solid: #10b981;
+  --game-clock-bg: #ddf2fc;
+  --game-clock-fg: #0f6d96;
+  --game-clock-solid: #0ea5e9;
+  --game-market-bg: #fef1dd;
+  --game-market-fg: #8d5d0d;
+  --game-market-solid: #f59e0b;
   color-scheme: light;
 }
 
+/* Dark theme: kept working from the Settings toggle; the Penpot design only specifies light for now. */
 :root[data-theme='dark'] {
-  --bg: #0b1020;
-  --surface: #151b30;
-  --surface-2: #1e2742;
-  --text: #f1f5f9;
-  --text-muted: #a8b3c7;
-  --border: #334155;
-  --primary: #818cf8;
-  --primary-hover: #a5b4fc;
-  --primary-edge: #4f46a8;
-  --primary-soft: #26285a;
-  --on-primary: #0b1020;
-  --success: #4ade80;
-  --success-soft: #11321f;
-  --danger: #f87171;
-  --danger-soft: #3b1518;
-  --warning: #fbbf24;
-  --warning-soft: #3a2a0a;
-  --accent: #fbbf24;
-  --focus: #93c5fd;
+  --bg: #111010;
+  --surface: #1b1917;
+  --surface-2: #2b2825;
+  --sunken: #111010;
+  --text: #f6f4f1;
+  --text-muted: #c3beb5;
+  --border: #413d39;
+  --border-strong: #5a554f;
+  --primary: #8a80ee;
+  --primary-hover: #b1aaf3;
+  --primary-edge: #4b40a7;
+  --primary-soft: #312b62;
+  --primary-soft-border: #4b40a7;
+  --on-primary-soft: #cdc9f8;
+  --on-primary: #111010;
+  --success: #4fb88e;
+  --success-edge: #13754d;
+  --success-soft: #134731;
+  --success-soft-border: #13754d;
+  --on-success-soft: #b4e1cf;
+  --danger: #eb767a;
+  --danger-edge: #a6373a;
+  --danger-soft: #622627;
+  --danger-soft-border: #a6373a;
+  --on-danger-soft: #f7c4c6;
+  --warning: #ffc458;
+  --warning-soft: #6c4d16;
+  --warning-soft-border: #926718;
+  --on-warning-soft: #ffe6b8;
+  --info: #63a0f1;
+  --info-edge: #265faa;
+  --info-soft: #1d3b64;
+  --info-soft-border: #265faa;
+  --on-info-soft: #bcd6f9;
+  --accent: #ffc458;
+  --xp-soft: #6c4d16;
+  --on-xp-soft: #ffe6b8;
+  --streak: #ff9061;
+  --streak-soft: #6c331a;
+  --on-streak-soft: #ffd0bb;
+  --focus: #b1aaf3;
+  --overlay: rgb(0 0 0 / 0.7);
   color-scheme: dark;
 }
 
@@ -53,23 +148,94 @@
   --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-sunken: var(--sunken);
   --color-ink: var(--text);
   --color-muted: var(--text-muted);
   --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
   --color-primary: var(--primary);
   --color-primary-hover: var(--primary-hover);
   --color-primary-edge: var(--primary-edge);
   --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-line: var(--primary-soft-border);
+  --color-on-primary-soft: var(--on-primary-soft);
   --color-on-primary: var(--on-primary);
   --color-success: var(--success);
+  --color-success-edge: var(--success-edge);
   --color-success-soft: var(--success-soft);
+  --color-success-soft-line: var(--success-soft-border);
+  --color-on-success-soft: var(--on-success-soft);
   --color-danger: var(--danger);
+  --color-danger-edge: var(--danger-edge);
   --color-danger-soft: var(--danger-soft);
+  --color-danger-soft-line: var(--danger-soft-border);
+  --color-on-danger-soft: var(--on-danger-soft);
   --color-warning: var(--warning);
   --color-warning-soft: var(--warning-soft);
+  --color-warning-soft-line: var(--warning-soft-border);
+  --color-on-warning-soft: var(--on-warning-soft);
+  --color-info: var(--info);
+  --color-info-edge: var(--info-edge);
+  --color-info-soft: var(--info-soft);
+  --color-info-soft-line: var(--info-soft-border);
+  --color-on-info-soft: var(--on-info-soft);
   --color-accent: var(--accent);
-  --font-sans: 'Nunito', ui-rounded, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --radius-card: 1.25rem;
+  --color-xp-soft: var(--xp-soft);
+  --color-on-xp-soft: var(--on-xp-soft);
+  --color-streak: var(--streak);
+  --color-streak-soft: var(--streak-soft);
+  --color-on-streak-soft: var(--on-streak-soft);
+  --color-overlay: var(--overlay);
+  --color-game-flashcards-bg: var(--game-flashcards-bg);
+  --color-game-flashcards-fg: var(--game-flashcards-fg);
+  --color-game-flashcards-solid: var(--game-flashcards-solid);
+  --color-game-quiz-bg: var(--game-quiz-bg);
+  --color-game-quiz-fg: var(--game-quiz-fg);
+  --color-game-quiz-solid: var(--game-quiz-solid);
+  --color-game-gapfill-bg: var(--game-gapfill-bg);
+  --color-game-gapfill-fg: var(--game-gapfill-fg);
+  --color-game-gapfill-solid: var(--game-gapfill-solid);
+  --color-game-sentence-bg: var(--game-sentence-bg);
+  --color-game-sentence-fg: var(--game-sentence-fg);
+  --color-game-sentence-solid: var(--game-sentence-solid);
+  --color-game-listen-bg: var(--game-listen-bg);
+  --color-game-listen-fg: var(--game-listen-fg);
+  --color-game-listen-solid: var(--game-listen-solid);
+  --color-game-spell-bg: var(--game-spell-bg);
+  --color-game-spell-fg: var(--game-spell-fg);
+  --color-game-spell-solid: var(--game-spell-solid);
+  --color-game-memory-bg: var(--game-memory-bg);
+  --color-game-memory-fg: var(--game-memory-fg);
+  --color-game-memory-solid: var(--game-memory-solid);
+  --color-game-blitz-bg: var(--game-blitz-bg);
+  --color-game-blitz-fg: var(--game-blitz-fg);
+  --color-game-blitz-solid: var(--game-blitz-solid);
+  --color-game-sortit-bg: var(--game-sortit-bg);
+  --color-game-sortit-fg: var(--game-sortit-fg);
+  --color-game-sortit-solid: var(--game-sortit-solid);
+  --color-game-dialogue-bg: var(--game-dialogue-bg);
+  --color-game-dialogue-fg: var(--game-dialogue-fg);
+  --color-game-dialogue-solid: var(--game-dialogue-solid);
+  --color-game-conjugation-bg: var(--game-conjugation-bg);
+  --color-game-conjugation-fg: var(--game-conjugation-fg);
+  --color-game-conjugation-solid: var(--game-conjugation-solid);
+  --color-game-clock-bg: var(--game-clock-bg);
+  --color-game-clock-fg: var(--game-clock-fg);
+  --color-game-clock-solid: var(--game-clock-solid);
+  --color-game-market-bg: var(--game-market-bg);
+  --color-game-market-fg: var(--game-market-fg);
+  --color-game-market-solid: var(--game-market-solid);
+  --font-sans:
+    'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', ui-rounded, system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+  --font-display:
+    'Fredoka Variable', 'Fredoka', ui-rounded, system-ui, -apple-system, 'Segoe UI', Roboto,
+    sans-serif;
+  --radius-card: 1rem;
+  --shadow-elevation-1: var(--shadow-1);
+  --shadow-elevation-2: var(--shadow-2);
+  --shadow-elevation-3: var(--shadow-3);
+  --shadow-elevation-4: var(--shadow-4);
 }
 
 html {
@@ -84,10 +250,17 @@ body {
   min-height: 100dvh;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
 }
 
 /* 3D "chunky" press effect shared by buttons, tiles and cards. */

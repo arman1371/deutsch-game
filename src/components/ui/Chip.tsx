@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import { Icon } from './Icon';
 
 interface ChipProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onChange'> {
   selected: boolean;
@@ -13,13 +14,14 @@ export function Chip({ selected, onToggle, children, className = '', ...rest }: 
       type="button"
       aria-pressed={selected}
       onClick={onToggle}
-      className={`min-h-11 rounded-full border-2 px-4 text-sm font-bold transition-colors ${
+      className={`inline-flex min-h-11 items-center gap-2 rounded-full border-2 px-4 text-sm font-bold transition-colors ${
         selected
-          ? 'border-primary bg-primary text-on-primary'
+          ? 'border-primary-soft-line bg-primary-soft text-on-primary-soft'
           : 'border-line bg-surface text-ink hover:bg-surface-2'
       } ${className}`}
       {...rest}
     >
+      {selected ? <Icon name="check" size={16} /> : null}
       {children}
     </button>
   );
@@ -31,13 +33,17 @@ export function Tag({
   tone = 'neutral',
 }: {
   children: ReactNode;
-  tone?: 'neutral' | 'primary' | 'success' | 'warning';
+  tone?: 'neutral' | 'primary' | 'success' | 'warning' | 'error' | 'info' | 'xp' | 'streak';
 }) {
   const tones = {
-    neutral: 'bg-surface-2 text-ink',
-    primary: 'bg-primary-soft text-ink',
-    success: 'bg-success-soft text-ink',
-    warning: 'bg-warning-soft text-ink',
+    neutral: 'bg-sunken text-ink',
+    primary: 'bg-primary-soft text-on-primary-soft',
+    success: 'bg-success-soft text-on-success-soft',
+    warning: 'bg-warning-soft text-on-warning-soft',
+    error: 'bg-danger-soft text-on-danger-soft',
+    info: 'bg-info-soft text-on-info-soft',
+    xp: 'bg-xp-soft text-on-xp-soft',
+    streak: 'bg-streak-soft text-on-streak-soft',
   };
   return (
     <span
