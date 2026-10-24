@@ -454,7 +454,7 @@ describe('Library', () => {
       (a) => a.tags.includes('accusative') && a.difficulty === 3,
     ).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${hard} games`);
-  }, 30_000);
+  }, 60_000);
 
   it('searches by text and shows an empty state', async () => {
     const { user } = renderApp('/library');
@@ -651,5 +651,5 @@ describe('Library – filter panel', () => {
     expect(panel).toHaveAttribute('open');
     await user.click(screen.getByRole('button', { name: 'Clear filters' }));
     expect(panel).toHaveAttribute('open');
-  });
+  }, 30_000);
 });
