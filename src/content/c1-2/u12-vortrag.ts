@@ -37,9 +37,9 @@ const discuss = vocabList(U, 'Discussing', [
   ['Vorbehalt', 'reservation, objection', '✋', 'der', 'Vorbehalte'],
   ['Gegenposition', 'opposing position', '🔁', 'die', 'Gegenpositionen'],
   ['Wortmeldung', 'request to speak, contribution', '🙌', 'die', 'Wortmeldungen'],
-  ['Moderation', 'moderation, chairing', '🎙️', 'die'],
+  ['Gesprächsleitung', 'chairing of a discussion', '🎙️', 'die'],
   ['Streitpunkt', 'point of contention', '🔥', 'der', 'Streitpunkte'],
-  ['Konsens', 'consensus', '🤝', 'der'],
+  ['Übereinkunft', 'agreement', '🤝', 'die', 'Übereinkünfte'],
   ['einwenden', 'to object', '☝️'],
   ['anknüpfen', 'to link up (to)', '🔗'],
   ['stichhaltig', 'sound, valid', '🛡️'],
@@ -124,7 +124,7 @@ export const vortrag: UnitContent = {
           'Stichwortzettel',
           'Schlussfolgerung',
           'Vorbehalt',
-          'Konsens',
+          'Übereinkunft',
           'schlüssig',
           'hervorheben',
         ),
@@ -209,7 +209,8 @@ export const vortrag: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Konsens', 'Schlussfolgerung', 'Vorbehalt'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Übereinkunft', 'Schlussfolgerung', 'Vorbehalt'), 'unscramble')
+            .items,
           ...spell(byDe(vocab, 'Kernaussage', 'Gegenposition', 'Wortmeldung'), 'type').items,
           dictation('d1', 'Ich nehme dazu gern Stellung.', 'I am happy to comment on that.'),
           dictation(

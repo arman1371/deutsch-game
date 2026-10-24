@@ -20,10 +20,10 @@ const U = 'c1-2-kino';
 
 const film = vocabList(U, 'Film & cinema', [
   ['Regisseur', 'director', '🎥', 'der', 'Regisseure'],
-  ['Besetzung', 'cast', '🎭', 'die', 'Besetzungen'],
+  ['Nebenrolle', 'supporting role', '🎭', 'die', 'Nebenrollen'],
   ['Dreharbeiten', 'filming, shoot', '🎬', 'die'],
   ['Drehort', 'filming location', '📍', 'der', 'Drehorte'],
-  ['Leinwand', 'cinema screen', '🖼️', 'die', 'Leinwände'],
+  ['Requisite', 'props', '🖼️', 'die', 'Requisiten'],
   ['Uraufführung', 'premiere', '🌟', 'die', 'Uraufführungen'],
   ['Abspann', 'end credits', '📜', 'der', 'Abspänne'],
   ['Synchronisation', 'dubbing', '💬', 'die', 'Synchronisationen'],
@@ -36,12 +36,12 @@ const film = vocabList(U, 'Film & cinema', [
 const art = vocabList(U, 'Art & creativity', [
   ['Schaffenskraft', 'creative power', '💡', 'die'],
   ['Einfall', 'idea, brainwave', '⚡', 'der', 'Einfälle'],
-  ['Inspiration', 'inspiration', '✨', 'die', 'Inspirationen'],
-  ['Vernissage', 'private view, opening of an exhibition', '🥂', 'die', 'Vernissagen'],
+  ['Eingebung', 'inspiration, flash of insight', '✨', 'die', 'Eingebungen'],
+  ['Ausstellungseröffnung', 'opening of an exhibition', '🥂', 'die', 'Ausstellungseröffnungen'],
   ['Radierung', 'etching', '🗿', 'die', 'Radierungen'],
-  ['Installation', 'art installation', '🗿', 'die', 'Installationen'],
+  ['Performance', 'performance (art)', '🗿', 'die', 'Performances'],
   ['Werk', 'work (of art)', '🏺', 'das', 'Werke'],
-  ['Mäzen', 'patron', '💰', 'der', 'Mäzene'],
+  ['Förderer', 'patron, supporter', '💰', 'der', 'Förderer'],
   ['einfallsreich', 'inventive', '🧠'],
   ['brotlos', 'unprofitable (art)', '🍞'],
 ]);
@@ -118,7 +118,7 @@ export const kino: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Abspann', 'Drehort', 'Mäzen', 'Einfall', 'Radierung', 'brotlos')),
+      memory(byDe(vocab, 'Abspann', 'Drehort', 'Förderer', 'Einfall', 'Radierung', 'brotlos')),
     ),
     activity(
       U,
@@ -200,7 +200,8 @@ export const kino: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Schnitt', 'Werk', 'Kulisse'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Uraufführung', 'Schaffenskraft', 'Vernissage'), 'type').items,
+          ...spell(byDe(vocab, 'Uraufführung', 'Schaffenskraft', 'Ausstellungseröffnung'), 'type')
+            .items,
           dictation('d1', 'Der Film läuft mit Untertiteln.', 'The film is shown with subtitles.'),
           dictation('d2', 'Ihr Interesse an Kunst wächst.', 'Her interest in art is growing.'),
         ],

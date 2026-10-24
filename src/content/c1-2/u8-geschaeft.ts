@@ -23,7 +23,7 @@ const business = vocabList(U, 'Business contacts', [
   ['Niederlassung', 'branch, subsidiary', '🏢', 'die', 'Niederlassungen'],
   ['Konzern', 'corporation, group', '🏭', 'der', 'Konzerne'],
   ['Lieferant', 'supplier', '🚚', 'der', 'Lieferanten'],
-  ['Tagesordnung', 'agenda', '📋', 'die', 'Tagesordnungen'],
+  ['Programmpunkt', 'agenda item', '📋', 'der', 'Programmpunkte'],
   ['Visitenkarte', 'business card', '💳', 'die', 'Visitenkarten'],
   ['Zugeständnis', 'concession', '🤲', 'das', 'Zugeständnisse'],
   ['Verhandlungsspielraum', 'room for negotiation', '⚖️', 'der'],
@@ -37,12 +37,12 @@ const culture = vocabList(U, 'Cultures & etiquette', [
   ['Verhaltenskodex', 'code of conduct', '🎩', 'der', 'Verhaltenskodizes'],
   ['Kulturschock', 'culture shock', '🤯', 'der', 'Kulturschocks'],
   ['Hierarchie', 'hierarchy', '🪜', 'die', 'Hierarchien'],
-  ['Tabuthema', 'taboo subject', '🚷', 'das', 'Tabuthemen'],
+  ['Reizthema', 'sensitive topic', '🚷', 'das', 'Reizthemen'],
   ['Fauxpas', 'faux pas, blunder', '🫕', 'der', 'Fauxpas'],
-  ['Smalltalk', 'small talk', '☕', 'der'],
+  ['Höflichkeitsfloskel', 'polite phrase', '☕', 'die', 'Höflichkeitsfloskeln'],
   ['interkulturell', 'intercultural', '🌍'],
   ['förmlich', 'formal', '🎓'],
-  ['zurückhaltend', 'reserved', '🤐'],
+  ['distanziert', 'distant', '🤐'],
 ]);
 
 const vocab = [...business, ...culture];
@@ -121,11 +121,11 @@ export const geschaeft: UnitContent = {
         byDe(
           vocab,
           'Niederlassung',
-          'Tagesordnung',
-          'Tabuthema',
+          'Programmpunkt',
+          'Reizthema',
           'Hierarchie',
           'förmlich',
-          'zurückhaltend',
+          'distanziert',
         ),
       ),
     ),
@@ -208,7 +208,7 @@ export const geschaeft: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Konzern', 'Tabuthema', 'Lieferant'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Konzern', 'Reizthema', 'Lieferant'), 'unscramble').items,
           ...spell(byDe(vocab, 'Umgangsform', 'Visitenkarte', 'Auslandsentsendung'), 'type').items,
           dictation(
             'd1',

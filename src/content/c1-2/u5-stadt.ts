@@ -22,14 +22,14 @@ const city = vocabList(U, 'City planning', [
   ['Ballungsraum', 'conurbation, metropolitan area', '🌆', 'der', 'Ballungsräume'],
   ['Stadtplanung', 'urban planning', '📐', 'die'],
   ['Infrastruktur', 'infrastructure', '🛣️', 'die', 'Infrastrukturen'],
-  ['Feinstaub', 'fine dust, particulate matter', '🌫️', 'der'],
-  ['Wohnungsnot', 'housing shortage', '🏚️', 'die'],
+  ['Lärmbelastung', 'noise pollution', '🌫️', 'die'],
+  ['Zersiedelung', 'urban sprawl', '🏚️', 'die'],
   ['Gentrifizierung', 'gentrification', '🏗️', 'die'],
   ['Leerstand', 'vacancy', '🪟', 'der'],
   ['Freifläche', 'open space', '🌳', 'die', 'Freiflächen'],
-  ['Gemeinschaftsgarten', 'community garden', '🥕', 'der', 'Gemeinschaftsgärten'],
+  ['Schrebergarten', 'allotment garden', '🥕', 'der', 'Schrebergärten'],
   ['Quartier', 'neighbourhood, district', '🏘️', 'das', 'Quartiere'],
-  ['verkehrsberuhigt', 'traffic-calmed', '🚸'],
+  ['autofrei', 'car-free', '🚸'],
 ]);
 
 const village = vocabList(U, 'Village & alternatives', [
@@ -208,7 +208,7 @@ export const stadt: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Feinstaub', 'Quartier', 'Landflucht'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Lärmbelastung', 'Quartier', 'Landflucht'), 'unscramble').items,
           ...spell(byDe(vocab, 'Infrastruktur', 'Ökosiedlung', 'Selbstversorger'), 'type').items,
           dictation(
             'd1',

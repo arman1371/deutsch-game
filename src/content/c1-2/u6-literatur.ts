@@ -22,12 +22,12 @@ const books = vocabList(U, 'Books & reading', [
   ['Kurzgeschichte', 'short story', '📖', 'die', 'Kurzgeschichten'],
   ['Erzählung', 'narrative, story', '📚', 'die', 'Erzählungen'],
   ['Klappentext', 'blurb', '🏷️', 'der', 'Klappentexte'],
-  ['Rezension', 'review', '📝', 'die', 'Rezensionen'],
-  ['Schriftsteller', 'writer, author', '✒️', 'der', 'Schriftsteller'],
-  ['Verlag', 'publishing house', '🏢', 'der', 'Verlage'],
+  ['Buchkritik', 'book review', '📝', 'die', 'Buchkritiken'],
+  ['Dichter', 'poet', '✒️', 'der', 'Dichter'],
+  ['Lektorat', 'editorial department', '🏢', 'das', 'Lektorate'],
   ['Leseratte', 'bookworm', '🐀', 'die', 'Leseratten'],
   ['Hörbuch', 'audiobook', '🎧', 'das', 'Hörbücher'],
-  ['Handlung', 'plot', '🎬', 'die', 'Handlungen'],
+  ['Erzählstrang', 'narrative thread', '🎬', 'der', 'Erzählstränge'],
   ['Erzähler', 'narrator', '🗣️', 'der', 'Erzähler'],
   ['Schauplatz', 'setting, scene', '🏞️', 'der', 'Schauplätze'],
   ['Pointe', 'punchline, twist', '🎯', 'die', 'Pointen'],
@@ -36,7 +36,7 @@ const books = vocabList(U, 'Books & reading', [
 
 const writing = vocabList(U, 'Writing & style', [
   ['Schreibwerkstatt', 'writing workshop', '🛠️', 'die', 'Schreibwerkstätten'],
-  ['Entwurf', 'draft', '✏️', 'der', 'Entwürfe'],
+  ['Rohfassung', 'rough version', '✏️', 'die', 'Rohfassungen'],
   ['Überarbeitung', 'revision', '🔁', 'die', 'Überarbeitungen'],
   ['Metapher', 'metaphor', '🌉', 'die', 'Metaphern'],
   ['Reim', 'rhyme', '🎶', 'der', 'Reime'],
@@ -121,7 +121,7 @@ export const literatur: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Klappentext', 'Verlag', 'Pointe', 'Entwurf', 'Strophe', 'prägnant')),
+      memory(byDe(vocab, 'Klappentext', 'Lektorat', 'Pointe', 'Rohfassung', 'Strophe', 'prägnant')),
     ),
     activity(
       U,
@@ -202,7 +202,7 @@ export const literatur: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Reim', 'Verlag', 'Handlung'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Reim', 'Lektorat', 'Erzählstrang'), 'unscramble').items,
           ...spell(byDe(vocab, 'Kurzgeschichte', 'Metapher', 'Schreibwerkstatt'), 'type').items,
           dictation('d1', 'Lesen ist das pure Glück.', 'Reading is pure happiness.'),
           dictation(

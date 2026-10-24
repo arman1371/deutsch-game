@@ -19,30 +19,30 @@ import type { UnitContent } from './types';
 const U = 'c1-2-forschung';
 
 const research = vocabList(U, 'Research', [
-  ['Hypothese', 'hypothesis', '💭', 'die', 'Hypothesen'],
+  ['These', 'thesis, claim', '💭', 'die', 'Thesen'],
   ['Versuchsaufbau', 'experimental set-up', '🧪', 'der', 'Versuchsaufbauten'],
-  ['Stichprobe', 'sample', '🧫', 'die', 'Stichproben'],
+  ['Versuchsreihe', 'series of experiments', '🧫', 'die', 'Versuchsreihen'],
   ['Messwert', 'measured value', '📏', 'der', 'Messwerte'],
-  ['Auswertung', 'evaluation, analysis', '📊', 'die', 'Auswertungen'],
-  ['Fachzeitschrift', 'specialist journal', '📰', 'die', 'Fachzeitschriften'],
+  ['Untersuchungsergebnis', 'research result', '📊', 'das', 'Untersuchungsergebnisse'],
+  ['Fachaufsatz', 'specialist article', '📰', 'der', 'Fachaufsätze'],
   ['Ethikkommission', 'ethics committee', '⚖️', 'die', 'Ethikkommissionen'],
   ['Tierversuch', 'animal experiment', '🐭', 'der', 'Tierversuche'],
   ['Fördermittel', 'research funds', '💶', 'die'],
-  ['umstritten', 'controversial', '🔥'],
+  ['widerlegt', 'refuted', '🔥'],
   ['nachvollziehbar', 'comprehensible, traceable', '🧭'],
 ]);
 
 const tech = vocabList(U, 'Inventions & technology', [
   ['Tüftler', 'tinkerer, inventor', '💡', 'der', 'Tüftler'],
-  ['Patent', 'patent', '📑', 'das', 'Patente'],
+  ['Lizenz', 'licence', '📑', 'die', 'Lizenzen'],
   ['Prototyp', 'prototype', '🛠️', 'der', 'Prototypen'],
-  ['Algorithmus', 'algorithm', '🧮', 'der', 'Algorithmen'],
+  ['Datenerhebung', 'data collection', '🧮', 'die', 'Datenerhebungen'],
   ['Sensor', 'sensor', '📡', 'der', 'Sensoren'],
   ['Mikrochip', 'microchip', '🔋', 'der', 'Mikrochips'],
-  ['Gebrauchsanweisung', 'instructions for use', '📘', 'die', 'Gebrauchsanweisungen'],
+  ['Montageanleitung', 'assembly instructions', '📘', 'die', 'Montageanleitungen'],
   ['Haushaltsgerät', 'household appliance', '🧺', 'das', 'Haushaltsgeräte'],
-  ['bahnbrechend', 'groundbreaking', '🚀'],
-  ['ausgereift', 'well thought out, mature', '🏅'],
+  ['wegweisend', 'pioneering', '🚀'],
+  ['fehleranfällig', 'error-prone', '🏅'],
 ]);
 
 const vocab = [...research, ...tech];
@@ -119,7 +119,7 @@ export const forschung: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Hypothese', 'Stichprobe', 'Patent', 'Mikrochip', 'umstritten', 'ausgereift'),
+        byDe(vocab, 'These', 'Versuchsreihe', 'Lizenz', 'Mikrochip', 'widerlegt', 'fehleranfällig'),
       ),
     ),
     activity(
@@ -201,8 +201,8 @@ export const forschung: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Tüftler', 'Sensor', 'Patent'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Versuchsaufbau', 'Ethikkommission', 'Gebrauchsanweisung'), 'type')
+          ...spell(byDe(vocab, 'Tüftler', 'Sensor', 'Lizenz'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Versuchsaufbau', 'Ethikkommission', 'Montageanleitung'), 'type')
             .items,
           dictation(
             'd1',

@@ -20,29 +20,29 @@ const U = 'c1-2-gesundheit';
 
 const medicine = vocabList(U, 'Medicine', [
   ['Placebo-Effekt', 'placebo effect', '💊', 'der', 'Placebo-Effekte'],
-  ['Nebenwirkung', 'side effect', '⚠️', 'die', 'Nebenwirkungen'],
+  ['Wechselwirkung', 'interaction (of drugs)', '⚠️', 'die', 'Wechselwirkungen'],
   ['Beipackzettel', 'package leaflet', '📄', 'der', 'Beipackzettel'],
   ['Wirkstoff', 'active ingredient', '🧪', 'der', 'Wirkstoffe'],
   ['Dosis', 'dose', '💉', 'die', 'Dosen'],
-  ['Diagnose', 'diagnosis', '🔎', 'die', 'Diagnosen'],
-  ['Früherkennung', 'early detection', '🩺', 'die'],
+  ['Anamnese', 'medical history', '🔎', 'die', 'Anamnesen'],
+  ['Vorsorgeuntersuchung', 'preventive check-up', '🩺', 'die', 'Vorsorgeuntersuchungen'],
   ['Lebenserwartung', 'life expectancy', '📊', 'die'],
   ['Heilung', 'cure, recovery', '🌿', 'die'],
   ['rezeptpflichtig', 'prescription-only', '📝'],
-  ['chronisch', 'chronic', '⏳'],
+  ['langwierig', 'protracted', '⏳'],
   ['verabreichen', 'to administer', '💧'],
-  ['eindämmen', 'to curb, contain', '🛡️'],
+  ['zurückdrängen', 'to push back', '🛡️'],
 ]);
 
 const food = vocabList(U, 'Food safety & wellness', [
   ['Lebensmittelsicherheit', 'food safety', '🥗', 'die'],
   ['Schadstoff', 'harmful substance, pollutant', '☠️', 'der', 'Schadstoffe'],
   ['Rückstand', 'residue', '🧫', 'der', 'Rückstände'],
-  ['Zusatzstoff', 'additive', '🧂', 'der', 'Zusatzstoffe'],
+  ['Farbstoff', 'colouring', '🧂', 'der', 'Farbstoffe'],
   ['Haltbarkeit', 'shelf life', '📅', 'die'],
   ['Kennzeichnung', 'labelling', '🏷️', 'die', 'Kennzeichnungen'],
   ['Gütesiegel', 'quality seal', '✅', 'das', 'Gütesiegel'],
-  ['Unverträglichkeit', 'intolerance', '🤧', 'die', 'Unverträglichkeiten'],
+  ['Überempfindlichkeit', 'hypersensitivity', '🤧', 'die', 'Überempfindlichkeiten'],
   ['Nahrungsergänzungsmittel', 'dietary supplement', '🫙', 'das', 'Nahrungsergänzungsmittel'],
   ['Schönheitswahn', 'obsession with beauty', '🪞', 'der'],
   ['ausgewogen', 'balanced', '⚖️'],
@@ -128,7 +128,7 @@ export const gesundheit: UnitContent = {
           'Rückstand',
           'Haltbarkeit',
           'Heilung',
-          'Unverträglichkeit',
+          'Überempfindlichkeit',
         ),
       ),
     ),
@@ -211,8 +211,8 @@ export const gesundheit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Dosis', 'Heilung', 'chronisch'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Nebenwirkung', 'Diagnose', 'Zusatzstoff'), 'type').items,
+          ...spell(byDe(vocab, 'Dosis', 'Heilung', 'langwierig'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wechselwirkung', 'Anamnese', 'Farbstoff'), 'type').items,
           dictation(
             'd1',
             'Vorsorge ist besser als Nachsorge.',

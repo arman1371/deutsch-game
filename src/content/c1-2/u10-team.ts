@@ -20,16 +20,16 @@ const U = 'c1-2-team';
 
 const team = vocabList(U, 'Teamwork', [
   ['Befugnis', 'authority, power', '🗂️', 'die', 'Befugnisse'],
-  ['Aufgabenverteilung', 'distribution of tasks', '🧩', 'die'],
+  ['Arbeitsteilung', 'division of labour', '🧩', 'die', 'Arbeitsteilungen'],
   ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
   ['Engpass', 'bottleneck', '🍾', 'der', 'Engpässe'],
   ['Rücksprache', 'consultation', '☎️', 'die', 'Rücksprachen'],
   ['Absprache', 'arrangement', '🤝', 'die', 'Absprachen'],
   ['Verlaufsprotokoll', 'running minutes', '📝', 'das', 'Verlaufsprotokolle'],
-  ['Arbeitsverdichtung', 'work intensification', '⏱️', 'die'],
-  ['Teamgeist', 'team spirit', '🏀', 'der'],
-  ['delegieren', 'to delegate', '📤'],
-  ['zuarbeiten', 'to provide input for', '📥'],
+  ['Überlastung', 'overload', '⏱️', 'die', 'Überlastungen'],
+  ['Gemeinschaftsgefühl', 'sense of community', '🏀', 'das'],
+  ['koordinieren', 'to coordinate', '📤'],
+  ['vorarbeiten', 'to prepare the groundwork', '📥'],
 ]);
 
 const conflict = vocabList(U, 'Conflict & feedback', [
@@ -41,7 +41,7 @@ const conflict = vocabList(U, 'Conflict & feedback', [
   ['Feedbackgespräch', 'feedback meeting', '🔄', 'das', 'Feedbackgespräche'],
   ['sachlich', 'objective, factual', '🧊'],
   ['beilegen', 'to settle (a dispute)', '🏳️'],
-  ['eskalieren', 'to escalate', '📈'],
+  ['schlichten', 'to mediate', '📈'],
   ['vermitteln', 'to mediate', '⚖️'],
 ]);
 
@@ -118,7 +118,15 @@ export const team10: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Meilenstein', 'Engpass', 'Absprache', 'Vermittler', 'sachlich', 'delegieren'),
+        byDe(
+          vocab,
+          'Meilenstein',
+          'Engpass',
+          'Absprache',
+          'Vermittler',
+          'sachlich',
+          'koordinieren',
+        ),
       ),
     ),
     activity(
@@ -200,7 +208,7 @@ export const team10: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Engpass', 'Teamgeist', 'Absprache'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Engpass', 'Gemeinschaftsgefühl', 'Absprache'), 'unscramble').items,
           ...spell(byDe(vocab, 'Befugnis', 'Verlaufsprotokoll', 'Meinungsverschiedenheit'), 'type')
             .items,
           dictation(

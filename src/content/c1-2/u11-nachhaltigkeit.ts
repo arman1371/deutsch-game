@@ -26,23 +26,23 @@ const farming = vocabList(U, 'Farming & soil', [
   ['Nährstoffkreislauf', 'nutrient cycle', '♻️', 'der', 'Nährstoffkreisläufe'],
   ['Grundwasser', 'groundwater', '💧', 'das'],
   ['Artenvielfalt', 'biodiversity', '🦋', 'die'],
-  ['Massentierhaltung', 'factory farming', '🐖', 'die'],
+  ['Intensivlandwirtschaft', 'intensive farming', '🐖', 'die'],
   ['Saatgut', 'seed (for sowing)', '🌱', 'das'],
   ['Biobetrieb', 'organic farm', '🚜', 'der', 'Biobetriebe'],
   ['konventionell', 'conventional', '🏭'],
 ]);
 
 const sustain = vocabList(U, 'Sustainability', [
-  ['Kreislaufwirtschaft', 'circular economy', '🔄', 'die'],
-  ['Treibhausgas', 'greenhouse gas', '🌡️', 'das', 'Treibhausgase'],
+  ['Flächenverbrauch', 'land consumption', '🔄', 'der'],
+  ['Pestizid', 'pesticide', '🌡️', 'das', 'Pestizide'],
   ['Fußabdruck', 'footprint', '👣', 'der', 'Fußabdrücke'],
-  ['Verzicht', 'renunciation, doing without', '✋', 'der'],
+  ['Ernteausfall', 'crop failure', '✋', 'der', 'Ernteausfälle'],
   ['Tagung', 'conference', '🎤', 'die', 'Tagungen'],
   ['Teilnehmerzahl', 'number of participants', '🚆', 'die', 'Teilnehmerzahlen'],
   ['klimafreundlich', 'climate-friendly', '🌍'],
   ['umweltschonend', 'environmentally friendly', '🍃'],
-  ['regional', 'regional, local', '📍'],
-  ['bedenklich', 'questionable, worrying', '⚠️'],
+  ['heimisch', 'native, local', '📍'],
+  ['schädlich', 'harmful', '⚠️'],
 ]);
 
 const vocab = [...farming, ...sustain];
@@ -117,9 +117,7 @@ export const nachhaltigkeit: UnitContent = {
         2,
         4,
       ),
-      memory(
-        byDe(vocab, 'Ertrag', 'Saatgut', 'Tagung', 'Teilnehmerzahl', 'regional', 'bedenklich'),
-      ),
+      memory(byDe(vocab, 'Ertrag', 'Saatgut', 'Tagung', 'Teilnehmerzahl', 'heimisch', 'schädlich')),
     ),
     activity(
       U,
@@ -200,8 +198,8 @@ export const nachhaltigkeit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Dünger', 'Ertrag', 'Verzicht'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Artenvielfalt', 'Treibhausgas', 'Massentierhaltung'), 'type').items,
+          ...spell(byDe(vocab, 'Dünger', 'Ertrag', 'Ernteausfall'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Artenvielfalt', 'Pestizid', 'Monokultur'), 'type').items,
           dictation(
             'd1',
             'Der Anteil stieg von fünf auf zwölf Prozent.',

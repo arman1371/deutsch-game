@@ -19,28 +19,28 @@ import type { UnitContent } from './types';
 const U = 'c1-2-recht';
 
 const court = vocabList(U, 'Crime & court', [
-  ['Straftat', 'criminal offence', '🚨', 'die', 'Straftaten'],
+  ['Delikt', 'offence', '🚨', 'das', 'Delikte'],
   ['Verdächtige', 'suspect', '🕵️', 'der', 'Verdächtigen'],
   ['Angeklagte', 'the accused', '👁️', 'der', 'Angeklagten'],
-  ['Ermittlung', 'investigation', '🔍', 'die', 'Ermittlungen'],
+  ['Fahndung', 'manhunt, search', '🔍', 'die', 'Fahndungen'],
   ['Festnahme', 'arrest', '🚔', 'die', 'Festnahmen'],
-  ['Beweis', 'evidence, proof', '🧩', 'der', 'Beweise'],
+  ['Indiz', 'piece of circumstantial evidence', '🧩', 'das', 'Indizien'],
   ['Anklage', 'charge, indictment', '📜', 'die', 'Anklagen'],
   ['Staatsanwaltschaft', 'public prosecutor’s office', '🏛️', 'die'],
   ['Verhandlung', 'hearing, trial', '⚖️', 'die', 'Verhandlungen'],
-  ['Urteil', 'verdict, sentence', '🔨', 'das', 'Urteile'],
+  ['Schuldspruch', 'guilty verdict', '🔨', 'der', 'Schuldsprüche'],
   ['Freispruch', 'acquittal', '🕊️', 'der', 'Freisprüche'],
   ['Haftstrafe', 'prison sentence', '⛓️', 'die', 'Haftstrafen'],
   ['Bewährung', 'probation', '🪢', 'die'],
-  ['verurteilen', 'to convict, sentence', '👨‍⚖️'],
+  ['freisprechen', 'to acquit', '👨‍⚖️'],
 ]);
 
 const rules = vocabList(U, 'Rules & offences', [
   ['Ordnungswidrigkeit', 'administrative offence', '🅿️', 'die', 'Ordnungswidrigkeiten'],
-  ['Bußgeld', 'fine', '💶', 'das', 'Bußgelder'],
-  ['Verstoß', 'violation', '🚫', 'der', 'Verstöße'],
+  ['Geldstrafe', 'fine (criminal)', '💶', 'die', 'Geldstrafen'],
+  ['Zuwiderhandlung', 'contravention', '🚫', 'die', 'Zuwiderhandlungen'],
   ['Verordnung', 'regulation, ordinance', '📋', 'die', 'Verordnungen'],
-  ['Haftung', 'liability', '🧯', 'die'],
+  ['Haftpflicht', 'liability (insurance)', '🧯', 'die'],
   ['Schmerzensgeld', 'compensation for pain and suffering', '🩹', 'das'],
   ['Gesetzeslücke', 'legal loophole', '🕳️', 'die', 'Gesetzeslücken'],
   ['verhängen', 'to impose (a penalty)', '📌'],
@@ -120,7 +120,9 @@ export const recht: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Angeklagte', 'Beweis', 'Freispruch', 'Bewährung', 'Bußgeld', 'Haftung')),
+      memory(
+        byDe(vocab, 'Angeklagte', 'Indiz', 'Freispruch', 'Bewährung', 'Geldstrafe', 'Haftpflicht'),
+      ),
     ),
     activity(
       U,
@@ -201,8 +203,9 @@ export const recht: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Urteil', 'Angeklagte', 'Anklage'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schmerzensgeld', 'Verstoß'), 'type').items,
+          ...spell(byDe(vocab, 'Schuldspruch', 'Angeklagte', 'Anklage'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schmerzensgeld', 'Zuwiderhandlung'), 'type')
+            .items,
           dictation('d1', 'Der Beweis ist nicht zu widerlegen.', 'The evidence cannot be refuted.'),
           dictation(
             'd2',
