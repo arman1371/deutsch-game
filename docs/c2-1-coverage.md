@@ -1,9 +1,9 @@
-# C2.1 – syllabus research, coverage and overlap with A1.1–C1.1
+# C2.1 – syllabus research, coverage and overlap with A1.1–C1.2
 
 C2.1 is the first half of the C2 level (C2.2 is built in a sibling thread). The rule from A2.2 to B1.2 still applies: **teach
 what is new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone unit – what
 is already taught.** `src/content/c2-1/content.test.ts` enforces the vocabulary side: no word card in C2.1 repeats a word card
-of A1.1–C1.1 (or another C2.1 unit). B2.1, B2.2 and C1.1 were merged while C2.1 was in review; the 95 C2.1 word cards that repeated
+of A1.1–C1.2 (or another C2.1 unit). B2.1, B2.2, C1.1 and C1.2 were merged while C2.1 was in review; the 124 C2.1 word cards that repeated
 their vocabulary were replaced with new words.
 
 The German content has **not yet been reviewed by a native speaker.**

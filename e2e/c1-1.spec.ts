@@ -9,13 +9,13 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('C1.1 – level navigation', () => {
-  test('Home lists C1.1 as available and C1.2 as coming soon', async ({ page }) => {
+  test('Home lists C1.1 as available and C2.2 as coming soon', async ({ page }) => {
     await page.goto('/');
     const card = page.getByTestId('level-c1-1');
     await expect(card).toContainText('C1.1');
     await expect(card).toContainText(`0 / ${c11.activities.length} games`);
     await expect(
-      page.getByRole('heading', { name: 'C1.2' }).locator('xpath=ancestor::li'),
+      page.getByRole('heading', { name: 'C2.2' }).locator('xpath=ancestor::li'),
     ).toContainText('Coming soon');
   });
 

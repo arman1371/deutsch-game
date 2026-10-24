@@ -27,9 +27,9 @@ const style = vocabList(U, 'Language & style', [
   ['Mehrdeutigkeit', 'ambiguity', '🔀', 'die', 'Mehrdeutigkeiten'],
   ['Stichelei', 'jibe, snide remark', '👀', 'die', 'Sticheleien'],
   ['Beiklang', 'overtone, connotation', '🎼', 'der'],
-  ['Wortwahl', 'choice of words', '🔤', 'die'],
+  ['Formulierungskunst', 'art of phrasing', '🔤', 'die'],
   ['Klangfarbe', 'tone colour, timbre', '🎙️', 'die', 'Klangfarben'],
-  ['Pointe', 'punchline, point', '🎯', 'die', 'Pointen'],
+  ['Wortspiel', 'pun, play on words', '🎯', 'das', 'Wortspiele'],
   ['Spott', 'mockery', '🙃', 'der'],
   ['unmissverständlich', 'unmistakable, unambiguous', '✅'],
   ['umschreiben', 'to paraphrase', '🔁'],
@@ -86,7 +86,7 @@ export const sprache: UnitContent = {
       'flashcards',
       meta(
         'Language & style',
-        'Ausdrucksvermögen, Beiklang, Pointe – the words for how we say things.',
+        'Ausdrucksvermögen, Beiklang, Wortspiel – the words for how we say things.',
         ['vocabulary', 'c21-language-style'],
         1,
         6,
@@ -124,7 +124,7 @@ export const sprache: UnitContent = {
           'Stichelei',
           'Beiklang',
           'Klangfarbe',
-          'Pointe',
+          'Wortspiel',
           'verharmlosen',
           'zuspitzen',
           'Zwischenruf',
@@ -172,8 +172,8 @@ export const sprache: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Spott', 'Pointe'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Wortwahl', 'Klangfarbe'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Spott', 'Wortspiel'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Formulierungskunst', 'Klangfarbe'), 'unscramble').items,
           ...spell(byDe(vocab, 'Fachbegriff', 'Stichelei'), 'type').items,
           ...spell(byDe(vocab, 'unmissverständlich'), 'type').items,
           dictation(

@@ -20,8 +20,8 @@ import type { UnitContent } from './types';
 const U = 'c2-1-medizin';
 
 const care = vocabList(U, 'Medicine & care', [
-  ['Vorsorgeuntersuchung', 'preventive check-up', '🩺', 'die', 'Vorsorgeuntersuchungen'],
-  ['Wechselwirkung', 'interaction (of drugs)', '⚗️', 'die', 'Wechselwirkungen'],
+  ['Reihenuntersuchung', 'screening', '🩺', 'die', 'Reihenuntersuchungen'],
+  ['Wirkungsweise', 'mode of action', '⚗️', 'die'],
   ['Pflegekraft', 'care worker, nurse', '🧑‍⚕️', 'die', 'Pflegekräfte'],
   ['Gesundheitswesen', 'healthcare system', '🏥', 'das'],
   ['Einweisung', 'admission (to hospital)', '👨‍⚕️', 'die', 'Einweisungen'],
@@ -118,7 +118,7 @@ export const medizin: UnitContent = {
       'flashcards',
       meta(
         'Medicine & care',
-        'Vorsorgeuntersuchung, Wechselwirkung, Pflegekraft – the healthcare vocabulary.',
+        'Reihenuntersuchung, Wirkungsweise, Pflegekraft – the healthcare vocabulary.',
         ['vocabulary', 'c21-medicine'],
         1,
         6,
@@ -146,7 +146,7 @@ export const medizin: UnitContent = {
       quizDeEn(
         byDe(
           vocab,
-          'Wechselwirkung',
+          'Wirkungsweise',
           'Gesundheitswesen',
           'Eingriff',
           'Erreger',
@@ -200,7 +200,7 @@ export const medizin: UnitContent = {
         byDe(
           vocab,
           'Arbeitsunfähigkeit',
-          'Vorsorgeuntersuchung',
+          'Reihenuntersuchung',
           'verordnen',
           'heilen',
           'Ruhephase',
@@ -225,7 +225,7 @@ export const medizin: UnitContent = {
         items: [
           ...spell(byDe(vocab, 'Erreger', 'Genesungsprozess'), 'unscramble').items,
           ...spell(byDe(vocab, 'Impfstoff', 'Einweisung'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Wechselwirkung', 'Pflegebedürftigkeit'), 'type').items,
+          ...spell(byDe(vocab, 'Wirkungsweise', 'Pflegebedürftigkeit'), 'type').items,
           ...spell(byDe(vocab, 'Gesundheitswesen'), 'type').items,
           dictation(
             'd1',

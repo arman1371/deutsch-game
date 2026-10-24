@@ -34,19 +34,19 @@ const economy = vocabList(U, 'The economy', [
 ]);
 
 const money = vocabList(U, 'Wealth & finance', [
-  ['Vermögen', 'wealth, assets', '💰', 'das'],
+  ['Notgroschen', 'nest egg, savings for a rainy day', '💰', 'der'],
   ['Altersvorsorge', 'provision for old age', '🧓', 'die'],
   ['Gewinnspanne', 'profit margin', '📊', 'die', 'Gewinnspannen'],
   ['Anleger', 'investor', '🧑‍💼', 'der', 'Anleger'],
   ['Steuerlast', 'tax burden', '🧮', 'die'],
-  ['Zahlungsunfähigkeit', 'insolvency', '🧾', 'die'],
+  ['Schuldenfalle', 'debt trap', '🧾', 'die', 'Schuldenfallen'],
   ['Erbschaft', 'inheritance', '📜', 'die', 'Erbschaften'],
   ['subventionieren', 'to subsidise', '💼'],
   ['besteuern', 'to tax', '🏷️'],
   ['bezuschussen', 'to subsidise', '🎟️'],
   ['vererben', 'to bequeath', '🗝️'],
   ['wohlhabend', 'affluent, well-off', '💎'],
-  ['verschuldet', 'in debt', '⛓️'],
+  ['kreditwürdig', 'creditworthy', '⛓️'],
 ]);
 
 const vocab = [...economy, ...money];
@@ -115,7 +115,7 @@ export const wirtschaft: UnitContent = {
           'Steuerlast',
           'bezuschussen',
           'vererben',
-          'verschuldet',
+          'kreditwürdig',
         ),
         vocab,
       ),
@@ -139,7 +139,7 @@ export const wirtschaft: UnitContent = {
           'Lohngefälle',
           'Grundeinkommen',
           'Anleger',
-          'Zahlungsunfähigkeit',
+          'Schuldenfalle',
           'Erbschaft',
           'wohlhabend',
         ),
@@ -162,7 +162,7 @@ export const wirtschaft: UnitContent = {
           'Wirtschaftsflaute',
           'Staatsverschuldung',
           'Strafzoll',
-          'Vermögen',
+          'Notgroschen',
           'Altersvorsorge',
           'subventionieren',
           'besteuern',
@@ -186,7 +186,7 @@ export const wirtschaft: UnitContent = {
           ...spell(byDe(vocab, 'Gewinnspanne', 'Anleger'), 'unscramble').items,
           ...spell(byDe(vocab, 'Wirtschaftsaufschwung', 'Wirtschaftsflaute'), 'unscramble').items,
           ...spell(byDe(vocab, 'Staatsverschuldung', 'Inflationsrate'), 'type').items,
-          ...spell(byDe(vocab, 'Zahlungsunfähigkeit'), 'type').items,
+          ...spell(byDe(vocab, 'Schuldenfalle'), 'type').items,
           dictation(
             'd1',
             'Die Teuerungsrate ist im Herbst leicht gesunken.',
@@ -577,7 +577,7 @@ export const wirtschaft: UnitContent = {
             'trade agreement',
             'supply chain',
           ]),
-          q('c9', 'verschuldet', 'in debt', ['affluent', 'insolvent', 'wealthy']),
+          q('c9', 'kreditwürdig', 'in debt', ['affluent', 'insolvent', 'wealthy']),
           q('c10', 'Welches Wort passt zu „Bedarf an Waren“?', 'die Nachfrage', [
             'die Insolvenz',
             'die Erbschaft',
