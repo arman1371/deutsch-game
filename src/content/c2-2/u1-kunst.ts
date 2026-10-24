@@ -47,7 +47,7 @@ const urteil = vocabList(U, 'Judging a work', [
   ['schlicht', 'plain, simple', '⚪'],
   ['überladen', 'overloaded, cluttered', '🎪'],
   ['verstören', 'to unsettle', '😧'],
-  ['vermitteln', 'to convey', '📡'],
+  ['verkörpern', 'to embody, to represent', '📡'],
   ['widerspiegeln', 'to reflect', '🪞'],
   ['hinterfragen', 'to question critically', '❓'],
   ['Betrachter', 'viewer, beholder', '👀', 'der', 'Betrachter'],

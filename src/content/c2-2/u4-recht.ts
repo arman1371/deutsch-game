@@ -22,16 +22,16 @@ const U = 'c2-2-recht';
 const LESSON = 'c22-gerundive' as const;
 
 const gericht = vocabList(U, 'Courts & crime', [
-  ['Delikt', 'offence', '🚨', 'das', 'Delikte'],
-  ['Angeklagte', 'defendant (adjectival noun)', '🧑‍🦱', 'der', 'Angeklagten'],
-  ['Anklage', 'indictment, charge', '👉', 'die', 'Anklagen'],
-  ['Verhandlung', 'hearing, trial', '🏛️', 'die', 'Verhandlungen'],
+  ['Verfehlung', 'offence, misdemeanour', '🚨', 'die', 'Verfehlungen'],
+  ['Beschuldigte', 'accused (adjectival noun)', '🧑‍🦱', 'der', 'Beschuldigten'],
+  ['Klageschrift', 'statement of claim', '👉', 'die', 'Klageschriften'],
+  ['Gerichtstermin', 'court date', '🏛️', 'der', 'Gerichtstermine'],
   ['Richterspruch', 'judge’s ruling', '🔨', 'der', 'Richtersprüche'],
-  ['Freispruch', 'acquittal', '🕊️', 'der', 'Freisprüche'],
+  ['Verurteilung', 'conviction', '🕊️', 'die', 'Verurteilungen'],
   ['Gutachten', 'expert opinion', '📄', 'das', 'Gutachten'],
-  ['Indiz', 'circumstantial evidence', '🔎', 'das', 'Indizien'],
+  ['Zeugenaussage', 'witness statement', '🔎', 'die', 'Zeugenaussagen'],
   ['Revision', 'appeal on points of law', '📤', 'die', 'Revisionen'],
-  ['Bewährung', 'probation', '⏳', 'die'],
+  ['Freiheitsstrafe', 'prison sentence', '⏳', 'die', 'Freiheitsstrafen'],
   ['Staatsanwalt', 'public prosecutor', '👔', 'der', 'Staatsanwälte'],
   ['Kläger', 'plaintiff', '🙋', 'der', 'Kläger'],
   ['Verjährung', 'statute of limitations', '⌛', 'die'],
@@ -41,7 +41,7 @@ const gericht = vocabList(U, 'Courts & crime', [
 const verfahren = vocabList(U, 'Legal procedure', [
   ['anklagen', 'to charge', '☝️'],
   ['belangen', 'to prosecute, to hold liable', '⚖️'],
-  ['freisprechen', 'to acquit', '✅'],
+  ['begnadigen', 'to pardon', '✅'],
   ['vorladen', 'to summon', '📬'],
   ['bestreiten', 'to deny, to dispute', '🙅'],
   ['rechtskräftig', 'legally binding, final', '📌'],
@@ -84,7 +84,7 @@ export const recht: UnitContent = {
         {
           key: 'court',
           title: 'Courts & crime',
-          description: 'Anklage, Indiz, Revision – what happens in a trial.',
+          description: 'Klageschrift, Zeugenaussage, Revision – what happens in a trial.',
           vocab: gericht,
         },
         {
@@ -96,12 +96,12 @@ export const recht: UnitContent = {
       ],
       pictures: byDe(
         gericht,
-        'Delikt',
-        'Angeklagte',
-        'Verhandlung',
+        'Verfehlung',
+        'Beschuldigte',
+        'Gerichtstermin',
         'Richterspruch',
-        'Freispruch',
-        'Indiz',
+        'Verurteilung',
+        'Zeugenaussage',
         'Staatsanwalt',
         'Wiedergutmachung',
       ),
@@ -113,7 +113,7 @@ export const recht: UnitContent = {
         verfahren,
         'anklagen',
         'belangen',
-        'freisprechen',
+        'begnadigen',
         'vorladen',
         'bestreiten',
         'rechtskräftig',
@@ -122,7 +122,7 @@ export const recht: UnitContent = {
       ),
       memoryTitle: 'Legal memory',
       memoryDescription: 'Match each legal term with its meaning.',
-      unscramble: byDe(gericht, 'Anklage', 'Gutachten', 'Revision'),
+      unscramble: byDe(gericht, 'Klageschrift', 'Gutachten', 'Revision'),
       typeIn: byDe(gericht, 'Verjährung', 'Staatsanwalt'),
       dictations: [
         [

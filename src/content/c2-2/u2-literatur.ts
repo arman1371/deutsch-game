@@ -23,16 +23,16 @@ const U = 'c2-2-literatur';
 const LESSON = 'c22-subjective-modals' as const;
 
 const buch = vocabList(U, 'Books & authors', [
-  ['Erzähler', 'narrator', '🎙️', 'der', 'Erzähler'],
+  ['Chronist', 'chronicler', '🎙️', 'der', 'Chronisten'],
   ['Protagonist', 'protagonist', '🦸', 'der', 'Protagonisten'],
-  ['Erzählstrang', 'narrative strand', '🧵', 'der', 'Erzählstränge'],
-  ['Schauplatz', 'setting, scene of action', '📍', 'der', 'Schauplätze'],
+  ['Handlungsverlauf', 'course of the plot', '🧵', 'der', 'Handlungsverläufe'],
+  ['Spielort', 'setting, venue', '📍', 'der', 'Spielorte'],
   ['Lyrik', 'poetry', '🪶', 'die'],
   ['Auflage', 'edition, print run', '📚', 'die', 'Auflagen'],
   ['Lektor', 'editor (publishing)', '🏢', 'der', 'Lektoren'],
   ['Übersetzung', 'translation', '🔤', 'die', 'Übersetzungen'],
   ['Feuilleton', 'arts pages', '📰', 'das', 'Feuilletons'],
-  ['Klappentext', 'blurb', '🏷️', 'der', 'Klappentexte'],
+  ['Vorwort', 'foreword', '🏷️', 'das', 'Vorworte'],
   ['Nachlass', 'literary estate', '🗃️', 'der'],
   ['Nachwort', 'afterword', '🎤', 'das', 'Nachworte'],
   ['Zitat', 'quotation', '💭', 'das', 'Zitate'],
@@ -40,7 +40,7 @@ const buch = vocabList(U, 'Books & authors', [
 ]);
 
 const kritik = vocabList(U, 'Reviewing a book', [
-  ['fesselnd', 'gripping', '🧲'],
+  ['mitreißend', 'rousing, gripping', '🧲'],
   ['langatmig', 'long-winded', '🐌'],
   ['hintergründig', 'subtle, with hidden depth', '💞'],
   ['tiefgründig', 'profound', '🌊'],
@@ -49,7 +49,7 @@ const kritik = vocabList(U, 'Reviewing a book', [
   ['konstruiert', 'contrived', '🧩'],
   ['schildern', 'to portray vividly', '🖌️'],
   ['anspielen auf', 'to allude to', '🎯'],
-  ['verfassen', 'to write, to compose', '✒️'],
+  ['abfassen', 'to draft, to compose', '✒️'],
   ['monieren', 'to criticise, to take issue with', '🧐'],
   ['Resümee', 'summing-up, conclusion', '🏁', 'das', 'Resümees'],
   ['Leseempfehlung', 'reading recommendation', '👍', 'die', 'Leseempfehlungen'],
@@ -88,13 +88,13 @@ export const literatur: UnitContent = {
         {
           key: 'books',
           title: 'Books & authors',
-          description: 'Erzähler, Erzählstrang, Lektor – the world of literature.',
+          description: 'Chronist, Handlungsverlauf, Lektor – the world of literature.',
           vocab: buch,
         },
         {
           key: 'review',
           title: 'Reviewing a book',
-          description: 'fesselnd, langatmig, Feuilleton – the vocabulary of a review.',
+          description: 'mitreißend, langatmig, Feuilleton – the vocabulary of a review.',
           vocab: kritik,
         },
       ],
@@ -103,7 +103,7 @@ export const literatur: UnitContent = {
         'Lektor',
         'Übersetzung',
         'Feuilleton',
-        'Klappentext',
+        'Vorwort',
         'Nachlass',
         'Nachwort',
         'Zitat',
@@ -115,7 +115,7 @@ export const literatur: UnitContent = {
       listenTitle: 'Hear the reviewer',
       pairs: byDe(
         kritik,
-        'fesselnd',
+        'mitreißend',
         'langatmig',
         'hintergründig',
         'tiefgründig',
@@ -126,8 +126,8 @@ export const literatur: UnitContent = {
       ),
       memoryTitle: 'Reviewer’s memory',
       memoryDescription: 'Match each review word with its meaning.',
-      unscramble: byDe(buch, 'Erzählstrang', 'Lektor', 'Zitat'),
-      typeIn: byDe(buch, 'Feuilleton', 'Klappentext'),
+      unscramble: byDe(buch, 'Handlungsverlauf', 'Lektor', 'Zitat'),
+      typeIn: byDe(buch, 'Feuilleton', 'Vorwort'),
       dictations: [
         [
           'd1',

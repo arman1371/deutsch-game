@@ -1,10 +1,10 @@
-# C2.2 – syllabus research, coverage and overlap with A1.1–C1.1
+# C2.2 – syllabus research, coverage and overlap with A1.1–C1.2
 
 C2.2 is the second half of the C2 level. It was built from every C2 document that could be found online and
 read, checked against the CEFR C2 descriptors. The rule from the earlier levels still applies: **teach what is
 new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone
 unit – what is already taught.** `src/content/c2-2/content.test.ts` enforces the vocabulary side: no word card
-in C2.2 repeats a word card of A1.1 to C1.1 (or another C2.2 unit).
+in C2.2 repeats a word card of A1.1 to C1.2 (or another C2.2 unit).
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -81,7 +81,7 @@ C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`.
 | Konjunktiv I, Futur II, adverbial clauses, Nomen-Verb-Verbindungen, Wortbildung | C2.1 (see split above)                                                                                |
 | Verbs with prepositional complements                                            | E ch. 3 and W (I) list them, but they belong with the Nomen-Verb-Verbindungen chapter that C2.1 takes |
 
-## Grammar overlap with A1.1–C1.1
+## Grammar overlap with A1.1–C1.2
 
 | Syllabus item               | Earlier levels                                                                  | Treatment in C2.2                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -95,7 +95,9 @@ C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`.
 | Modal particles             | B1.2 (PR #13) teaches doch, mal, eben                                           | extended to nuance: halt, wohl, schon, immerhin, ohnehin, bloß, etwa, eigentlich (u8)          |
 | Speech acts of discussion   | B1.2 (PR #13) has a discussion unit                                             | **new level of register:** concede, qualify, refute, conclude (u9)                             |
 
-C1.1 (merged while C2.2 was in review) already teaches four of these grammar points at C1 depth: subjective modal verbs
+C1.2 (also merged during review) adds modality verbs with zu, participial clauses, passive substitutes and written genitive
+prepositions (aufgrund, infolge, anhand …) at C1 depth; C2.2 repeats none of its word cards (the vocabulary test covers C1.2)
+and extends these points to C2 register. C1.1 (merged while C2.2 was in review) already teaches four of these grammar points at C1 depth: subjective modal verbs
 (`subjective-modals`, u2), participial attributes (`participial-attributes`, u8), separable and inseparable prefixes
 (`prefix-verbs`, u9) and alternatives to modal verbs (`modal-alternatives`, u11). C2.2 keeps its own `c22-` tags and lessons for
 these, as C1.1 did for `unreal-consecutive`, and treats them at C2 depth: long extended attributes with relative-clause

@@ -24,7 +24,7 @@ const LESSON = 'c22-passive-alternatives' as const;
 const welt = vocabList(U, 'Globalisation & climate', [
   ['Welthandel', 'world trade', '🌐', 'der'],
   ['Klimakrise', 'climate crisis', '🌡️', 'die', 'Klimakrisen'],
-  ['Schadstoff', 'pollutant', '🏭', 'der', 'Schadstoffe'],
+  ['Abgas', 'exhaust gas', '🏭', 'das', 'Abgase'],
   ['Dürreperiode', 'period of drought', '🔥', 'die', 'Dürreperioden'],
   ['Biodiversität', 'biodiversity', '🦋', 'die'],
   ['Absatzmarkt', 'sales market', '🚚', 'der', 'Absatzmärkte'],
@@ -34,7 +34,7 @@ const welt = vocabList(U, 'Globalisation & climate', [
   ['Rodung', 'clearing (of forest)', '🪓', 'die', 'Rodungen'],
   ['Hochwasser', 'flood', '🏜️', 'das'],
   ['Hitzewelle', 'heat wave', '🥵', 'die', 'Hitzewellen'],
-  ['Artenvielfalt', 'biodiversity', '🐝', 'die'],
+  ['Lebensraum', 'habitat', '🐝', 'der', 'Lebensräume'],
   ['Emissionshandel', 'emissions trading', '⚡', 'der'],
   ['Permafrost', 'permafrost', '🌊', 'der'],
 ]);
@@ -99,7 +99,7 @@ export const klima: UnitContent = {
       pictures: byDe(
         welt,
         'Welthandel',
-        'Schadstoff',
+        'Abgas',
         'Biodiversität',
         'Absatzmarkt',
         'Rodung',
