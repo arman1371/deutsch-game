@@ -1,4 +1,4 @@
-# C2.2 – syllabus research, coverage and overlap with A1.1–B1.1
+# C2.2 – syllabus research, coverage and overlap with A1.1–B1.2
 
 C2.2 is the second half of the C2 level. It was built from every C2 document that could be found online and
 read, checked against the CEFR C2 descriptors. The rule from the earlier levels still applies: **teach what is
