@@ -902,6 +902,96 @@ export const LESSONS = {
       'Knapp ein Drittel der Betriebe arbeitet ökologisch.',
     ],
   },
+  'c21-word-formation': {
+    title: 'Suffixes and prefixes',
+    rule: '-bar = can be …ed (lösbar), -los = without (hilflos), -reich / -voll = rich in (erfolgreich), -sam / -haft = having the quality (aufmerksam, fehlerhaft), -mäßig = according to (regelmäßig). Nouns: -keit/-heit/-ung/-schaft/-nis (all feminine except -nis, which is often neuter).',
+    examples: [
+      'lösen → lösbar · Hilfe → hilflos · Erfolg → erfolgreich',
+      'offen → die Offenheit · verständigen → die Verständigung',
+      'un-, miss-, ur-: unklar, missverstehen, uralt',
+    ],
+  },
+  'c21-noun-verb': {
+    title: 'Noun-verb combinations',
+    rule: 'Fixed pairs of a noun and a verb carry the meaning of a single verb in formal writing: Kritik üben (kritisieren), in Betracht ziehen (erwägen). The verb is often only a carrier and the noun cannot be swapped or changed freely, so learn them as a block. Passive meaning: zur Verfügung stehen.',
+    examples: [
+      'Wir ziehen diese Möglichkeit in Betracht.',
+      'Die Firma stellt Mitarbeitern Räume zur Verfügung.',
+      'Er übte scharfe Kritik an dem Plan.',
+    ],
+  },
+  'c21-contrast-cause': {
+    title: 'Contrast and cause clauses',
+    rule: 'während / wohingegen = whereas (contrast), (an)statt dass = instead of, zumal = especially as (an added reason), dadurch, dass = because of the fact that. All are subordinating: the finite verb goes to the end. nämlich cannot start a sentence; it gives a reason in a main clause.',
+    examples: [
+      'Sie spart, während er jeden Cent ausgibt.',
+      'Wir sollten warten, zumal die Zahlen unklar sind.',
+      'Er ist müde. Er hat nämlich kaum geschlafen.',
+    ],
+  },
+  'c21-consecutive': {
+    title: 'Formal result clauses',
+    rule: 'derart / dermaßen / so + adjective … dass stresses the degree and the result; the dass-clause ends with the verb. In a main clause, folglich, infolgedessen, somit, mithin and demnach draw a conclusion: they take position 1, the verb is second.',
+    examples: [
+      'Das Netz war derart langsam, dass die Konferenz abbrach.',
+      'Die Daten fehlen. Folglich lässt sich nichts beweisen.',
+      'Die Kosten sinken. Somit wird die Technik erschwinglich.',
+    ],
+  },
+  'c21-futur-2': {
+    title: 'Futur II',
+    rule: 'werden + participle + haben/sein at the end. It expresses that something will be finished by a future time (Bis 2040 werden wir …gelöst haben) or a guess about the past (Er wird es vergessen haben = he has probably forgotten it).',
+    examples: [
+      'Bis Freitag werde ich den Bericht geschrieben haben.',
+      'Sie wird den Zug verpasst haben.',
+      'In zehn Jahren wird sich viel verändert haben.',
+    ],
+  },
+  'c21-reported-speech': {
+    title: 'Konjunktiv I (reported speech)',
+    rule: 'Reported speech uses Konjunktiv I: stem + -e, -est, -e, -en, -et, -en (er habe, sie komme, sei for sein). If it looks like the indicative (ich/wir/sie: haben), use Konjunktiv II instead (sie hätten). Past events: sei/habe + participle. Typical in news reports.',
+    examples: [
+      'Der Minister sagte, er habe keine Kenntnis davon.',
+      'Die Forscher erklärten, die Methode sei sicher.',
+      'Sie sagten, sie hätten keine Zeit gehabt.',
+    ],
+  },
+  'c21-nominal-style': {
+    title: 'Nominal style',
+    rule: 'Formal texts replace clauses by prepositional phrases: weil → wegen / aufgrund + genitive, obwohl → trotz + genitive, indem → durch + accusative, wenn → bei + dative, nachdem → nach + dative, ohne zu → ohne + noun. The verb becomes a noun (verzögern → die Verzögerung).',
+    examples: [
+      'Weil der Zug Verspätung hatte, … → Aufgrund der Verspätung des Zuges …',
+      'Indem man spart, … → Durch Sparen …',
+      'Er schrieb, ohne zu zögern. → Er schrieb ohne Zögern.',
+    ],
+  },
+  'c21-unreal': {
+    title: 'Unreal comparisons and hindsight',
+    rule: 'als ob / als wenn + Konjunktiv II (verb at the end), or als + verb in position 2: Er tut, als ob er schliefe / als schliefe er. Unreal conditions can drop wenn: Hätte ich das gewusst, wäre ich gekommen. Criticism after the fact: hätte + infinitive + modal infinitive (Du hättest anrufen müssen).',
+    examples: [
+      'Sie tut so, als ob sie nichts wüsste.',
+      'Hätte ich das gewusst, wäre ich früher gekommen.',
+      'Wir hätten das früher entscheiden sollen.',
+    ],
+  },
+  'c21-text-cohesion': {
+    title: 'Linking sentences',
+    rule: 'Pronominal adverbs (dabei, dadurch, dafür, daraufhin) and connectors (zudem, außerdem, hingegen, demgegenüber, ferner) tie sentences together without repeating nouns. Most take position 1 and the verb follows directly. da(r)- + preposition refers to the whole sentence before.',
+    examples: [
+      'Er sanierte das Haus. Dabei entdeckte er alte Fresken.',
+      'Das Konzept überzeugt. Zudem ist es günstig.',
+      'Die Preise stiegen. Daraufhin kauften weniger Leute.',
+    ],
+  },
+  'c21-concession': {
+    title: 'Concession in writing',
+    rule: 'wenngleich, obgleich, wenn auch = although (verb at the end). allerdings, freilich, indes = however (main clause, verb after it). so … auch + adjective = however … (So klug er auch ist, …). Use them to admit a point before you weigh it.',
+    examples: [
+      'Wenngleich der Plan mutig ist, bleibt das Risiko hoch.',
+      'Das stimmt, allerdings fehlen die Belege.',
+      'So gut die Idee auch klingt, sie ist zu teuer.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;

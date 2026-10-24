@@ -1,0 +1,636 @@
+import { byDe, flashcards, listen, memory, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  meta,
+  q,
+  say,
+  sortItems,
+  sw,
+  tf,
+  unitC21,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'c2-1-medien';
+
+const media = vocabList(U, 'Media', [
+  ['Bildunterschrift', 'caption', '📰', 'die', 'Bildunterschriften'],
+  ['Verschwörungstheorie', 'conspiracy theory', '🚫', 'die', 'Verschwörungstheorien'],
+  ['Meinungsbildung', 'forming of opinion', '🧠', 'die'],
+  ['Informationsfreiheit', 'freedom of information', '🕊️', 'die'],
+  ['Leserbrief', 'letter to the editor', '✉️', 'der', 'Leserbriefe'],
+  ['Kommentar', 'commentary, opinion piece', '🖊️', 'der', 'Kommentare'],
+  ['Recherche', 'research (journalistic)', '🔎', 'die', 'Recherchen'],
+  ['Quellenlage', 'state of the sources', '✅', 'die'],
+  ['Echokammer', 'echo chamber', '🫧', 'die', 'Echokammern'],
+  ['Einordnung', 'putting into context', '🧭', 'die'],
+  ['Richtigstellung', 'correction', '✔️', 'die', 'Richtigstellungen'],
+  ['Auflage', 'print run, circulation', '📡', 'die', 'Auflagen'],
+  ['kolportieren', 'to spread (a rumour)', '📣'],
+  ['aufdecken', 'to uncover', '🔦'],
+  ['nachhaken', 'to press for details', '🔍'],
+  ['nüchtern', 'sober, matter-of-fact', '🧊'],
+  ['tendenziös', 'biased, slanted', '↗️'],
+  ['reißerisch', 'sensationalist', '💥'],
+]);
+
+const opinion = vocabList(U, 'Opinion & debate', [
+  ['Blickwinkel', 'angle, perspective', '📍', 'der', 'Blickwinkel'],
+  ['Gegenentwurf', 'counter-proposal', '🔀', 'der', 'Gegenentwürfe'],
+  ['Gegendarstellung', 'counter-statement, right of reply', '📄', 'die', 'Gegendarstellungen'],
+  ['Meinungsvielfalt', 'diversity of opinion', '🌈', 'die'],
+  ['Zuspruch', 'approval, support', '👍', 'der'],
+  ['Empörung', 'outrage', '😡', 'die'],
+  ['Kontroverse', 'controversy', '🔥', 'die', 'Kontroversen'],
+  ['polarisieren', 'to polarise', '🧲'],
+  ['zuschreiben', 'to attribute to', '🕵️'],
+  ['anprangern', 'to denounce', '📢'],
+  ['relativieren', 'to put into perspective', '⚖️'],
+  ['pauschal', 'sweeping, blanket', '🧳'],
+  ['differenziert', 'nuanced', '🎨'],
+]);
+
+const vocab = [...media, ...opinion];
+
+export const medien: UnitContent = {
+  unit: unitC21({
+    id: U,
+    order: 8,
+    title: 'Medien & Meinung',
+    subtitle: 'Press, credibility, opinion pieces and sentence linking',
+    emoji: '📰',
+    goals: [
+      'Assess the reliability and slant of a news report',
+      'Write a letter to the editor and distinguish report from opinion',
+      'Link sentences with dabei, dadurch, zudem, hingegen and daraufhin',
+    ],
+    grammar: [
+      'Pronominal adverbs as links: dabei, dadurch, dazu, daraufhin',
+      'Additive connectors: zudem, ferner, überdies',
+      'Contrastive connectors: hingegen, demgegenüber, dagegen',
+    ],
+    vocabFields: ['Media', 'Opinion & debate'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-media',
+      'flashcards',
+      meta(
+        'Media',
+        'Bildunterschrift, Quellenlage, Verschwörungstheorie – the vocabulary of the press.',
+        ['vocabulary', 'c21-media-opinion'],
+        1,
+        6,
+      ),
+      flashcards(media),
+    ),
+    activity(
+      U,
+      'flash-opinion',
+      'flashcards',
+      meta(
+        'Opinion & debate',
+        'Blickwinkel, Kontroverse, relativieren – words for opinion.',
+        ['vocabulary', 'c21-media-opinion'],
+        1,
+        5,
+      ),
+      flashcards(opinion),
+    ),
+    activity(
+      U,
+      'quiz-meaning',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'Pick the English meaning.',
+        ['vocabulary', 'c21-media-opinion'],
+        2,
+        5,
+      ),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Meinungsbildung',
+          'Echokammer',
+          'Richtigstellung',
+          'Auflage',
+          'tendenziös',
+          'reißerisch',
+          'Zuspruch',
+          'zuschreiben',
+          'anprangern',
+          'pauschal',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-press',
+      'memory',
+      meta(
+        'Match the words',
+        'German words and their meanings.',
+        ['vocabulary', 'c21-media-opinion'],
+        2,
+        4,
+      ),
+      memory(
+        byDe(
+          vocab,
+          'Leserbrief',
+          'Kommentar',
+          'Recherche',
+          'Einordnung',
+          'Gegendarstellung',
+          'Empörung',
+          'nüchtern',
+          'differenziert',
+        ),
+      ),
+    ),
+    activity(
+      U,
+      'listen-words',
+      'listen',
+      meta(
+        'Hear the press words',
+        'Listen and pick the meaning.',
+        ['listening', 'c21-media-opinion'],
+        2,
+        4,
+      ),
+      listen(
+        byDe(
+          vocab,
+          'Informationsfreiheit',
+          'Verschwörungstheorie',
+          'aufdecken',
+          'kolportieren',
+          'Gegenentwurf',
+          'Meinungsvielfalt',
+          'polarisieren',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'spell-press',
+      'spell',
+      meta(
+        'Spell the newsroom',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'c21-media-opinion'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(vocab, 'Kommentar', 'Blickwinkel'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Recherche', 'Kontroverse'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Bildunterschrift', 'Quellenlage'), 'type').items,
+          ...spell(byDe(vocab, 'Gegendarstellung'), 'type').items,
+          dictation(
+            'd1',
+            'Der Reporter recherchierte lange. Dabei stieß er auf Widersprüche.',
+            'The reporter researched for a long time. In doing so he came across contradictions.',
+          ),
+          dictation(
+            'd2',
+            'Die Redaktion veröffentlichte daraufhin eine Richtigstellung.',
+            'The editorial team then published a correction.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-links',
+      'gapfill',
+      meta(
+        'Dabei, zudem, hingegen',
+        'Choose the connector that links the sentences.',
+        ['grammar', 'c21-text-cohesion'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'l1',
+            'Er sanierte das Haus. ___ entdeckte er alte Fresken.',
+            'Dabei',
+            ['Dabei', 'Dafür', 'Dagegen', 'Darum'],
+            'He renovated the house. In doing so he discovered old frescoes.',
+            'dabei = while doing that; it links to the action just mentioned.',
+          ),
+          gap(
+            'l2',
+            'Das Konzept überzeugt. ___ ist es günstig.',
+            'Zudem',
+            ['Zudem', 'Hingegen', 'Daraufhin', 'Dabei'],
+            'The concept is convincing. Moreover it is cheap.',
+            'zudem / ferner / überdies add a further point.',
+          ),
+          gap(
+            'l3',
+            'Die Preise stiegen. ___ kauften weniger Leute ein.',
+            'Daraufhin',
+            ['Daraufhin', 'Dabei', 'Hingegen', 'Zudem'],
+            'Prices rose. As a result fewer people shopped.',
+            'daraufhin = as a reaction to that.',
+          ),
+          gap(
+            'l4',
+            'Die Opposition lehnt das Gesetz ab. Die Regierung hält es ___ für notwendig.',
+            'hingegen',
+            ['hingegen', 'zudem', 'dabei', 'daraufhin'],
+            'The opposition rejects the law. The government, on the other hand, considers it necessary.',
+            'hingegen can stand inside the sentence, too.',
+          ),
+          gap(
+            'l5',
+            'Die Redaktion prüfte die Quelle. ___ stellte sich die Meldung als Falschmeldung heraus.',
+            'Dabei',
+            ['Dabei', 'Dagegen', 'Dafür', 'Dazu'],
+            'The editorial team checked the source. In the process the report turned out to be false.',
+          ),
+          gap(
+            'l6',
+            'Die Zeitung bezahlt gut. ___ bietet sie Weiterbildungen an.',
+            'Ferner',
+            ['Ferner', 'Hingegen', 'Dagegen', 'Darum'],
+            'The newspaper pays well. It also offers further training.',
+          ),
+          gap(
+            'l7',
+            'Es gibt eine große Kontroverse. ___ äußerten sich viele Leserinnen.',
+            'Dazu',
+            ['Dazu', 'Dabei', 'Dadurch', 'Dahin'],
+            'There is a major controversy. Many readers commented on it.',
+            'dazu = on that topic (äußern + zu).',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-connectors',
+      'sortit',
+      meta(
+        'Add, contrast or react?',
+        'What do these connectors do?',
+        ['grammar', 'c21-text-cohesion'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'What does the connector express?',
+        buckets: [
+          { id: 'add', label: 'Addition', emoji: '➕' },
+          { id: 'contrast', label: 'Contrast', emoji: '⚖️' },
+          { id: 'react', label: 'Reaction / sequence', emoji: '➡️' },
+        ],
+        items: sortItems('k', [
+          ['zudem', 'add'],
+          ['ferner', 'add'],
+          ['überdies', 'add'],
+          ['hingegen', 'contrast'],
+          ['demgegenüber', 'contrast'],
+          ['dagegen', 'contrast'],
+          ['daraufhin', 'react'],
+          ['anschließend', 'react'],
+          ['danach', 'react'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sort-genre',
+      'sortit',
+      meta(
+        'Report, commentary or letter?',
+        'Which text type does the sentence belong to?',
+        ['communication', 'c21-media-opinion'],
+        3,
+        5,
+      ),
+      {
+        instruction: 'Where would you read this sentence?',
+        buckets: [
+          { id: 'report', label: 'Nachricht (report)', emoji: '📰' },
+          { id: 'comment', label: 'Kommentar (opinion)', emoji: '🖊️' },
+          { id: 'letter', label: 'Leserbrief', emoji: '✉️' },
+        ],
+        items: sortItems('g', [
+          ['Der Bundestag hat am Donnerstag das Gesetz verabschiedet.', 'report'],
+          ['Nach Angaben der Polizei wurden zwei Personen verletzt.', 'report'],
+          ['Dieses Gesetz ist ein Schritt in die falsche Richtung.', 'comment'],
+          ['Man kann nur hoffen, dass die Regierung noch einlenkt.', 'comment'],
+          [
+            'Mit Interesse habe ich Ihren Artikel gelesen, muss Ihnen aber widersprechen.',
+            'letter',
+          ],
+          [
+            'Sehr geehrte Redaktion, zu Ihrem Beitrag vom 3. Mai möchte ich Stellung nehmen.',
+            'letter',
+          ],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'Linking sentences',
+        'Build sentences that start with a connector.',
+        ['grammar', 'word-order', 'c21-text-cohesion'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sw(
+            's1',
+            'In doing so he came across several contradictions.',
+            'Dabei stieß er auf mehrere Widersprüche.',
+          ),
+          sw(
+            's2',
+            'Thereupon the editorial team published a correction.',
+            'Daraufhin veröffentlichte die Redaktion eine Richtigstellung.',
+          ),
+          sw(
+            's3',
+            'Moreover, the newspaper’s credibility is suffering.',
+            'Zudem leidet die Glaubwürdigkeit der Zeitung.',
+          ),
+          sw(
+            's4',
+            'The government, on the other hand, defends the law.',
+            'Die Regierung hingegen verteidigt das Gesetz.',
+          ),
+          sw(
+            's5',
+            'This gives the article greater reach.',
+            'Dadurch gewinnt der Beitrag an Reichweite.',
+          ),
+          sw(
+            's6',
+            'Against this stands the freedom of the press.',
+            'Demgegenüber steht das Recht auf Pressefreiheit.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-press',
+      'listen',
+      meta(
+        'On the radio',
+        'Understand a media discussion.',
+        ['listening', 'c21-media-opinion', 'c21-text-cohesion'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Die Meldung verbreitete sich rasant. Daraufhin musste die Redaktion sie richtigstellen.',
+            'The report spread quickly; the editors then had to correct it.',
+            [
+              'The report was never published.',
+              'The editors praised the report.',
+              'The report was confirmed by the editors.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Der Kommentar ist sachlich geschrieben, wirkt aber dennoch tendenziös.',
+            'The commentary is written in a factual style but still seems biased.',
+            [
+              'The commentary is neutral and unbiased.',
+              'The commentary is an emotional outburst.',
+              'The commentary contains no opinion.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Viele Nutzer leben in einer Filterblase und sehen kaum Gegenpositionen.',
+            'Many users live in a filter bubble and hardly see opposing views.',
+            [
+              'Many users read only opposing views.',
+              'Filter bubbles have been banned.',
+              'Users do not use the internet.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Die Recherche ergab, dass die Zahlen pauschal übertrieben waren.',
+            'The research showed that the figures were exaggerated across the board.',
+            [
+              'The research showed that the figures were precise.',
+              'The research was never carried out.',
+              'The figures were too low.',
+            ],
+          ),
+          heard(
+            'l5',
+            'Die Chefredakteurin räumte Fehler ein und kündigte eine genauere Einordnung an.',
+            'The editor-in-chief admitted mistakes and announced more careful contextualisation.',
+            [
+              'The editor-in-chief denied any mistakes.',
+              'The editor-in-chief resigned immediately.',
+              'The editor-in-chief refused to comment.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'Letter to the editor',
+        'Phrase your objection in formal German.',
+        ['communication', 'c21-media-opinion', 'c21-text-cohesion'],
+        3,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'letter',
+            title: 'Ein Leserbrief entsteht',
+            emoji: '✉️',
+            setting: 'You and a friend draft a letter to the editor.',
+            turns: [
+              say(
+                'Kai',
+                'Wie fangen wir an? Der Artikel hat mich wütend gemacht.',
+                'How do we begin? The article made me angry.',
+              ),
+              you(
+                'Sachlich: „Zu Ihrem Beitrag vom 3. Mai möchte ich Stellung nehmen.“',
+                [
+                  'Gleich laut: „Euer Artikel ist totaler Quatsch!“',
+                  'Too aggressive and too informal for a letter to the editor.',
+                ],
+                ['Gar nicht, wir schreiben nicht.', 'Not constructive.'],
+              ),
+              say('Kai', 'Und wie widersprechen wir höflich?', 'And how do we disagree politely?'),
+              you(
+                'Mit Interesse habe ich den Text gelesen; allerdings sehe ich das anders.',
+                [
+                  'Der Text war schlecht, deswegen ich sehe das anders.',
+                  'deswegen is a connector – the subject would follow the verb.',
+                ],
+                ['Dem Text stimmen alle zu, ich auch.', 'That is not disagreeing.'],
+              ),
+            ],
+          },
+          {
+            id: 'source',
+            title: 'Quelle prüfen',
+            emoji: '🔎',
+            setting: 'A colleague shares a sensational headline.',
+            turns: [
+              say(
+                'Ida',
+                'Schau mal, diese Meldung geht gerade überall herum!',
+                'Look, this report is going around everywhere right now!',
+              ),
+              you(
+                'Hast du die Quelle geprüft? Dabei sollten wir vorsichtig sein, zumal die Überschrift reißerisch klingt.',
+                [
+                  'Hast du die Quelle geprüft? Dabei sollten wir vorsichtig, zumal die Überschrift reißerisch klingt.',
+                  'The verb sein is missing in the main clause.',
+                ],
+                ['Das stimmt sicher, wenn so viele es teilen.', 'Reach is not credibility.'],
+              ),
+              say('Ida', 'Hm, die Seite kenne ich nicht.', 'Hmm, I don’t know that website.'),
+              you(
+                'Dann suchen wir eine zweite Quelle. Daraufhin können wir entscheiden, ob wir es weiterleiten.',
+                [
+                  'Dann suchen wir eine zweite Quelle. Daraufhin wir können entscheiden, ob wir es weiterleiten.',
+                  'After daraufhin the verb comes second.',
+                ],
+                ['Leiten wir es gleich weiter, das reicht.', 'Skips the check.'],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'Media blitz',
+        'Linking words and the press – true or false?',
+        ['grammar', 'c21-text-cohesion'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Daraufhin kam er zu spät.', true),
+          tf('b2', 'Daraufhin veröffentlichte die Redaktion eine Korrektur.', true),
+          tf('b3', 'Zudem ist das Konzept günstig.', true),
+          tf('b4', 'Zudem das Konzept ist günstig.', false, 'After zudem the verb comes second.'),
+          tf('b5', 'Hingegen drückt einen Gegensatz aus.', true),
+          tf('b6', 'Ferner und überdies fügen einen weiteren Punkt hinzu.', true),
+          tf(
+            'b7',
+            'Ein Leserbrief ist ein Brief der Redaktion an die Leser.',
+            false,
+            'It is a reader’s letter to the editors.',
+          ),
+          tf('b8', 'Eine Richtigstellung korrigiert eine Meldung.', true),
+          tf('b9', 'Wer pauschal urteilt, differenziert genau.', false),
+          tf(
+            'b10',
+            'Eine Falschmeldung ist eine geprüfte Information.',
+            false,
+            'It is a false report.',
+          ),
+          tf('b11', 'Meinungsvielfalt bedeutet viele verschiedene Standpunkte.', true),
+          tf('b12', 'In einer Filterblase sieht man vor allem ähnliche Meinungen.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Press vocabulary and sentence links in one round.',
+        ['vocabulary', 'grammar', 'c21-media-opinion'],
+        3,
+        6,
+      ),
+      {
+        questions: [
+          q('c1', 'Er prüfte die Quelle. ___ fand er einen Fehler.', 'Dabei', [
+            'Dagegen',
+            'Dafür',
+            'Dazu',
+          ]),
+          q('c2', 'Die Idee ist gut. ___ ist sie billig.', 'Zudem', [
+            'Hingegen',
+            'Daraufhin',
+            'Dagegen',
+          ]),
+          q('c3', 'Die einen jubeln, die anderen ___ protestieren.', 'hingegen', [
+            'zudem',
+            'dabei',
+            'dadurch',
+          ]),
+          q('c4', 'Er schrieb einen Protest. ___ änderte die Firma den Plan.', 'Daraufhin', [
+            'Hingegen',
+            'Zudem',
+            'Dagegen',
+          ]),
+          q(
+            'c5',
+            'Die Mitarbeiter streiken. ___ steht das Recht der Firma auf Betrieb.',
+            'Demgegenüber',
+            ['Daraufhin', 'Dabei', 'Dadurch'],
+          ),
+          q('c6', 'die Quellenlage', 'state of the sources', [
+            'circulation',
+            'outrage',
+            'right of reply',
+          ]),
+          q('c7', 'tendenziös', 'biased', ['nuanced', 'factual', 'sweeping']),
+          q('c8', 'aufdecken', 'to uncover', ['to spread', 'to insinuate', 'to relativise']),
+          q('c9', 'die Gegendarstellung', 'right of reply', [
+            'support',
+            'controversy',
+            'standpoint',
+          ]),
+          q('c10', 'Welche Textsorte gibt eine persönliche Meinung wieder?', 'der Kommentar', [
+            'die Nachricht',
+            'die Meldung',
+            'die Richtigstellung',
+          ]),
+        ],
+      },
+    ),
+  ],
+};

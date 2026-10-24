@@ -10,6 +10,7 @@ import b12 from '../src/content/b1-2';
 import b21 from '../src/content/b2-1';
 import b22 from '../src/content/b2-2';
 import c11 from '../src/content/c1-1';
+import c21 from '../src/content/c2-1';
 import type { Activity } from '../src/content/schema';
 import { parseTime, timeToGerman } from '../src/lib/german/time';
 import { totalCents } from '../src/games/market/logic';
@@ -30,6 +31,7 @@ export const allActivities: Activity[] = [
   ...b21.activities,
   ...b22.activities,
   ...c11.activities,
+  ...c21.activities,
 ];
 
 export const activity = (id: string): Activity => {

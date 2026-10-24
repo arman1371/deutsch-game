@@ -51,6 +51,8 @@ const PAGES: [string, string, string][] = [
   ['unit B2.2', '/levels/b2-2/units/b2-2-beziehungen', 'Beziehungen & Vielfalt'],
   ['level C1.1', '/levels/c1-1', 'C1.1'],
   ['unit C1.1', '/levels/c1-1/units/c1-1-zeit', 'Zeit und Tempo'],
+  ['level C2.1', '/levels/c2-1', 'C2.1'],
+  ['unit C2.1', '/levels/c2-1/units/c2-1-sprache', 'Sprache & Zwischentöne'],
   ['library', '/library', 'Game library'],
   ['library with level filter', '/library?lvl=a1-2', 'Game library'],
   ['review', '/review', 'Fehlerkiste'],
@@ -137,6 +139,9 @@ for (const scheme of ['light', 'dark'] as const) {
       'c1-1-gesellschaft-sort-must-can',
       'c1-1-wirtschaft-gap-nominal',
       'c1-1-arbeit-dialogues',
+      'c2-1-ki-conj-k1',
+      'c2-1-wirtschaft-sort-relations',
+      'c2-1-debatte-dialogues',
     ]) {
       test(`${id} has no violations`, async ({ page }) => {
         await page.goto(`/play/${id}?seed=1`);
