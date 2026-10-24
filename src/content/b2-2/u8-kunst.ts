@@ -353,7 +353,7 @@ export const kunst: UnitContent = {
       meta(
         'Wird restauriert – ist restauriert',
         'Process (werden) or result (sein)?',
-        ['grammar', 'stative-passive', 'art-creativity'],
+        ['grammar', 'state-passive', 'art-creativity'],
         3,
         6,
       ),
@@ -459,7 +459,7 @@ export const kunst: UnitContent = {
       meta(
         'Process or state?',
         'werden + participle or sein + participle?',
-        ['grammar', 'stative-passive', 'art-creativity'],
+        ['grammar', 'state-passive', 'art-creativity'],
         3,
         5,
       ),
@@ -488,7 +488,7 @@ export const kunst: UnitContent = {
       meta(
         'Build the sentence',
         'Whoever … and process or state.',
-        ['grammar', 'relative-wer', 'stative-passive'],
+        ['grammar', 'relative-wer', 'state-passive'],
         3,
         7,
       ),
@@ -609,7 +609,7 @@ export const kunst: UnitContent = {
       meta(
         'Vernissage and book launch',
         'Chat at an opening and talk about a bestseller.',
-        ['communication', 'art-creativity', 'stative-passive'],
+        ['communication', 'art-creativity', 'state-passive'],
         2,
         7,
       ),
@@ -705,7 +705,7 @@ export const kunst: UnitContent = {
       meta(
         'Art blitz',
         'Wer / wen / wem, process and state, vocabulary – true or false?',
-        ['grammar', 'relative-wer', 'stative-passive'],
+        ['grammar', 'relative-wer', 'state-passive'],
         3,
         2,
       ),

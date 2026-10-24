@@ -99,9 +99,7 @@ test.describe('B2.2 – library', () => {
 });
 
 test.describe('B2.2 – grammar hints', () => {
-  test('a wrong stative-passive answer explains why and shows the mini lesson', async ({
-    page,
-  }) => {
+  test('a wrong state-passive answer explains why and shows the mini lesson', async ({ page }) => {
     const a = activity('b2-2-kunst-gap-passive');
     if (a.gameType !== 'gapfill') throw new Error('expected a gap fill');
     await page.goto(`/play/${a.id}?seed=${SEED}`);
@@ -112,7 +110,7 @@ test.describe('B2.2 – grammar hints', () => {
     const wrong = item.options!.find((o) => o !== item.answer)!;
     await page.getByRole('button', { name: wrong, exact: true }).click();
     await expect(page.getByTestId('mistake-why')).toContainText(item.why![wrong]!);
-    await expect(page.getByTestId('mini-lesson')).toHaveAttribute('data-lesson', 'stative-passive');
+    await expect(page.getByTestId('mini-lesson')).toHaveAttribute('data-lesson', 'state-passive');
   });
 });
 

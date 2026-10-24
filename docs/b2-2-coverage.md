@@ -94,7 +94,7 @@ topic, minus anything A1.1–B1.2 already teach. B2.1 was built in parallel from
 | Adversative connectors während, wohingegen, hingegen (`adversative-connectors`)    | einerseits … andererseits B1.2        | new (u6)                                                                      |
 | Advanced concession: obgleich, wenngleich, ungeachtet (`concessive-advanced`)      | obwohl / trotzdem A2.1, B1.1          | extended (u7)                                                                 |
 | Relative clauses with _wer_ / _was_ (`relative-wer`)                               | relative clauses A2.2, wo / was B1.2  | second pass (B2.1 u8 teaches it first); B2.1 tag and lesson reused            |
-| Vorgangs- versus Zustandspassiv (`stative-passive`)                                | passive A2.2, B1.2                    | new (u8); generated tables in `a2-2/helpers.ts` reused                        |
+| Vorgangs- versus Zustandspassiv (`state-passive`)                                  | passive A2.2, B1.2                    | second pass (B2.1 u5 teaches it first); B2.1 tag and lesson reused            |
 | Perfekt with double infinitive (`perfekt-double-infinitive`)                       | Perfekt A1.2, modal verbs             | new (u9)                                                                      |
 | Adjectives with prepositions, _wo(r)_- compounds (`adjective-prepositions`)        | verbs with prepositions               | new (u10)                                                                     |
 | Konjunktiv I and Konjunktiv II as a substitute (`konjunktiv-1`)                    | Konjunktiv II A2.2, B1.1              | second pass (B2.1 u2 teaches it first); B2.1 tag, lesson and `k1Table` reused |
@@ -104,8 +104,8 @@ topic, minus anything A1.1–B1.2 already teach. B2.1 was built in parallel from
 ### Overlap with B2.1
 
 B2.1 (PR #16) was researched in parallel from the same course books. B2.2 therefore shares **no word cards** with it (the
-vocabulary-integrity test now includes B2.1), but five grammar tags are taught in both levels: `konjunktiv-1`, `nominalisation`,
-`noun-verb-phrases`, `passive-alternatives` and `relative-wer`. B2.2 reuses B2.1's tag and mini lesson for them and practises the
+vocabulary-integrity test now includes B2.1), but six grammar tags are taught in both levels: `konjunktiv-1`, `nominalisation`,
+`noun-verb-phrases`, `passive-alternatives`, `relative-wer` and `state-passive`. B2.2 reuses B2.1's tag and mini lesson for them and practises the
 point again in new topics. Related points that B2.1 also covers under other tags (Zustandspassiv, concessions, contrasts,
 assumptions) are likewise a second, deeper pass.
 

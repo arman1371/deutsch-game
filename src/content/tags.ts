@@ -193,7 +193,6 @@ export const TAGS = {
     group: 'grammar',
     emoji: '🙄',
   },
-  'stative-passive': { label: 'Zustandspassiv (ist … gemacht)', group: 'grammar', emoji: '🧱' },
   'perfekt-double-infinitive': {
     label: 'Double infinitive (ich habe ihn kommen hören)',
     group: 'grammar',

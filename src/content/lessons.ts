@@ -489,15 +489,6 @@ export const LESSONS = {
       'Er ist zwar jung, aber sehr erfahren.',
     ],
   },
-  'stative-passive': {
-    title: 'werden or sein with the participle?',
-    rule: 'werden + participle describes the process (Das Bild wird restauriert). sein + participle describes the result (Das Bild ist restauriert). The Zustandspassiv answers “What state is it in?”, so it is only possible when the action can be finished.',
-    examples: [
-      'Das Fenster wird geöffnet. (process)',
-      'Das Fenster ist geöffnet. (state)',
-      'Die Ausstellung ist täglich geöffnet.',
-    ],
-  },
   'perfekt-double-infinitive': {
     title: 'Perfekt with a double infinitive',
     rule: 'With modal verbs and with hören, sehen, lassen + infinitive the Perfekt uses the infinitive instead of the participle: Ich habe ihn kommen hören. In a subordinate clause haben stands before the two infinitives: …, weil ich ihn habe kommen hören.',
@@ -799,7 +790,6 @@ const COVERS: Partial<Record<TagId, readonly TagId[]>> = {
   'modal-clauses': ['subordinate-clauses', 'infinitive-zu'],
   'comparative-clauses': ['comparison', 'subordinate-clauses'],
   'relative-wer': ['relative-clauses', 'subordinate-clauses'],
-  'stative-passive': ['passive'],
   'passive-alternatives': ['passive'],
   'extended-participle': ['adjective-endings'],
   'adjective-prepositions': ['verbs-with-prepositions'],
