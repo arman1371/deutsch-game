@@ -21,7 +21,7 @@ const U = 'c2-1-psyche';
 
 const mind = vocabList(U, 'Mind & emotions', [
   ['Gemütszustand', 'state of mind', '🌤️', 'der', 'Gemütszustände'],
-  ['Selbstzweifel', 'self-doubt', '😟', 'der', 'Selbstzweifel'],
+  ['Minderwertigkeitsgefühl', 'feeling of inferiority', '😟', 'das', 'Minderwertigkeitsgefühle'],
   ['Antriebslosigkeit', 'lack of drive', '🌀', 'die'],
   ['Ausgeglichenheit', 'equanimity, inner balance', '🧘', 'die'],
   ['Zuversicht', 'confidence, optimism', '🌅', 'die'],
@@ -40,7 +40,7 @@ const mind = vocabList(U, 'Mind & emotions', [
 
 const hindsight = vocabList(U, 'Reflection & hindsight', [
   ['Rückblick', 'retrospect', '🔙', 'der', 'Rückblicke'],
-  ['Versäumnis', 'omission, failing', '🕳️', 'das', 'Versäumnisse'],
+  ['Unterlassung', 'omission (failure to act)', '🕳️', 'die', 'Unterlassungen'],
   ['Fehleinschätzung', 'misjudgement', '🎯', 'die', 'Fehleinschätzungen'],
   ['Einsicht', 'insight, realisation', '💡', 'die', 'Einsichten'],
   ['Reue', 'remorse', '😔', 'die'],
@@ -84,7 +84,7 @@ export const psyche: UnitContent = {
       'flashcards',
       meta(
         'Mind & emotions',
-        'Ausgeglichenheit, Selbstzweifel, Selbstwirksamkeit – words for the inner life.',
+        'Ausgeglichenheit, Minderwertigkeitsgefühl, Selbstwirksamkeit – words for the inner life.',
         ['vocabulary', 'c21-wellbeing'],
         1,
         6,
@@ -124,7 +124,7 @@ export const psyche: UnitContent = {
           'Selbstwirksamkeit',
           'gereizt',
           'niedergeschlagen',
-          'Versäumnis',
+          'Unterlassung',
           'Fehleinschätzung',
           'hinterfragen',
           'zurückblicken',
@@ -171,7 +171,7 @@ export const psyche: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Selbstzweifel',
+          'Minderwertigkeitsgefühl',
           'Ausgeglichenheit',
           'Reizbarkeit',
           'hadern',
@@ -630,7 +630,7 @@ export const psyche: UnitContent = {
           q('c6', 'die Ausgeglichenheit', 'equanimity', ['irritability', 'remorse', 'exhaustion']),
           q('c7', 'verdrängen', 'to suppress', ['to forgive', 'to brood', 'to regret']),
           q('c8', 'niedergeschlagen', 'dejected', ['balanced', 'irritable', 'confident']),
-          q('c9', 'das Versäumnis', 'omission', ['insight', 'reproach', 'justification']),
+          q('c9', 'die Unterlassung', 'omission', ['insight', 'reproach', 'justification']),
           q('c10', 'Welches Wort passt zu „aus Fehlern lernen“?', 'die Einsicht', [
             'der Vorwurf',
             'die Rechtfertigung',

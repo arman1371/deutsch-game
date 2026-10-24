@@ -20,26 +20,26 @@ const U = 'c2-1-sprache';
 
 const style = vocabList(U, 'Language & style', [
   ['Ausdrucksvermögen', 'command of language', '🗨️', 'das'],
-  ['Sprachgebrauch', 'language use, usage', '📖', 'der'],
-  ['Fachjargon', 'technical jargon', '🧪', 'der'],
+  ['Sprachebene', 'level of language, register', '📖', 'die', 'Sprachebenen'],
+  ['Kauderwelsch', 'gibberish, jargon', '🧪', 'das'],
   ['Hochsprache', 'standard language', '🎩', 'die', 'Hochsprachen'],
   ['Fachbegriff', 'technical term', '🔬', 'der', 'Fachbegriffe'],
   ['Mehrdeutigkeit', 'ambiguity', '🔀', 'die', 'Mehrdeutigkeiten'],
-  ['Anspielung', 'allusion', '👀', 'die', 'Anspielungen'],
-  ['Zwischenton', 'undertone, nuance', '🎼', 'der', 'Zwischentöne'],
+  ['Stichelei', 'jibe, snide remark', '👀', 'die', 'Sticheleien'],
+  ['Beiklang', 'overtone, connotation', '🎼', 'der'],
   ['Wortwahl', 'choice of words', '🔤', 'die'],
-  ['Unterton', 'undertone', '🎙️', 'der', 'Untertöne'],
+  ['Klangfarbe', 'tone colour, timbre', '🎙️', 'die', 'Klangfarben'],
   ['Pointe', 'punchline, point', '🎯', 'die', 'Pointen'],
-  ['Ironie', 'irony', '🙃', 'die'],
+  ['Spott', 'mockery', '🙃', 'der'],
   ['unmissverständlich', 'unmistakable, unambiguous', '✅'],
   ['umschreiben', 'to paraphrase', '🔁'],
-  ['andeuten', 'to hint at', '👉'],
+  ['insinuieren', 'to insinuate', '👉'],
   ['verharmlosen', 'to play down', '🪶'],
   ['zuspitzen', 'to sharpen, to bring to a head', '📌'],
 ]);
 
 const talk = vocabList(U, 'Talking to each other', [
-  ['Schlagfertigkeit', 'quick-wittedness', '⚡', 'die'],
+  ['Redegewandtheit', 'eloquence', '⚡', 'die'],
   ['Feingefühl', 'sensitivity, delicacy', '🤝', 'das'],
   ['Missdeutung', 'misinterpretation', '❓', 'die', 'Missdeutungen'],
   ['Gegenrede', 'reply, rebuttal', '✋', 'die', 'Gegenreden'],
@@ -86,7 +86,7 @@ export const sprache: UnitContent = {
       'flashcards',
       meta(
         'Language & style',
-        'Ausdrucksvermögen, Zwischenton, Pointe – the words for how we say things.',
+        'Ausdrucksvermögen, Beiklang, Pointe – the words for how we say things.',
         ['vocabulary', 'c21-language-style'],
         1,
         6,
@@ -121,9 +121,9 @@ export const sprache: UnitContent = {
         byDe(
           vocab,
           'Mehrdeutigkeit',
-          'Anspielung',
-          'Zwischenton',
-          'Unterton',
+          'Stichelei',
+          'Beiklang',
+          'Klangfarbe',
           'Pointe',
           'verharmlosen',
           'zuspitzen',
@@ -148,7 +148,7 @@ export const sprache: UnitContent = {
       memory(
         byDe(
           vocab,
-          'Schlagfertigkeit',
+          'Redegewandtheit',
           'Feingefühl',
           'Gegenrede',
           'Wortgefecht',
@@ -172,9 +172,9 @@ export const sprache: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Ironie', 'Pointe'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Wortwahl', 'Unterton'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Fachbegriff', 'Anspielung'), 'type').items,
+          ...spell(byDe(vocab, 'Spott', 'Pointe'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wortwahl', 'Klangfarbe'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Fachbegriff', 'Stichelei'), 'type').items,
           ...spell(byDe(vocab, 'unmissverständlich'), 'type').items,
           dictation(
             'd1',
@@ -612,7 +612,7 @@ export const sprache: UnitContent = {
             'keit',
             'schaft',
           ]),
-          q('c6', 'die Anspielung', 'allusion', ['objection', 'punchline', 'tone of voice']),
+          q('c6', 'die Stichelei', 'jibe', ['objection', 'punchline', 'tone of voice']),
           q('c7', 'zuspitzen', 'to sharpen', ['to hint at', 'to play down', 'to paraphrase']),
           q('c8', 'wortgewandt', 'eloquent', ['taciturn', 'tactful', 'talkative']),
           q('c9', 'Wer „auf den Punkt bringt“, …', 'sums things up precisely', [
@@ -620,7 +620,7 @@ export const sprache: UnitContent = {
             'raises his voice',
             'interrupts others',
           ]),
-          q('c10', 'Welches Wort passt zur Sprache einer Berufsgruppe?', 'der Fachjargon', [
+          q('c10', 'Welches Wort passt zu „unverständliches Gerede“?', 'das Kauderwelsch', [
             'die Umgangssprache',
             'die Hochsprache',
             'die Mehrdeutigkeit',

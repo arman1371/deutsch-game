@@ -20,21 +20,21 @@ const U = 'c2-1-arbeit';
 
 const world = vocabList(U, 'Working life today', [
   ['Personalengpass', 'staff shortage', '⏱️', 'der'],
-  ['Erreichbarkeit', 'availability, being reachable', '📱', 'die'],
+  ['Dauerverfügbarkeit', 'constant availability', '📱', 'die'],
   ['Stellenabbau', 'job cuts', '✂️', 'der'],
   ['Mitbestimmung', 'co-determination', '⚖️', 'die'],
   ['Führungskraft', 'executive, manager', '🧑‍💼', 'die', 'Führungskräfte'],
-  ['Belegschaft', 'workforce, staff', '👥', 'die', 'Belegschaften'],
-  ['Tarifvertrag', 'collective agreement', '📜', 'der', 'Tarifverträge'],
+  ['Kollegenkreis', 'circle of colleagues', '👥', 'der', 'Kollegenkreise'],
+  ['Abfindung', 'severance pay', '📜', 'die', 'Abfindungen'],
   ['Arbeitnehmervertretung', 'employee representation', '🏛️', 'die', 'Arbeitnehmervertretungen'],
-  ['Vertrauensarbeitszeit', 'trust-based working hours', '🕰️', 'die'],
+  ['Sabbatjahr', 'sabbatical year', '🕰️', 'das', 'Sabbatjahre'],
   ['Arbeitszeitkonto', 'working-time account', '📅', 'das', 'Arbeitszeitkonten'],
-  ['Karrieresprung', 'career leap', '📈', 'der', 'Karrieresprünge'],
+  ['Führungsposition', 'management position', '📈', 'die', 'Führungspositionen'],
   ['Berufsrückkehrer', 'returner to work', '🔀', 'der', 'Berufsrückkehrer'],
   ['Überlastungsanzeige', 'overload notification', '😰', 'die', 'Überlastungsanzeigen'],
   ['befristet', 'fixed-term', '⏳'],
   ['unbefristet', 'permanent (of a contract)', '♾️'],
-  ['koordinieren', 'to coordinate', '👈'],
+  ['rationalisieren', 'to streamline', '👈'],
   ['meistern', 'to master, to handle', '💪'],
   ['sich einarbeiten', 'to get up to speed', '📚'],
 ]);
@@ -87,7 +87,7 @@ export const arbeit: UnitContent = {
       'flashcards',
       meta(
         'Working life today',
-        'Personalengpass, Tarifvertrag, Berufsrückkehrer – the modern workplace.',
+        'Personalengpass, Abfindung, Berufsrückkehrer – the modern workplace.',
         ['vocabulary', 'c21-working-world'],
         1,
         6,
@@ -122,10 +122,10 @@ export const arbeit: UnitContent = {
         byDe(
           world,
           'Personalengpass',
-          'Erreichbarkeit',
+          'Dauerverfügbarkeit',
           'Mitbestimmung',
-          'Belegschaft',
-          'Tarifvertrag',
+          'Kollegenkreis',
+          'Abfindung',
           'Arbeitnehmervertretung',
           'Arbeitszeitkonto',
           'Berufsrückkehrer',
@@ -172,8 +172,8 @@ export const arbeit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(world, 'Vertrauensarbeitszeit', 'Belegschaft'), 'unscramble').items,
-          ...spell(byDe(world, 'Arbeitnehmervertretung', 'Tarifvertrag'), 'unscramble').items,
+          ...spell(byDe(world, 'Sabbatjahr', 'Kollegenkreis'), 'unscramble').items,
+          ...spell(byDe(world, 'Arbeitnehmervertretung', 'Abfindung'), 'unscramble').items,
           ...spell(byDe(world, 'Arbeitszeitkonto', 'Stellenabbau'), 'type').items,
           ...spell(byDe(world, 'Überlastungsanzeige'), 'type').items,
           dictation(
@@ -550,9 +550,17 @@ export const arbeit: UnitContent = {
             'Frage',
             'Betracht',
           ]),
-          q('c6', 'die Belegschaft', 'workforce', ['works council', 'notice period', 'manager']),
+          q('c6', 'der Kollegenkreis', 'circle of colleagues', [
+            'works council',
+            'notice period',
+            'manager',
+          ]),
           q('c7', 'befristet', 'fixed-term', ['permanent', 'flexible', 'overpaid']),
-          q('c8', 'koordinieren', 'to coordinate', ['to cope with', 'to criticise', 'to provide']),
+          q('c8', 'rationalisieren', 'to streamline', [
+            'to cope with',
+            'to criticise',
+            'to provide',
+          ]),
           q('c9', 'der Termindruck', 'deadline pressure', [
             'trust-based working hours',
             'job cuts',

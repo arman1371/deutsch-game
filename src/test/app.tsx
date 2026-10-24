@@ -11,6 +11,7 @@ import b11 from '@/content/b1-1';
 import b12 from '@/content/b1-2';
 import b21 from '@/content/b2-1';
 import b22 from '@/content/b2-2';
+import c11 from '@/content/c1-1';
 import c21 from '@/content/c2-1';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
@@ -31,6 +32,7 @@ export const allActivities: Activity[] = [
   ...b12.activities,
   ...b21.activities,
   ...b22.activities,
+  ...c11.activities,
   ...c21.activities,
 ];
 export const allUnits = [
@@ -42,6 +44,7 @@ export const allUnits = [
   ...b12.units,
   ...b21.units,
   ...b22.units,
+  ...c11.units,
   ...c21.units,
 ];
 

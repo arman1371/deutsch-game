@@ -21,8 +21,8 @@ const U = 'c2-1-wirtschaft';
 const economy = vocabList(U, 'The economy', [
   ['Teuerungsrate', 'inflation rate', '💹', 'die', 'Teuerungsraten'],
   ['Inflationsrate', 'inflation rate', '💶', 'die'],
-  ['Konjunktur', 'state of the economy, economic cycle', '🌤️', 'die'],
-  ['Rezession', 'recession', '📉', 'die', 'Rezessionen'],
+  ['Wirtschaftsaufschwung', 'economic upturn', '🌤️', 'der', 'Wirtschaftsaufschwünge'],
+  ['Wirtschaftsflaute', 'economic slump', '📉', 'die', 'Wirtschaftsflauten'],
   ['Zinswende', 'turnaround in interest rates', '🔄', 'die'],
   ['Staatsverschuldung', 'national debt', '🏛️', 'die'],
   ['Haushaltsdefizit', 'budget deficit', '🕳️', 'das', 'Haushaltsdefizite'],
@@ -36,10 +36,10 @@ const economy = vocabList(U, 'The economy', [
 const money = vocabList(U, 'Wealth & finance', [
   ['Vermögen', 'wealth, assets', '💰', 'das'],
   ['Altersvorsorge', 'provision for old age', '🧓', 'die'],
-  ['Rendite', 'return, yield', '📊', 'die', 'Renditen'],
+  ['Gewinnspanne', 'profit margin', '📊', 'die', 'Gewinnspannen'],
   ['Anleger', 'investor', '🧑‍💼', 'der', 'Anleger'],
   ['Steuerlast', 'tax burden', '🧮', 'die'],
-  ['Insolvenz', 'insolvency', '🧾', 'die', 'Insolvenzen'],
+  ['Zahlungsunfähigkeit', 'insolvency', '🧾', 'die'],
   ['Erbschaft', 'inheritance', '📜', 'die', 'Erbschaften'],
   ['subventionieren', 'to subsidise', '💼'],
   ['besteuern', 'to tax', '🏷️'],
@@ -78,7 +78,7 @@ export const wirtschaft: UnitContent = {
       'flashcards',
       meta(
         'The economy',
-        'Konjunktur, Inflationsrate, Wertschöpfungskette – the words of the business pages.',
+        'Wirtschaftsaufschwung, Inflationsrate, Wertschöpfungskette – the words of the business pages.',
         ['vocabulary', 'c21-economy'],
         1,
         6,
@@ -111,7 +111,7 @@ export const wirtschaft: UnitContent = {
           'Zinswende',
           'Haushaltsdefizit',
           'Wertschöpfungskette',
-          'Rendite',
+          'Gewinnspanne',
           'Steuerlast',
           'bezuschussen',
           'vererben',
@@ -134,12 +134,12 @@ export const wirtschaft: UnitContent = {
       memory(
         byDe(
           vocab,
-          'Konjunktur',
+          'Wirtschaftsaufschwung',
           'Nachfrage',
           'Lohngefälle',
           'Grundeinkommen',
           'Anleger',
-          'Insolvenz',
+          'Zahlungsunfähigkeit',
           'Erbschaft',
           'wohlhabend',
         ),
@@ -159,7 +159,7 @@ export const wirtschaft: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Rezession',
+          'Wirtschaftsflaute',
           'Staatsverschuldung',
           'Strafzoll',
           'Vermögen',
@@ -183,10 +183,10 @@ export const wirtschaft: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Rendite', 'Anleger'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Konjunktur', 'Rezession'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Gewinnspanne', 'Anleger'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wirtschaftsaufschwung', 'Wirtschaftsflaute'), 'unscramble').items,
           ...spell(byDe(vocab, 'Staatsverschuldung', 'Inflationsrate'), 'type').items,
-          ...spell(byDe(vocab, 'Insolvenz'), 'type').items,
+          ...spell(byDe(vocab, 'Zahlungsunfähigkeit'), 'type').items,
           dictation(
             'd1',
             'Die Teuerungsrate ist im Herbst leicht gesunken.',
@@ -570,7 +570,7 @@ export const wirtschaft: UnitContent = {
             'danach',
             'darum',
           ]),
-          q('c6', 'die Rendite', 'return, yield', ['tax burden', 'inheritance', 'wealth']),
+          q('c6', 'die Gewinnspanne', 'profit margin', ['tax burden', 'inheritance', 'wealth']),
           q('c7', 'bezuschussen', 'to subsidise', ['to tax', 'to invest', 'to bequeath']),
           q('c8', 'die Zinswende', 'turnaround in interest rates', [
             'budget deficit',

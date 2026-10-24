@@ -22,7 +22,7 @@ const U = 'c2-1-digital';
 const digital = vocabList(U, 'Digital life', [
   ['Vernetzung', 'networking, connectivity', '🕸️', 'die'],
   ['Plattformbetreiber', 'platform operator', '🧮', 'der', 'Plattformbetreiber'],
-  ['Plattform', 'platform', '🏗️', 'die', 'Plattformen'],
+  ['Netzwerkeffekt', 'network effect', '🏗️', 'der', 'Netzwerkeffekte'],
   ['Datensparsamkeit', 'data minimisation', '🔒', 'die'],
   ['Datenerhebung', 'data collection', '👁️', 'die'],
   ['Digitalisierungsschub', 'digitalisation boost', '🧠', 'der'],
@@ -40,10 +40,10 @@ const digital = vocabList(U, 'Digital life', [
 
 const change = vocabList(U, 'Change & trends', [
   ['Wandel', 'change, transformation', '🦋', 'der'],
-  ['Strukturwandel', 'structural change', '🌋', 'der'],
+  ['Paradigmenwechsel', 'paradigm shift', '🌋', 'der', 'Paradigmenwechsel'],
   ['Vorreiter', 'pioneer', '🚩', 'der', 'Vorreiter'],
   ['Zukunftsfähigkeit', 'viability for the future', '🌱', 'die'],
-  ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
+  ['Etappenziel', 'interim goal', '🏁', 'das', 'Etappenziele'],
   ['Quantensprung', 'quantum leap', '💥', 'der', 'Quantensprünge'],
   ['Auswirkung', 'effect, impact', '🌊', 'die', 'Auswirkungen'],
   ['vollziehen', 'to carry out, to complete', '✔️'],
@@ -97,7 +97,7 @@ export const digitalUnit: UnitContent = {
       'flashcards',
       meta(
         'Change & trends',
-        'Wandel, Strukturwandel, Quantensprung – describing transformation.',
+        'Wandel, Paradigmenwechsel, Quantensprung – describing transformation.',
         ['vocabulary', 'c21-digital-life'],
         1,
         5,
@@ -121,7 +121,7 @@ export const digitalUnit: UnitContent = {
           'Vernetzung',
           'Informationsflut',
           'Authentifizierung',
-          'Strukturwandel',
+          'Paradigmenwechsel',
           'Vorreiter',
           'Zukunftsfähigkeit',
           'schlagartig',
@@ -151,7 +151,7 @@ export const digitalUnit: UnitContent = {
           'Datenerhebung',
           'Push-Mitteilung',
           'Suchtpotenzial',
-          'Meilenstein',
+          'Etappenziel',
           'Quantensprung',
           'Auswirkung',
         ),
@@ -171,7 +171,7 @@ export const digitalUnit: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Plattform',
+          'Netzwerkeffekt',
           'Cyberangriff',
           'Digitalisierungsschub',
           'digitalisieren',
@@ -195,8 +195,8 @@ export const digitalUnit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Wandel', 'Plattform'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Cyberangriff', 'Strukturwandel'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wandel', 'Netzwerkeffekt'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Cyberangriff', 'Paradigmenwechsel'), 'unscramble').items,
           ...spell(byDe(vocab, 'Digitalisierungsschub', 'Suchtpotenzial'), 'type').items,
           ...spell(byDe(vocab, 'voraussichtlich'), 'type').items,
           dictation(

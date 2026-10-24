@@ -1,9 +1,10 @@
-# C2.1 – syllabus research, coverage and overlap with A1.1–B1.2
+# C2.1 – syllabus research, coverage and overlap with A1.1–C1.1
 
 C2.1 is the first half of the C2 level (C2.2 is built in a sibling thread). The rule from A2.2 to B1.2 still applies: **teach
 what is new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone unit – what
 is already taught.** `src/content/c2-1/content.test.ts` enforces the vocabulary side: no word card in C2.1 repeats a word card
-of A1.1–B1.2 (or another C2.1 unit).
+of A1.1–C1.1 (or another C2.1 unit). B2.1, B2.2 and C1.1 were merged while C2.1 was in review; the 95 C2.1 word cards that repeated
+their vocabulary were replaced with new words.
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -91,6 +92,24 @@ or C1/C2 sources besides the bridge books. If a unit has to be dropped for lack 
 | als + verb second, past forms of the unreal comparison; unreal conditions without wenn; hindsight with modals | als ob B1.2 u2; Konjunktiv II past B1.1 u12                 | extended (u7)                                                                                |
 | Linking adverbs: dabei, dazu, daraufhin, zudem, ferner, überdies, hingegen, demgegenüber                      | deshalb / trotzdem A2.1; Präpositionaladverbien B1.2 u10    | new (u8)                                                                                     |
 | wenngleich, obgleich, wenn auch, allerdings, freilich, indessen, so … auch, wie dem auch sei                  | obwohl B1.1 u2, zwar … aber A2.2 u8 and B1.2                | new (u9); zwar … aber is a review item                                                       |
+
+## Overlap with B2.1, B2.2 and C1.1
+
+B2.1, B2.2 and C1.1 were researched in parallel from other course books and were merged after the C2.1 unit list was fixed. Their
+syllabi touch some of the same grammar as five C2.1 units. The vocabulary does not overlap (see above); the grammar does:
+
+| C2.1 unit                 | Also taught in                                                | How C2.1 differs                                                                                                             |
+| ------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| u2 Noun-verb combinations | C1.1 u4, B2.1 / B2.2 (`noun-verb-phrases`)                    | C2.1 uses its own tag and a different set of combinations (Stellung beziehen, unter Beweis stellen, zum Ausdruck bringen …)  |
+| u3 Contrast and cause     | C1.1 u1 (hingegen), B1.1 / B1.2 (während, indem)              | adds wohingegen, indes, zumal, nämlich, dadurch dass                                                                         |
+| u4 Consecutive, Futur II  | C1.1 u1 (folglich, somit), C1.1 u7 (so … dass, zu … als dass) | derart / dermaßen … dass, infolgedessen, mithin; **Futur II is new**                                                         |
+| u5 Konjunktiv I           | C1.1 u3 and B2.1 / B2.2 (`konjunktiv-1`)                      | C2.1 treats it with research reporting: shifted time words, reported questions, hedging verbs; own tag `c21-reported-speech` |
+| u6 Nominal style          | C1.1 u10 (`nominal-style`)                                    | extends it with im Falle, bei, durch and reformulation dialogues; own tag `c21-nominal-style`                                |
+| u9 Concession             | C1.1 u5 (obgleich, wenngleich, so … auch)                     | adds allerdings, freilich, indessen, wie dem auch sei and the concession/rebuttal moves of a debate                          |
+
+The overlap is real: a learner who followed C1.1 meets Konjunktiv I and nominal style again, now at C2 depth and with new vocabulary.
+If the grammar overlap should go, units 5, 6 and 9 are the candidates to be replaced by topics from the C2.2 list or from later
+Goethe C2 material; the vocabulary and games of the other units are not affected.
 
 Not covered in C2.1 on purpose, because the sibling thread teaches them: Partizipialattribute, Passiv and its substitutes,
 subjektive Modalverben, Modalpartikeln, Präfixverben (trennbar / untrennbar), the full set of genitive prepositions, idioms.
