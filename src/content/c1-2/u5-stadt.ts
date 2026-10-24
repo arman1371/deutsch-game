@@ -26,10 +26,10 @@ const city = vocabList(U, 'City planning', [
   ['Wohnungsnot', 'housing shortage', '🏚️', 'die'],
   ['Gentrifizierung', 'gentrification', '🏗️', 'die'],
   ['Leerstand', 'vacancy', '🪟', 'der'],
-  ['Grünfläche', 'green space', '🌳', 'die', 'Grünflächen'],
+  ['Freifläche', 'open space', '🌳', 'die', 'Freiflächen'],
   ['Gemeinschaftsgarten', 'community garden', '🥕', 'der', 'Gemeinschaftsgärten'],
   ['Quartier', 'neighbourhood, district', '🏘️', 'das', 'Quartiere'],
-  ['lebenswert', 'worth living in', '💚'],
+  ['verkehrsberuhigt', 'traffic-calmed', '🚸'],
 ]);
 
 const village = vocabList(U, 'Village & alternatives', [

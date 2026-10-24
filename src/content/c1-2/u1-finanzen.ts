@@ -44,9 +44,9 @@ const payments = vocabList(U, 'Payments & donations', [
   ['Sparbuch', 'savings book', '💵', 'das', 'Sparbücher'],
   ['bargeldlos', 'cashless', '📱'],
   ['Teuerung', 'rise in prices', '🛒', 'die'],
-  ['Spende', 'donation', '🎗️', 'die', 'Spenden'],
+  ['Schenkung', 'donation, gift', '🎗️', 'die', 'Schenkungen'],
   ['Spender', 'donor', '🤲', 'der', 'Spender'],
-  ['Tafel', 'food bank', '🥫', 'die', 'Tafeln'],
+  ['Sachspende', 'donation in kind', '🥫', 'die', 'Sachspenden'],
   ['gemeinnützig', 'non-profit, charitable', '🏘️'],
 ]);
 
@@ -130,7 +130,7 @@ export const finanzen: UnitContent = {
           'Verzugszinsen',
           'Rücklage',
           'Sparbuch',
-          'Spende',
+          'Schenkung',
         ),
       ),
     ),
@@ -213,7 +213,7 @@ export const finanzen: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Armut', 'Spende', 'Sparbuch'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Armut', 'Schenkung', 'Sparbuch'), 'unscramble').items,
           ...spell(byDe(vocab, 'Vermögen', 'Gläubiger', 'Zahlungsmittel'), 'type').items,
           dictation(
             'd1',

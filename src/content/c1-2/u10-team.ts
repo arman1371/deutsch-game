@@ -19,7 +19,7 @@ import type { UnitContent } from './types';
 const U = 'c1-2-team';
 
 const team = vocabList(U, 'Teamwork', [
-  ['Zuständigkeit', 'responsibility, competence', '🗂️', 'die', 'Zuständigkeiten'],
+  ['Befugnis', 'authority, power', '🗂️', 'die', 'Befugnisse'],
   ['Aufgabenverteilung', 'distribution of tasks', '🧩', 'die'],
   ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
   ['Engpass', 'bottleneck', '🍾', 'der', 'Engpässe'],
@@ -195,10 +195,8 @@ export const team10: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Engpass', 'Teamgeist', 'Absprache'), 'unscramble').items,
-          ...spell(
-            byDe(vocab, 'Zuständigkeit', 'Verlaufsprotokoll', 'Meinungsverschiedenheit'),
-            'type',
-          ).items,
+          ...spell(byDe(vocab, 'Befugnis', 'Verlaufsprotokoll', 'Meinungsverschiedenheit'), 'type')
+            .items,
           dictation(
             'd1',
             'Sollte es Probleme geben, melden Sie sich bitte.',

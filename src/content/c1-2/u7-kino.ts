@@ -38,7 +38,7 @@ const art = vocabList(U, 'Art & creativity', [
   ['Einfall', 'idea, brainwave', '⚡', 'der', 'Einfälle'],
   ['Inspiration', 'inspiration', '✨', 'die', 'Inspirationen'],
   ['Vernissage', 'private view, opening of an exhibition', '🥂', 'die', 'Vernissagen'],
-  ['Kunstwerk', 'work of art', '🖌️', 'das', 'Kunstwerke'],
+  ['Radierung', 'etching', '🗿', 'die', 'Radierungen'],
   ['Installation', 'art installation', '🗿', 'die', 'Installationen'],
   ['Werk', 'work (of art)', '🏺', 'das', 'Werke'],
   ['Mäzen', 'patron', '💰', 'der', 'Mäzene'],
@@ -118,7 +118,7 @@ export const kino: UnitContent = {
         2,
         4,
       ),
-      memory(byDe(vocab, 'Abspann', 'Drehort', 'Mäzen', 'Einfall', 'Kunstwerk', 'brotlos')),
+      memory(byDe(vocab, 'Abspann', 'Drehort', 'Mäzen', 'Einfall', 'Radierung', 'brotlos')),
     ),
     activity(
       U,

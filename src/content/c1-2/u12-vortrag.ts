@@ -19,11 +19,11 @@ import type { UnitContent } from './types';
 const U = 'c1-2-vortrag';
 
 const present = vocabList(U, 'Presenting', [
-  ['Gliederung', 'outline, structure', '🗂️', 'die', 'Gliederungen'],
+  ['Gedankengang', 'line of thought', '🗂️', 'der', 'Gedankengänge'],
   ['Handout', 'handout', '📄', 'das', 'Handouts'],
   ['Stichwortzettel', 'cue card, notes', '🎞️', 'der', 'Stichwortzettel'],
   ['Kernaussage', 'key message', '🎯', 'die', 'Kernaussagen'],
-  ['Fazit', 'conclusion', '🏁', 'das', 'Fazits'],
+  ['Schlussfolgerung', 'conclusion', '🏁', 'die', 'Schlussfolgerungen'],
   ['Überleitung', 'transition', '↪️', 'die', 'Überleitungen'],
   ['Fragerunde', 'question time', '🙋', 'die', 'Fragerunden'],
   ['Redezeit', 'speaking time', '⏳', 'die', 'Redezeiten'],
@@ -33,9 +33,9 @@ const present = vocabList(U, 'Presenting', [
 ]);
 
 const discuss = vocabList(U, 'Discussing', [
-  ['Standpunkt', 'point of view', '📍', 'der', 'Standpunkte'],
-  ['Einwand', 'objection', '✋', 'der', 'Einwände'],
-  ['Gegenargument', 'counter-argument', '🔁', 'das', 'Gegenargumente'],
+  ['Sichtweise', 'point of view', '📍', 'die', 'Sichtweisen'],
+  ['Vorbehalt', 'reservation, objection', '✋', 'der', 'Vorbehalte'],
+  ['Gegenposition', 'opposing position', '🔁', 'die', 'Gegenpositionen'],
   ['Wortmeldung', 'request to speak, contribution', '🙌', 'die', 'Wortmeldungen'],
   ['Moderation', 'moderation, chairing', '🎙️', 'die'],
   ['Streitpunkt', 'point of contention', '🔥', 'der', 'Streitpunkte'],
@@ -119,7 +119,15 @@ export const vortrag: UnitContent = {
         4,
       ),
       memory(
-        byDe(vocab, 'Stichwortzettel', 'Fazit', 'Einwand', 'Konsens', 'schlüssig', 'hervorheben'),
+        byDe(
+          vocab,
+          'Stichwortzettel',
+          'Schlussfolgerung',
+          'Vorbehalt',
+          'Konsens',
+          'schlüssig',
+          'hervorheben',
+        ),
       ),
     ),
     activity(
@@ -201,8 +209,8 @@ export const vortrag: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Konsens', 'Fazit', 'Einwand'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Kernaussage', 'Gegenargument', 'Wortmeldung'), 'type').items,
+          ...spell(byDe(vocab, 'Konsens', 'Schlussfolgerung', 'Vorbehalt'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Kernaussage', 'Gegenposition', 'Wortmeldung'), 'type').items,
           dictation('d1', 'Ich nehme dazu gern Stellung.', 'I am happy to comment on that.'),
           dictation(
             'd2',

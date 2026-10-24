@@ -39,9 +39,9 @@ const rules = vocabList(U, 'Rules & offences', [
   ['Ordnungswidrigkeit', 'administrative offence', '🅿️', 'die', 'Ordnungswidrigkeiten'],
   ['Bußgeld', 'fine', '💶', 'das', 'Bußgelder'],
   ['Verstoß', 'violation', '🚫', 'der', 'Verstöße'],
-  ['Vorschrift', 'regulation', '📋', 'die', 'Vorschriften'],
+  ['Verordnung', 'regulation, ordinance', '📋', 'die', 'Verordnungen'],
   ['Haftung', 'liability', '🧯', 'die'],
-  ['Schadensersatz', 'compensation, damages', '🩹', 'der'],
+  ['Schmerzensgeld', 'compensation for pain and suffering', '🩹', 'das'],
   ['Gesetzeslücke', 'legal loophole', '🕳️', 'die', 'Gesetzeslücken'],
   ['verhängen', 'to impose (a penalty)', '📌'],
   ['einhalten', 'to comply with, observe', '✅'],
@@ -202,7 +202,7 @@ export const recht: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Urteil', 'Angeklagte', 'Anklage'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schadensersatz', 'Verstoß'), 'type').items,
+          ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schmerzensgeld', 'Verstoß'), 'type').items,
           dictation('d1', 'Der Beweis ist nicht zu widerlegen.', 'The evidence cannot be refuted.'),
           dictation(
             'd2',

@@ -33,12 +33,12 @@ const business = vocabList(U, 'Business contacts', [
 ]);
 
 const culture = vocabList(U, 'Cultures & etiquette', [
-  ['Gepflogenheit', 'custom, convention', '🎎', 'die', 'Gepflogenheiten'],
+  ['Umgangsform', 'manners, etiquette', '🎎', 'die', 'Umgangsformen'],
   ['Verhaltenskodex', 'code of conduct', '🎩', 'der', 'Verhaltenskodizes'],
   ['Kulturschock', 'culture shock', '🤯', 'der', 'Kulturschocks'],
   ['Hierarchie', 'hierarchy', '🪜', 'die', 'Hierarchien'],
-  ['Tabu', 'taboo', '🚷', 'das', 'Tabus'],
-  ['Fettnäpfchen', 'faux pas (lit. little grease pot)', '🫕', 'das', 'Fettnäpfchen'],
+  ['Tabuthema', 'taboo subject', '🚷', 'das', 'Tabuthemen'],
+  ['Fauxpas', 'faux pas, blunder', '🫕', 'der', 'Fauxpas'],
   ['Smalltalk', 'small talk', '☕', 'der'],
   ['interkulturell', 'intercultural', '🌍'],
   ['förmlich', 'formal', '🎓'],
@@ -122,7 +122,7 @@ export const geschaeft: UnitContent = {
           vocab,
           'Niederlassung',
           'Tagesordnung',
-          'Tabu',
+          'Tabuthema',
           'Hierarchie',
           'förmlich',
           'zurückhaltend',
@@ -208,9 +208,8 @@ export const geschaeft: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Konzern', 'Tabu', 'Lieferant'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Gepflogenheit', 'Visitenkarte', 'Auslandsentsendung'), 'type')
-            .items,
+          ...spell(byDe(vocab, 'Konzern', 'Tabuthema', 'Lieferant'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Umgangsform', 'Visitenkarte', 'Auslandsentsendung'), 'type').items,
           dictation(
             'd1',
             'Der Termin dauert mindestens eine Stunde.',
