@@ -190,7 +190,7 @@ export const TAGS = {
   },
   'stative-passive': { label: 'Zustandspassiv (ist … gemacht)', group: 'grammar', emoji: '🧱' },
   'perfekt-double-infinitive': {
-    label: 'Perfekt with double infinitive',
+    label: 'Double infinitive (ich habe ihn kommen hören)',
     group: 'grammar',
     emoji: '👂',
   },
