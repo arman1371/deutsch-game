@@ -24,15 +24,15 @@ const LESSON = 'c22-nuance-particles' as const;
 const stil = vocabList(U, 'Figurative language & tone', [
   ['Idiom', 'idiom', '💬', 'das', 'Idiome'],
   ['Aphorismus', 'aphorism', '📜', 'der', 'Aphorismen'],
-  ['Ironie', 'irony', '🙃', 'die'],
+  ['Sarkasmus', 'sarcasm', '🙃', 'der'],
   ['Untertreibung', 'understatement', '🤏', 'die', 'Untertreibungen'],
   ['Übertreibung', 'exaggeration', '🎈', 'die', 'Übertreibungen'],
-  ['Anspielung', 'allusion, hint', '🎯', 'die', 'Anspielungen'],
-  ['Zwischenton', 'nuance, undertone', '🎶', 'der', 'Zwischentöne'],
+  ['Stichelei', 'dig, jibe', '🎯', 'die', 'Sticheleien'],
+  ['Doppelsinn', 'double meaning', '🎶', 'der', 'Doppelsinne'],
   ['Jargon', 'jargon', '🗨️', 'der', 'Jargons'],
   ['Floskel', 'stock phrase', '🧾', 'die', 'Floskeln'],
   ['Wortspiel', 'pun', '🎲', 'das', 'Wortspiele'],
-  ['Unterton', 'tone, undertone', '🔉', 'der', 'Untertöne'],
+  ['Beiklang', 'connotation, overtone', '🔉', 'der', 'Beiklänge'],
   ['Metapher', 'metaphor', '🖼️', 'die', 'Metaphern'],
   ['Pointe', 'punchline', '🎤', 'die', 'Pointen'],
   ['Gemeinplatz', 'commonplace, platitude', '📌', 'der', 'Gemeinplätze'],
@@ -85,7 +85,7 @@ export const nuancen: UnitContent = {
         {
           key: 'tone',
           title: 'Figurative language & tone',
-          description: 'Ironie, Anspielung, Zwischenton – words for what is between the lines.',
+          description: 'Sarkasmus, Stichelei, Doppelsinn – words for what is between the lines.',
           vocab: stil,
         },
         {
@@ -98,10 +98,10 @@ export const nuancen: UnitContent = {
       pictures: byDe(
         stil,
         'Aphorismus',
-        'Ironie',
+        'Sarkasmus',
         'Untertreibung',
         'Übertreibung',
-        'Anspielung',
+        'Stichelei',
         'Wortspiel',
         'Pointe',
         'Gemeinplatz',
@@ -123,7 +123,7 @@ export const nuancen: UnitContent = {
       ),
       memoryTitle: 'Idiom memory',
       memoryDescription: 'Match each idiom with its meaning.',
-      unscramble: byDe(stil, 'Idiom', 'Anspielung', 'Floskel'),
+      unscramble: byDe(stil, 'Idiom', 'Stichelei', 'Floskel'),
       typeIn: byDe(stil, 'Doppeldeutigkeit', 'Jargon'),
       dictations: [
         [

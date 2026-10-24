@@ -20,7 +20,7 @@ const U = 'c2-2-stellung';
 
 const argument = vocabList(U, 'Arguing', [
   ['These', 'thesis, claim', '📌', 'die', 'Thesen'],
-  ['Behauptung', 'assertion', '🗣️', 'die', 'Behauptungen'],
+  ['Unterstellung', 'insinuation', '🗣️', 'die', 'Unterstellungen'],
   ['Vorbehalt', 'reservation, objection', '✋', 'der', 'Vorbehalte'],
   ['Entgegnung', 'reply, rejoinder', '↩️', 'die', 'Entgegnungen'],
   ['Zugeständnis', 'concession', '🤝', 'das', 'Zugeständnisse'],

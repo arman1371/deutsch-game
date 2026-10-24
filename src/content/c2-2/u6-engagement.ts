@@ -24,18 +24,18 @@ const LESSON = 'c22-prefix-verbs' as const;
 
 const gesellschaft = vocabList(U, 'Civil society', [
   ['Zivilgesellschaft', 'civil society', '🌐', 'die'],
-  ['Gemeinwohl', 'common good', '🏘️', 'das'],
+  ['Allgemeinheit', 'the general public', '🏘️', 'die'],
   ['Gemeinsinn', 'public spirit', '🤝', 'der'],
   ['Volksbegehren', 'popular petition for a referendum', '📣', 'das', 'Volksbegehren'],
   ['Ehrenamtliche', 'volunteer (adjectival noun)', '🎗️', 'der', 'Ehrenamtlichen'],
-  ['Stiftung', 'foundation', '🏦', 'die', 'Stiftungen'],
-  ['Selbsthilfegruppe', 'self-help group', '🫂', 'die', 'Selbsthilfegruppen'],
+  ['Schirmherrschaft', 'patronage', '🏦', 'die', 'Schirmherrschaften'],
+  ['Bürgerbewegung', 'citizens’ movement', '🫂', 'die', 'Bürgerbewegungen'],
   ['Spendenaktion', 'fundraising campaign', '🏭', 'die', 'Spendenaktionen'],
   ['Gemeinnützigkeit', 'non-profit status', '💚', 'die'],
   ['Mitbestimmung', 'co-determination, having a say', '🚪', 'die'],
-  ['Ausgrenzung', 'exclusion', '🚧', 'die', 'Ausgrenzungen'],
+  ['Chancenungleichheit', 'unequal opportunities', '🚧', 'die'],
   ['Marginalisierung', 'marginalisation', '🙈', 'die'],
-  ['Spendenaufruf', 'donation appeal', '📢', 'der', 'Spendenaufrufe'],
+  ['Sammelaktion', 'collection drive', '📢', 'die', 'Sammelaktionen'],
   ['Einsatzbereitschaft', 'willingness to get involved', '🦁', 'die'],
 ]);
 
@@ -85,7 +85,7 @@ export const engagement: UnitContent = {
         {
           key: 'society',
           title: 'Civil society',
-          description: 'Gemeinwohl, Gemeinsinn, Mitbestimmung – words for engagement.',
+          description: 'Allgemeinheit, Gemeinsinn, Mitbestimmung – words for engagement.',
           vocab: gesellschaft,
         },
         {
@@ -100,10 +100,10 @@ export const engagement: UnitContent = {
         'Zivilgesellschaft',
         'Gemeinsinn',
         'Volksbegehren',
-        'Stiftung',
+        'Schirmherrschaft',
         'Spendenaktion',
         'Marginalisierung',
-        'Spendenaufruf',
+        'Sammelaktion',
         'Einsatzbereitschaft',
       ),
       picturesTitle: 'Engaged citizens',
@@ -123,7 +123,7 @@ export const engagement: UnitContent = {
       ),
       memoryTitle: 'Prefix memory',
       memoryDescription: 'Match each phrase with its meaning.',
-      unscramble: byDe(gesellschaft, 'Gemeinwohl', 'Mitbestimmung', 'Stiftung'),
+      unscramble: byDe(gesellschaft, 'Allgemeinheit', 'Mitbestimmung', 'Schirmherrschaft'),
       typeIn: byDe(gesellschaft, 'Zivilgesellschaft', 'Spendenaktion'),
       dictations: [
         [

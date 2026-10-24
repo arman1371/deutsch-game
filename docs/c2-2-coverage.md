@@ -1,10 +1,10 @@
-# C2.2 – syllabus research, coverage and overlap with A1.1–B2.2
+# C2.2 – syllabus research, coverage and overlap with A1.1–C1.1
 
 C2.2 is the second half of the C2 level. It was built from every C2 document that could be found online and
 read, checked against the CEFR C2 descriptors. The rule from the earlier levels still applies: **teach what is
 new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone
 unit – what is already taught.** `src/content/c2-2/content.test.ts` enforces the vocabulary side: no word card
-in C2.2 repeats a word card of A1.1 to B2.2 (or another C2.2 unit).
+in C2.2 repeats a word card of A1.1 to C1.1 (or another C2.2 unit).
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -81,19 +81,27 @@ C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`.
 | Konjunktiv I, Futur II, adverbial clauses, Nomen-Verb-Verbindungen, Wortbildung | C2.1 (see split above)                                                                                |
 | Verbs with prepositional complements                                            | E ch. 3 and W (I) list them, but they belong with the Nomen-Verb-Verbindungen chapter that C2.1 takes |
 
-## Grammar overlap with A1.1–B1.1
+## Grammar overlap with A1.1–C1.1
 
-| Syllabus item               | Earlier levels                                                          | Treatment in C2.2                                                                              |
-| --------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Participles as adjectives   | adjective endings in A2.2; B1.2 (PR #13) teaches the basics             | extended attributes and relative-clause transformation (u1); Partizip II of sein-verbs         |
-| Modal verbs                 | objective use in A1.1, A2.2, B1.1 (passive with modal verbs)            | **new:** subjective meaning, perfect infinitive, modality verbs (u2)                           |
-| Passive                     | Präsens A2.2 u7, with modal verbs B1.1 u3; Präteritum / Perfekt in B1.2 | Plusquamperfekt, Futur I, Zustandspassiv, worden vs. geworden (u3)                             |
-| Infinitive with zu          | B1.1 u5                                                                 | **new:** zu + Partizip I (Gerundiv) and sein + zu (u4)                                         |
-| Genitive prepositions       | wegen, trotz, während, innerhalb, außerhalb, anlässlich in B1.1         | **new:** angesichts, infolge, aufgrund, seitens, hinsichtlich, mittels, zwecks, zugunsten (u5) |
-| Separable verbs             | A1.1–A2.1                                                               | **new:** verbs with a separable and an inseparable reading (u6)                                |
-| Alternatives to the passive | lassen A2.2 (as causative only)                                         | **new:** sich lassen, sein + zu, -bar / -lich adjectives, man, bekommen-Passiv (u7)            |
-| Modal particles             | B1.2 (PR #13) teaches doch, mal, eben                                   | extended to nuance: halt, wohl, schon, immerhin, ohnehin, bloß, etwa, eigentlich (u8)          |
-| Speech acts of discussion   | B1.2 (PR #13) has a discussion unit                                     | **new level of register:** concede, qualify, refute, conclude (u9)                             |
+| Syllabus item               | Earlier levels                                                                  | Treatment in C2.2                                                                              |
+| --------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Participles as adjectives   | adjective endings in A2.2; B1.2 teaches the basics; C1.1 u8 extended attributes | extended attributes and relative-clause transformation (u1); Partizip II of sein-verbs         |
+| Modal verbs                 | objective use in A1.1, A2.2, B1.1 (passive with modal verbs)                    | **new:** subjective meaning, perfect infinitive, modality verbs (u2)                           |
+| Passive                     | Präsens A2.2 u7, with modal verbs B1.1 u3; Präteritum / Perfekt in B1.2         | Plusquamperfekt, Futur I, Zustandspassiv, worden vs. geworden (u3)                             |
+| Infinitive with zu          | B1.1 u5                                                                         | **new:** zu + Partizip I (Gerundiv) and sein + zu (u4)                                         |
+| Genitive prepositions       | wegen, trotz, während, innerhalb, außerhalb, anlässlich in B1.1                 | **new:** angesichts, infolge, aufgrund, seitens, hinsichtlich, mittels, zwecks, zugunsten (u5) |
+| Separable verbs             | A1.1–A2.1                                                                       | **new:** verbs with a separable and an inseparable reading (u6)                                |
+| Alternatives to the passive | lassen A2.2 (as causative only)                                                 | **new:** sich lassen, sein + zu, -bar / -lich adjectives, man, bekommen-Passiv (u7)            |
+| Modal particles             | B1.2 (PR #13) teaches doch, mal, eben                                           | extended to nuance: halt, wohl, schon, immerhin, ohnehin, bloß, etwa, eigentlich (u8)          |
+| Speech acts of discussion   | B1.2 (PR #13) has a discussion unit                                             | **new level of register:** concede, qualify, refute, conclude (u9)                             |
+
+C1.1 (merged while C2.2 was in review) already teaches four of these grammar points at C1 depth: subjective modal verbs
+(`subjective-modals`, u2), participial attributes (`participial-attributes`, u8), separable and inseparable prefixes
+(`prefix-verbs`, u9) and alternatives to modal verbs (`modal-alternatives`, u11). C2.2 keeps its own `c22-` tags and lessons for
+these, as C1.1 did for `unreal-consecutive`, and treats them at C2 depth: long extended attributes with relative-clause
+transformation, modality verbs (scheinen, drohen, versprechen …) and the perfect infinitive, verbs that change meaning with the
+prefix stress, and passive replacements in full formal register. Tag labels are worded differently so the library filter shows
+them as separate entries.
 
 ## Game types
 

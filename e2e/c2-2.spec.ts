@@ -67,8 +67,8 @@ test.describe('C2.2 – library', () => {
     await page.goto('/library');
     await page.getByText(/^Filters/).click();
     for (const [label, tag] of [
-      [/Participles before nouns/, 'c22-participial-attributes'],
-      [/Subjective modal verbs/, 'c22-subjective-modals'],
+      [/Long participial attributes/, 'c22-participial-attributes'],
+      [/Modals & modality verbs/, 'c22-subjective-modals'],
       [/Passive in every tense/, 'c22-passive-forms'],
       [/zu \+ Partizip I/, 'c22-gerundive'],
       [/angesichts \/ infolge/, 'c22-formal-genitive'],

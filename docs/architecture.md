@@ -5,8 +5,8 @@
 1. **Content is data, engines are generic.** A game is `{ gameType, config, tags, difficulty, … }`.
    The engine for `gameType` renders any config of that type.
 2. **Levels are lazy content packs.** `src/content/levels.ts` lists levels; each `available` level has a
-   `load()` that dynamically imports its pack (own chunk). A1.1, A1.2, A2.1, A2.2, B1.1, B1.2 and B2.1 are available; B2.2 is already in
-   the catalogue as "coming soon".
+   `load()` that dynamically imports its pack (own chunk). A1.1, A1.2, A2.1, A2.2, B1.1, B1.2, B2.1, B2.2 and C1.1 are available; C1.2 is
+   already in the catalogue as "coming soon".
 3. **Everything is deterministic with a seed.** `?seed=` drives all shuffles and distractors
    (`src/lib/rng.ts`), which makes bugs reproducible and e2e tests stable.
 4. **Local-first.** Progress/settings are zustand stores persisted through `ProgressRepository`
@@ -70,6 +70,6 @@ topic, grammar, game type, difficulty, duration + free text. Within a facet opti
 - `src/content/**`: schema, ids, tags and **playability** – every activity is solved through the real engine.
   Both checks are shared harnesses (`src/test/contentSuite.ts`, `src/test/playability.tsx`) that each level
   pack calls with its content.
-- `src/pages/pages.test.tsx`: whole app in jsdom with the real A1.1 to B2.2 content.
+- `src/pages/pages.test.tsx`: whole app in jsdom with the real A1.1 to C1.1 content.
 - `e2e/`: Playwright on desktop + mobile: all engines, navigation, filters, persistence, review, keyboard, axe;
-  `e2e/a1-2.spec.ts`, `e2e/a2-1.spec.ts`, `e2e/a2-2.spec.ts`, `e2e/b1-1.spec.ts`, `e2e/b1-2.spec.ts`, `e2e/b2-1.spec.ts` and `e2e/b2-2.spec.ts` cover the level navigation, the level facet and one activity per engine and unit.
+  `e2e/a1-2.spec.ts`, `e2e/a2-1.spec.ts`, `e2e/a2-2.spec.ts`, `e2e/b1-1.spec.ts`, `e2e/b1-2.spec.ts`, `e2e/b2-1.spec.ts`, `e2e/b2-2.spec.ts` and `e2e/c1-1.spec.ts` cover the level navigation, the level facet and one activity per engine and unit.

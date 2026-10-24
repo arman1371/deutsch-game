@@ -407,6 +407,92 @@ export const LESSONS = {
       'Wenn ich das gewusst hätte, wäre ich gekommen.',
     ],
   },
+  'formal-connectors': {
+    title: 'andernfalls, folglich, hingegen',
+    rule: 'These adverbs link two main clauses and take position 1, so the verb follows directly: andernfalls (otherwise), folglich / somit (consequently), dennoch (nevertheless), hingegen (whereas). außer wenn and es sei denn introduce an exception.',
+    examples: [
+      'Wir müssen sparen; andernfalls reicht das Geld nicht.',
+      'Der Zug fällt aus; folglich kommen wir zu spät.',
+      'Wir fahren, außer wenn es schneit.',
+    ],
+  },
+  'subjective-modals': {
+    title: 'Subjective modal verbs',
+    rule: 'Modal verbs can also report or guess. sollen = people say, wollen = he/she claims, müssen = I am sure, dürfte = probably, könnte = perhaps. For the past the infinitive Perfekt follows: gewesen sein, gemacht haben.',
+    examples: [
+      'Der Minister soll zurückgetreten sein. (people say)',
+      'Er will nichts gewusst haben. (he claims)',
+      'Das muss ein Irrtum sein. (I am sure)',
+    ],
+  },
+  'concessive-restrictive': {
+    title: 'wenngleich, es sei denn',
+    rule: 'obgleich / obschon / wenngleich work like obwohl (verb at the end). Restrictions: es sei denn (unless, verb in position 2), außer wenn and nur dass (verb at the end). so sehr … auch means no matter how much.',
+    examples: [
+      'Obgleich er müde war, arbeitete er weiter.',
+      'Er konnte sie nicht überzeugen, so sehr er sich auch bemühte.',
+      'Wir kommen, es sei denn, es schneit.',
+    ],
+  },
+  'es-functions': {
+    title: 'The many jobs of es',
+    rule: 'es can be required (Es regnet. Es geht um … Es gibt …), a pointer to a clause that follows (Ich bereue es, dass …), or an optional filler in position 1 (Es kamen viele Gäste). The filler disappears when another element takes position 1.',
+    examples: [
+      'Es geht um die Zukunft.',
+      'Ich bereue es, dass ich nichts gesagt habe.',
+      'Es kamen viele Gäste. → Heute kamen viele Gäste.',
+    ],
+  },
+  intensifiers: {
+    title: 'Graduating adjectives',
+    rule: 'Adverbs set the strength of an adjective: ziemlich, recht, ganz < sehr, äußerst, höchst, überaus < zu (too much). They stand right before the adjective and are never declined; only the adjective takes the ending.',
+    examples: [
+      'ein äußerst netter Kollege',
+      'Das ist ziemlich teuer.',
+      'Die Aufgabe ist höchst anspruchsvoll.',
+    ],
+  },
+  'unreal-consecutive': {
+    title: 'so … dass and zu … als dass',
+    rule: 'so … dass reports a real result. zu … als dass + Konjunktiv II says the result is impossible (too … to). sodass introduces a plain result. The clause after dass / sodass / als dass has the verb at the end.',
+    examples: [
+      'Es war so heiß, dass alle ins Wasser gingen.',
+      'Er ist zu klug, als dass er darauf hereinfiele.',
+      'Es regnete stark, sodass die Straße gesperrt wurde.',
+    ],
+  },
+  'participial-attributes': {
+    title: 'Participles before nouns',
+    rule: 'Partizip I (infinitive + d) is active and happening now: die steigenden Preise. Partizip II is completed or passive: die gestiegenen Preise, das gelöste Problem. zu + Partizip I means must be done: die zu zahlende Rechnung. All take adjective endings.',
+    examples: ['die wachsende Bedeutung', 'der geprüfte Antrag', 'die zu zahlende Rechnung'],
+  },
+  'prefix-verbs': {
+    title: 'Separable or inseparable?',
+    rule: 'Stressed prefixes (an-, auf-, aus-, ein-, mit-, vor-) split off: Er gibt auf. Unstressed prefixes (be-, ent-, er-, ver-, zer-, miss-) never split and the participle has no ge-: verzichtet. über-, um-, unter-, durch- can be both and change the meaning.',
+    examples: [
+      'Er gibt nicht auf. · Er verzichtet auf alles.',
+      'Sie übersetzt den Text. · Der Fährmann setzt uns über.',
+      'aufgegeben · verzichtet (no ge-)',
+    ],
+  },
+  'nominal-style': {
+    title: 'Nominal style',
+    rule: 'Formal and written German packs a clause into a noun phrase: Weil es regnet → wegen des Regens; Als er ankam → bei seiner Ankunft; Indem man liest → durch Lesen. Nouns in -ung, -heit, -keit, -ion do the work, and the preposition shows the logic.',
+    examples: [
+      'Als er ankam, … → Bei seiner Ankunft …',
+      'Weil es regnet, … → Wegen des Regens …',
+      'Indem man liest, lernt man. → Durch Lesen lernt man.',
+    ],
+  },
+  'modal-alternatives': {
+    title: 'sein … zu and sich lassen',
+    rule: 'Formal German often replaces a modal verb: sein + zu + infinitive (must / can be done), sich lassen + infinitive (can be done), haben + zu + infinitive (must do). These structures often express the passive with a modal verb.',
+    examples: [
+      'Der Antrag ist bis Freitag einzureichen. (must be submitted)',
+      'Das Problem lässt sich lösen. (can be solved)',
+      'Die Mitglieder haben den Beitrag zu zahlen.',
+    ],
+  },
   // ---- B2.2 ----
   'noun-prepositions': {
     title: 'Nouns with fixed prepositions',
