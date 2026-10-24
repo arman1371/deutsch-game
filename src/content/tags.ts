@@ -70,6 +70,19 @@ export const TAGS = {
   'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
   environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
   'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
+  // topics – C1.2
+  'finance-debt': { label: 'Money, debt & payments', group: 'topic', emoji: '💶' },
+  'medicine-nutrition': { label: 'Medicine & nutrition', group: 'topic', emoji: '💊' },
+  'law-crime': { label: 'Law & crime', group: 'topic', emoji: '⚖️' },
+  psychology: { label: 'Psychology & personality', group: 'topic', emoji: '🧠' },
+  'urban-rural': { label: 'City & village', group: 'topic', emoji: '🏙️' },
+  'literature-reading': { label: 'Literature & reading', group: 'topic', emoji: '📖' },
+  'cinema-creativity': { label: 'Cinema & creativity', group: 'topic', emoji: '🎬' },
+  'international-business': { label: 'International business', group: 'topic', emoji: '🌐' },
+  'science-research': { label: 'Research & inventions', group: 'topic', emoji: '🔬' },
+  'meetings-teamwork': { label: 'Teamwork & meetings', group: 'topic', emoji: '👥' },
+  sustainability: { label: 'Farming & sustainability', group: 'topic', emoji: '🌾' },
+  'presenting-moderating': { label: 'Presenting & moderating', group: 'topic', emoji: '🎤' },
   // topics – C1.1
   'time-stress': { label: 'Time & pace', group: 'topic', emoji: '⏳' },
   'digital-life': { label: 'Digital life', group: 'topic', emoji: '📱' },
@@ -179,6 +192,24 @@ export const TAGS = {
   'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
+  // grammar points – C1.2
+  'passive-substitutes': { label: 'Passive substitutes', group: 'grammar', emoji: '🔁' },
+  'participial-clauses': {
+    label: 'Participles & participial clauses',
+    group: 'grammar',
+    emoji: '✂️',
+  },
+  'written-prepositions': { label: 'aufgrund / infolge / anhand', group: 'grammar', emoji: '📜' },
+  'advanced-connectors': { label: 'allerdings / sofern / indem', group: 'grammar', emoji: '🧵' },
+  'adjective-complements': { label: 'stolz auf, abhängig von', group: 'grammar', emoji: '🪝' },
+  'infinitive-perfect': { label: 'ohne … gesehen zu haben', group: 'grammar', emoji: '⏪' },
+  'quantities-graphs': { label: 'Numbers, shares & graphs', group: 'grammar', emoji: '📈' },
+  'modality-verbs': { label: 'scheinen zu, drohen zu, pflegen zu', group: 'grammar', emoji: '🎚️' },
+  'conditional-clauses': {
+    label: 'Sollte … / Hätte … / es sei denn',
+    group: 'grammar',
+    emoji: '🧪',
+  },
   // grammar points – C1.1
   'formal-connectors': {
     label: 'andernfalls / folglich / hingegen',

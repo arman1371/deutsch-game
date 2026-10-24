@@ -8,6 +8,7 @@ import a12 from '@/content/a1-2';
 import a21 from '@/content/a2-1';
 import a22 from '@/content/a2-2';
 import b11 from '@/content/b1-1';
+import c12 from '@/content/c1-2';
 import b12 from '@/content/b1-2';
 import b21 from '@/content/b2-1';
 import b22 from '@/content/b2-2';
@@ -28,6 +29,7 @@ export const allActivities: Activity[] = [
   ...a21.activities,
   ...a22.activities,
   ...b11.activities,
+  ...c12.activities,
   ...b12.activities,
   ...b21.activities,
   ...b22.activities,
@@ -39,6 +41,7 @@ export const allUnits = [
   ...a21.units,
   ...a22.units,
   ...b11.units,
+  ...c12.units,
   ...b12.units,
   ...b21.units,
   ...b22.units,

@@ -1,0 +1,643 @@
+import { byDe, flashcards, memory, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  meta,
+  q,
+  say,
+  sent,
+  sortItems,
+  tf,
+  typed,
+  unitC12,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'c1-2-recht';
+
+const court = vocabList(U, 'Crime & court', [
+  ['Delikt', 'offence', '🚨', 'das', 'Delikte'],
+  ['Verdächtige', 'suspect', '🕵️', 'der', 'Verdächtigen'],
+  ['Angeklagte', 'the accused', '👁️', 'der', 'Angeklagten'],
+  ['Fahndung', 'manhunt, search', '🔍', 'die', 'Fahndungen'],
+  ['Festnahme', 'arrest', '🚔', 'die', 'Festnahmen'],
+  ['Indiz', 'piece of circumstantial evidence', '🧩', 'das', 'Indizien'],
+  ['Anklage', 'charge, indictment', '📜', 'die', 'Anklagen'],
+  ['Staatsanwaltschaft', 'public prosecutor’s office', '🏛️', 'die'],
+  ['Verhandlung', 'hearing, trial', '⚖️', 'die', 'Verhandlungen'],
+  ['Schuldspruch', 'guilty verdict', '🔨', 'der', 'Schuldsprüche'],
+  ['Freispruch', 'acquittal', '🕊️', 'der', 'Freisprüche'],
+  ['Haftstrafe', 'prison sentence', '⛓️', 'die', 'Haftstrafen'],
+  ['Bewährung', 'probation', '🪢', 'die'],
+  ['freisprechen', 'to acquit', '👨‍⚖️'],
+]);
+
+const rules = vocabList(U, 'Rules & offences', [
+  ['Ordnungswidrigkeit', 'administrative offence', '🅿️', 'die', 'Ordnungswidrigkeiten'],
+  ['Geldstrafe', 'fine (criminal)', '💶', 'die', 'Geldstrafen'],
+  ['Zuwiderhandlung', 'contravention', '🚫', 'die', 'Zuwiderhandlungen'],
+  ['Verordnung', 'regulation, ordinance', '📋', 'die', 'Verordnungen'],
+  ['Haftpflicht', 'liability (insurance)', '🧯', 'die'],
+  ['Schmerzensgeld', 'compensation for pain and suffering', '🩹', 'das'],
+  ['Gesetzeslücke', 'legal loophole', '🕳️', 'die', 'Gesetzeslücken'],
+  ['verhängen', 'to impose (a penalty)', '📌'],
+  ['einhalten', 'to comply with, observe', '✅'],
+  ['kurios', 'odd, curious', '🤪'],
+]);
+
+const vocab = [...court, ...rules];
+
+export const recht: UnitContent = {
+  unit: unitC12({
+    id: U,
+    order: 3,
+    title: 'Recht & Gesetz',
+    subtitle: 'Crimes, courts, odd laws – and ways to avoid the passive',
+    emoji: '⚖️',
+    goals: [
+      'Understand news about crimes, trials and curious laws',
+      'Describe rules, deadlines and verdicts precisely',
+      'Replace the passive: sein + zu, lassen, -bar, bekommen + Partizip II, the gerundive',
+    ],
+    grammar: [
+      'Passive substitutes: Das ist zu beachten · Das lässt sich lösen · beweisbar · Er bekam die Strafe erlassen',
+      'Special uses of the passive: Zustandspassiv, impersonal passive, passive in the Perfekt and Plusquamperfekt',
+    ],
+    vocabFields: ['Crime & court', 'Rules & offences'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-court',
+      'flashcards',
+      meta(
+        'Crime & court',
+        'Straftat, Anklage, Urteil – from the arrest to the verdict.',
+        ['vocabulary', 'law-crime'],
+        1,
+        5,
+      ),
+      flashcards(court),
+    ),
+    activity(
+      U,
+      'flash-rules',
+      'flashcards',
+      meta(
+        'Rules & offences',
+        'Bußgeld, Verstoß, Gesetzeslücke – words for rules and their breaches.',
+        ['vocabulary', 'law-crime'],
+        1,
+        4,
+      ),
+      flashcards(rules),
+    ),
+    activity(
+      U,
+      'quiz-words',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'Match the legal words to their meaning.',
+        ['vocabulary', 'law-crime'],
+        1,
+        4,
+      ),
+      quizDeEn(vocab),
+    ),
+    activity(
+      U,
+      'memory-words',
+      'memory',
+      meta(
+        'Court pairs',
+        'Find the German word and its meaning.',
+        ['vocabulary', 'law-crime'],
+        2,
+        4,
+      ),
+      memory(
+        byDe(vocab, 'Angeklagte', 'Indiz', 'Freispruch', 'Bewährung', 'Geldstrafe', 'Haftpflicht'),
+      ),
+    ),
+    activity(
+      U,
+      'listen-news',
+      'listen',
+      meta(
+        'Court news',
+        'Listen to short news items and pick what they say.',
+        ['listening', 'law-crime'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Der Täter wurde nach wenigen Stunden festgenommen.',
+            'The perpetrator was arrested after a few hours.',
+            [
+              'The perpetrator escaped after a few hours.',
+              'The perpetrator was released after a few hours.',
+              'The perpetrator reported himself after a few days.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Das Gericht verhängte eine Geldstrafe und eine Haftstrafe auf Bewährung.',
+            'The court imposed a fine and a suspended prison sentence.',
+            [
+              'The court acquitted the accused.',
+              'The court imposed a long prison sentence without probation.',
+              'The court postponed the trial.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Der Zeuge konnte sich nicht mehr an alle Einzelheiten erinnern.',
+            'The witness could no longer remember all the details.',
+            [
+              'The witness remembered every detail exactly.',
+              'The witness refused to testify.',
+              'The witness was not at the scene.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Wer gegen die Vorschriften verstößt, muss mit einem Bußgeld rechnen.',
+            'Anyone who violates the regulations must expect a fine.',
+            [
+              'Anyone who keeps the regulations must pay a fine.',
+              'Violations of the regulations are never punished.',
+              'Only companies must expect a fine.',
+            ],
+          ),
+          heard(
+            'l5',
+            'In einigen Städten gibt es kuriose Gesetze, die längst nicht mehr angewendet werden.',
+            'In some towns there are odd laws that are no longer applied.',
+            [
+              'In some towns there are new laws that are applied strictly.',
+              'In some towns odd laws are applied every day.',
+              'There are no odd laws in any town.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'spell-law',
+      'spell',
+      meta(
+        'Spell the legal words',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'law-crime'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(vocab, 'Schuldspruch', 'Angeklagte', 'Anklage'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Ordnungswidrigkeit', 'Schmerzensgeld', 'Zuwiderhandlung'), 'type')
+            .items,
+          dictation('d1', 'Der Beweis ist nicht zu widerlegen.', 'The evidence cannot be refuted.'),
+          dictation(
+            'd2',
+            'Das Urteil wurde gestern verkündet.',
+            'The verdict was announced yesterday.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-offence',
+      'sortit',
+      meta(
+        'Crime or offence?',
+        'Straftat or Ordnungswidrigkeit?',
+        ['vocabulary', 'law-crime'],
+        2,
+        3,
+      ),
+      {
+        instruction: 'Is it a crime or only an administrative offence?',
+        buckets: [
+          { id: 'crime', label: 'Straftat', emoji: '🚨' },
+          { id: 'admin', label: 'Ordnungswidrigkeit', emoji: '🅿️' },
+        ],
+        items: sortItems('s', [
+          ['der Diebstahl', 'crime'],
+          ['der Betrug', 'crime'],
+          ['die Körperverletzung', 'crime'],
+          ['der Einbruch', 'crime'],
+          ['die Urkundenfälschung', 'crime'],
+          ['falsch parken', 'admin'],
+          ['bei Rot über die Ampel gehen', 'admin'],
+          ['den Müll falsch trennen', 'admin'],
+          ['die Ruhezeiten verletzen', 'admin'],
+          ['ohne Fahrschein im Bus sitzen', 'admin'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'gap-substitutes',
+      'gapfill',
+      meta(
+        'Avoiding the passive',
+        'sein + zu, sich lassen, -bar, bekommen + Partizip II and the gerundive.',
+        ['grammar', 'passive-substitutes'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'p1',
+            'Der Fall kann leicht gelöst werden. = Der Fall ist leicht ___.',
+            'zu lösen',
+            ['zu lösen', 'lösen zu', 'gelöst', 'lösend'],
+            'The case is easy to solve.',
+            'sein + zu + infinitive = can be …',
+          ),
+          gap(
+            'p2',
+            'Das Verbot muss beachtet werden. = Das Verbot ist ___.',
+            'zu beachten',
+            ['zu beachten', 'beachtet zu', 'beachten', 'beachtet worden'],
+            'The ban has to be observed.',
+            'sein + zu can also mean must be …',
+          ),
+          gap(
+            'p3',
+            'Der Fehler kann nicht behoben werden. = Der Fehler lässt sich nicht ___.',
+            'beheben',
+            ['beheben', 'behoben', 'zu beheben', 'behebend'],
+            'The mistake cannot be fixed.',
+            'sich lassen + infinitive (without zu).',
+          ),
+          gap(
+            'p4',
+            'Die Beweise können nicht widerlegt werden. = Die Beweise sind nicht ___.',
+            'widerlegbar',
+            ['widerlegbar', 'widerlegend', 'widerlegt', 'widerlegen'],
+            'The evidence cannot be refuted.',
+            'The suffix -bar means can be … .',
+          ),
+          gap(
+            'p5',
+            'Dem Täter wurde die Strafe erlassen. = Der Täter ___ die Strafe erlassen.',
+            'bekam',
+            ['bekam', 'wurde', 'hatte', 'ließ'],
+            'The offender had the sentence remitted.',
+            'bekommen / erhalten / kriegen + Partizip II: the recipient becomes the subject.',
+          ),
+          gap(
+            'p6',
+            'die Aufgabe, die gelöst werden muss = die ___ Aufgabe',
+            'zu lösende',
+            ['zu lösende', 'lösende', 'gelöste', 'zu gelöste'],
+            'the task that has to be solved',
+            'The gerundive: zu + Partizip I + adjective ending.',
+          ),
+          typed(
+            'p7',
+            'Er bekam den Führerschein ___. (entziehen)',
+            'entzogen',
+            'His driving licence was taken away.',
+            'bekommen + Partizip II.',
+          ),
+          typed(
+            'p8',
+            'Die Frist ist unbedingt einzuhalten. = Die Frist muss unbedingt eingehalten ___.',
+            'werden',
+            'The deadline must absolutely be kept.',
+            'muss + Partizip II + werden.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-passive',
+      'gapfill',
+      meta(
+        'Special passives',
+        'Zustandspassiv, impersonal passive, Perfekt and Plusquamperfekt of the passive.',
+        ['grammar', 'passive'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'v1',
+            'Der Täter wurde um 8 Uhr verhaftet; jetzt ___ er verhaftet.',
+            'ist',
+            ['ist', 'wird', 'wurde', 'hat'],
+            'The perpetrator was arrested at 8; now he is in custody.',
+            'Zustandspassiv (state): sein + Partizip II.',
+          ),
+          gap(
+            'v2',
+            'Im Gerichtssaal ___ nicht gegessen.',
+            'wird',
+            ['wird', 'werden', 'ist', 'wurden'],
+            'You must not eat in the courtroom.',
+            'Impersonal passive: no subject, the verb stays singular.',
+          ),
+          gap(
+            'v3',
+            'Der Fall ist nie aufgeklärt ___.',
+            'worden',
+            ['worden', 'geworden', 'werden', 'wurde'],
+            'The case was never solved.',
+            'Perfekt of the passive: ist … Partizip II + worden.',
+          ),
+          gap(
+            'v4',
+            'Dem Zeugen ___ nicht geglaubt.',
+            'wurde',
+            ['wurde', 'wurden', 'war', 'hatte'],
+            'The witness was not believed.',
+            'The dative stays; the verb is singular.',
+          ),
+          gap(
+            'v5',
+            'Nachdem der Täter gefasst ___ war, wurde die Fahndung beendet.',
+            'worden',
+            ['worden', 'geworden', 'wurde', 'gewesen'],
+            'After the perpetrator had been caught, the search was called off.',
+            'Plusquamperfekt of the passive: war … Partizip II + worden.',
+          ),
+          gap(
+            'v6',
+            'Es ___ lange verhandelt, aber keine Einigung erzielt.',
+            'wurde',
+            ['wurde', 'wurden', 'war', 'ist'],
+            'There was a long hearing, but no agreement was reached.',
+          ),
+          typed(
+            'v7',
+            'Die Strafe muss sofort bezahlt ___.',
+            'werden',
+            'The penalty must be paid immediately.',
+            'Passive with a modal verb: Partizip II + werden.',
+          ),
+          typed(
+            'v8',
+            'Das Gesetz soll im nächsten Jahr geändert ___.',
+            'werden',
+            'The law is to be changed next year.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'Rules and verdicts',
+        'Build sentences with passive substitutes.',
+        ['grammar', 'passive-substitutes', 'law-crime'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sent('s1', 'The case can easily be solved.', [
+            'Der',
+            'Fall',
+            'lässt',
+            'sich',
+            'leicht',
+            'lösen.',
+          ]),
+          sent('s2', 'The deadline must absolutely be observed.', [
+            'Die',
+            'Frist',
+            'ist',
+            'unbedingt',
+            'einzuhalten.',
+          ]),
+          sent(
+            's3',
+            'The witness received the summons by post.',
+            ['Die', 'Zeugin', 'bekam', 'die', 'Vorladung', 'per', 'Post', 'zugeschickt.'],
+            { alsoAccept: ['Die Zeugin bekam per Post die Vorladung zugeschickt.'] },
+          ),
+          sent('s4', 'The evidence cannot be refuted.', [
+            'Der',
+            'Beweis',
+            'ist',
+            'nicht',
+            'zu',
+            'widerlegen.',
+          ]),
+          sent('s5', 'The verdict can no longer be challenged.', [
+            'Das',
+            'Urteil',
+            'ist',
+            'nicht',
+            'mehr',
+            'anfechtbar.',
+          ]),
+          sent('s6', 'Not much was negotiated at the hearing.', [
+            'Bei',
+            'der',
+            'Verhandlung',
+            'wurde',
+            'wenig',
+            'verhandelt.',
+          ]),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'At the lawyer and in court',
+        'A consultation and a witness statement.',
+        ['communication', 'law-crime'],
+        2,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'anwalt',
+            title: 'Beim Rechtsanwalt',
+            emoji: '👨‍⚖️',
+            setting: 'You received a fine and want legal advice.',
+            turns: [
+              say(
+                'Anwalt',
+                'Sie haben ein Bußgeld bekommen. Worum geht es?',
+                'You received a fine. What is it about?',
+              ),
+              you(
+                'Ich soll gegen eine Vorschrift verstoßen haben, aber das lässt sich nicht beweisen.',
+                [
+                  'Ich soll gegen eine Vorschrift verstoßen haben, aber das lässt sich nicht beweist.',
+                  'sich lassen takes the infinitive: beweisen.',
+                ],
+                [
+                  'Ich habe gegen die Vorschrift verstoßen, und ich möchte das Bußgeld verdoppeln.',
+                  'That makes no sense – you want to fight the fine.',
+                ],
+              ),
+              say(
+                'Anwalt',
+                'Die Frist für den Einspruch ist unbedingt einzuhalten. Sie läuft in zwei Wochen ab.',
+                'The deadline for the objection must be kept. It runs out in two weeks.',
+              ),
+              you(
+                'Dann legen wir den Einspruch heute noch ein.',
+                ['Dann legen wir den Einspruch heute noch.', 'einlegen is separable: legen … ein.'],
+                [
+                  'Dann vergessen wir die Frist lieber.',
+                  'That would be a mistake – the deadline is binding.',
+                ],
+              ),
+            ],
+          },
+          {
+            id: 'gericht',
+            title: 'Als Zeugin vor Gericht',
+            emoji: '🏛️',
+            setting: 'You are questioned as a witness.',
+            turns: [
+              say(
+                'Richterin',
+                'Was haben Sie am Abend des Einbruchs beobachtet?',
+                'What did you observe on the evening of the burglary?',
+              ),
+              you(
+                'Ich habe gesehen, wie ein Mann über den Zaun geklettert ist.',
+                [
+                  'Ich habe gesehen, wie ein Mann über den Zaun geklettert hat.',
+                  'klettern takes sein: geklettert ist.',
+                ],
+                [
+                  'Ich habe nichts gesehen, aber ich kann alles genau beschreiben.',
+                  'That contradicts itself.',
+                ],
+              ),
+              say(
+                'Richterin',
+                'Können Sie den Täter wiedererkennen?',
+                'Can you recognise the perpetrator?',
+              ),
+              you(
+                'Ich bin mir nicht sicher. Der Mann war nicht genau zu erkennen.',
+                [
+                  'Ich bin mir nicht sicher. Der Mann war nicht genau erkennen zu.',
+                  'The pattern is sein + zu + infinitive: zu erkennen.',
+                ],
+                [
+                  'Ich bin mir sicher. Der Mann war nicht genau zu erkennen.',
+                  'The two sentences contradict each other.',
+                ],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta(
+        'Law blitz',
+        'Passive substitutes and legal words – true or false?',
+        ['grammar', 'passive-substitutes', 'passive'],
+        3,
+        2,
+      ),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Der Fehler lässt sich beheben.', true),
+          tf(
+            'b2',
+            'Der Fehler lässt sich beheben werden.',
+            false,
+            'lassen sich takes a plain infinitive.',
+          ),
+          tf('b3', 'Die Rechnung ist sofort zu bezahlen.', true),
+          tf('b4', 'Die Rechnung ist sofort bezahlen zu.', false, 'zu goes before the infinitive.'),
+          tf('b5', 'Er bekam die Strafe erlassen.', true),
+          tf('b6', 'Er bekam die Strafe zu erlassen.', false),
+          tf(
+            'b7',
+            'Ein Beweis, der sich nicht widerlegen lässt, ist widerlegbar.',
+            false,
+            'That would be unrefutable (unwiderlegbar).',
+          ),
+          tf('b8', 'Der Fall ist nie aufgeklärt worden.', true),
+          tf('b9', 'Der Fall ist nie aufgeklärt geworden.', false, 'Passive Perfekt uses worden.'),
+          tf('b10', 'Ein Freispruch bedeutet, dass der Angeklagte nicht verurteilt wird.', true),
+          tf('b11', 'Eine Ordnungswidrigkeit ist schwerer als eine Straftat.', false),
+          tf('b12', 'Im Gerichtssaal wird nicht gegessen.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Legal vocabulary, passive substitutes and passive forms in one round.',
+        ['vocabulary', 'grammar', 'law-crime'],
+        3,
+        5,
+      ),
+      {
+        questions: [
+          q('c1', 'Das Gesetz ist leicht ___.', 'zu verstehen', [
+            'verstehen zu',
+            'verstanden',
+            'verstehend',
+          ]),
+          q('c2', 'Das Problem ___ sich nicht lösen.', 'lässt', ['lasst', 'wird', 'ist']),
+          q('c3', 'Sie ___ die Vorladung zugeschickt.', 'bekam', ['wurde', 'hatte', 'ließ']),
+          q('c4', 'Die zu ___ Fragen sind schwierig.', 'beantwortenden', [
+            'beantwortende',
+            'beantwortet',
+            'beantworten',
+          ]),
+          q('c5', 'Der Fall ist gelöst ___.', 'worden', ['geworden', 'wurde', 'werden']),
+          q('c6', 'verurteilen', 'to convict', ['to arrest', 'to acquit', 'to charge']),
+          q('c7', 'das Bußgeld', 'fine', ['bail', 'tax', 'compensation']),
+          q('c8', 'Die Staatsanwaltschaft erhebt …', 'Anklage', [
+            'Haftung',
+            'Bewährung',
+            'Freispruch',
+          ]),
+          q('c9', 'ein Verstoß gegen eine Vorschrift', 'a violation of a regulation', [
+            'an exception to a rule',
+            'a new law',
+            'a legal advisor',
+          ]),
+          q('c10', 'Bei Bewährung …', 'muss man nicht sofort ins Gefängnis', [
+            'wird man sofort freigelassen',
+            'bekommt man Schadensersatz',
+            'ist die Anklage zurückgenommen',
+          ]),
+        ],
+      },
+    ),
+  ],
+};

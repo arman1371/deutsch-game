@@ -31,7 +31,10 @@ let ctx: AudioContext | null = null;
 
 function audioContextCtor(): AudioContextCtor | undefined {
   if (typeof window === 'undefined') return undefined;
-  const w = window as unknown as { AudioContext?: AudioContextCtor; webkitAudioContext?: AudioContextCtor };
+  const w = window as unknown as {
+    AudioContext?: AudioContextCtor;
+    webkitAudioContext?: AudioContextCtor;
+  };
   return w.AudioContext ?? w.webkitAudioContext;
 }
 
