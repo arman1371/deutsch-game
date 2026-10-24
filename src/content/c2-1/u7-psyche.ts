@@ -69,7 +69,7 @@ export const psyche: UnitContent = {
       'Say what someone seems like, without it being true (als ob)',
     ],
     grammar: [
-      'als ob / als wenn / als + Konjunktiv II – Er tut, als ob er nichts wüsste.',
+      'als + verb second and past forms of the unreal comparison (extends als ob from B1.2): Sie sieht aus, als hätte sie geweint.',
       'Unreal conditions without wenn: Hätte ich das gewusst, wäre ich gekommen.',
       'Criticism after the fact: Du hättest anrufen müssen.',
       'Prepositional group → unreal clause: Ohne deine Hilfe hätte ich es nicht geschafft.',
@@ -213,8 +213,8 @@ export const psyche: UnitContent = {
       'gap-als-ob',
       'gapfill',
       meta(
-        'Er tut, als ob …',
-        'Unreal comparisons with Konjunktiv II.',
+        'Er tut, als wüsste er …',
+        'Unreal comparisons: als + verb second, and past forms (extends als ob from B1.2).',
         ['grammar', 'c21-unreal'],
         3,
         6,
@@ -223,11 +223,11 @@ export const psyche: UnitContent = {
         items: [
           gap(
             'a1',
-            'Er tut, ___ ob er nichts wüsste.',
+            'Er tut so, ___ wüsste er von nichts.',
             'als',
-            ['als', 'wie', 'wenn', 'dass'],
-            'He acts as if he knew nothing.',
-            'als ob + Konjunktiv II, verb at the end.',
+            ['als', 'ob', 'wie', 'dass'],
+            'He acts as if he knew nothing about it.',
+            'als + verb in second place = als ob + verb at the end (B1.2: als ob).',
           ),
           gap(
             'a2',

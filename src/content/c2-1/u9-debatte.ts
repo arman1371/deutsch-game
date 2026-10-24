@@ -19,9 +19,9 @@ import type { UnitContent } from './types';
 const U = 'c2-1-debatte';
 
 const talk = vocabList(U, 'Giving a talk', [
-  ['Gliederung', 'outline, structure', '📑', 'die', 'Gliederungen'],
+  ['Aufbau', 'structure, layout', '📑', 'der'],
   ['Kernaussage', 'core message', '🎯', 'die', 'Kernaussagen'],
-  ['Fazit', 'conclusion, summing up', '🏁', 'das', 'Fazits'],
+  ['Schlusswort', 'closing remarks', '🏁', 'das', 'Schlussworte'],
   ['Überleitung', 'transition', '🌉', 'die', 'Überleitungen'],
   ['Veranschaulichung', 'illustration', '🖼️', 'die', 'Veranschaulichungen'],
   ['Zwischenfrage', 'question during a talk', '🙋', 'die', 'Zwischenfragen'],
@@ -36,7 +36,7 @@ const talk = vocabList(U, 'Giving a talk', [
 ]);
 
 const argue = vocabList(U, 'Arguing', [
-  ['Gegenargument', 'counterargument', '↩️', 'das', 'Gegenargumente'],
+  ['Entgegnung', 'retort, reply', '↩️', 'die', 'Entgegnungen'],
   ['Schlussfolgerung', 'conclusion, inference', '🧩', 'die', 'Schlussfolgerungen'],
   ['Übereinkunft', 'agreement, settlement', '🤝', 'die', 'Übereinkünfte'],
   ['Zugeständnis', 'concession', '🎁', 'das', 'Zugeständnisse'],
@@ -83,7 +83,7 @@ export const debatte: UnitContent = {
       'flashcards',
       meta(
         'Giving a talk',
-        'Gliederung, Kernaussage, Fazit – structuring a Referat.',
+        'Aufbau, Kernaussage, Schlusswort – structuring a Referat.',
         ['vocabulary', 'c21-debate'],
         1,
         5,
@@ -96,7 +96,7 @@ export const debatte: UnitContent = {
       'flashcards',
       meta(
         'Arguing',
-        'Gegenargument, Zugeständnis, untermauern – the language of debate.',
+        'Entgegnung, Zugeständnis, untermauern – the language of debate.',
         ['vocabulary', 'c21-debate'],
         1,
         6,
@@ -139,8 +139,8 @@ export const debatte: UnitContent = {
       memory(
         byDe(
           vocab,
-          'Gliederung',
-          'Fazit',
+          'Aufbau',
+          'Schlusswort',
           'Zwischenfrage',
           'Stichwortzettel',
           'Übereinkunft',
@@ -188,8 +188,8 @@ export const debatte: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Fazit', 'Übereinkunft'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Abwägung', 'Gliederung'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Schlusswort', 'Übereinkunft'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Abwägung', 'Aufbau'), 'unscramble').items,
           ...spell(byDe(vocab, 'Zugeständnis', 'Einschränkung'), 'type').items,
           ...spell(byDe(vocab, 'stichhaltig'), 'type').items,
           dictation(
@@ -557,7 +557,7 @@ export const debatte: UnitContent = {
           tf('b7', 'Ein Zugeständnis ist ein Entgegenkommen.', true),
           tf('b8', 'Einlenken bedeutet „hartnäckig bleiben“.', false, 'It means to give way.'),
           tf('b9', 'Ein stichhaltiges Argument ist nicht überzeugend.', false),
-          tf('b10', 'Ein Fazit steht meist am Ende eines Referats.', true),
+          tf('b10', 'Ein Schlusswort steht meist am Ende eines Referats.', true),
           tf('b11', 'Wer abschweift, bleibt beim Thema.', false, 'abschweifen = to digress.'),
           tf('b12', 'Entkräften heißt, ein Argument zu widerlegen.', true),
         ],
@@ -590,7 +590,7 @@ export const debatte: UnitContent = {
           q('c4', 'Er hat Recht, wenn auch mit ___.', 'Einschränkungen', [
             'Zugeständnis',
             'Übereinkunft',
-            'Fazit',
+            'Schlusswort',
           ]),
           q('c5', '___ dem auch sei, wir gehen weiter.', 'Wie', ['Was', 'So', 'Wenn']),
           q('c6', 'das Zugeständnis', 'concession', [

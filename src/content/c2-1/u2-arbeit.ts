@@ -26,7 +26,7 @@ const world = vocabList(U, 'Working life today', [
   ['Führungskraft', 'executive, manager', '🧑‍💼', 'die', 'Führungskräfte'],
   ['Belegschaft', 'workforce, staff', '👥', 'die', 'Belegschaften'],
   ['Tarifvertrag', 'collective agreement', '📜', 'der', 'Tarifverträge'],
-  ['Betriebsrat', 'works council', '🏛️', 'der', 'Betriebsräte'],
+  ['Arbeitnehmervertretung', 'employee representation', '🏛️', 'die', 'Arbeitnehmervertretungen'],
   ['Gleitzeit', 'flexitime', '🕰️', 'die'],
   ['Arbeitszeitkonto', 'working-time account', '📅', 'das', 'Arbeitszeitkonten'],
   ['Aufstiegschance', 'chance of promotion', '📈', 'die', 'Aufstiegschancen'],
@@ -126,7 +126,7 @@ export const arbeit: UnitContent = {
           'Vereinbarkeit',
           'Belegschaft',
           'Tarifvertrag',
-          'Betriebsrat',
+          'Arbeitnehmervertretung',
           'Arbeitszeitkonto',
           'Quereinsteiger',
           'befristet',
@@ -173,7 +173,7 @@ export const arbeit: UnitContent = {
       {
         items: [
           ...spell(byDe(world, 'Gleitzeit', 'Belegschaft'), 'unscramble').items,
-          ...spell(byDe(world, 'Betriebsrat', 'Tarifvertrag'), 'unscramble').items,
+          ...spell(byDe(world, 'Arbeitnehmervertretung', 'Tarifvertrag'), 'unscramble').items,
           ...spell(byDe(world, 'Arbeitszeitkonto', 'Fachkräftemangel'), 'type').items,
           ...spell(byDe(world, 'Leistungsdruck'), 'type').items,
           dictation(

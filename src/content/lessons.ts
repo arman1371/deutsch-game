@@ -435,12 +435,12 @@ export const LESSONS = {
     ],
   },
   'c21-consecutive': {
-    title: 'Result clauses',
-    rule: 'sodass (or so dass) or so/derart/dermaßen … dass introduce a result; the verb goes to the end. In a main clause, folglich, infolgedessen, somit, demnach and daher express the same result and are followed by the verb in position 2.',
+    title: 'Formal result clauses',
+    rule: 'derart / dermaßen / so + adjective … dass stresses the degree and the result; the dass-clause ends with the verb. In a main clause, folglich, infolgedessen, somit, mithin and demnach draw a conclusion: they take position 1, the verb is second.',
     examples: [
-      'Der Server fiel aus, sodass niemand arbeiten konnte.',
-      'Er war so müde, dass er einschlief.',
+      'Das Netz war derart langsam, dass die Konferenz abbrach.',
       'Die Daten fehlen. Folglich lässt sich nichts beweisen.',
+      'Die Kosten sinken. Somit wird die Technik erschwinglich.',
     ],
   },
   'c21-futur-2': {
@@ -461,13 +461,13 @@ export const LESSONS = {
       'Sie sagten, sie hätten keine Zeit gehabt.',
     ],
   },
-  'c21-modal-clauses': {
-    title: 'How-clauses (modal)',
-    rule: 'indem and dadurch, dass = by doing …; ohne dass = without …; (an)statt dass = instead of; je … desto/umso + comparative = the more …, the more …; insofern, als = in so far as. All are subordinating (verb at the end); je … desto is followed by verb-second in the second part.',
+  'c21-nominal-style': {
+    title: 'Nominal style',
+    rule: 'Formal texts replace clauses by prepositional phrases: weil → wegen / aufgrund + genitive, obwohl → trotz + genitive, indem → durch + accusative, wenn → bei + dative, nachdem → nach + dative, ohne zu → ohne + noun. The verb becomes a noun (verzögern → die Verzögerung).',
     examples: [
-      'Man spart Energie, indem man das Licht ausmacht.',
-      'Er ging, ohne dass jemand es bemerkte.',
-      'Je länger ich warte, desto nervöser werde ich.',
+      'Weil der Zug Verspätung hatte, … → Aufgrund der Verspätung des Zuges …',
+      'Indem man spart, … → Durch Sparen …',
+      'Er schrieb, ohne zu zögern. → Er schrieb ohne Zögern.',
     ],
   },
   'c21-unreal': {
@@ -497,6 +497,80 @@ export const LESSONS = {
       'So gut die Idee auch klingt, sie ist zu teuer.',
     ],
   },
+  // ---- B1.2 ----
+  'je-desto': {
+    title: 'je … desto / umso',
+    rule: 'je + comparative starts a subordinate clause (verb at the end). desto or umso + comparative starts the main clause, and its verb comes right after the comparative word group.',
+    examples: [
+      'Je mehr ich arbeite, desto müder bin ich.',
+      'Je früher wir anfangen, umso schneller sind wir fertig.',
+    ],
+  },
+  'als-ob': {
+    title: 'als ob + Konjunktiv II',
+    rule: 'als ob (as if) compares with something that is not true. It starts a subordinate clause with the verb at the end, usually in the Konjunktiv II (wäre, hätte, würde + infinitive, or hätte / wäre + participle for the past).',
+    examples: [
+      'Er tut so, als ob er alles wüsste.',
+      'Du siehst aus, als ob du nicht geschlafen hättest.',
+    ],
+  },
+  'participles-as-adjectives': {
+    title: 'Participles as adjectives',
+    rule: 'Partizip I (infinitive + d: lachend) describes something happening at the same time: das lachende Kind. Partizip II (gekocht, repariert) describes something finished or passive: das reparierte Handy. Before a noun both take normal adjective endings.',
+    examples: [
+      'ein schlafender Hund · die steigenden Preise',
+      'das gekochte Ei · ein gebrauchtes Fahrrad',
+    ],
+  },
+  'modal-particles': {
+    title: 'doch, ja, mal, denn, eigentlich',
+    rule: 'Modal particles add a tone, not facts. denn makes questions friendlier, mal and doch soften requests, ja marks something both speakers know, doch also shows surprise or protest, eigentlich (actually) changes the topic or limits a statement. They come after the verb and are not stressed.',
+    examples: ['Was machst du denn hier?', 'Komm doch mal vorbei!', 'Das weißt du ja.'],
+  },
+  'indem-ohne-dass': {
+    title: 'indem, ohne dass, statt dass',
+    rule: 'indem (by …ing) says how something is done. ohne dass / ohne … zu (without …ing) says what does not happen, statt dass / statt … zu (instead of) names the alternative. All start a clause with the verb at the end; use zu when both parts have the same subject.',
+    examples: [
+      'Man hilft, indem man Zeit spendet.',
+      'Er ging, ohne dass jemand es merkte.',
+      'Sie half, statt nur zu reden.',
+    ],
+  },
+  'passive-past': {
+    title: 'Passive in the past',
+    rule: 'Präteritum passive: wurde + participle (Die Mauer wurde 1961 gebaut.). Perfekt passive: ist + participle + worden – worden, not geworden. The doer is added with von + dative, a cause with durch + accusative.',
+    examples: [
+      'Die Mauer wurde 1961 gebaut.',
+      'Die Grenze ist 1989 geöffnet worden.',
+      'Das Gesetz wurde vom Parlament beschlossen.',
+    ],
+  },
+  'relative-wo-was': {
+    title: 'Relative clauses with wo and was',
+    rule: 'wo refers to a place (die Stadt, wo …) and can replace in dem / in der. was refers to alles, nichts, etwas, vieles, das (pronoun), to a superlative used as a noun (das Beste, was …) or to a whole clause. The verb goes to the end.',
+    examples: [
+      'Das ist die Stadt, wo ich geboren bin.',
+      'Alles, was du brauchst, ist hier.',
+      'Er kam pünktlich, was mich überraschte.',
+    ],
+  },
+  'nicht-position': {
+    title: 'Where does nicht go?',
+    rule: 'To negate the whole sentence, nicht goes as far to the end as possible, but before the second verb part, before most adverbs of manner and place, and before prepositional objects. To negate one word, nicht stands right before it (often with sondern).',
+    examples: [
+      'Ich kenne den Künstler nicht.',
+      'Das Stück hat mir nicht gefallen.',
+      'Nicht das Bild, sondern der Rahmen ist alt.',
+    ],
+  },
+  'consecutive-clauses': {
+    title: 'sodass and so … dass',
+    rule: 'sodass and so … dass give a consequence (so that, with the result that). Both start a subordinate clause with the verb at the end. With so … dass, so stands before an adjective in the main clause.',
+    examples: [
+      'Es regnete stark, sodass das Fest ausfiel.',
+      'Der Vortrag war so lang, dass alle müde wurden.',
+    ],
+  },
 } as const satisfies Record<string, Lesson>;
 
 export type LessonId = keyof typeof LESSONS;
@@ -524,6 +598,14 @@ const COVERS: Partial<Record<TagId, readonly TagId[]>> = {
   'reflexive-verbs': ['accusative', 'dative'],
   'n-declension': ['accusative', 'dative'],
   'konjunktiv-2': ['polite-forms'],
+  'als-ob': ['konjunktiv-2', 'subordinate-clauses'],
+  'je-desto': ['comparison', 'subordinate-clauses'],
+  'indem-ohne-dass': ['subordinate-clauses', 'infinitive-zu'],
+  'consecutive-clauses': ['subordinate-clauses'],
+  'relative-wo-was': ['relative-clauses', 'subordinate-clauses'],
+  'passive-past': ['passive', 'past-tense', 'perfekt'],
+  'participles-as-adjectives': ['adjective-endings', 'perfekt'],
+  'nicht-position': ['negation', 'word-order'],
   comparison: ['superlative'],
   'relative-clauses': ['subordinate-clauses'],
   'indirect-questions': ['subordinate-clauses', 'questions'],

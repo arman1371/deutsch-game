@@ -12,8 +12,8 @@ import {
   sortItems,
   sw,
   tf,
-  typed,
   unitC21,
+  withWhy,
   you,
 } from './helpers';
 import type { UnitContent } from './types';
@@ -42,7 +42,7 @@ const research = vocabList(U, 'Research & reporting', [
   ['Hypothese', 'hypothesis', '💡', 'die', 'Hypothesen'],
   ['Versuchsreihe', 'series of experiments', '🧪', 'die', 'Versuchsreihen'],
   ['Stichprobe', 'sample', '🎲', 'die', 'Stichproben'],
-  ['Beleg', 'evidence, proof', '📎', 'der', 'Belege'],
+  ['Nachweis', 'evidence, proof', '📎', 'der', 'Nachweise'],
   ['Fachzeitschrift', 'scientific journal', '📰', 'die', 'Fachzeitschriften'],
   ['Zusammenhang', 'connection, correlation', '🔗', 'der', 'Zusammenhänge'],
   ['Erkenntnis', 'insight, finding', '🧠', 'die', 'Erkenntnisse'],
@@ -56,6 +56,47 @@ const research = vocabList(U, 'Research & reporting', [
 ]);
 
 const vocab = [...ai, ...research];
+
+const whyK1 = {
+  k7: {
+    hat: 'hat is the indicative; a report uses Konjunktiv I (sie habe).',
+    hätte:
+      'hätte is Konjunktiv II – only a substitute when Konjunktiv I looks like the indicative.',
+    haben: 'haben is the plural; the subject sie (one person) needs habe.',
+  },
+  k1: {
+    hat: 'hat is the indicative; a report uses Konjunktiv I (er habe).',
+    hätte:
+      'hätte is Konjunktiv II – only a substitute when Konjunktiv I looks like the indicative.',
+    haben: 'haben is the plural; the subject er needs habe.',
+  },
+  k2: {
+    ist: 'ist is the indicative; a report uses Konjunktiv I (sei).',
+    wäre: 'wäre (Konjunktiv II) is only needed when Konjunktiv I equals the indicative – sei is distinct from ist.',
+    war: 'war is Präteritum; reported speech uses Konjunktiv I.',
+  },
+  k3: {
+    ist: 'ist is the indicative; with gewesen the report needs sei.',
+    wäre: 'sei is distinct from ist, so Konjunktiv II is not needed.',
+    war: 'war … gewesen mixes tenses; use sei … gewesen.',
+  },
+  k4: {
+    startet: 'startet is the indicative (-t); Konjunktiv I has no -t: starte.',
+    starten: 'starten is the plural; er/sie/es → starte.',
+    gestartet: 'The participle does not fit here: the finite verb is missing.',
+  },
+  k5: {
+    sind: 'sind is the indicative; the plural Konjunktiv I is seien.',
+    seid: 'seid is the ihr form.',
+    sei: 'sei is singular; the subject is plural (die Systeme).',
+  },
+  k6: {
+    haben:
+      'haben (plural) is identical to the indicative, so it does not mark a report – use Konjunktiv II hätten.',
+    hatten: 'hatten is Präteritum, not a Konjunktiv form.',
+    habe: 'habe is singular; the subject is plural (die Entwickler).',
+  },
+};
 
 export const ki: UnitContent = {
   unit: unitC21({
@@ -98,7 +139,7 @@ export const ki: UnitContent = {
       'flashcards',
       meta(
         'Research & reporting',
-        'Hypothese, Beleg, behaupten, einräumen – how research is reported.',
+        'Hypothese, Nachweis, behaupten, einräumen – how research is reported.',
         ['vocabulary', 'c21-ai-research'],
         1,
         6,
@@ -124,7 +165,7 @@ export const ki: UnitContent = {
           'Haftung',
           'Rechenleistung',
           'Stichprobe',
-          'Beleg',
+          'Nachweis',
           'widerlegen',
           'einräumen',
           'bestreiten',
@@ -171,7 +212,7 @@ export const ki: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Beleg', 'Hypothese'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Nachweis', 'Hypothese'), 'unscramble').items,
           ...spell(byDe(vocab, 'Haftung', 'Stichprobe'), 'unscramble').items,
           ...spell(byDe(vocab, 'Transparenz', 'Fachzeitschrift'), 'type').items,
           ...spell(byDe(vocab, 'nachvollziehbar'), 'type').items,
@@ -223,63 +264,67 @@ export const ki: UnitContent = {
         6,
       ),
       {
-        items: [
-          gap(
-            'k1',
-            'Der Minister sagte, er ___ keine Kenntnis davon.',
-            'habe',
-            ['habe', 'hat', 'hätte', 'haben'],
-            'The minister said he had no knowledge of it.',
-            'Konjunktiv I of haben: er habe.',
-          ),
-          gap(
-            'k2',
-            'Die Forscher erklärten, die Methode ___ sicher.',
-            'sei',
-            ['sei', 'ist', 'wäre', 'war'],
-            'The researchers explained that the method was safe.',
-            'Konjunktiv I of sein: sie sei (the only verb with its own ich form: ich sei).',
-          ),
-          gap(
-            'k3',
-            'Sie sagte, sie ___ gestern in Berlin gewesen.',
-            'sei',
-            ['sei', 'ist', 'wäre', 'war'],
-            'She said she had been in Berlin yesterday.',
-            'Past: sei + participle (gewesen).',
-          ),
-          gap(
-            'k4',
-            'Die Sprecherin teilte mit, das Projekt ___ im Herbst.',
-            'starte',
-            ['starte', 'startet', 'starten', 'gestartet'],
-            'The spokeswoman announced that the project would start in autumn.',
-            'er/sie/es: stem + -e (starte), without the -t of the indicative.',
-          ),
-          gap(
-            'k5',
-            'Die Experten warnten, die Systeme ___ nicht transparent.',
-            'seien',
-            ['seien', 'sind', 'seid', 'sei'],
-            'The experts warned that the systems were not transparent.',
-            'Plural of sein: seien (different from sind).',
-          ),
-          gap(
-            'k6',
-            'Die Kritiker sagten, die Entwickler ___ die Risiken nie ernst genommen.',
-            'hätten',
-            ['hätten', 'haben', 'hatten', 'habe'],
-            'The critics said the developers had never taken the risks seriously.',
-            'haben (plural) looks like the indicative, so use Konjunktiv II: hätten.',
-          ),
-          typed(
-            'k7',
-            'Er meinte, sie ___ Recht.',
-            'habe',
-            'He thought she was right.',
-            'sie habe Recht – reported opinion, Konjunktiv I.',
-          ),
-        ],
+        items: withWhy(
+          [
+            gap(
+              'k1',
+              'Der Minister sagte, er ___ keine Kenntnis davon.',
+              'habe',
+              ['habe', 'hat', 'hätte', 'haben'],
+              'The minister said he had no knowledge of it.',
+              'Konjunktiv I of haben: er habe.',
+            ),
+            gap(
+              'k2',
+              'Die Forscher erklärten, die Methode ___ sicher.',
+              'sei',
+              ['sei', 'ist', 'wäre', 'war'],
+              'The researchers explained that the method was safe.',
+              'Konjunktiv I of sein: sie sei (the only verb with its own ich form: ich sei).',
+            ),
+            gap(
+              'k3',
+              'Sie sagte, sie ___ gestern in Berlin gewesen.',
+              'sei',
+              ['sei', 'ist', 'wäre', 'war'],
+              'She said she had been in Berlin yesterday.',
+              'Past: sei + participle (gewesen).',
+            ),
+            gap(
+              'k4',
+              'Die Sprecherin teilte mit, das Projekt ___ im Herbst.',
+              'starte',
+              ['starte', 'startet', 'starten', 'gestartet'],
+              'The spokeswoman announced that the project would start in autumn.',
+              'er/sie/es: stem + -e (starte), without the -t of the indicative.',
+            ),
+            gap(
+              'k5',
+              'Die Experten warnten, die Systeme ___ nicht transparent.',
+              'seien',
+              ['seien', 'sind', 'seid', 'sei'],
+              'The experts warned that the systems were not transparent.',
+              'Plural of sein: seien (different from sind).',
+            ),
+            gap(
+              'k6',
+              'Die Kritiker sagten, die Entwickler ___ die Risiken nie ernst genommen.',
+              'hätten',
+              ['hätten', 'haben', 'hatten', 'habe'],
+              'The critics said the developers had never taken the risks seriously.',
+              'haben (plural) looks like the indicative, so use Konjunktiv II: hätten.',
+            ),
+            gap(
+              'k7',
+              'Er meinte, sie ___ Recht.',
+              'habe',
+              ['habe', 'hat', 'hätte', 'haben'],
+              'He thought she was right.',
+              'sie habe Recht – reported opinion, Konjunktiv I.',
+            ),
+          ],
+          whyK1,
+        ),
       },
     ),
     activity(
@@ -557,7 +602,7 @@ export const ki: UnitContent = {
                 'The authors write that over 5000 people were examined.',
               ),
               you(
-                'Eine große Stichprobe ist gut, aber ein Zusammenhang ist noch kein Beleg.',
+                'Eine große Stichprobe ist gut, aber ein Zusammenhang ist noch kein Nachweis.',
                 [
                   'Eine große Stichprobe ist schlecht, und das Ergebnis ist falsch.',
                   'A large sample is not a flaw.',
@@ -630,7 +675,7 @@ export const ki: UnitContent = {
             'letzten',
           ]),
           q('c5', 'Sie fragte, ___ er das Paper kenne.', 'ob', ['dass', 'wenn', 'als']),
-          q('c6', 'der Beleg', 'evidence', ['sample', 'insight', 'hypothesis']),
+          q('c6', 'der Nachweis', 'evidence', ['sample', 'insight', 'hypothesis']),
           q('c7', 'einräumen', 'to concede', ['to deny', 'to claim', 'to refute']),
           q('c8', 'widerlegen', 'to refute', ['to prove', 'to remark', 'to emphasise']),
           q('c9', 'die Haftung', 'liability', ['bias', 'transparency', 'automation']),

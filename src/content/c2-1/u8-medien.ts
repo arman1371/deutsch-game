@@ -39,7 +39,7 @@ const media = vocabList(U, 'Media', [
 ]);
 
 const opinion = vocabList(U, 'Opinion & debate', [
-  ['Standpunkt', 'standpoint', '📍', 'der', 'Standpunkte'],
+  ['Sichtweise', 'perspective, view', '📍', 'die', 'Sichtweisen'],
   ['Gegenposition', 'opposing view', '🔀', 'die', 'Gegenpositionen'],
   ['Stellungnahme', 'statement, position paper', '📄', 'die', 'Stellungnahmen'],
   ['Meinungsvielfalt', 'diversity of opinion', '🌈', 'die'],
@@ -96,7 +96,7 @@ export const medien: UnitContent = {
       'flashcards',
       meta(
         'Opinion & debate',
-        'Standpunkt, Kontroverse, relativieren – words for opinion.',
+        'Sichtweise, Kontroverse, relativieren – words for opinion.',
         ['vocabulary', 'c21-media-opinion'],
         1,
         5,
@@ -194,7 +194,7 @@ export const medien: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Kommentar', 'Standpunkt'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Kommentar', 'Sichtweise'), 'unscramble').items,
           ...spell(byDe(vocab, 'Recherche', 'Kontroverse'), 'unscramble').items,
           ...spell(byDe(vocab, 'Berichterstattung', 'Glaubwürdigkeit'), 'type').items,
           ...spell(byDe(vocab, 'Stellungnahme'), 'type').items,

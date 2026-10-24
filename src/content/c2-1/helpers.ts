@@ -1,6 +1,7 @@
 import { conjugate, konjunktiv2, PRONOUNS, type Forms } from '@/lib/german/conjugation';
 import { unit } from '../builders';
 import type { Unit } from '../schema';
+import type { LessonId } from '../lessons';
 import { customTable, sent } from '../a1-2/helpers';
 
 /** The C2.1 units share the A1.2 / B1.1 authoring helpers; the level id and the C2 tables are new. */
@@ -27,7 +28,7 @@ export const sw = (
   id: string,
   translation: string,
   sentence: string,
-  opts: { extra?: string[]; alsoAccept?: string[]; explanation?: string } = {},
+  opts: { extra?: string[]; alsoAccept?: string[]; explanation?: string; lesson?: LessonId } = {},
 ) => sent(id, translation, sentence.split(' '), opts);
 
 type Blanks = Parameters<typeof customTable>[4];
@@ -114,3 +115,9 @@ export const k2ModalPastTable = (
     compound(konjunktiv2('haben'), `${infinitive} ${modal}`),
     blanks,
   );
+
+/** Adds the `why` sentence for wrong options to gap-fill / quiz items, looked up by item id. */
+export const withWhy = <T extends { id: string }>(
+  items: T[],
+  why: Record<string, Record<string, string>>,
+) => items.map((i) => (why[i.id] ? { ...i, why: why[i.id] } : i));

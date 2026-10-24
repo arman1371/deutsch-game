@@ -80,6 +80,19 @@ export const TAGS = {
   'c21-wellbeing': { label: 'Mind & wellbeing', group: 'topic', emoji: '🧘' },
   'c21-media-opinion': { label: 'Media & public opinion', group: 'topic', emoji: '📰' },
   'c21-debate': { label: 'Debate & presentations', group: 'topic', emoji: '🎤' },
+  // topics – B1.2
+  colleagues: { label: 'Colleagues & conflicts', group: 'topic', emoji: '🧑‍💼' },
+  'digital-world': { label: 'Computers & digital life', group: 'topic', emoji: '🖥️' },
+  'consumer-rights': { label: 'Consumption & consumer rights', group: 'topic', emoji: '🛍️' },
+  'further-education': { label: 'Further education & courses', group: 'topic', emoji: '📖' },
+  'rules-manners': { label: 'Rules & cultural differences', group: 'topic', emoji: '📜' },
+  volunteering: { label: 'Volunteering', group: 'topic', emoji: '🙌' },
+  'politics-society': { label: 'Politics & society', group: 'topic', emoji: '🗳️' },
+  history: { label: 'History', group: 'topic', emoji: '🏛️' },
+  'city-country': { label: 'City, country & tourism', group: 'topic', emoji: '🏙️' },
+  'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
+  'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
+  'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -146,10 +159,10 @@ export const TAGS = {
   },
   'c21-noun-verb': { label: 'Noun-verb combinations', group: 'grammar', emoji: '🧩' },
   'c21-contrast-cause': { label: 'während / zumal / dadurch dass', group: 'grammar', emoji: '⚖️' },
-  'c21-consecutive': { label: 'sodass / so … dass / folglich', group: 'grammar', emoji: '⛓️' },
+  'c21-consecutive': { label: 'derart … dass / folglich / somit', group: 'grammar', emoji: '⛓️' },
   'c21-futur-2': { label: 'Futur II', group: 'grammar', emoji: '🔭' },
   'c21-reported-speech': { label: 'Konjunktiv I (reported speech)', group: 'grammar', emoji: '🗞️' },
-  'c21-modal-clauses': { label: 'indem / ohne dass / je … desto', group: 'grammar', emoji: '🛠️' },
+  'c21-nominal-style': { label: 'weil → wegen / indem → durch', group: 'grammar', emoji: '🛠️' },
   'c21-unreal': { label: 'als ob / unreal comparisons & hindsight', group: 'grammar', emoji: '🪞' },
   'c21-text-cohesion': {
     label: 'dabei / dadurch / zudem (cohesion)',
@@ -157,6 +170,20 @@ export const TAGS = {
     emoji: '🧵',
   },
   'c21-concession': { label: 'wenngleich / so … auch / allerdings', group: 'grammar', emoji: '🤔' },
+  // grammar points – B1.2
+  'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
+  'als-ob': { label: 'als ob', group: 'grammar', emoji: '🫥' },
+  'participles-as-adjectives': {
+    label: 'Participles as adjectives',
+    group: 'grammar',
+    emoji: '🏃',
+  },
+  'modal-particles': { label: 'Modal particles (doch, ja, mal)', group: 'grammar', emoji: '🧂' },
+  'indem-ohne-dass': { label: 'indem / ohne dass / statt dass', group: 'grammar', emoji: '🛠️' },
+  'passive-past': { label: 'Passive: wurde / ist … worden', group: 'grammar', emoji: '📜' },
+  'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
+  'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
+  'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;
