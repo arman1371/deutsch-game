@@ -53,7 +53,15 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'b2-1',
     title: 'B2.1',
-    subtitle: 'Arguing in depth, news and media, work and society at upper-intermediate level',
+    subtitle:
+      'Relationships, minimalism, well-being, body language, teamwork, life paths, society, housing, media, science, travel and climate at upper-intermediate level',
+    status: 'available',
+    load: () => import('./b2-1'),
+  },
+  {
+    id: 'b2-2',
+    title: 'B2.2',
+    subtitle: 'Arguing in depth, academic and professional language at upper-intermediate level',
     status: 'coming-soon',
   },
 ];
