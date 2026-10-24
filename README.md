@@ -23,11 +23,11 @@ not support a second language yet (see [Roadmap](#roadmap)).
 | **B1.1** |    12 |   173 | news stories, health, the world of work, environment, technology, regrets   |
 | **B1.2** |    12 |   149 | colleagues, digital life, consumer rights, politics, history, home, theatre |
 | **B2.1** |    12 |   173 | relationships, minimalism, well-being, society, housing, media, climate     |
-| B2.2     |     – |     – | coming soon                                                                 |
+| **B2.2** |    12 |   173 | relationships, nutrition, university, art, sustainable cities, media and law |
 
 Unit lists are researched from course books, Goethe exam documents and the CEFR rather than invented; see
 [docs/a2-2-coverage.md](docs/a2-2-coverage.md), [docs/b1-1-coverage.md](docs/b1-1-coverage.md),
-[docs/b1-2-coverage.md](docs/b1-2-coverage.md) and [docs/b2-1-coverage.md](docs/b2-1-coverage.md).
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md), [docs/b2-1-coverage.md](docs/b2-1-coverage.md) and [docs/b2-2-coverage.md](docs/b2-2-coverage.md).
 
 ### Features
 

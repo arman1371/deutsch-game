@@ -71,9 +71,9 @@ test.describe('learning path', () => {
   test('coming-soon levels are listed but not playable', async ({ page }) => {
     await page.goto('/');
     await expect(
-      page.getByRole('heading', { name: 'B2.2' }).locator('xpath=ancestor::li'),
+      page.getByRole('heading', { name: 'C1.1' }).locator('xpath=ancestor::li'),
     ).toContainText('Coming soon');
-    await page.goto('/levels/b2-2');
+    await page.goto('/levels/c1-1');
     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
   });
 });

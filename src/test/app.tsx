@@ -10,6 +10,7 @@ import a22 from '@/content/a2-2';
 import b11 from '@/content/b1-1';
 import b12 from '@/content/b1-2';
 import b21 from '@/content/b2-1';
+import b22 from '@/content/b2-2';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
 import { useProgressStore } from '@/store/progressStore';
@@ -28,6 +29,7 @@ export const allActivities: Activity[] = [
   ...b11.activities,
   ...b12.activities,
   ...b21.activities,
+  ...b22.activities,
 ];
 export const allUnits = [
   ...a11.units,
@@ -37,9 +39,10 @@ export const allUnits = [
   ...b11.units,
   ...b12.units,
   ...b21.units,
+  ...b22.units,
 ];
 
-/** Render the whole app at a URL with the real A1.1 to B2.1 content. */
+/** Render the whole app at a URL with the real A1.1 to B2.2 content. */
 export function renderApp(path = '/') {
   const router = createTestRouter([path]);
   const user = userEvent.setup();

@@ -61,7 +61,15 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'b2-2',
     title: 'B2.2',
-    subtitle: 'Arguing in depth, academic and professional language at upper-intermediate level',
+    subtitle:
+      'Relationships, nutrition, university, complaints, fitness, regional languages, economy and tourism, art, recent history, sustainable cities, stress and decisions, media and law',
+    status: 'available',
+    load: () => import('./b2-2'),
+  },
+  {
+    id: 'c1-1',
+    title: 'C1.1',
+    subtitle: 'Formal and academic language, nuance and argument at advanced level',
     status: 'coming-soon',
   },
 ];

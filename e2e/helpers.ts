@@ -7,6 +7,7 @@ import a22 from '../src/content/a2-2';
 import b11 from '../src/content/b1-1';
 import b12 from '../src/content/b1-2';
 import b21 from '../src/content/b2-1';
+import b22 from '../src/content/b2-2';
 import type { Activity } from '../src/content/schema';
 import { parseTime, timeToGerman } from '../src/lib/german/time';
 import { totalCents } from '../src/games/market/logic';
@@ -24,6 +25,7 @@ export const allActivities: Activity[] = [
   ...b11.activities,
   ...b12.activities,
   ...b21.activities,
+  ...b22.activities,
 ];
 
 export const activity = (id: string): Activity => {

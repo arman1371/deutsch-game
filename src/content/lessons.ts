@@ -407,6 +407,115 @@ export const LESSONS = {
       'Wenn ich das gewusst hätte, wäre ich gekommen.',
     ],
   },
+  // ---- B2.2 ----
+  'noun-prepositions': {
+    title: 'Nouns with fixed prepositions',
+    rule: 'Many nouns take a fixed preposition that has to be learnt with the noun and its case: die Angst vor + Dat., die Hoffnung auf + Akk., das Interesse an + Dat., der Streit um + Akk. In questions the preposition joins wo(r)-: Worauf hoffst du?',
+    examples: [
+      'die Angst vor dem Versagen',
+      'die Hoffnung auf einen Neuanfang',
+      'das Interesse an Kunst',
+    ],
+  },
+  'comparative-clauses': {
+    title: 'Comparing with als and wie',
+    rule: 'Equal: so / genauso … wie. Unequal: comparative + als. Both can introduce a whole clause with the verb at the end, often in the Plusquamperfekt: schöner, als ich gedacht hatte. anders als and ganz anders, als … compare unlike things; je nachdem, ob … says it depends.',
+    examples: [
+      'Es war genauso teuer, wie ich erwartet hatte.',
+      'Das Studium war schwerer, als ich gedacht hatte.',
+      'Sie ist ganz anders, als man sagt.',
+    ],
+  },
+  'modal-hearsay': {
+    title: 'sollen and wollen: reporting claims',
+    rule: 'sollen = “it is said that” (you heard it from others), wollen = “claims that” (the subject says it of themselves). For things in the past use the infinitive Perfekt: haben / sein at the end after the participle.',
+    examples: [
+      'Der Koch soll sehr berühmt sein.',
+      'Er will das nie gesagt haben.',
+      'Die Suppe soll sehr gesund sein.',
+    ],
+  },
+  'consecutive-connectors': {
+    title: 'Expressing consequences',
+    rule: 'sodass / so … dass start a clause with the verb at the end. In a new main clause folglich, infolgedessen, somit and daher are followed by the verb. zu … , als dass + Konjunktiv II means “too … to”: Es ist zu spät, als dass wir noch helfen könnten.',
+    examples: [
+      'Er hatte kaum Zeit, folglich musste er absagen.',
+      'Es regnete so stark, dass das Fest ausfiel.',
+      'Die Miete ist zu hoch, als dass ich sie zahlen könnte.',
+    ],
+  },
+  'irgend-pronouns': {
+    title: 'irgend-, manche, sämtliche',
+    rule: 'irgend- makes a word indefinite: irgendwer, irgendetwas, irgendwo, irgendein. For quantities use einige, manche, mehrere, etliche, sämtliche (all) or jeglich-; after them adjectives take plural endings: manche junge Leute, einige gute Ideen.',
+    examples: [
+      'Hat irgendjemand meinen Schlüssel gesehen?',
+      'Manche Menschen trainieren täglich.',
+      'Sämtliche Kosten werden erstattet.',
+    ],
+  },
+  'modal-clauses': {
+    title: 'How? By what means?',
+    rule: 'indem (by …ing) and dadurch, dass give the means in a clause with the verb at the end. Short forms: durch + accusative, mithilfe von + dative, mittels + genitive. ohne … zu / ohne dass name what is missing.',
+    examples: [
+      'Man bleibt fit, indem man regelmäßig trainiert.',
+      'Er verbesserte sich dadurch, dass er jeden Tag übte.',
+      'Mithilfe einer App zählt sie ihre Schritte.',
+    ],
+  },
+  'extended-participle': {
+    title: 'The extended participle',
+    rule: 'Before a noun a participle can carry extra information: article + information + participle with adjective ending + noun. Partizip I (-d) = at the same time (die lachenden Kinder), Partizip II = finished or passive (das in Köln gegründete Unternehmen). Check by turning it into a relative clause.',
+    examples: [
+      'das vom Kunden bestellte Produkt',
+      'die an der Uni studierenden Frauen',
+      'ein seit Jahren geplantes Projekt',
+    ],
+  },
+  'adversative-connectors': {
+    title: 'Expressing contrast',
+    rule: 'während and wohingegen start a clause with the verb at the end. dagegen, hingegen, jedoch and demgegenüber begin a main clause, so the verb follows them directly. im Gegensatz zu takes the dative; einerseits … andererseits weighs two sides.',
+    examples: [
+      'Er mag Berge, wohingegen sie das Meer liebt.',
+      'Sie lebt in der Stadt, er hingegen wohnt auf dem Land.',
+      'Im Gegensatz zu Wien ist Graz ruhiger.',
+    ],
+  },
+  'concessive-advanced': {
+    title: 'Despite that: concessive connectors',
+    rule: 'obwohl, obgleich, wenngleich and auch wenn start clauses with the verb at the end. dennoch and trotzdem open a main clause: verb second. zwar … aber / jedoch concede a point before the counter-argument. trotz and ungeachtet take the genitive.',
+    examples: [
+      'Wenngleich es teuer ist, kaufe ich es.',
+      'Es regnete, dennoch gingen wir spazieren.',
+      'Er ist zwar jung, aber sehr erfahren.',
+    ],
+  },
+  'perfekt-double-infinitive': {
+    title: 'Perfekt with a double infinitive',
+    rule: 'With modal verbs and with hören, sehen, lassen + infinitive the Perfekt uses the infinitive instead of the participle: Ich habe ihn kommen hören. In a subordinate clause haben stands before the two infinitives: …, weil ich ihn habe kommen hören.',
+    examples: [
+      'Wir haben das Auto reparieren lassen.',
+      'Ich habe sie singen hören.',
+      'Er sagte, dass er hat gehen müssen.',
+    ],
+  },
+  'adjective-prepositions': {
+    title: 'Adjectives with fixed prepositions',
+    rule: 'Many adjectives need a fixed preposition and case: stolz auf + Akk., zufrieden mit + Dat., abhängig von + Dat., verantwortlich für + Akk., interessiert an + Dat., bereit zu + Dat. Questions use wo(r)-: Worauf bist du stolz?',
+    examples: [
+      'Sie ist stolz auf ihre Tochter.',
+      'Wir sind mit dem Service zufrieden.',
+      'Er ist von seinen Eltern abhängig.',
+    ],
+  },
+  'modal-assumption': {
+    title: 'Assumptions with modal verbs',
+    rule: 'Present: muss (sure), dürfte (probably), könnte (maybe) + infinitive. Past: modal + infinitive Perfekt: Er muss es vergessen haben. kann nicht … sein means it is impossible. Add wohl or vielleicht for a weaker guess.',
+    examples: [
+      'Er muss krank sein.',
+      'Sie dürfte schon abgereist sein.',
+      'Das kann nicht stimmen.',
+    ],
+  },
   // ---- B1.2 ----
   'je-desto': {
     title: 'je … desto / umso',
@@ -671,6 +780,20 @@ const COVERS: Partial<Record<TagId, readonly TagId[]>> = {
   'modal-verbs': ['verb-conjugation'],
   'verbs-with-prepositions': ['accusative', 'dative'],
   'verb-conjugation': ['pronouns'],
+  'konjunktiv-1': ['konjunktiv-2'],
+  'modal-hearsay': ['modal-verbs', 'perfekt'],
+  'modal-assumption': ['modal-verbs', 'perfekt'],
+  'perfekt-double-infinitive': ['perfekt', 'modal-verbs'],
+  'concessive-advanced': ['concessive-clauses', 'subordinate-clauses', 'connectors'],
+  'consecutive-connectors': ['subordinate-clauses', 'connectors'],
+  'adversative-connectors': ['subordinate-clauses', 'connectors'],
+  'modal-clauses': ['subordinate-clauses', 'infinitive-zu'],
+  'comparative-clauses': ['comparison', 'subordinate-clauses'],
+  'relative-wer': ['relative-clauses', 'subordinate-clauses'],
+  'passive-alternatives': ['passive'],
+  'extended-participle': ['adjective-endings'],
+  'adjective-prepositions': ['verbs-with-prepositions'],
+  'noun-prepositions': ['verbs-with-prepositions'],
 };
 
 /**
