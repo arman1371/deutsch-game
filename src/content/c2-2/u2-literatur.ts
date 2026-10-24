@@ -51,7 +51,7 @@ const kritik = vocabList(U, 'Reviewing a book', [
   ['anspielen auf', 'to allude to', '🎯'],
   ['verfassen', 'to write, to compose', '✒️'],
   ['rezensieren', 'to review', '🧐'],
-  ['Fazit', 'conclusion, verdict', '🏁', 'das', 'Fazits'],
+  ['Resümee', 'summing-up, conclusion', '🏁', 'das', 'Resümees'],
   ['Leseempfehlung', 'reading recommendation', '👍', 'die', 'Leseempfehlungen'],
 ]);
 
@@ -94,7 +94,7 @@ export const literatur: UnitContent = {
         {
           key: 'review',
           title: 'Reviewing a book',
-          description: 'fesselnd, langatmig, Fazit – the vocabulary of a review.',
+          description: 'fesselnd, langatmig, Resümee – the vocabulary of a review.',
           vocab: kritik,
         },
       ],

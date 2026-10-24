@@ -22,12 +22,12 @@ const U = 'c2-2-klima';
 const LESSON = 'c22-passive-alternatives' as const;
 
 const welt = vocabList(U, 'Globalisation & climate', [
-  ['Globalisierung', 'globalisation', '🌐', 'die'],
+  ['Welthandel', 'world trade', '🌐', 'der'],
   ['Klimakrise', 'climate crisis', '🌡️', 'die', 'Klimakrisen'],
   ['Treibhausgas', 'greenhouse gas', '🏭', 'das', 'Treibhausgase'],
   ['Erderwärmung', 'global warming', '🔥', 'die'],
   ['Artensterben', 'species extinction', '🦋', 'das'],
-  ['Lieferkette', 'supply chain', '🚚', 'die', 'Lieferketten'],
+  ['Zulieferer', 'supplier', '🚚', 'der', 'Zulieferer'],
   ['Handelsabkommen', 'trade agreement', '📑', 'das', 'Handelsabkommen'],
   ['Entwicklungsland', 'developing country', '🌍', 'das', 'Entwicklungsländer'],
   ['Kreislaufwirtschaft', 'circular economy', '♻️', 'die'],
@@ -86,7 +86,7 @@ export const klima: UnitContent = {
         {
           key: 'world',
           title: 'Globalisation & climate',
-          description: 'Klimakrise, Lieferkette, Artensterben – the big topics.',
+          description: 'Klimakrise, Welthandel, Artensterben – the big topics.',
           vocab: welt,
         },
         {
@@ -98,10 +98,10 @@ export const klima: UnitContent = {
       ],
       pictures: byDe(
         welt,
-        'Globalisierung',
+        'Welthandel',
         'Treibhausgas',
         'Artensterben',
-        'Lieferkette',
+        'Zulieferer',
         'Abholzung',
         'Dürre',
         'Hitzewelle',

@@ -23,7 +23,7 @@ const LESSON = 'c22-participial-attributes' as const;
 
 const betrieb = vocabList(U, 'The art world', [
   ['Ästhetik', 'aesthetics', '✨', 'die'],
-  ['Kunstwerk', 'work of art', '🖼️', 'das', 'Kunstwerke'],
+  ['Exponat', 'exhibit', '🖼️', 'das', 'Exponate'],
   ['Meisterwerk', 'masterpiece', '🏆', 'das', 'Meisterwerke'],
   ['Vernissage', 'opening of an exhibition', '🥂', 'die', 'Vernissagen'],
   ['Retrospektive', 'retrospective', '🕰️', 'die', 'Retrospektiven'],
@@ -32,7 +32,7 @@ const betrieb = vocabList(U, 'The art world', [
   ['Kunstkritiker', 'art critic', '📝', 'der', 'Kunstkritiker'],
   ['Mäzen', 'patron', '💰', 'der', 'Mäzene'],
   ['Auktion', 'auction', '🔨', 'die', 'Auktionen'],
-  ['Fälschung', 'forgery', '🕵️', 'die', 'Fälschungen'],
+  ['Plagiat', 'plagiarism, copy', '🕵️', 'das', 'Plagiate'],
   ['Installation', 'installation (art)', '🧱', 'die', 'Installationen'],
   ['Zeitgeist', 'spirit of the age', '🌀', 'der'],
 ]);
@@ -86,7 +86,7 @@ export const kunst: UnitContent = {
         {
           key: 'art-world',
           title: 'The art world',
-          description: 'Vernissage, Mäzen, Fälschung – who and what is behind an exhibition.',
+          description: 'Vernissage, Mäzen, Plagiat – who and what is behind an exhibition.',
           vocab: betrieb,
         },
         {
@@ -98,11 +98,11 @@ export const kunst: UnitContent = {
       ],
       pictures: byDe(
         betrieb,
-        'Kunstwerk',
+        'Exponat',
         'Meisterwerk',
         'Vernissage',
         'Auktion',
-        'Fälschung',
+        'Plagiat',
         'Installation',
         'Kurator',
         'Mäzen',
@@ -125,7 +125,7 @@ export const kunst: UnitContent = {
       memoryTitle: 'Critic’s memory',
       memoryDescription: 'Match each judgement with its meaning.',
       unscramble: byDe(betrieb, 'Meisterwerk', 'Auktion', 'Leihgabe'),
-      typeIn: byDe(betrieb, 'Fälschung', 'Vernissage'),
+      typeIn: byDe(betrieb, 'Plagiat', 'Vernissage'),
       dictations: [
         [
           'd1',

@@ -70,6 +70,19 @@ export const TAGS = {
   'future-technology': { label: 'Future & technology', group: 'topic', emoji: '🤖' },
   environment: { label: 'Environment', group: 'topic', emoji: '♻️' },
   'mishaps-regrets': { label: 'Mishaps & regrets', group: 'topic', emoji: '🤦' },
+  // topics – B1.2
+  colleagues: { label: 'Colleagues & conflicts', group: 'topic', emoji: '🧑‍💼' },
+  'digital-world': { label: 'Computers & digital life', group: 'topic', emoji: '🖥️' },
+  'consumer-rights': { label: 'Consumption & consumer rights', group: 'topic', emoji: '🛍️' },
+  'further-education': { label: 'Further education & courses', group: 'topic', emoji: '📖' },
+  'rules-manners': { label: 'Rules & cultural differences', group: 'topic', emoji: '📜' },
+  volunteering: { label: 'Volunteering', group: 'topic', emoji: '🙌' },
+  'politics-society': { label: 'Politics & society', group: 'topic', emoji: '🗳️' },
+  history: { label: 'History', group: 'topic', emoji: '🏛️' },
+  'city-country': { label: 'City, country & tourism', group: 'topic', emoji: '🏙️' },
+  'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
+  'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
+  'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
   // topics – C2.2
   'c22-art': { label: 'Art & aesthetics', group: 'topic', emoji: '🖼️' },
   'c22-literature': { label: 'Literature & reviews', group: 'topic', emoji: '📖' },
@@ -138,6 +151,20 @@ export const TAGS = {
   'adjectives-as-nouns': { label: 'Adjectives as nouns', group: 'grammar', emoji: '🧑‍🤝‍🧑' },
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
+  // grammar points – B1.2
+  'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
+  'als-ob': { label: 'als ob', group: 'grammar', emoji: '🫥' },
+  'participles-as-adjectives': {
+    label: 'Participles as adjectives',
+    group: 'grammar',
+    emoji: '🏃',
+  },
+  'modal-particles': { label: 'Modal particles (doch, ja, mal)', group: 'grammar', emoji: '🧂' },
+  'indem-ohne-dass': { label: 'indem / ohne dass / statt dass', group: 'grammar', emoji: '🛠️' },
+  'passive-past': { label: 'Passive: wurde / ist … worden', group: 'grammar', emoji: '📜' },
+  'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
+  'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
+  'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
   // grammar points – C2.2
   'c22-participial-attributes': {
     label: 'Participles before nouns',
@@ -158,7 +185,7 @@ export const TAGS = {
   },
   'c22-prefix-verbs': { label: 'übersetzen or übersetzen?', group: 'grammar', emoji: '🔧' },
   'c22-passive-alternatives': { label: 'Replacing the passive', group: 'grammar', emoji: '🔀' },
-  'c22-nuance-particles': { label: 'Modal particles & adverbs', group: 'grammar', emoji: '🎚️' },
+  'c22-nuance-particles': { label: 'Nuance particles & adverbs', group: 'grammar', emoji: '🎚️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

@@ -5,6 +5,7 @@ import a12 from '../src/content/a1-2';
 import a21 from '../src/content/a2-1';
 import a22 from '../src/content/a2-2';
 import b11 from '../src/content/b1-1';
+import b12 from '../src/content/b1-2';
 import c22 from '../src/content/c2-2';
 import type { Activity } from '../src/content/schema';
 import { parseTime, timeToGerman } from '../src/lib/german/time';
@@ -21,6 +22,7 @@ export const allActivities: Activity[] = [
   ...a21.activities,
   ...a22.activities,
   ...b11.activities,
+  ...b12.activities,
   ...c22.activities,
 ];
 

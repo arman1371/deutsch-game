@@ -30,7 +30,7 @@ const erbe = vocabList(U, 'Heritage & customs', [
   ['Denkmalschutz', 'protection of monuments', '🛡️', 'der'],
   ['Brauchtum', 'customs and traditions', '🎎', 'das'],
   ['Überlieferung', 'tradition, handing down', '📜', 'die', 'Überlieferungen'],
-  ['Zeitzeuge', 'eyewitness of an era', '👴', 'der', 'Zeitzeugen'],
+  ['Nachwelt', 'posterity', '👴', 'die'],
   ['Gedenkstätte', 'memorial site', '🕯️', 'die', 'Gedenkstätten'],
   ['Ausgrabung', 'excavation', '⛏️', 'die', 'Ausgrabungen'],
   ['Sanierung', 'renovation, redevelopment', '🧱', 'die', 'Sanierungen'],
@@ -87,7 +87,7 @@ export const kulturerbe: UnitContent = {
         {
           key: 'heritage',
           title: 'Heritage & customs',
-          description: 'Weltkulturerbe, Brauchtum, Zeitzeuge – history around us.',
+          description: 'Weltkulturerbe, Brauchtum, Nachwelt – history around us.',
           vocab: erbe,
         },
         {
@@ -102,7 +102,7 @@ export const kulturerbe: UnitContent = {
         'Weltkulturerbe',
         'Denkmalschutz',
         'Brauchtum',
-        'Zeitzeuge',
+        'Nachwelt',
         'Gedenkstätte',
         'Ausgrabung',
         'Sanierung',

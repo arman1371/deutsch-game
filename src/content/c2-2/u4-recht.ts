@@ -35,7 +35,7 @@ const gericht = vocabList(U, 'Courts & crime', [
   ['Staatsanwalt', 'public prosecutor', '👔', 'der', 'Staatsanwälte'],
   ['Kläger', 'plaintiff', '🙋', 'der', 'Kläger'],
   ['Verjährung', 'statute of limitations', '⌛', 'die'],
-  ['Schadensersatz', 'damages', '💶', 'der'],
+  ['Entschädigung', 'compensation', '💶', 'die', 'Entschädigungen'],
 ]);
 
 const verfahren = vocabList(U, 'Legal procedure', [
@@ -103,7 +103,7 @@ export const recht: UnitContent = {
         'Freispruch',
         'Beweis',
         'Staatsanwalt',
-        'Schadensersatz',
+        'Entschädigung',
       ),
       picturesTitle: 'In the courtroom',
       picturesDescription: 'Name the legal word.',

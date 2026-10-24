@@ -14,17 +14,20 @@ not support a second language yet (see [Roadmap](#roadmap)).
 
 ## What's in it today
 
-| Level    | Units | Games | Topics (short)                                                            |
-| -------- | ----: | ----: | ------------------------------------------------------------------------- |
-| **A1.1** |     8 |   114 | greetings, family, hobbies, time, shopping                                |
-| **A1.2** |    10 |   159 | town, housing, work, health, clothing, travel, appointments               |
-| **A2.1** |    10 |   158 | internet and apps, weather, transport, flat hunting, school, job search   |
-| **A2.2** |    12 |   190 | learning and exams, sport, music and art, festivals, bank, emergencies    |
-| **B1.1** |    12 |   173 | news stories, health, the world of work, environment, technology, regrets |
-| B1.2     |     – |     – | coming soon                                                               |
+| Level    | Units | Games | Topics (short)                                                              |
+| -------- | ----: | ----: | --------------------------------------------------------------------------- |
+| **A1.1** |     8 |   114 | greetings, family, hobbies, time, shopping                                  |
+| **A1.2** |    10 |   159 | town, housing, work, health, clothing, travel, appointments                 |
+| **A2.1** |    10 |   158 | internet and apps, weather, transport, flat hunting, school, job search     |
+| **A2.2** |    12 |   190 | learning and exams, sport, music and art, festivals, bank, emergencies      |
+| **B1.1** |    12 |   173 | news stories, health, the world of work, environment, technology, regrets   |
+| **B1.2** |    12 |   149 | colleagues, digital life, consumer rights, politics, history, home, theatre |
+| B2.1     |     – |     – | coming soon                                                                 |
+| **C2.2** |     9 |   134 | art, literature, heritage, law, politics, civil society, climate, nuance    |
 
 Unit lists are researched from course books, Goethe exam documents and the CEFR rather than invented; see
-[docs/a2-2-coverage.md](docs/a2-2-coverage.md) and [docs/b1-1-coverage.md](docs/b1-1-coverage.md).
+[docs/a2-2-coverage.md](docs/a2-2-coverage.md), [docs/b1-1-coverage.md](docs/b1-1-coverage.md) and
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md) and [docs/c2-2-coverage.md](docs/c2-2-coverage.md).
 
 ### Features
 
@@ -94,7 +97,7 @@ src/
   components/   UI kit (Button, Chip, Stars, SpeakButton, UmlautKeyboard …) + ActivityCard
   games/        one folder per engine, shared/ building blocks, registry.ts
   content/      zod schema, canonical tags, levels catalogue, mini lessons, one folder per level
-                (a1-1/, a1-2/, a2-1/, a2-2/, b1-1/)
+                (a1-1/, a1-2/, a2-1/, a2-2/, b1-1/, …)
   lib/          seeded rng, answer checking, filters, spaced repetition, scoring, tts, sfx,
                 german/ (numbers, time, conjugation, articles, adjective endings …)
   store/        progress + settings stores, storage repository seam
@@ -138,7 +141,7 @@ so corrections to vocabulary, example sentences and grammar hints are very valua
 
 ### Adding a level
 
-New German levels (B1.2 and up) plug in as content packs: create `src/content/<level>/`, register it in
+New German levels (B2.1 and up) plug in as content packs: create `src/content/<level>/`, register it in
 `src/content/levels.ts` and add the two shared test files. The step-by-step guide, including how to check
 overlap with earlier levels, is in [docs/adding-content.md](docs/adding-content.md).
 
@@ -156,7 +159,7 @@ A workflow refreshes it after every push to `main`; see [docs/graphify.md](docs/
 
 ## Roadmap
 
-- German **B1.2** and later levels
+- German **B2.1** and later levels
 - Native-speaker review of the German content
 - Support for more languages
 - Optional progress sync across devices (the storage seam is already there)

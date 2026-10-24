@@ -24,10 +24,10 @@ const LESSON = 'c22-formal-genitive' as const;
 const staat = vocabList(U, 'State & institutions', [
   ['Gewaltenteilung', 'separation of powers', '⚖️', 'die'],
   ['Grundgesetz', 'Basic Law (German constitution)', '📘', 'das'],
-  ['Bundestag', 'Bundestag (federal parliament)', '🏛️', 'der'],
+  ['Plenum', 'plenary assembly', '🏛️', 'das', 'Plenen'],
   ['Bundesrat', 'Bundesrat (federal council)', '🏢', 'der'],
   ['Gesetzentwurf', 'bill, draft law', '📃', 'der', 'Gesetzentwürfe'],
-  ['Abgeordnete', 'member of parliament', '🧑‍💼', 'der', 'Abgeordneten'],
+  ['Volksvertreter', 'representative of the people', '🧑‍💼', 'der', 'Volksvertreter'],
   ['Wahlkampf', 'election campaign', '📢', 'der', 'Wahlkämpfe'],
   ['Koalition', 'coalition', '🤝', 'die', 'Koalitionen'],
   ['Opposition', 'opposition', '🛑', 'die'],
@@ -35,7 +35,7 @@ const staat = vocabList(U, 'State & institutions', [
   ['Volksentscheid', 'referendum', '🗳️', 'der', 'Volksentscheide'],
   ['Verfassung', 'constitution', '📜', 'die', 'Verfassungen'],
   ['Amtszeit', 'term of office', '📆', 'die', 'Amtszeiten'],
-  ['Mehrheit', 'majority', '➕', 'die', 'Mehrheiten'],
+  ['Minderheit', 'minority', '➖', 'die', 'Minderheiten'],
 ]);
 
 const debatte = vocabList(U, 'Politics in action', [
@@ -43,8 +43,8 @@ const debatte = vocabList(U, 'Politics in action', [
   ['einbringen', 'to introduce (a bill)', '📥'],
   ['regieren', 'to govern', '👑'],
   ['kandidieren', 'to run for office', '🙋'],
-  ['abstimmen', 'to vote', '☑️'],
-  ['ablehnen', 'to reject', '👎'],
+  ['beschließen', 'to decide, to resolve', '☑️'],
+  ['verwerfen', 'to reject, to throw out', '👎'],
   ['durchsetzen', 'to push through, to enforce', '💪'],
   ['umstritten', 'controversial', '🔥'],
   ['parteiübergreifend', 'cross-party', '🌈'],
@@ -86,7 +86,7 @@ export const staatPolitik: UnitContent = {
         {
           key: 'state',
           title: 'State & institutions',
-          description: 'Bundestag, Grundgesetz, Koalition – how the state is organised.',
+          description: 'Plenum, Grundgesetz, Koalition – how the state is organised.',
           vocab: staat,
         },
         {
@@ -100,7 +100,7 @@ export const staatPolitik: UnitContent = {
         staat,
         'Gewaltenteilung',
         'Grundgesetz',
-        'Bundestag',
+        'Plenum',
         'Gesetzentwurf',
         'Wahlkampf',
         'Koalition',
@@ -117,14 +117,14 @@ export const staatPolitik: UnitContent = {
         'einbringen',
         'regieren',
         'kandidieren',
-        'ablehnen',
+        'verwerfen',
         'durchsetzen',
         'umstritten',
         'zurücktreten',
       ),
       memoryTitle: 'Parliament memory',
       memoryDescription: 'Match each political term with its meaning.',
-      unscramble: byDe(staat, 'Verfassung', 'Mehrheit', 'Amtszeit'),
+      unscramble: byDe(staat, 'Verfassung', 'Minderheit', 'Amtszeit'),
       typeIn: byDe(staat, 'Gewaltenteilung', 'Volksentscheid'),
       dictations: [
         [

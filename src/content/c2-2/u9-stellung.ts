@@ -21,12 +21,12 @@ const U = 'c2-2-stellung';
 const argument = vocabList(U, 'Arguing', [
   ['These', 'thesis, claim', '📌', 'die', 'Thesen'],
   ['Behauptung', 'assertion', '🗣️', 'die', 'Behauptungen'],
-  ['Einwand', 'objection', '✋', 'der', 'Einwände'],
-  ['Gegenargument', 'counter-argument', '↩️', 'das', 'Gegenargumente'],
+  ['Vorbehalt', 'reservation, objection', '✋', 'der', 'Vorbehalte'],
+  ['Entgegnung', 'reply, rejoinder', '↩️', 'die', 'Entgegnungen'],
   ['Zugeständnis', 'concession', '🤝', 'das', 'Zugeständnisse'],
   ['Abwägung', 'weighing up', '⚖️', 'die', 'Abwägungen'],
   ['Schlussfolgerung', 'conclusion (reasoning)', '🏁', 'die', 'Schlussfolgerungen'],
-  ['Standpunkt', 'standpoint', '📍', 'der', 'Standpunkte'],
+  ['Gesichtspunkt', 'point of view, aspect', '📍', 'der', 'Gesichtspunkte'],
   ['Widerspruch', 'contradiction, objection', '🚫', 'der', 'Widersprüche'],
   ['Plädoyer', 'plea, speech in support', '🎤', 'das', 'Plädoyers'],
   ['Streitfrage', 'contentious issue', '❓', 'die', 'Streitfragen'],
@@ -81,7 +81,7 @@ export const stellung: UnitContent = {
         {
           key: 'arguing',
           title: 'Arguing',
-          description: 'These, Einwand, Plädoyer – the nouns of a discussion.',
+          description: 'These, Vorbehalt, Plädoyer – the nouns of a discussion.',
           vocab: argument,
         },
         {
@@ -94,11 +94,11 @@ export const stellung: UnitContent = {
       pictures: byDe(
         argument,
         'These',
-        'Einwand',
-        'Gegenargument',
+        'Vorbehalt',
+        'Entgegnung',
         'Zugeständnis',
         'Abwägung',
-        'Standpunkt',
+        'Gesichtspunkt',
         'Plädoyer',
         'Leserbrief',
       ),
@@ -119,7 +119,7 @@ export const stellung: UnitContent = {
       ),
       memoryTitle: 'Debate memory',
       memoryDescription: 'Match each stance verb with its meaning.',
-      unscramble: byDe(argument, 'Einwand', 'Plädoyer', 'These'),
+      unscramble: byDe(argument, 'Vorbehalt', 'Plädoyer', 'These'),
       typeIn: byDe(argument, 'Zugeständnis', 'Schlussfolgerung'),
       dictations: [
         [
