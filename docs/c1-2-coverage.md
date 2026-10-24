@@ -65,7 +65,7 @@ is what those sources attach to the topic, minus anything A1.1–B1.1 already te
 | 9 Forschung & Technik          | L12         | –              | L4, L6, L7     | –        | Freiburg, Deggendorf                |
 | 10 Teamarbeit & Konflikte      | –           | K3             | L5             | B1 L6    | unibz (teamwork)                    |
 | 11 Landwirtschaft & Nachhalt.  | –           | –              | L7, L10        | B1 L5    | unibz (chemicals in agriculture)    |
-| 12 Vortrag, Diskussion, Moder. | –           | Strategies     | Moderation     | B2 L8–11 | Goethe C1 speaking, Mittelpunkt L12 |
+| 12 Vortrag, Diskussion, Moder. | –           | Strategies     | Moderation     | B2 L8–11 | Goethe C1 speaking                  |
 
 Left out because only one source teaches them: **Erinnerung und Gedächtnis** (Aspekte neu K10), **Tierintelligenz**
 (Kompass L9) and **Zeit und Beschleunigung** (Ziel C1 Band 1 L6). Spenden und Ehrenamt (Aspekte neu K5) and the
