@@ -1,0 +1,780 @@
+import { byDe, flashcards, quizDeEn, spell, vocabList } from '../builders';
+import {
+  activity,
+  dictation,
+  gap,
+  heard,
+  hint,
+  lx,
+  meta,
+  q,
+  say,
+  sent,
+  sortItems,
+  tf,
+  typed,
+  unitC11,
+  you,
+} from './helpers';
+import type { UnitContent } from './types';
+
+const U = 'c1-1-gesellschaft';
+
+const volunteering = vocabList(U, 'Volunteering & associations', [
+  ['Vereinsleben', 'club life, life of associations', '🤝', 'das'],
+  ['Freiwilligenarbeit', 'volunteer work', '🙋', 'die'],
+  ['Gemeinwohl', 'the common good', '🌍', 'das'],
+  ['Zusammenhalt', 'social cohesion', '🧩', 'der'],
+  ['Spendenaufruf', 'appeal for donations', '🎁', 'der', 'Spendenaufrufe'],
+  ['Bürgerbegehren', 'citizens’ petition for a referendum', '📣', 'das', 'Bürgerbegehren'],
+  ['Selbsthilfegruppe', 'self-help group', '🪑', 'die', 'Selbsthilfegruppen'],
+  ['Ehrenamtspauschale', 'flat-rate allowance for volunteers', '🧾', 'die', 'Ehrenamtspauschalen'],
+  ['Mitgliedsbeitrag', 'membership fee', '💳', 'der', 'Mitgliedsbeiträge'],
+  ['Stiftung', 'foundation', '🏛️', 'die', 'Stiftungen'],
+  ['sich beteiligen', 'to take part, to get involved', '✋'],
+  ['spenden', 'to donate', '💶'],
+  ['gemeinnützig', 'charitable, non-profit', '❤️'],
+  ['unentgeltlich', 'unpaid, free of charge', '🆓'],
+]);
+
+const society = vocabList(U, 'Society, generations & fairness', [
+  ['Generationenvertrag', 'intergenerational contract (pension system)', '👵', 'der'],
+  ['Altersarmut', 'poverty in old age', '🪙', 'die'],
+  ['Überalterung', 'ageing of the population', '📊', 'die'],
+  ['Wertewandel', 'change in values', '🔀', 'der'],
+  ['Ungleichheit', 'inequality', '⚖️', 'die', 'Ungleichheiten'],
+  ['Chancengleichheit', 'equal opportunities', '🟰', 'die'],
+  ['Teilhabe', 'participation, inclusion', '🚪', 'die'],
+  ['Vielfalt', 'diversity', '🌈', 'die'],
+  ['Ausgrenzung', 'exclusion', '🚫', 'die'],
+  ['Zivilcourage', 'civil courage', '🦁', 'die'],
+  ['Einsamkeit', 'loneliness', '🌫️', 'die'],
+  ['Wohlstand', 'prosperity', '🏡', 'der'],
+  ['benachteiligt', 'disadvantaged', '⬇️'],
+  ['uneigennützig', 'selfless', '🕊️'],
+]);
+
+const WHY_MODAL: Record<string, Record<string, string>> = {
+  g1: {
+    'lässt sich': 'lässt sich is followed by a plain infinitive, so zu … would not fit.',
+    hat: 'haben + zu needs an acting subject; the application does not act.',
+    wird: 'wird + zu is not a modal alternative.',
+  },
+  g2: {
+    ist: 'sein needs zu before the infinitive (ist … zu lösen); here the infinitive stands alone.',
+    'hat sich': 'There is no haben + sich construction.',
+    wird: 'wird + infinitive would be Futur, not “can be solved”.',
+  },
+  g3: {
+    sind: 'sein + zu is passive in meaning; the members act, so use haben + zu.',
+    lassen: 'lassen would need sich and no zu.',
+    werden: 'werden + zu is not a modal alternative.',
+  },
+  g4: {
+    um: 'um … zu expresses purpose; after sein the plain zu is needed.',
+    zum: 'zum is zu + dem and stands before a noun.',
+    am: 'am is an + dem and does not fit before an infinitive.',
+  },
+  g5: {
+    absetzlich: 'The suffix for “can be …-ed” is -bar here.',
+    absetzend: 'absetzend is an active participle: “deducting”.',
+    abgesetzt: 'abgesetzt says it has been deducted, not that it can be.',
+  },
+  g6: {
+    ist: 'ist would need zu and no sich.',
+    hat: 'There is no haben + sich construction.',
+    kann: 'kann sich + infinitive is not used; say lässt sich.',
+  },
+  g7: {
+    ist: 'The board acts, so haben + zu, not sein + zu.',
+    lässt: 'lassen would need sich and no zu.',
+    wird: 'wird + zu is not a modal alternative.',
+  },
+  g8: {
+    haben: 'The rules do not act: haben + zu needs an acting subject.',
+    'lassen sich': 'lassen sich takes a plain infinitive, no zu.',
+    werden: 'werden + zu is not a modal alternative.',
+  },
+};
+
+const vocab = [...volunteering, ...society];
+
+export const gesellschaft: UnitContent = {
+  unit: unitC11({
+    id: U,
+    order: 11,
+    title: 'Gesellschaft und Ehrenamt',
+    subtitle: 'Volunteering, generations, fairness and what holds society together',
+    emoji: '🤝',
+    goals: [
+      'Talk about volunteering, associations and social cohesion',
+      'Discuss generations, inequality and participation in society',
+      'Replace modal verbs with sein … zu, sich lassen, haben … zu and -bar adjectives',
+    ],
+    grammar: [
+      'sein + zu + infinitive = must / can be done: Der Antrag ist einzureichen.',
+      'sich lassen + infinitive = can be done: Das lässt sich lösen.',
+      'haben + zu + infinitive = must do (active subject): Die Mitglieder haben zu zahlen.',
+      'Adjectives in -bar and -lich: absetzbar, erklärlich (can be …)',
+    ],
+    vocabFields: ['Volunteering & associations', 'Society, generations & fairness'],
+  }),
+  vocab,
+  activities: [
+    activity(
+      U,
+      'flash-volunteering',
+      'flashcards',
+      meta(
+        'Volunteering & associations',
+        'Vereinsleben, Gemeinwohl, Ehrenamtspauschale – the words of civic engagement.',
+        ['vocabulary', 'society-volunteering'],
+        1,
+        5,
+      ),
+      flashcards(volunteering),
+    ),
+    activity(
+      U,
+      'flash-society',
+      'flashcards',
+      meta(
+        'Society & generations',
+        'Wertewandel, Teilhabe, Ungleichheit – debating how we live together.',
+        ['vocabulary', 'society-volunteering'],
+        1,
+        5,
+      ),
+      flashcards(society),
+    ),
+    activity(
+      U,
+      'quiz-meaning',
+      'quiz',
+      meta(
+        'What does it mean?',
+        'Pick the English meaning of the key words.',
+        ['vocabulary', 'society-volunteering'],
+        2,
+        4,
+      ),
+      quizDeEn(
+        byDe(
+          vocab,
+          'Gemeinwohl',
+          'Zusammenhalt',
+          'Ehrenamtspauschale',
+          'Generationenvertrag',
+          'Überalterung',
+          'Chancengleichheit',
+          'Teilhabe',
+          'uneigennützig',
+        ),
+        vocab,
+      ),
+    ),
+    activity(
+      U,
+      'memory-modal',
+      'memory',
+      meta(
+        'Modal verb or alternative?',
+        'Match the sentence with a modal verb to the same idea in formal German.',
+        ['vocabulary', 'modal-alternatives', 'society-volunteering'],
+        3,
+        4,
+      ),
+      {
+        pairs: [
+          {
+            id: 'm1',
+            a: 'Das muss man bis Freitag erledigen.',
+            b: 'Das ist bis Freitag zu erledigen.',
+          },
+          { id: 'm2', a: 'Das Problem kann man lösen.', b: 'Das Problem lässt sich lösen.' },
+          {
+            id: 'm3',
+            a: 'Die Mitglieder müssen den Beitrag zahlen.',
+            b: 'Die Mitglieder haben den Beitrag zu zahlen.',
+          },
+          { id: 'm4', a: 'Das kann man nicht beweisen.', b: 'Das ist nicht zu beweisen.' },
+          { id: 'm5', a: 'Das kann man leicht ändern.', b: 'Das ist leicht änderbar.' },
+          { id: 'm6', a: 'Man kann das nicht erklären.', b: 'Das ist unerklärlich.' },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'listen-society',
+      'listen',
+      meta(
+        'Club and community news',
+        'Listen to short announcements and pick the meaning.',
+        ['listening', 'society-volunteering', 'modal-alternatives'],
+        3,
+        5,
+      ),
+      {
+        items: [
+          heard(
+            'l1',
+            'Der Mitgliedsbeitrag ist bis Ende des Monats zu zahlen.',
+            'The membership fee must be paid by the end of the month.',
+            [
+              'The membership fee can be paid at the end of the month.',
+              'The membership fee was paid at the end of the month.',
+              'Members do not have to pay any fee.',
+            ],
+          ),
+          heard(
+            'l2',
+            'Das Problem der Einsamkeit lässt sich nur gemeinsam lösen.',
+            'The problem of loneliness can only be solved together.',
+            [
+              'Loneliness is a problem that cannot be solved.',
+              'Loneliness must be solved by everyone alone.',
+              'Together, loneliness has already been solved.',
+            ],
+          ),
+          heard(
+            'l3',
+            'Die Spenden sind steuerlich absetzbar.',
+            'The donations are tax deductible.',
+            [
+              'Donations are taxed heavily.',
+              'Donations must be taxed.',
+              'The tax office donates money.',
+            ],
+          ),
+          heard(
+            'l4',
+            'Dass die Generationen aufeinander angewiesen sind, ist nicht zu leugnen.',
+            'It cannot be denied that the generations depend on each other.',
+            [
+              'The generations ignore each other, which should be denied.',
+              'It must be denied that the generations depend on each other.',
+              'The generations deny each other.',
+            ],
+          ),
+          heard(
+            'l5',
+            'Die Ausgrenzung von Minderheiten ist nicht länger hinzunehmen.',
+            'The exclusion of minorities can no longer be accepted.',
+            [
+              'Minorities should accept their exclusion.',
+              'Excluding minorities is becoming longer.',
+              'Accepting minorities is no longer possible.',
+            ],
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sort-must-can',
+      'sortit',
+      meta(
+        'Obligation or possibility?',
+        'Does the formal sentence express a duty or what is (not) possible?',
+        ['grammar', 'modal-alternatives', 'society-volunteering'],
+        3,
+        6,
+      ),
+      {
+        instruction: 'Does the sentence say what must be done, or what can (not) be done?',
+        buckets: [
+          { id: 'must', label: 'Obligation (must)', emoji: '📋' },
+          { id: 'can', label: 'Possibility (can / cannot)', emoji: '🔓' },
+        ],
+        items: sortItems('mc', [
+          ['Die Anmeldung ist bis Montag abzugeben.', 'must'],
+          ['Der Vorstand hat die Mitglieder zu informieren.', 'must'],
+          ['Das Formular ist vollständig auszufüllen.', 'must'],
+          ['Der Beitrag ist jährlich zu entrichten.', 'must'],
+          ['Die Satzung ist einzuhalten.', 'must'],
+          ['Die Spenden sind nachzuweisen.', 'must'],
+          ['Das Problem lässt sich lösen.', 'can'],
+          ['Das lässt sich leicht organisieren.', 'can'],
+          ['Der Schaden ist nicht zu beheben.', 'can'],
+          ['Die Aktion ist schnell umsetzbar.', 'can'],
+          ['Engagement lässt sich nicht erzwingen.', 'can'],
+          ['Seine Hilfe ist nicht hoch genug zu schätzen.', 'can'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'sort-society',
+      'sortit',
+      meta(
+        'Strength or problem?',
+        'Sort the social terms by what they mean for a community.',
+        ['vocabulary', 'society-volunteering'],
+        2,
+        4,
+      ),
+      {
+        instruction:
+          'Does the word describe something that strengthens society, or a social problem?',
+        buckets: [
+          { id: 'good', label: 'Strengthens society', emoji: '💪' },
+          { id: 'bad', label: 'Social problem', emoji: '⚠️' },
+        ],
+        items: sortItems('so', [
+          ['der Zusammenhalt', 'good'],
+          ['das Ehrenamt', 'good'],
+          ['das Gemeinwohl', 'good'],
+          ['die Zivilcourage', 'good'],
+          ['die Chancengleichheit', 'good'],
+          ['die Teilhabe', 'good'],
+          ['die Altersarmut', 'bad'],
+          ['die Ausgrenzung', 'bad'],
+          ['die Einsamkeit', 'bad'],
+          ['die Überalterung', 'bad'],
+          ['die Ungleichheit', 'bad'],
+          ['die Benachteiligung', 'bad'],
+        ]),
+      },
+    ),
+    activity(
+      U,
+      'spell-society',
+      'spell',
+      meta(
+        'Spell the society words',
+        'Unscramble, type and write what you hear.',
+        ['spelling', 'society-volunteering'],
+        2,
+        5,
+      ),
+      {
+        items: [
+          ...spell(byDe(volunteering, 'Stiftung', 'Zusammenhalt'), 'unscramble').items,
+          ...spell(byDe(society, 'Vielfalt'), 'unscramble').items,
+          ...spell(byDe(volunteering, 'Gemeinwohl'), 'type').items,
+          ...spell(byDe(society, 'Zivilcourage', 'Wohlstand'), 'type').items,
+          dictation(
+            'd1',
+            'Das Ehrenamt stärkt den Zusammenhalt.',
+            'Voluntary work strengthens social cohesion.',
+          ),
+          dictation('d2', 'Engagement lässt sich nicht erzwingen.', 'Commitment cannot be forced.'),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'gap-modal',
+      'gapfill',
+      meta(
+        'ist zu, lässt sich, hat zu',
+        'Choose the structure that replaces the modal verb.',
+        ['grammar', 'modal-alternatives', 'society-volunteering'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          gap(
+            'g1',
+            'Der Antrag ___ bis Freitag einzureichen.',
+            'ist',
+            ['ist', 'lässt sich', 'hat', 'wird'],
+            'The application must be submitted by Friday.',
+            'sein + zu + infinitive = must be done.',
+          ),
+          gap(
+            'g2',
+            'Das Problem ___ nicht so leicht lösen.',
+            'lässt sich',
+            ['lässt sich', 'ist', 'hat sich', 'wird'],
+            'The problem cannot be solved so easily.',
+            'sich lassen + infinitive = can be done.',
+          ),
+          gap(
+            'g3',
+            'Die Mitglieder ___ den Beitrag pünktlich zu zahlen.',
+            'haben',
+            ['haben', 'sind', 'lassen', 'werden'],
+            'The members must pay the fee on time.',
+            'haben + zu + infinitive: the subject itself has the duty.',
+          ),
+          gap(
+            'g4',
+            'Seine Hilfe ist nicht hoch genug ___ schätzen.',
+            'zu',
+            ['zu', 'um', 'zum', 'am'],
+            'His help cannot be valued highly enough.',
+            'sein + zu + infinitive.',
+          ),
+          gap(
+            'g5',
+            'Spenden sind steuerlich ___.',
+            'absetzbar',
+            ['absetzbar', 'absetzlich', 'absetzend', 'abgesetzt'],
+            'Donations are tax deductible.',
+            '-bar = can be …-ed: absetzbar.',
+          ),
+          gap(
+            'g6',
+            'Dieses Engagement ___ sich nicht erzwingen.',
+            'lässt',
+            ['lässt', 'ist', 'hat', 'kann'],
+            'This commitment cannot be forced.',
+            'sich lassen: lässt sich + infinitive.',
+          ),
+          gap(
+            'g7',
+            'Der Vorstand ___ die Mitglieder rechtzeitig zu informieren.',
+            'hat',
+            ['hat', 'ist', 'lässt', 'wird'],
+            'The board must inform the members in good time.',
+            'haben + zu: the board (active subject) has the duty.',
+          ),
+          gap(
+            'g8',
+            'Die Regeln ___ strikt einzuhalten.',
+            'sind',
+            ['sind', 'haben', 'lassen sich', 'werden'],
+            'The rules must be strictly observed.',
+            'The rules are the object, so use sein + zu (passive meaning).',
+          ),
+        ].map((i) => hint(i, WHY_MODAL[i.id]!)),
+      },
+    ),
+    activity(
+      U,
+      'gap-typed',
+      'gapfill',
+      meta(
+        'Rewrite formally',
+        'Type the missing word of the formal version.',
+        ['grammar', 'modal-alternatives', 'society-volunteering'],
+        3,
+        6,
+      ),
+      {
+        items: [
+          typed(
+            't1',
+            'Man muss das Formular ausfüllen. → Das Formular ist ___. (ausfüllen)',
+            'auszufüllen',
+            'The form is to be filled in.',
+            'Separable verb: aus + zu + füllen → auszufüllen.',
+          ),
+          typed(
+            't2',
+            'Man kann das Problem lösen. → Das Problem lässt ___ lösen.',
+            'sich',
+            'The problem can be solved.',
+            'lässt sich + infinitive.',
+          ),
+          typed(
+            't3',
+            'Die Mitglieder müssen den Beitrag zahlen. → Die Mitglieder ___ den Beitrag zu zahlen.',
+            'haben',
+            'The members must pay the fee.',
+            'haben + zu with an active subject.',
+          ),
+          typed(
+            't4',
+            'Man kann diese Spende absetzen. → Diese Spende ist ___. (absetzen)',
+            'absetzbar',
+            'This donation is deductible.',
+            'absetzen + -bar → absetzbar.',
+          ),
+          typed(
+            't5',
+            'Man kann ihr Engagement nicht erzwingen. → Ihr Engagement lässt sich nicht ___.',
+            'erzwingen',
+            'Her commitment cannot be forced.',
+            'After lassen: plain infinitive, no zu.',
+          ),
+          typed(
+            't6',
+            'Man muss die Regeln beachten. → Die Regeln sind zu ___. (beachten)',
+            'beachten',
+            'The rules are to be observed.',
+            'sein + zu + infinitive.',
+          ),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'sentences',
+      'sentence',
+      meta(
+        'Formal sentences',
+        'Build sentences in the formal style of statutes and club rules.',
+        ['grammar', 'modal-alternatives', 'word-order'],
+        3,
+        7,
+      ),
+      {
+        items: [
+          sent('s1', 'The membership fee must be paid by Friday.', [
+            'Der',
+            'Mitgliedsbeitrag',
+            'ist',
+            'bis',
+            'Freitag',
+            'zu',
+            'zahlen.',
+          ]),
+          sent('s2', 'The problem can be solved together.', [
+            'Das',
+            'Problem',
+            'lässt',
+            'sich',
+            'gemeinsam',
+            'lösen.',
+          ]),
+          sent('s3', 'The board must inform the members.', [
+            'Der',
+            'Vorstand',
+            'hat',
+            'die',
+            'Mitglieder',
+            'zu',
+            'informieren.',
+          ]),
+          sent('s4', 'Donations are tax deductible.', [
+            'Spenden',
+            'sind',
+            'steuerlich',
+            'absetzbar.',
+          ]),
+          sent('s5', 'Loneliness cannot be overlooked.', [
+            'Die',
+            'Einsamkeit',
+            'ist',
+            'nicht',
+            'zu',
+            'übersehen.',
+          ]),
+          sent('s6', 'Commitment cannot be forced.', [
+            'Engagement',
+            'lässt',
+            'sich',
+            'nicht',
+            'erzwingen.',
+          ]),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'dialogues',
+      'dialogue',
+      meta(
+        'Club and debate',
+        'Sign up as a volunteer and join a debate about generations.',
+        ['communication', 'society-volunteering', 'modal-alternatives'],
+        3,
+        7,
+      ),
+      {
+        scenes: [
+          {
+            id: 'verein',
+            title: 'Im Verein',
+            emoji: '🤝',
+            setting: 'You want to help at the neighbourhood festival.',
+            turns: [
+              say(
+                'Vorsitzende',
+                'Wir suchen Freiwillige für das Stadtteilfest. Hätten Sie Interesse?',
+                'We are looking for volunteers for the neighbourhood festival. Would you be interested?',
+              ),
+              you(
+                'Ja, gern. Wie viele Stunden sind zu leisten?',
+                [
+                  'Ja, gern. Wie viele Stunden sind zu leistet?',
+                  'After zu the infinitive is used: zu leisten.',
+                ],
+                ['Ja, gern. Wie viele Stunden ist zu leisten?', 'Stunden is plural: sind.'],
+              ),
+              say(
+                'Vorsitzende',
+                'Etwa zehn Stunden. Die Anmeldung ist bis Freitag abzugeben.',
+                'About ten hours. The registration is to be handed in by Friday.',
+              ),
+              you(
+                'Das lässt sich einrichten. Gibt es eine Aufwandsentschädigung?',
+                [
+                  'Das lässt sich einrichtet. Gibt es eine Aufwandsentschädigung?',
+                  'After lassen use the plain infinitive: einrichten.',
+                ],
+                [
+                  'Das lässt einrichten sich. Gibt es eine Aufwandsentschädigung?',
+                  'The reflexive sich comes right after lässt.',
+                ],
+              ),
+            ],
+          },
+          {
+            id: 'debatte',
+            title: 'Alt und Jung',
+            emoji: '👵',
+            setting: 'A radio debate about pensions and loneliness.',
+            turns: [
+              say(
+                'Moderator',
+                'Die Rente ist ein Streitthema. Was meinen Sie?',
+                'Pensions are a controversial topic. What do you think?',
+              ),
+              you(
+                'Der Generationenvertrag ist nicht einfach abzuschaffen, aber er lässt sich reformieren.',
+                [
+                  'Der Generationenvertrag ist nicht einfach abzuschaffen, aber er lässt reformieren.',
+                  'lassen needs the reflexive sich here: lässt sich reformieren.',
+                ],
+                [
+                  'Der Generationenvertrag ist nicht einfach abschaffen, aber er lässt sich reformieren.',
+                  'sein + zu + infinitive: abzuschaffen.',
+                ],
+              ),
+              say(
+                'Moderator',
+                'Und die Altersarmut? Was ist dagegen zu tun?',
+                'And poverty in old age? What is to be done about it?',
+              ),
+              you(
+                'Die Betroffenen sind nicht allein zu lassen. Das Ehrenamt kann helfen.',
+                [
+                  'Die Betroffenen sind nicht allein lassen. Das Ehrenamt kann helfen.',
+                  'Use zu after sein: allein zu lassen.',
+                ],
+                [
+                  'Die Betroffenen haben nicht allein zu lassen. Das Ehrenamt kann helfen.',
+                  'The affected are the object, not the doers: use sein … zu.',
+                ],
+              ),
+            ],
+          },
+        ],
+      },
+    ),
+    activity(
+      U,
+      'blitz',
+      'blitz',
+      meta('Formal-style blitz', 'Right or wrong?', ['grammar', 'modal-alternatives'], 3, 2),
+      {
+        seconds: 60,
+        statements: [
+          tf('b1', 'Der Antrag ist bis Freitag einzureichen.', true),
+          tf('b2', 'Der Antrag ist bis Freitag einreichen.', false, 'sein + zu: einzureichen.'),
+          tf('b3', 'Das Problem lässt sich lösen.', true),
+          tf('b4', 'Das Problem lässt lösen.', false, 'lassen needs sich here: lässt sich lösen.'),
+          tf('b5', 'Die Mitglieder haben den Beitrag zu zahlen.', true),
+          tf(
+            'b6',
+            'Die Beiträge haben zu zahlen.',
+            false,
+            'haben + zu needs a subject that acts; the fees are the object: sind zu zahlen.',
+          ),
+          tf('b7', 'Spenden sind steuerlich absetzbar.', true),
+          tf(
+            'b8',
+            'Das Ehrenamt ist eine bezahlte Vollzeitstelle.',
+            false,
+            'A Ehrenamt is an unpaid voluntary role.',
+          ),
+          tf('b9', 'Gemeinnützig bedeutet: nicht auf Gewinn ausgerichtet.', true),
+          tf('b10', 'Zivilcourage zeigt, wer sich für andere einsetzt.', true),
+          tf(
+            'b11',
+            'Altersarmut betrifft vor allem junge Menschen.',
+            false,
+            'It affects people in old age.',
+          ),
+          tf('b12', 'Die Teilhabe aller stärkt den Zusammenhalt.', true),
+        ],
+      },
+    ),
+    activity(
+      U,
+      'challenge',
+      'quiz',
+      meta(
+        'Unit challenge',
+        'Formal modal alternatives and society vocabulary in one round.',
+        ['vocabulary', 'grammar', 'society-volunteering'],
+        3,
+        5,
+      ),
+      {
+        questions: [
+          lx(
+            'modal-alternatives',
+            q('c1', 'Man kann das Problem lösen. → Das Problem ___ gut lösen.', 'lässt sich', [
+              'ist',
+              'hat',
+              'wird',
+            ]),
+          ),
+          lx(
+            'modal-alternatives',
+            q('c2', 'Man muss die Frist einhalten. → Die Frist ___ einzuhalten.', 'ist', [
+              'lässt sich',
+              'hat',
+              'kann',
+            ]),
+          ),
+          lx(
+            'modal-alternatives',
+            q(
+              'c3',
+              'Die Mitglieder müssen mitarbeiten. → Die Mitglieder ___ mitzuarbeiten.',
+              'haben',
+              ['sind', 'lassen sich', 'können'],
+            ),
+          ),
+          lx(
+            'modal-alternatives',
+            q('c4', 'Man kann die Spende absetzen. → Die Spende ist ___.', 'absetzbar', [
+              'absetzend',
+              'abgesetzt',
+              'absetzlich',
+            ]),
+          ),
+          lx(
+            'modal-alternatives',
+            q('c5', 'Man kann das nicht ändern. → Das ist nicht zu ___.', 'ändern', [
+              'änderte',
+              'geändert',
+              'änderst',
+            ]),
+          ),
+          q('c6', 'der Zusammenhalt', 'social cohesion', [
+            'loneliness',
+            'inheritance',
+            'inequality',
+          ]),
+          q('c7', 'das Gemeinwohl', 'the common good', [
+            'public transport',
+            'general knowledge',
+            'shared flat',
+          ]),
+          q('c8', 'die Ehrenamtspauschale', 'flat-rate allowance for volunteers', [
+            'membership fee',
+            'salary',
+            'tax refund',
+          ]),
+          q('c9', 'die Teilhabe', 'participation, inclusion', [
+            'sharing a flat',
+            'partial payment',
+            'division of labour',
+          ]),
+          q('c10', 'unentgeltlich', 'unpaid, free of charge', [
+            'unavoidable',
+            'unlimited',
+            'unlucky',
+          ]),
+        ],
+      },
+    ),
+  ],
+};

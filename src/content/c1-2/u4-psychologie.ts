@@ -28,15 +28,15 @@ const mind = vocabList(U, 'Personality & mind', [
   ['Verhaltensforschung', 'behavioural research', '🧠', 'die'],
   ['Psychotherapie', 'psychotherapy', '🛋️', 'die', 'Psychotherapien'],
   ['feinfühlig', 'sensitive', '🤗'],
-  ['widerstandsfähig', 'resilient', '🏋️'],
+  ['robust', 'robust', '🏋️'],
   ['introvertiert', 'introverted', '🤫'],
   ['extrovertiert', 'extroverted', '🗣️'],
 ]);
 
 const claims = vocabList(U, 'Claims & evidence', [
-  ['Behauptung', 'claim, assertion', '📣', 'die', 'Behauptungen'],
+  ['Unterstellung', 'imputation, insinuation', '📣', 'die', 'Unterstellungen'],
   ['Annahme', 'assumption', '🤔', 'die', 'Annahmen'],
-  ['Gerücht', 'rumour', '🗯️', 'das', 'Gerüchte'],
+  ['Klatsch', 'gossip', '🗯️', 'der'],
   ['Zusammenhang', 'connection, correlation', '🔗', 'der', 'Zusammenhänge'],
   ['Einfluss', 'influence', '🌊', 'der', 'Einflüsse'],
   ['Versuchsperson', 'test subject', '🧑‍🔬', 'die', 'Versuchspersonen'],
@@ -118,17 +118,7 @@ export const psychologie: UnitContent = {
         2,
         4,
       ),
-      memory(
-        byDe(
-          vocab,
-          'Empathie',
-          'Erziehung',
-          'Gerücht',
-          'Einfluss',
-          'widerstandsfähig',
-          'Veranlagung',
-        ),
-      ),
+      memory(byDe(vocab, 'Empathie', 'Erziehung', 'Klatsch', 'Einfluss', 'robust', 'Veranlagung')),
     ),
     activity(
       U,
@@ -209,8 +199,8 @@ export const psychologie: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(vocab, 'Empathie', 'Gerücht', 'Einfluss'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Behauptung', 'Hochbegabung', 'Erziehung'), 'type').items,
+          ...spell(byDe(vocab, 'Empathie', 'Klatsch', 'Einfluss'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Unterstellung', 'Hochbegabung', 'Erziehung'), 'type').items,
           dictation(
             'd1',
             'Sie will das Experiment allein geplant haben.',

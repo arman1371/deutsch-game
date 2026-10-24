@@ -21,14 +21,14 @@ const U = 'c1-2-team';
 const team = vocabList(U, 'Teamwork', [
   ['Befugnis', 'authority, power', '🗂️', 'die', 'Befugnisse'],
   ['Arbeitsteilung', 'division of labour', '🧩', 'die', 'Arbeitsteilungen'],
-  ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
+  ['Zwischenziel', 'interim goal', '🏁', 'das', 'Zwischenziele'],
   ['Engpass', 'bottleneck', '🍾', 'der', 'Engpässe'],
   ['Rücksprache', 'consultation', '☎️', 'die', 'Rücksprachen'],
   ['Absprache', 'arrangement', '🤝', 'die', 'Absprachen'],
   ['Verlaufsprotokoll', 'running minutes', '📝', 'das', 'Verlaufsprotokolle'],
-  ['Überlastung', 'overload', '⏱️', 'die', 'Überlastungen'],
+  ['Arbeitsbelastung', 'workload', '⏱️', 'die', 'Arbeitsbelastungen'],
   ['Gemeinschaftsgefühl', 'sense of community', '🏀', 'das'],
-  ['koordinieren', 'to coordinate', '📤'],
+  ['bündeln', 'to pool, combine', '📤'],
   ['vorarbeiten', 'to prepare the groundwork', '📥'],
 ]);
 
@@ -118,15 +118,7 @@ export const team10: UnitContent = {
         4,
       ),
       memory(
-        byDe(
-          vocab,
-          'Meilenstein',
-          'Engpass',
-          'Absprache',
-          'Vermittler',
-          'sachlich',
-          'koordinieren',
-        ),
+        byDe(vocab, 'Zwischenziel', 'Engpass', 'Absprache', 'Vermittler', 'sachlich', 'bündeln'),
       ),
     ),
     activity(

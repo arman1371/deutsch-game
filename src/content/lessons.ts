@@ -407,103 +407,90 @@ export const LESSONS = {
       'Wenn ich das gewusst hätte, wäre ich gekommen.',
     ],
   },
-  'nominal-style': {
-    title: 'Nominal and verbal style',
-    rule: 'Written German often turns a clause into a noun phrase: weil er krank war → wegen seiner Krankheit, wenn man spart → beim Sparen, nachdem er gekommen war → nach seiner Ankunft. Nouns come with a preposition (or a genitive) and often a light verb (zur Verfügung stellen).',
+  'formal-connectors': {
+    title: 'andernfalls, folglich, hingegen',
+    rule: 'These adverbs link two main clauses and take position 1, so the verb follows directly: andernfalls (otherwise), folglich / somit (consequently), dennoch (nevertheless), hingegen (whereas). außer wenn and es sei denn introduce an exception.',
     examples: [
-      'Weil die Preise steigen → Aufgrund steigender Preise',
-      'Wenn man Schulden hat → Bei Schulden',
-      'Er entschied sich → Er traf eine Entscheidung.',
-    ],
-  },
-  'passive-substitutes': {
-    title: 'Passive substitutes',
-    rule: 'Instead of werden + participle, German uses: sein + zu + infinitive (Das ist zu beweisen = kann bewiesen werden), -bar / -lich adjectives (lösbar), sich lassen + infinitive (Das lässt sich lösen), bekommen + participle (Er bekam das Geld überwiesen) and the gerundive (die zu lösende Aufgabe).',
-    examples: [
-      'Der Fehler ist leicht zu beheben. = kann leicht behoben werden',
-      'Das Problem lässt sich nicht lösen.',
-      'Sie bekommt die Rechnung zugeschickt.',
+      'Wir müssen sparen; andernfalls reicht das Geld nicht.',
+      'Der Zug fällt aus; folglich kommen wir zu spät.',
+      'Wir fahren, außer wenn es schneit.',
     ],
   },
   'subjective-modals': {
     title: 'Subjective modal verbs',
-    rule: 'With a different meaning the modal verb reports or guesses: er soll reich sein = it is said that he is; er will es gesehen haben = he claims to; er muss krank sein = surely; er dürfte krank sein = probably; er kann krank sein = possibly. For the past: modal + Partizip II + haben/sein.',
+    rule: 'Modal verbs can also report or guess. sollen = people say, wollen = he/she claims, müssen = I am sure, dürfte = probably, könnte = perhaps. For the past the infinitive Perfekt follows: gewesen sein, gemacht haben.',
     examples: [
-      'Der Täter soll geflohen sein.',
-      'Sie will nichts gewusst haben.',
-      'Es muss geregnet haben.',
+      'Der Minister soll zurückgetreten sein. (people say)',
+      'Er will nichts gewusst haben. (he claims)',
+      'Das muss ein Irrtum sein. (I am sure)',
     ],
   },
-  'participial-clauses': {
-    title: 'Participles and participial clauses',
-    rule: 'Present participle (-d) = ongoing, past participle = finished or passive: die steigenden Preise, das gelöste Problem. An extended attribute puts everything between article and noun: die von der Bank gewährte Hilfe. A participial phrase can replace a clause: Am Ziel angekommen, ruhte er sich aus.',
+  'concessive-restrictive': {
+    title: 'wenngleich, es sei denn',
+    rule: 'obgleich / obschon / wenngleich work like obwohl (verb at the end). Restrictions: es sei denn (unless, verb in position 2), außer wenn and nur dass (verb at the end). so sehr … auch means no matter how much.',
     examples: [
-      'die wachsende Stadt · das gelöste Rätsel',
-      'der von Forschern entwickelte Test',
-      'Müde vom Tag, ging sie früh ins Bett.',
+      'Obgleich er müde war, arbeitete er weiter.',
+      'Er konnte sie nicht überzeugen, so sehr er sich auch bemühte.',
+      'Wir kommen, es sei denn, es schneit.',
     ],
   },
-  'written-prepositions': {
-    title: 'aufgrund, infolge, anhand …',
-    rule: 'Formal German uses prepositions with the genitive: aufgrund, infolge, angesichts, anlässlich, bezüglich, hinsichtlich, mithilfe, anhand, zugunsten, seitens, innerhalb, außerhalb, oberhalb, unterhalb. After them the noun is genitive: des/der + noun (-(e)s for masculine and neuter).',
+  'es-functions': {
+    title: 'The many jobs of es',
+    rule: 'es can be required (Es regnet. Es geht um … Es gibt …), a pointer to a clause that follows (Ich bereue es, dass …), or an optional filler in position 1 (Es kamen viele Gäste). The filler disappears when another element takes position 1.',
     examples: [
-      'Aufgrund des Regens fiel das Fest aus.',
-      'Anhand der Daten lässt sich das belegen.',
-      'Hinsichtlich der Kosten gibt es keine Bedenken.',
+      'Es geht um die Zukunft.',
+      'Ich bereue es, dass ich nichts gesagt habe.',
+      'Es kamen viele Gäste. → Heute kamen viele Gäste.',
     ],
   },
-  'advanced-connectors': {
-    title: 'Advanced connectors',
-    rule: 'Adverbs like allerdings, vielmehr, folglich, andernfalls, infolgedessen, mittlerweile take position 1 and the verb follows. Conjunctions like sofern, falls, wenngleich, indem, sodass, ohne dass, dadurch, dass send the verb to the end of their clause.',
+  intensifiers: {
+    title: 'Graduating adjectives',
+    rule: 'Adverbs set the strength of an adjective: ziemlich, recht, ganz < sehr, äußerst, höchst, überaus < zu (too much). They stand right before the adjective and are never declined; only the adjective takes the ending.',
     examples: [
-      'Das Angebot ist gut; allerdings ist es teuer.',
-      'Sofern es Ihnen passt, kommen wir morgen.',
-      'Sie sparte, indem sie auf das Auto verzichtete.',
+      'ein äußerst netter Kollege',
+      'Das ist ziemlich teuer.',
+      'Die Aufgabe ist höchst anspruchsvoll.',
     ],
   },
-  'adjective-complements': {
-    title: 'Adjectives with prepositions',
-    rule: 'Many adjectives and participles need a fixed preposition and a case, just like verbs: stolz auf (+ Akk.), abhängig von (+ Dat.), angewiesen auf (+ Akk.), bereit zu (+ Dat.), überzeugt von (+ Dat.). Learn them with the case; with a clause use da(r)- + preposition: Ich bin stolz darauf, dass …',
+  'unreal-consecutive': {
+    title: 'so … dass and zu … als dass',
+    rule: 'so … dass reports a real result. zu … als dass + Konjunktiv II says the result is impossible (too … to). sodass introduces a plain result. The clause after dass / sodass / als dass has the verb at the end.',
     examples: [
-      'Sie ist stolz auf ihre Arbeit.',
-      'Wir sind darauf angewiesen, dass alle mithelfen.',
-      'Er ist von dem Plan überzeugt.',
+      'Es war so heiß, dass alle ins Wasser gingen.',
+      'Er ist zu klug, als dass er darauf hereinfiele.',
+      'Es regnete stark, sodass die Straße gesperrt wurde.',
     ],
   },
-  'infinitive-perfect': {
-    title: 'Infinitive in the past',
-    rule: 'To say that an action in the infinitive clause happened earlier, use the Partizip II + haben or sein + zu at the end: ohne gefragt zu haben, (an)statt gekommen zu sein, Er behauptet, das Buch gelesen zu haben.',
+  'participial-attributes': {
+    title: 'Participles before nouns',
+    rule: 'Partizip I (infinitive + d) is active and happening now: die steigenden Preise. Partizip II is completed or passive: die gestiegenen Preise, das gelöste Problem. zu + Partizip I means must be done: die zu zahlende Rechnung. All take adjective endings.',
+    examples: ['die wachsende Bedeutung', 'der geprüfte Antrag', 'die zu zahlende Rechnung'],
+  },
+  'prefix-verbs': {
+    title: 'Separable or inseparable?',
+    rule: 'Stressed prefixes (an-, auf-, aus-, ein-, mit-, vor-) split off: Er gibt auf. Unstressed prefixes (be-, ent-, er-, ver-, zer-, miss-) never split and the participle has no ge-: verzichtet. über-, um-, unter-, durch- can be both and change the meaning.',
     examples: [
-      'Er ging, ohne sich verabschiedet zu haben.',
-      'Sie behauptet, nie dort gewesen zu sein.',
-      'Ich bin froh, dich getroffen zu haben.',
+      'Er gibt nicht auf. · Er verzichtet auf alles.',
+      'Sie übersetzt den Text. · Der Fährmann setzt uns über.',
+      'aufgegeben · verzichtet (no ge-)',
     ],
   },
-  'modality-verbs': {
-    title: 'Modality verbs with zu',
-    rule: 'Some verbs behave like modal verbs but take an infinitive with zu: scheinen zu (seem), drohen zu (threaten), pflegen zu (usually do), vermögen zu (be able), haben zu / sein zu (must / can be). The past is formed with the infinitive in the past: Er scheint gegangen zu sein.',
+  'nominal-style': {
+    title: 'Nominal style',
+    rule: 'Formal and written German packs a clause into a noun phrase: Weil es regnet → wegen des Regens; Als er ankam → bei seiner Ankunft; Indem man liest → durch Lesen. Nouns in -ung, -heit, -keit, -ion do the work, and the preposition shows the logic.',
     examples: [
-      'Das Projekt droht zu scheitern.',
-      'Er pflegt montags früh zu kommen.',
-      'Sie scheint die Aufgabe verstanden zu haben.',
+      'Als er ankam, … → Bei seiner Ankunft …',
+      'Weil es regnet, … → Wegen des Regens …',
+      'Indem man liest, lernt man. → Durch Lesen lernt man.',
     ],
   },
-  'conditional-clauses': {
-    title: 'Conditions without wenn',
-    rule: 'A condition can be expressed by moving the verb to position 1: Sollte es Probleme geben, … (if there should be) · Hätte ich Zeit, würde ich helfen. · Wäre er pünktlich gewesen, … Other links: es sei denn, (dass) (unless), vorausgesetzt, (dass) (provided that), selbst wenn (even if).',
+  'modal-alternatives': {
+    title: 'sein … zu and sich lassen',
+    rule: 'Formal German often replaces a modal verb: sein + zu + infinitive (must / can be done), sich lassen + infinitive (can be done), haben + zu + infinitive (must do). These structures often express the passive with a modal verb.',
     examples: [
-      'Sollte es Probleme geben, rufen Sie an.',
-      'Hätte ich Zeit gehabt, wäre ich gekommen.',
-      'Wir beginnen pünktlich, es sei denn, der Chef verspätet sich.',
-    ],
-  },
-  'quantities-graphs': {
-    title: 'Describing numbers and graphs',
-    rule: 'Shares: die Hälfte, ein Drittel, jeder Vierte. Approximation: rund, knapp, etwa, über. Change: steigen / sinken um (the difference) or auf (the new value), von … auf …; sich verdoppeln. Comparison: im Vergleich zu (+ Dat.), doppelt so hoch wie.',
-    examples: [
-      'Der Anteil stieg von 5 % auf 12 %.',
-      'Die Zahl wuchs um 20 %.',
-      'Knapp ein Drittel der Betriebe arbeitet ökologisch.',
+      'Der Antrag ist bis Freitag einzureichen. (must be submitted)',
+      'Das Problem lässt sich lösen. (can be solved)',
+      'Die Mitglieder haben den Beitrag zu zahlen.',
     ],
   },
   // ---- B2.2 ----
@@ -831,6 +818,88 @@ export const LESSONS = {
       'Man entscheidet → die Entscheidung',
       'Die Preise steigen. → der Anstieg der Preise',
       'Es ist möglich. → die Möglichkeit',
+    ],
+  },
+  // ---- C1.2 ----
+  'passive-substitutes': {
+    title: 'Passive substitutes',
+    rule: 'Instead of werden + participle, German uses: sein + zu + infinitive (Das ist zu beweisen = kann bewiesen werden), -bar / -lich adjectives (lösbar), sich lassen + infinitive (Das lässt sich lösen), bekommen + participle (Er bekam das Geld überwiesen) and the gerundive (die zu lösende Aufgabe).',
+    examples: [
+      'Der Fehler ist leicht zu beheben. = kann leicht behoben werden',
+      'Das Problem lässt sich nicht lösen.',
+      'Sie bekommt die Rechnung zugeschickt.',
+    ],
+  },
+  'participial-clauses': {
+    title: 'Participles and participial clauses',
+    rule: 'Present participle (-d) = ongoing, past participle = finished or passive: die steigenden Preise, das gelöste Problem. An extended attribute puts everything between article and noun: die von der Bank gewährte Hilfe. A participial phrase can replace a clause: Am Ziel angekommen, ruhte er sich aus.',
+    examples: [
+      'die wachsende Stadt · das gelöste Rätsel',
+      'der von Forschern entwickelte Test',
+      'Müde vom Tag, ging sie früh ins Bett.',
+    ],
+  },
+  'written-prepositions': {
+    title: 'aufgrund, infolge, anhand …',
+    rule: 'Formal German uses prepositions with the genitive: aufgrund, infolge, angesichts, anlässlich, bezüglich, hinsichtlich, mithilfe, anhand, zugunsten, seitens, innerhalb, außerhalb, oberhalb, unterhalb. After them the noun is genitive: des/der + noun (-(e)s for masculine and neuter).',
+    examples: [
+      'Aufgrund des Regens fiel das Fest aus.',
+      'Anhand der Daten lässt sich das belegen.',
+      'Hinsichtlich der Kosten gibt es keine Bedenken.',
+    ],
+  },
+  'advanced-connectors': {
+    title: 'Advanced connectors',
+    rule: 'Adverbs like allerdings, vielmehr, folglich, andernfalls, infolgedessen, mittlerweile take position 1 and the verb follows. Conjunctions like sofern, falls, wenngleich, indem, sodass, ohne dass, dadurch, dass send the verb to the end of their clause.',
+    examples: [
+      'Das Angebot ist gut; allerdings ist es teuer.',
+      'Sofern es Ihnen passt, kommen wir morgen.',
+      'Sie sparte, indem sie auf das Auto verzichtete.',
+    ],
+  },
+  'adjective-complements': {
+    title: 'Adjectives with prepositions',
+    rule: 'Many adjectives and participles need a fixed preposition and a case, just like verbs: stolz auf (+ Akk.), abhängig von (+ Dat.), angewiesen auf (+ Akk.), bereit zu (+ Dat.), überzeugt von (+ Dat.). Learn them with the case; with a clause use da(r)- + preposition: Ich bin stolz darauf, dass …',
+    examples: [
+      'Sie ist stolz auf ihre Arbeit.',
+      'Wir sind darauf angewiesen, dass alle mithelfen.',
+      'Er ist von dem Plan überzeugt.',
+    ],
+  },
+  'infinitive-perfect': {
+    title: 'Infinitive in the past',
+    rule: 'To say that an action in the infinitive clause happened earlier, use the Partizip II + haben or sein + zu at the end: ohne gefragt zu haben, (an)statt gekommen zu sein, Er behauptet, das Buch gelesen zu haben.',
+    examples: [
+      'Er ging, ohne sich verabschiedet zu haben.',
+      'Sie behauptet, nie dort gewesen zu sein.',
+      'Ich bin froh, dich getroffen zu haben.',
+    ],
+  },
+  'modality-verbs': {
+    title: 'Modality verbs with zu',
+    rule: 'Some verbs behave like modal verbs but take an infinitive with zu: scheinen zu (seem), drohen zu (threaten), pflegen zu (usually do), vermögen zu (be able), haben zu / sein zu (must / can be). The past is formed with the infinitive in the past: Er scheint gegangen zu sein.',
+    examples: [
+      'Das Projekt droht zu scheitern.',
+      'Er pflegt montags früh zu kommen.',
+      'Sie scheint die Aufgabe verstanden zu haben.',
+    ],
+  },
+  'conditional-clauses': {
+    title: 'Conditions without wenn',
+    rule: 'A condition can be expressed by moving the verb to position 1: Sollte es Probleme geben, … (if there should be) · Hätte ich Zeit, würde ich helfen. · Wäre er pünktlich gewesen, … Other links: es sei denn, (dass) (unless), vorausgesetzt, (dass) (provided that), selbst wenn (even if).',
+    examples: [
+      'Sollte es Probleme geben, rufen Sie an.',
+      'Hätte ich Zeit gehabt, wäre ich gekommen.',
+      'Wir beginnen pünktlich, es sei denn, der Chef verspätet sich.',
+    ],
+  },
+  'quantities-graphs': {
+    title: 'Describing numbers and graphs',
+    rule: 'Shares: die Hälfte, ein Drittel, jeder Vierte. Approximation: rund, knapp, etwa, über. Change: steigen / sinken um (the difference) or auf (the new value), von … auf …; sich verdoppeln. Comparison: im Vergleich zu (+ Dat.), doppelt so hoch wie.',
+    examples: [
+      'Der Anteil stieg von 5 % auf 12 %.',
+      'Die Zahl wuchs um 20 %.',
+      'Knapp ein Drittel der Betriebe arbeitet ökologisch.',
     ],
   },
 } as const satisfies Record<string, Lesson>;

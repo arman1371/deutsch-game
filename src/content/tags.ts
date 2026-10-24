@@ -83,6 +83,18 @@ export const TAGS = {
   'meetings-teamwork': { label: 'Teamwork & meetings', group: 'topic', emoji: '👥' },
   sustainability: { label: 'Farming & sustainability', group: 'topic', emoji: '🌾' },
   'presenting-moderating': { label: 'Presenting & moderating', group: 'topic', emoji: '🎤' },
+  // topics – C1.1
+  'time-stress': { label: 'Time & pace', group: 'topic', emoji: '⏳' },
+  'digital-life': { label: 'Digital life', group: 'topic', emoji: '📱' },
+  'language-communication': { label: 'Language & body language', group: 'topic', emoji: '🗨️' },
+  'manners-complaints': { label: 'Manners & complaints', group: 'topic', emoji: '🙇' },
+  tourism: { label: 'Tourism & sustainable travel', group: 'topic', emoji: '🧳' },
+  workplace: { label: 'Workplace culture', group: 'topic', emoji: '🏢' },
+  'career-goals': { label: 'Career paths & goals', group: 'topic', emoji: '🧭' },
+  'study-science': { label: 'Study & science', group: 'topic', emoji: '🔬' },
+  consumption: { label: 'Consumption & luxury', group: 'topic', emoji: '🛍️' },
+  economy: { label: 'Economy & globalisation', group: 'topic', emoji: '🌐' },
+  'society-volunteering': { label: 'Society & volunteering', group: 'topic', emoji: '🫶' },
   // topics – B2.2
   'relationships-diversity': { label: 'Relationships & diversity', group: 'topic', emoji: '🫂' },
   nutrition: { label: 'Nutrition & food', group: 'topic', emoji: '🥗' },
@@ -181,9 +193,7 @@ export const TAGS = {
   'futur-1': { label: 'Futur I', group: 'grammar', emoji: '🔮' },
   'konjunktiv-2-past': { label: 'hätte gemacht / wäre gegangen', group: 'grammar', emoji: '🕰️' },
   // grammar points – C1.2
-  'nominal-style': { label: 'Nominal & verbal style', group: 'grammar', emoji: '📰' },
   'passive-substitutes': { label: 'Passive substitutes', group: 'grammar', emoji: '🔁' },
-  'subjective-modals': { label: 'Subjective modal verbs', group: 'grammar', emoji: '🕵️' },
   'participial-clauses': {
     label: 'Participles & participial clauses',
     group: 'grammar',
@@ -200,6 +210,21 @@ export const TAGS = {
     group: 'grammar',
     emoji: '🧪',
   },
+  // grammar points – C1.1
+  'formal-connectors': {
+    label: 'andernfalls / folglich / hingegen',
+    group: 'grammar',
+    emoji: '🧭',
+  },
+  'subjective-modals': { label: 'Subjective modal verbs', group: 'grammar', emoji: '🕵️' },
+  'concessive-restrictive': { label: 'wenngleich / es sei denn', group: 'grammar', emoji: '⚖️' },
+  'es-functions': { label: 'Functions of es', group: 'grammar', emoji: '🔤' },
+  intensifiers: { label: 'Graduating adjectives', group: 'grammar', emoji: '🎚️' },
+  'unreal-consecutive': { label: 'zu … als dass / so … dass', group: 'grammar', emoji: '⛓️' },
+  'participial-attributes': { label: 'Participles before nouns', group: 'grammar', emoji: '🧬' },
+  'prefix-verbs': { label: 'Separable & inseparable prefixes', group: 'grammar', emoji: '🪛' },
+  'nominal-style': { label: 'Nominal style', group: 'grammar', emoji: '🏛️' },
+  'modal-alternatives': { label: 'sein … zu / sich lassen', group: 'grammar', emoji: '🔀' },
   // grammar points – B2.2
   'noun-prepositions': { label: 'Nouns with prepositions', group: 'grammar', emoji: '📎' },
   'comparative-clauses': { label: 'anders als / genauso … wie', group: 'grammar', emoji: '🟰' },

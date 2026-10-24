@@ -35,7 +35,7 @@ const farming = vocabList(U, 'Farming & soil', [
 const sustain = vocabList(U, 'Sustainability', [
   ['Flächenverbrauch', 'land consumption', '🔄', 'der'],
   ['Pestizid', 'pesticide', '🌡️', 'das', 'Pestizide'],
-  ['Fußabdruck', 'footprint', '👣', 'der', 'Fußabdrücke'],
+  ['Ökobilanz', 'life-cycle assessment', '👣', 'die', 'Ökobilanzen'],
   ['Ernteausfall', 'crop failure', '✋', 'der', 'Ernteausfälle'],
   ['Tagung', 'conference', '🎤', 'die', 'Tagungen'],
   ['Teilnehmerzahl', 'number of participants', '🚆', 'die', 'Teilnehmerzahlen'],

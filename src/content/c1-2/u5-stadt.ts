@@ -41,7 +41,7 @@ const village = vocabList(U, 'Village & alternatives', [
   ['Selbstversorger', 'self-sufficient person', '🌽', 'der', 'Selbstversorger'],
   ['Ökosiedlung', 'eco-settlement', '☀️', 'die', 'Ökosiedlungen'],
   ['beschaulich', 'tranquil, peaceful', '🕊️'],
-  ['abgelegen', 'remote', '⛰️'],
+  ['entlegen', 'remote, secluded', '⛰️'],
   ['anonym', 'anonymous', '🕶️'],
 ]);
 
@@ -124,7 +124,7 @@ export const stadt: UnitContent = {
           'Quartier',
           'Abwanderung',
           'Aussteiger',
-          'abgelegen',
+          'entlegen',
           'beschaulich',
         ),
       ),

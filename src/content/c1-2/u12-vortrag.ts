@@ -40,7 +40,7 @@ const discuss = vocabList(U, 'Discussing', [
   ['Gesprächsleitung', 'chairing of a discussion', '🎙️', 'die'],
   ['Streitpunkt', 'point of contention', '🔥', 'der', 'Streitpunkte'],
   ['Übereinkunft', 'agreement', '🤝', 'die', 'Übereinkünfte'],
-  ['einwenden', 'to object', '☝️'],
+  ['erwidern', 'to reply', '☝️'],
   ['anknüpfen', 'to link up (to)', '🔗'],
   ['stichhaltig', 'sound, valid', '🛡️'],
   ['schlüssig', 'conclusive, coherent', '🧩'],

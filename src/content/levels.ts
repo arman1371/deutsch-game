@@ -69,8 +69,10 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'c1-1',
     title: 'C1.1',
-    subtitle: 'Formal and academic language, nuance and argument at advanced level',
-    status: 'coming-soon',
+    subtitle:
+      'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society',
+    status: 'available',
+    load: () => import('./c1-1'),
   },
   {
     id: 'c1-2',
@@ -79,6 +81,12 @@ export const LEVELS: LevelMeta[] = [
       'Finance, medicine and food, law, psychology, city and village, literature, film and art, international business, research, teamwork, sustainability and talks',
     status: 'available',
     load: () => import('./c1-2'),
+  },
+  {
+    id: 'c2-1',
+    title: 'C2.1',
+    subtitle: 'Nuance, register and style at near-native level',
+    status: 'coming-soon',
   },
 ];
 

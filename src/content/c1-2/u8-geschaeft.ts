@@ -33,12 +33,12 @@ const business = vocabList(U, 'Business contacts', [
 ]);
 
 const culture = vocabList(U, 'Cultures & etiquette', [
-  ['Umgangsform', 'manners, etiquette', '🎎', 'die', 'Umgangsformen'],
+  ['Benimmregel', 'rule of etiquette', '🎎', 'die', 'Benimmregeln'],
   ['Verhaltenskodex', 'code of conduct', '🎩', 'der', 'Verhaltenskodizes'],
   ['Kulturschock', 'culture shock', '🤯', 'der', 'Kulturschocks'],
   ['Hierarchie', 'hierarchy', '🪜', 'die', 'Hierarchien'],
   ['Reizthema', 'sensitive topic', '🚷', 'das', 'Reizthemen'],
-  ['Fauxpas', 'faux pas, blunder', '🫕', 'der', 'Fauxpas'],
+  ['Fehltritt', 'misstep', '🫕', 'der', 'Fehltritte'],
   ['Höflichkeitsfloskel', 'polite phrase', '☕', 'die', 'Höflichkeitsfloskeln'],
   ['interkulturell', 'intercultural', '🌍'],
   ['förmlich', 'formal', '🎓'],
@@ -209,7 +209,7 @@ export const geschaeft: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Konzern', 'Reizthema', 'Lieferant'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Umgangsform', 'Visitenkarte', 'Auslandsentsendung'), 'type').items,
+          ...spell(byDe(vocab, 'Benimmregel', 'Visitenkarte', 'Auslandsentsendung'), 'type').items,
           dictation(
             'd1',
             'Der Termin dauert mindestens eine Stunde.',

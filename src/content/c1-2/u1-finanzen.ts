@@ -22,7 +22,7 @@ const debts = vocabList(U, 'Debt & poverty', [
   ['Überschuldung', 'over-indebtedness', '💸', 'die'],
   ['Schuldner', 'debtor', '🧾', 'der', 'Schuldner'],
   ['Gläubiger', 'creditor', '🏦', 'der', 'Gläubiger'],
-  ['Insolvenz', 'insolvency', '📉', 'die', 'Insolvenzen'],
+  ['Zahlungsunfähigkeit', 'insolvency, inability to pay', '📉', 'die'],
   ['Verzugszinsen', 'default interest', '📈', 'die'],
   ['Rate', 'instalment', '🧮', 'die', 'Raten'],
   ['Zahlungsaufforderung', 'demand for payment', '✉️', 'die', 'Zahlungsaufforderungen'],
@@ -47,7 +47,7 @@ const payments = vocabList(U, 'Payments & donations', [
   ['Schenkung', 'donation, gift', '🎗️', 'die', 'Schenkungen'],
   ['Spender', 'donor', '🤲', 'der', 'Spender'],
   ['Sachspende', 'donation in kind', '🥫', 'die', 'Sachspenden'],
-  ['gemeinnützig', 'non-profit, charitable', '🏘️'],
+  ['wohltätig', 'charitable', '🏘️'],
 ]);
 
 const vocab = [...debts, ...payments];

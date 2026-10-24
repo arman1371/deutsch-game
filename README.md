@@ -24,11 +24,12 @@ not support a second language yet (see [Roadmap](#roadmap)).
 | **B1.2** |    12 |   149 | colleagues, digital life, consumer rights, politics, history, home, theatre  |
 | **B2.1** |    12 |   173 | relationships, minimalism, well-being, society, housing, media, climate      |
 | **B2.2** |    12 |   173 | relationships, nutrition, university, art, sustainable cities, media and law |
+| **C1.1** |    11 |   152 | time and pace, media, language, manners, work, study, economy, society       |
 | **C1.2** |    12 |   156 | finance, medicine, law, psychology, literature, research, teamwork, talks    |
 
 Unit lists are researched from course books, Goethe exam documents and the CEFR rather than invented; see
 [docs/a2-2-coverage.md](docs/a2-2-coverage.md), [docs/b1-1-coverage.md](docs/b1-1-coverage.md),
-[docs/b1-2-coverage.md](docs/b1-2-coverage.md), [docs/b2-1-coverage.md](docs/b2-1-coverage.md), [docs/b2-2-coverage.md](docs/b2-2-coverage.md) and [docs/c1-2-coverage.md](docs/c1-2-coverage.md).
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md), [docs/b2-1-coverage.md](docs/b2-1-coverage.md), [docs/b2-2-coverage.md](docs/b2-2-coverage.md), [docs/c1-1-coverage.md](docs/c1-1-coverage.md) and [docs/c1-2-coverage.md](docs/c1-2-coverage.md).
 
 ### Features
 
@@ -98,7 +99,7 @@ src/
   components/   UI kit (Button, Chip, Stars, SpeakButton, UmlautKeyboard …) + ActivityCard
   games/        one folder per engine, shared/ building blocks, registry.ts
   content/      zod schema, canonical tags, levels catalogue, mini lessons, one folder per level
-                (a1-1/, a1-2/, a2-1/, a2-2/, b1-1/, b1-2/, c1-2/)
+                (a1-1/, a1-2/, a2-1/, a2-2/, b1-1/, b1-2/, c1-1/, c1-2/)
   lib/          seeded rng, answer checking, filters, spaced repetition, scoring, tts, sfx,
                 german/ (numbers, time, conjugation, articles, adjective endings …)
   store/        progress + settings stores, storage repository seam
