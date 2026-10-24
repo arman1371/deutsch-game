@@ -61,6 +61,8 @@ for (const scheme of ['light', 'dark'] as const) {
 
     for (const [name, url, heading] of PAGES) {
       test(`${name} has no WCAG A/AA violations`, async ({ page }) => {
+        // The library renders every game card; axe needs longer as the catalogue grows.
+        if (url.startsWith('/library')) test.slow();
         await page.goto(url);
         await expect(page.getByRole('heading', { name: heading }).first()).toBeVisible();
         await expectNoViolations(page, name);
