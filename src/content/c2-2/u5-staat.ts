@@ -49,9 +49,9 @@ const debatte = vocabList(U, 'Politics in action', [
   ['kontrovers', 'controversial', '🔥'],
   ['parteiübergreifend', 'cross-party', '🌈'],
   ['zurücktreten', 'to resign', '🚪'],
-  ['Stellung beziehen', 'to take a stand', '🧭'],
-  ['Einvernehmen', 'agreement, consent', '🤲', 'das'],
-  ['Verantwortung tragen', 'to bear responsibility', '🏋️'],
+  ['Farbe bekennen', 'to show one’s colours', '🧭'],
+  ['Kompromissformel', 'compromise formula', '🤲', 'die', 'Kompromissformeln'],
+  ['Rechenschaft ablegen', 'to give an account', '🏋️'],
 ]);
 
 const vocab = [...staat, ...debatte];
@@ -92,7 +92,7 @@ export const staatPolitik: UnitContent = {
         {
           key: 'debate',
           title: 'Politics in action',
-          description: 'verabschieden, kandidieren, Einvernehmen – what politicians do.',
+          description: 'verabschieden, kandidieren, Kompromissformel – what politicians do.',
           vocab: debatte,
         },
       ],

@@ -49,7 +49,7 @@ const urteil = vocabList(U, 'Judging a work', [
   ['verstören', 'to unsettle', '😧'],
   ['verkörpern', 'to embody, to represent', '📡'],
   ['widerspiegeln', 'to reflect', '🪞'],
-  ['hinterfragen', 'to question critically', '❓'],
+  ['beleuchten', 'to shed light on', '❓'],
   ['Betrachter', 'viewer, beholder', '👀', 'der', 'Betrachter'],
   ['Wirkung', 'effect, impact', '⚡', 'die', 'Wirkungen'],
 ]);

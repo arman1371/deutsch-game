@@ -92,7 +92,7 @@ describe('ContentProvider', () => {
 });
 
 describe('level catalogue', () => {
-  it('marks A1.1 to C1.2 available and C2.1 coming soon', () => {
+  it('marks A1.1 to C2.1 available and C2.2 coming soon', () => {
     expect(getLevelMeta('a1-1')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('a1-2')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('a2-1')).toMatchObject({ status: 'available' });
@@ -103,7 +103,7 @@ describe('level catalogue', () => {
     expect(getLevelMeta('b2-2')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('c1-1')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('c1-2')).toMatchObject({ status: 'available' });
-    expect(getLevelMeta('c2-1')?.status).toBe('coming-soon');
+    expect(getLevelMeta('c2-1')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('c2-2')).toMatchObject({ status: 'available' });
     expect(getLevelMeta('nope')).toBeUndefined();
     for (const l of LEVELS) expect(Boolean(l.load)).toBe(l.status === 'available');

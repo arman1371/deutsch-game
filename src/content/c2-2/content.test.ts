@@ -10,6 +10,7 @@ import b21 from '../b2-1';
 import b22 from '../b2-2';
 import c11 from '../c1-1';
 import c12 from '../c1-2';
+import c21 from '../c2-1';
 import content from './index';
 
 describeLevelContent('C2.2', content, 'c2-2');
@@ -27,7 +28,7 @@ const key = (v: Parameters<typeof label>[0]) =>
     .toLowerCase();
 
 describe('C2.2 vocabulary integrity', () => {
-  it('does not repeat vocabulary from A1.1 to C1.2', () => {
+  it('does not repeat vocabulary from A1.1 to C2.1', () => {
     const earlier = new Set(
       [
         ...a11.vocab,
@@ -40,6 +41,7 @@ describe('C2.2 vocabulary integrity', () => {
         ...b22.vocab,
         ...c11.vocab,
         ...c12.vocab,
+        ...c21.vocab,
       ].map(key),
     );
     const repeated = content.vocab.map(key).filter((k) => earlier.has(k) && !REVIEW_WORDS.has(k));

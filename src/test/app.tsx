@@ -13,6 +13,7 @@ import b12 from '@/content/b1-2';
 import b21 from '@/content/b2-1';
 import b22 from '@/content/b2-2';
 import c11 from '@/content/c1-1';
+import c21 from '@/content/c2-1';
 import c22 from '@/content/c2-2';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
@@ -35,6 +36,7 @@ export const allActivities: Activity[] = [
   ...b21.activities,
   ...b22.activities,
   ...c11.activities,
+  ...c21.activities,
   ...c22.activities,
 ];
 export const allUnits = [
@@ -48,10 +50,11 @@ export const allUnits = [
   ...b21.units,
   ...b22.units,
   ...c11.units,
+  ...c21.units,
   ...c22.units,
 ];
 
-/** Render the whole app at a URL with the real A1.1 to C1.1 content. */
+/** Render the whole app at a URL with the real A1.1 to C2.1 content. */
 export function renderApp(path = '/') {
   const router = createTestRouter([path]);
   const user = userEvent.setup();

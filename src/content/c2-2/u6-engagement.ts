@@ -32,7 +32,7 @@ const gesellschaft = vocabList(U, 'Civil society', [
   ['Bürgerbewegung', 'citizens’ movement', '🫂', 'die', 'Bürgerbewegungen'],
   ['Spendenaktion', 'fundraising campaign', '🏭', 'die', 'Spendenaktionen'],
   ['Gemeinnützigkeit', 'non-profit status', '💚', 'die'],
-  ['Mitbestimmung', 'co-determination, having a say', '🚪', 'die'],
+  ['Mitsprache', 'say, input', '🚪', 'die'],
   ['Chancenungleichheit', 'unequal opportunities', '🚧', 'die'],
   ['Marginalisierung', 'marginalisation', '🙈', 'die'],
   ['Sammelaktion', 'collection drive', '📢', 'die', 'Sammelaktionen'],
@@ -123,7 +123,7 @@ export const engagement: UnitContent = {
       ),
       memoryTitle: 'Prefix memory',
       memoryDescription: 'Match each phrase with its meaning.',
-      unscramble: byDe(gesellschaft, 'Allgemeinheit', 'Mitbestimmung', 'Schirmherrschaft'),
+      unscramble: byDe(gesellschaft, 'Allgemeinheit', 'Mitsprache', 'Schirmherrschaft'),
       typeIn: byDe(gesellschaft, 'Zivilgesellschaft', 'Spendenaktion'),
       dictations: [
         [

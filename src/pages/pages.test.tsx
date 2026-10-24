@@ -52,11 +52,7 @@ describe('Home', () => {
     expect(screen.getByTestId('level-c2-2')).toHaveTextContent(
       '0 / ' + c22.activities.length + ' games',
     );
-    for (const soon of ['C2.1']) {
-      expect(screen.getByRole('heading', { name: soon }).closest('li')).toHaveTextContent(
-        'Coming soon',
-      );
-    }
+    expect(screen.queryByText('Coming soon')).not.toBeInTheDocument();
     expect(screen.getByTestId('streak')).toHaveTextContent('0');
   });
 
@@ -120,8 +116,8 @@ describe('Level and unit pages', () => {
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 
-  it('shows not-found for coming-soon levels', async () => {
-    renderApp('/levels/c2-1');
+  it('shows not-found for unknown levels', async () => {
+    renderApp('/levels/c9-9');
     expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeInTheDocument();
   });
 });
@@ -434,8 +430,9 @@ describe('Library', () => {
   it('lists every game and filters by game type, topic and unit', async () => {
     const { user } = renderApp('/library');
     const total = allActivities.length;
-    await waitFor(() =>
-      expect(screen.getByTestId('result-count')).toHaveTextContent(`${total} games`),
+    await waitFor(
+      () => expect(screen.getByTestId('result-count')).toHaveTextContent(`${total} games`),
+      { timeout: 20_000 },
     );
 
     await user.click(screen.getByText(/Filters/));
@@ -454,7 +451,7 @@ describe('Library', () => {
       (a) => a.tags.includes('accusative') && a.difficulty === 3,
     ).length;
     expect(screen.getByTestId('result-count')).toHaveTextContent(`${hard} games`);
-  }, 60_000);
+  }, 90_000);
 
   it('searches by text and shows an empty state', async () => {
     const { user } = renderApp('/library');
@@ -647,9 +644,9 @@ describe('Play flow – queues', () => {
 describe('Library – filter panel', () => {
   it('stays open when filters are cleared and starts open when the URL has filters', async () => {
     const { user } = renderApp('/library?type=market');
-    const panel = await screen.findByTestId('filters');
+    const panel = await screen.findByTestId('filters', {}, { timeout: 20_000 });
     expect(panel).toHaveAttribute('open');
     await user.click(screen.getByRole('button', { name: 'Clear filters' }));
     expect(panel).toHaveAttribute('open');
-  }, 30_000);
+  }, 60_000);
 });

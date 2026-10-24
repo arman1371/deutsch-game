@@ -68,12 +68,11 @@ test.describe('learning path', () => {
     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
   });
 
-  test('coming-soon levels are listed but not playable', async ({ page }) => {
+  test('every level on Home is available and unknown levels are not found', async ({ page }) => {
     await page.goto('/');
-    await expect(
-      page.getByRole('heading', { name: 'C2.1' }).locator('xpath=ancestor::li'),
-    ).toContainText('Coming soon');
-    await page.goto('/levels/c2-1');
+    await expect(page.getByTestId('level-c2-2')).toBeVisible();
+    await expect(page.getByText('Coming soon')).toHaveCount(0);
+    await page.goto('/levels/c9-9');
     await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
   });
 });

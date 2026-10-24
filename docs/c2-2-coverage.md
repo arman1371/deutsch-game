@@ -1,10 +1,10 @@
-# C2.2 – syllabus research, coverage and overlap with A1.1–C1.2
+# C2.2 – syllabus research, coverage and overlap with A1.1–C2.1
 
 C2.2 is the second half of the C2 level. It was built from every C2 document that could be found online and
 read, checked against the CEFR C2 descriptors. The rule from the earlier levels still applies: **teach what is
 new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone
 unit – what is already taught.** `src/content/c2-2/content.test.ts` enforces the vocabulary side: no word card
-in C2.2 repeats a word card of A1.1 to C1.2 (or another C2.2 unit).
+in C2.2 repeats a word card of A1.1 to C2.1 (or another C2.2 unit).
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -53,7 +53,8 @@ agreed with the C2.1 thread so the levels do not overlap:
 | Topics: language / communication / style, working life, technology and AI, health and medicine, money and economy                         | Topics: art and aesthetics, literature, heritage and rituals, law, state and politics, civil society, globalisation and climate, idioms, arguing                           |
 | Grammar: Konjunktiv I (reported speech), Konjunktiv II / Futur II, adverbial clauses and connectors, Nomen-Verb-Verbindungen, Wortbildung | Grammar: participial attributes, subjective modal verbs, passive in all tenses and its alternatives, Gerundiv, formal genitive prepositions, prefix verbs, modal particles |
 
-C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`.
+C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`. Both levels were built in parallel, so C2.2's word cards were checked against C2.1's after both existed:
+21 cards that C2.1 teaches (nuance, argumentation and a few law and media words) were replaced; the vocabulary test fails on any repeat.
 
 ## How the units were chosen
 
@@ -81,7 +82,7 @@ C2.1 keeps its tag ids under the `c21-` prefix; C2.2 uses `c22-`.
 | Konjunktiv I, Futur II, adverbial clauses, Nomen-Verb-Verbindungen, Wortbildung | C2.1 (see split above)                                                                                |
 | Verbs with prepositional complements                                            | E ch. 3 and W (I) list them, but they belong with the Nomen-Verb-Verbindungen chapter that C2.1 takes |
 
-## Grammar overlap with A1.1–C1.2
+## Grammar overlap with A1.1–C2.1
 
 | Syllabus item               | Earlier levels                                                                  | Treatment in C2.2                                                                              |
 | --------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

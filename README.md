@@ -26,11 +26,13 @@ not support a second language yet (see [Roadmap](#roadmap)).
 | **B2.2** |    12 |   173 | relationships, nutrition, university, art, sustainable cities, media and law |
 | **C1.1** |    11 |   152 | time and pace, media, language, manners, work, study, economy, society       |
 | **C1.2** |    12 |   156 | finance, medicine, law, psychology, literature, research, teamwork, talks    |
+| **C2.1** |     9 |   122 | nuance and style, work, economy, digital life, AI, medicine, media, debate   |
 | **C2.2** |     9 |   134 | art, literature, heritage, law, politics, civil society, climate, nuance     |
 
 Unit lists are researched from course books, Goethe exam documents and the CEFR rather than invented; see
 [docs/a2-2-coverage.md](docs/a2-2-coverage.md), [docs/b1-1-coverage.md](docs/b1-1-coverage.md),
-[docs/b1-2-coverage.md](docs/b1-2-coverage.md), [docs/b2-1-coverage.md](docs/b2-1-coverage.md), [docs/b2-2-coverage.md](docs/b2-2-coverage.md), [docs/c1-1-coverage.md](docs/c1-1-coverage.md), [docs/c1-2-coverage.md](docs/c1-2-coverage.md) and [docs/c2-2-coverage.md](docs/c2-2-coverage.md).
+[docs/b1-2-coverage.md](docs/b1-2-coverage.md), [docs/b2-1-coverage.md](docs/b2-1-coverage.md), [docs/b2-2-coverage.md](docs/b2-2-coverage.md),
+[docs/c1-1-coverage.md](docs/c1-1-coverage.md), [docs/c1-2-coverage.md](docs/c1-2-coverage.md), [docs/c2-1-coverage.md](docs/c2-1-coverage.md) and [docs/c2-2-coverage.md](docs/c2-2-coverage.md).
 
 ### Features
 

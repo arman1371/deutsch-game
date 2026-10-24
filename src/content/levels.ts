@@ -85,8 +85,10 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'c2-1',
     title: 'C2.1',
-    subtitle: 'Nuance, register and style at near-native level',
-    status: 'coming-soon',
+    subtitle:
+      'Nuance and style, working life, economy, digitalisation, AI and research, medicine, mind and wellbeing, media and debate',
+    status: 'available',
+    load: () => import('./c2-1'),
   },
   {
     id: 'c2-2',

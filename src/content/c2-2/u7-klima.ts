@@ -51,7 +51,7 @@ const handeln = vocabList(U, 'Responding to the crisis', [
   ['regenerativ', 'regenerative', '🌱'],
   ['folgenschwer', 'with serious consequences', '💥'],
   ['Maßnahme', 'measure', '📋', 'die', 'Maßnahmen'],
-  ['Genügsamkeit', 'frugality', '🙅', 'die'],
+  ['Bescheidenheit', 'modesty, frugality', '🙅', 'die'],
 ]);
 
 const vocab = [...welt, ...handeln];

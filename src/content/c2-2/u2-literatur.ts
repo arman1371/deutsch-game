@@ -28,7 +28,7 @@ const buch = vocabList(U, 'Books & authors', [
   ['Handlungsverlauf', 'course of the plot', '🧵', 'der', 'Handlungsverläufe'],
   ['Spielort', 'setting, venue', '📍', 'der', 'Spielorte'],
   ['Lyrik', 'poetry', '🪶', 'die'],
-  ['Auflage', 'edition, print run', '📚', 'die', 'Auflagen'],
+  ['Erstausgabe', 'first edition', '📚', 'die', 'Erstausgaben'],
   ['Lektor', 'editor (publishing)', '🏢', 'der', 'Lektoren'],
   ['Übersetzung', 'translation', '🔤', 'die', 'Übersetzungen'],
   ['Feuilleton', 'arts pages', '📰', 'das', 'Feuilletons'],
@@ -51,7 +51,7 @@ const kritik = vocabList(U, 'Reviewing a book', [
   ['anspielen auf', 'to allude to', '🎯'],
   ['abfassen', 'to draft, to compose', '✒️'],
   ['monieren', 'to criticise, to take issue with', '🧐'],
-  ['Resümee', 'summing-up, conclusion', '🏁', 'das', 'Resümees'],
+  ['Kurzfassung', 'abridged version', '🏁', 'die', 'Kurzfassungen'],
   ['Leseempfehlung', 'reading recommendation', '👍', 'die', 'Leseempfehlungen'],
 ]);
 
