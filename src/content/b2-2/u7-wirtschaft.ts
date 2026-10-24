@@ -24,12 +24,12 @@ const tourism = vocabList(U, 'Economy & tourism', [
   ['Wirtschaftszweig', 'branch of industry', '🌳', 'der', 'Wirtschaftszweige'],
   ['Branche', 'sector, line of business', '🏷️', 'die', 'Branchen'],
   ['Tourismus', 'tourism', '🧳', 'der'],
-  ['Massentourismus', 'mass tourism', '🚌', 'der'],
+  ['Tourismusbranche', 'tourism industry', '🏨', 'die'],
   ['Fremdenverkehr', 'tourist trade', '🏨', 'der'],
   ['Gastgewerbe', 'hospitality industry', '🍽️', 'das'],
-  ['Reiseveranstalter', 'tour operator', '🗺️', 'der', 'Reiseveranstalter'],
+  ['Übernachtungszahl', 'number of overnight stays', '🛏️', 'die', 'Übernachtungszahlen'],
   ['Übernachtung', 'overnight stay', '🛏️', 'die', 'Übernachtungen'],
-  ['Hochsaison', 'peak season', '☀️', 'die'],
+  ['Gründerszene', 'start-up scene', '🚀', 'die'],
   ['Nebensaison', 'off-peak season', '🍂', 'die'],
   ['Auslastung', 'occupancy, capacity use', '📈', 'die'],
   ['Einnahmen', 'income, revenue', '💰', 'die'],
@@ -40,7 +40,7 @@ const tourism = vocabList(U, 'Economy & tourism', [
 
 const money = vocabList(U, 'Money, jobs & start-ups', [
   ['Fachkräftemangel', 'shortage of skilled workers', '🧑‍🔧', 'der'],
-  ['Fachkraft', 'skilled worker', '👷', 'die', 'Fachkräfte'],
+  ['Arbeitskraft', 'worker, labour', '👷', 'die', 'Arbeitskräfte'],
   ['Arbeitsmarkt', 'job market', '💼', 'der', 'Arbeitsmärkte'],
   ['Existenzgründung', 'starting a business', '🚀', 'die', 'Existenzgründungen'],
   ['Start-up', 'start-up', '💡', 'das', 'Start-ups'],
@@ -88,7 +88,7 @@ export const wirtschaft: UnitContent = {
       'flashcards',
       meta(
         'Economy & tourism',
-        'Wirtschaftsfaktor, Hochsaison, Auslastung – the business of travel.',
+        'Wirtschaftsfaktor, Gründerszene, Auslastung – the business of travel.',
         ['vocabulary', 'economy-tourism'],
         1,
         5,
@@ -124,7 +124,7 @@ export const wirtschaft: UnitContent = {
           vocab,
           'Wirtschaftszweig',
           'Fremdenverkehr',
-          'Reiseveranstalter',
+          'Übernachtungszahl',
           'Auslastung',
           'Wettbewerb',
           'Fachkräftemangel',
@@ -165,7 +165,7 @@ export const wirtschaft: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Massentourismus',
+          'Tourismusbranche',
           'Gastgewerbe',
           'Übernachtung',
           'Selbstständigkeit',
@@ -190,7 +190,7 @@ export const wirtschaft: UnitContent = {
         items: [
           ...spell(byDe(tourism, 'Tourismus', 'Branche'), 'unscramble').items,
           ...spell(byDe(money, 'Investor'), 'unscramble').items,
-          ...spell(byDe(tourism, 'Hochsaison', 'Einnahmen'), 'type').items,
+          ...spell(byDe(tourism, 'Gründerszene', 'Einnahmen'), 'type').items,
           ...spell(byDe(money, 'Umsatz'), 'type').items,
           dictation(
             'd1',

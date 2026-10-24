@@ -29,7 +29,7 @@ const claims = vocabList(U, 'Complaints & guarantees', [
   ['Entschädigung', 'compensation', '💶', 'die', 'Entschädigungen'],
   ['Stellungnahme', 'statement, response', '📝', 'die', 'Stellungnahmen'],
   ['Unannehmlichkeit', 'inconvenience', '😣', 'die', 'Unannehmlichkeiten'],
-  ['beanstanden', 'to complain about, to object to', '☝️'],
+  ['Mängelrüge', 'notice of defects', '📄', 'die', 'Mängelrügen'],
   ['bemängeln', 'to criticise, to find fault with', '🔍'],
   ['nachbessern', 'to rectify, to improve', '🔧'],
   ['zusichern', 'to assure, to guarantee', '🤞'],
@@ -43,7 +43,7 @@ const service = vocabList(U, 'Services & enquiries', [
   ['Kundendienst', 'customer service', '🎧', 'der'],
   ['Anfrage', 'enquiry, request', '📨', 'die', 'Anfragen'],
   ['Ansprechpartner', 'contact person', '🙋', 'der', 'Ansprechpartner'],
-  ['Anliegen', 'concern, request', '💬', 'das', 'Anliegen'],
+  ['Ersatzlieferung', 'replacement delivery', '📦', 'die', 'Ersatzlieferungen'],
   ['Auskunft', 'information', 'ℹ️', 'die', 'Auskünfte'],
   ['Servicehotline', 'service hotline', '📞', 'die', 'Servicehotlines'],
   ['Wartezeit', 'waiting time', '⏱️', 'die', 'Wartezeiten'],
@@ -127,7 +127,7 @@ export const service2: UnitContent = {
           'nachbessern',
           'zusichern',
           'unzumutbar',
-          'Anliegen',
+          'Ersatzlieferung',
           'Rücksendung',
           'Verzögerung',
         ),
@@ -146,7 +146,7 @@ export const service2: UnitContent = {
         4,
       ),
       memory(
-        byDe(claims, 'Kulanz', 'Entschädigung', 'beanstanden', 'bemängeln', 'kulant', 'mangelhaft'),
+        byDe(claims, 'Kulanz', 'Entschädigung', 'Mängelrüge', 'bemängeln', 'kulant', 'mangelhaft'),
       ),
     ),
     activity(
@@ -680,7 +680,7 @@ export const service2: UnitContent = {
           ]),
           q('c8', 'sich erkundigen', 'to enquire', ['to complain', 'to process', 'to guarantee']),
           q('c9', 'unzumutbar', 'unacceptable', ['accommodating', 'delayed', 'free of charge']),
-          q('c10', 'das Anliegen', 'concern, request', [
+          q('c10', 'die Ersatzlieferung', 'replacement delivery', [
             'instructions',
             'delay',
             'service hotline',

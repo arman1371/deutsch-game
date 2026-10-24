@@ -20,7 +20,7 @@ import type { UnitContent } from './types';
 const U = 'b2-2-studium';
 
 const campus = vocabList(U, 'Studying at university', [
-  ['Studiengang', 'degree programme', '🎓', 'der', 'Studiengänge'],
+  ['Immatrikulation', 'enrolment', '🪪', 'die'],
   ['Fachbereich', 'department', '🏛️', 'der', 'Fachbereiche'],
   ['Studienplatz', 'place on a course', '💺', 'der', 'Studienplätze'],
   ['Zulassung', 'admission', '✅', 'die', 'Zulassungen'],
@@ -35,15 +35,15 @@ const campus = vocabList(U, 'Studying at university', [
   ['Prüfungsordnung', 'examination regulations', '📜', 'die', 'Prüfungsordnungen'],
   ['Studienabbruch', 'dropping out', '🚪', 'der', 'Studienabbrüche'],
   ['sich einschreiben', 'to enrol', '📝'],
-  ['belegen', 'to enrol in (a course)', '📚'],
+  ['exmatrikulieren', 'to deregister from university', '🚪'],
 ]);
 
 const money = vocabList(U, 'Funding & student life', [
-  ['Stipendium', 'scholarship', '🏅', 'das', 'Stipendien'],
+  ['Studiengebühr', 'tuition fee', '💳', 'die', 'Studiengebühren'],
   ['BAföG', 'state student grant (BAföG)', '🏦', 'das'],
   ['Studiengebühren', 'tuition fees', '💶', 'die'],
   ['Nebenjob', 'part-time job', '🧑‍🍳', 'der', 'Nebenjobs'],
-  ['Studienfinanzierung', 'funding of studies', '💰', 'die'],
+  ['Semesterticket', 'semester travel pass', '🚌', 'das', 'Semestertickets'],
   ['Bildungsweg', 'educational path', '🛤️', 'der', 'Bildungswege'],
   ['Auslandssemester', 'semester abroad', '✈️', 'das', 'Auslandssemester'],
   ['Promotion', 'doctorate', '🎩', 'die', 'Promotionen'],
@@ -51,7 +51,7 @@ const money = vocabList(U, 'Funding & student life', [
   ['Wohnheim', 'student residence', '🏢', 'das', 'Wohnheime'],
   ['Mensa', 'university canteen', '🍲', 'die', 'Mensen'],
   ['Kommilitone', 'fellow student', '🧑‍🤝‍🧑', 'der', 'Kommilitonen'],
-  ['Quereinsteiger', 'career changer, lateral entrant', '↪️', 'der', 'Quereinsteiger'],
+  ['Prüfungsamt', 'examinations office', '🏢', 'das'],
   ['promovieren', 'to do a doctorate', '🏁'],
   ['fördern', 'to support, to fund', '🌱'],
 ]);
@@ -85,7 +85,7 @@ export const studium: UnitContent = {
       'flashcards',
       meta(
         'Studying at university',
-        'Studiengang, Hörsaal, Hausarbeit – life on campus.',
+        'Immatrikulation, Hörsaal, Hausarbeit – life on campus.',
         ['vocabulary', 'university-study'],
         1,
         5,
@@ -98,7 +98,7 @@ export const studium: UnitContent = {
       'flashcards',
       meta(
         'Funding & student life',
-        'Stipendium, Nebenjob, Auslandssemester – paying for and shaping your studies.',
+        'Studiengebühr, Nebenjob, Auslandssemester – paying for and shaping your studies.',
         ['vocabulary', 'university-study'],
         1,
         5,
@@ -125,9 +125,9 @@ export const studium: UnitContent = {
           'Regelstudienzeit',
           'Prüfungsordnung',
           'Studienabbruch',
-          'Stipendium',
-          'Studienfinanzierung',
-          'Quereinsteiger',
+          'Studiengebühr',
+          'Semesterticket',
+          'Prüfungsamt',
           'promovieren',
         ),
         vocab,
@@ -145,7 +145,15 @@ export const studium: UnitContent = {
         4,
       ),
       memory(
-        byDe(campus, 'Vorlesung', 'Seminar', 'Hörsaal', 'Hausarbeit', 'Studienplatz', 'belegen'),
+        byDe(
+          campus,
+          'Vorlesung',
+          'Seminar',
+          'Hörsaal',
+          'Hausarbeit',
+          'Studienplatz',
+          'exmatrikulieren',
+        ),
       ),
     ),
     activity(
@@ -162,7 +170,7 @@ export const studium: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Studiengang',
+          'Immatrikulation',
           'Abschlussarbeit',
           'Kommilitone',
           'Wohnheim',
@@ -186,7 +194,7 @@ export const studium: UnitContent = {
       {
         items: [
           ...spell(byDe(campus, 'Hörsaal', 'Seminar'), 'unscramble').items,
-          ...spell(byDe(money, 'Stipendium'), 'unscramble').items,
+          ...spell(byDe(money, 'Studiengebühr'), 'unscramble').items,
           ...spell(byDe(campus, 'Hausarbeit', 'Zulassung'), 'type').items,
           ...spell(byDe(money, 'Nebenjob'), 'type').items,
           dictation(
@@ -765,18 +773,14 @@ export const studium: UnitContent = {
             'inarbeit',
             'arbeitslich',
           ]),
-          q('c7', 'der Studiengang', 'degree programme', [
-            'lecture hall',
-            'canteen',
-            'scholarship',
-          ]),
+          q('c7', 'die Immatrikulation', 'enrolment', ['lecture hall', 'canteen', 'graduation']),
           q('c8', 'die Zulassung', 'admission', ['deadline', 'tuition fee', 'thesis']),
           q('c9', 'sich einschreiben', 'to enrol', [
             'to apply for a job',
             'to drop out',
             'to fund',
           ]),
-          q('c10', 'das Stipendium', 'scholarship', ['seminar', 'part-time job', 'residence']),
+          q('c10', 'die Studiengebühr', 'tuition fee', ['seminar', 'part-time job', 'residence']),
         ],
       },
     ),

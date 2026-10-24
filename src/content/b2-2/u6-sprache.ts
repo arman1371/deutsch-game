@@ -34,7 +34,7 @@ const varieties = vocabList(U, 'Varieties of language', [
   ['Muttersprachler', 'native speaker', '🧑', 'der', 'Muttersprachler'],
   ['Zweisprachigkeit', 'bilingualism', '👥', 'die'],
   ['Mehrsprachigkeit', 'multilingualism', '🌐', 'die'],
-  ['Tonfall', 'tone of voice', '🎶', 'der'],
+  ['Ausdrucksweise', 'way of expressing oneself', '💬', 'die'],
 ]);
 
 const skills = vocabList(U, 'Reading, translating & understanding', [
@@ -46,7 +46,7 @@ const skills = vocabList(U, 'Reading, translating & understanding', [
   ['Verständigung', 'communication, understanding', '🤝', 'die'],
   ['Dolmetscher', 'interpreter', '🎧', 'der', 'Dolmetscher'],
   ['Lernmethode', 'learning method', '🧭', 'die', 'Lernmethoden'],
-  ['Auslandsaufenthalt', 'stay abroad', '🛫', 'der', 'Auslandsaufenthalte'],
+  ['Sprachaufenthalt', 'stay abroad to learn a language', '🛫', 'der', 'Sprachaufenthalte'],
   ['Betonung', 'stress, emphasis', '❗', 'die', 'Betonungen'],
   ['Satzmelodie', 'sentence intonation', '🎼', 'die'],
   ['Nuance', 'nuance', '🎨', 'die', 'Nuancen'],
@@ -126,7 +126,7 @@ export const sprache: UnitContent = {
           'Zweisprachigkeit',
           'Analphabetismus',
           'Legasthenie',
-          'Auslandsaufenthalt',
+          'Sprachaufenthalt',
           'Satzmelodie',
           'einprägen',
         ),
@@ -151,7 +151,7 @@ export const sprache: UnitContent = {
           'Fachsprache',
           'Jugendsprache',
           'Lehnwort',
-          'Tonfall',
+          'Ausdrucksweise',
           'Landessprache',
         ),
       ),
@@ -195,7 +195,7 @@ export const sprache: UnitContent = {
         items: [
           ...spell(byDe(varieties, 'Mundart', 'Lehnwort'), 'unscramble').items,
           ...spell(byDe(skills, 'Nuance'), 'unscramble').items,
-          ...spell(byDe(varieties, 'Tonfall', 'Sprachwandel'), 'type').items,
+          ...spell(byDe(varieties, 'Ausdrucksweise', 'Sprachwandel'), 'type').items,
           ...spell(byDe(skills, 'Dolmetscher'), 'type').items,
           dictation(
             'd1',

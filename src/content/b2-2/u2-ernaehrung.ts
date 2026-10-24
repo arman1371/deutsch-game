@@ -29,14 +29,14 @@ import type { UnitContent } from './types';
 const U = 'b2-2-ernaehrung';
 
 const eating = vocabList(U, 'Diets & ingredients', [
-  ['Ernährungsweise', 'way of eating, diet', '🥗', 'die', 'Ernährungsweisen'],
+  ['Mangelernährung', 'malnutrition', '🥀', 'die'],
   ['Vegetarier', 'vegetarian (person)', '🥕', 'der', 'Vegetarier'],
   ['Veganer', 'vegan (person)', '🌱', 'der', 'Veganer'],
-  ['Fleischersatz', 'meat substitute', '🌭', 'der'],
-  ['Zusatzstoff', 'additive', '🧪', 'der', 'Zusatzstoffe'],
+  ['Vollkornprodukt', 'wholegrain product', '🌾', 'das', 'Vollkornprodukte'],
+  ['Konservierungsstoff', 'preservative', '🧪', 'der', 'Konservierungsstoffe'],
   ['Nahrungsergänzung', 'dietary supplement', '💊', 'die', 'Nahrungsergänzungen'],
   ['Ballaststoffe', 'fibre', '🌾', 'die'],
-  ['Eiweiß', 'protein', '🥚', 'das'],
+  ['Ballaststoff', 'dietary fibre', '🥦', 'der', 'Ballaststoffe'],
   ['Kohlenhydrate', 'carbohydrates', '🍞', 'die'],
   ['Vollkornbrot', 'wholemeal bread', '🥖', 'das', 'Vollkornbrote'],
   ['Fertiggericht', 'ready meal', '🍱', 'das', 'Fertiggerichte'],
@@ -51,7 +51,7 @@ const shopping = vocabList(U, 'Origin, labels & food waste', [
   ['Herkunftsangabe', 'indication of origin', '🏷️', 'die', 'Herkunftsangaben'],
   ['Bio-Siegel', 'organic label', '🌿', 'das'],
   ['Mindesthaltbarkeitsdatum', 'best-before date', '📅', 'das'],
-  ['Lebensmittelverschwendung', 'food waste', '🗑️', 'die'],
+  ['Saisonware', 'seasonal produce', '🍓', 'die'],
   ['Überschuss', 'surplus', '📦', 'der', 'Überschüsse'],
   ['Hofladen', 'farm shop', '🧺', 'der', 'Hofläden'],
   ['Massentierhaltung', 'factory farming', '🐖', 'die'],
@@ -63,7 +63,7 @@ const shopping = vocabList(U, 'Origin, labels & food waste', [
   ['verderben', 'to spoil, to go off', '🦠'],
   ['regional', 'regional', '📍'],
   ['saisonal', 'seasonal', '🍂'],
-  ['gesundheitsbewusst', 'health-conscious', '🩺'],
+  ['kalorienarm', 'low in calories', '🥗'],
 ]);
 
 const vocab = [...eating, ...shopping];
@@ -95,7 +95,7 @@ export const ernaehrung: UnitContent = {
       'flashcards',
       meta(
         'Diets & ingredients',
-        'Ernährungsweise, Eiweiß, Unverträglichkeit – talking about what we eat.',
+        'Mangelernährung, Ballaststoff, Unverträglichkeit – talking about what we eat.',
         ['vocabulary', 'nutrition'],
         1,
         5,
@@ -125,7 +125,7 @@ export const ernaehrung: UnitContent = {
           eating,
           'Vegetarier',
           'Veganer',
-          'Eiweiß',
+          'Ballaststoff',
           'Vollkornbrot',
           'Fertiggericht',
           'Tiefkühlkost',
@@ -149,7 +149,7 @@ export const ernaehrung: UnitContent = {
       quizDeEn(
         byDe(
           vocab,
-          'Zusatzstoff',
+          'Konservierungsstoff',
           'Heißhunger',
           'Unverträglichkeit',
           'Herkunftsangabe',
@@ -194,12 +194,12 @@ export const ernaehrung: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Ernährungsweise',
+          'Mangelernährung',
           'Ballaststoffe',
           'Hersteller',
           'containern',
-          'gesundheitsbewusst',
-          'Lebensmittelverschwendung',
+          'kalorienarm',
+          'Saisonware',
         ),
         vocab,
       ),
@@ -217,9 +217,9 @@ export const ernaehrung: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(eating, 'Zusatzstoff', 'Vegetarier'), 'unscramble').items,
+          ...spell(byDe(eating, 'Konservierungsstoff', 'Vegetarier'), 'unscramble').items,
           ...spell(byDe(shopping, 'Hofladen'), 'unscramble').items,
-          ...spell(byDe(eating, 'Eiweiß', 'Heißhunger'), 'type').items,
+          ...spell(byDe(eating, 'Ballaststoff', 'Heißhunger'), 'type').items,
           ...spell(byDe(shopping, 'Überschuss'), 'type').items,
           dictation(
             'd1',

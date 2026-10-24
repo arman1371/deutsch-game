@@ -27,7 +27,7 @@ const resistance = vocabList(U, 'Resistance & dictatorship', [
   ['Verhaftung', 'arrest', '⛓️', 'die', 'Verhaftungen'],
   ['Flugblatt', 'leaflet', '📄', 'das', 'Flugblätter'],
   ['Gewissen', 'conscience', '⚖️', 'das'],
-  ['Zivilcourage', 'moral courage', '🦁', 'die'],
+  ['Standhaftigkeit', 'steadfastness', '🛡️', 'die'],
   ['Überzeugung', 'conviction', '💭', 'die', 'Überzeugungen'],
   ['Propaganda', 'propaganda', '📣', 'die'],
   ['Zensur', 'censorship', '🚫', 'die'],
@@ -123,7 +123,7 @@ export const geschichte: UnitContent = {
         byDe(
           vocab,
           'Widerstandsgruppe',
-          'Zivilcourage',
+          'Standhaftigkeit',
           'Zensur',
           'Verfolgung',
           'Urteil',

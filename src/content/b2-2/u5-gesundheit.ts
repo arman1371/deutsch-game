@@ -29,18 +29,18 @@ import type { UnitContent } from './types';
 const U = 'b2-2-gesundheit';
 
 const fitness = vocabList(U, 'Fitness & wellbeing', [
-  ['Ausdauer', 'stamina, endurance', '🏃', 'die'],
+  ['Kondition', 'stamina, fitness', '🏃', 'die'],
   ['Kraftsport', 'strength training', '🏋️', 'der'],
-  ['Beweglichkeit', 'flexibility, mobility', '🤸', 'die'],
-  ['Muskelkater', 'sore muscles', '💪', 'der'],
-  ['Verspannung', 'muscle tension', '😖', 'die', 'Verspannungen'],
+  ['Dehnung', 'stretching', '🤸', 'die', 'Dehnungen'],
+  ['Muskelzerrung', 'pulled muscle', '🩹', 'die', 'Muskelzerrungen'],
+  ['Haltungsschaden', 'postural damage', '🧍', 'der', 'Haltungsschäden'],
   ['Fitnessarmband', 'fitness tracker', '⌚', 'das', 'Fitnessarmbänder'],
   ['Schrittzähler', 'step counter', '👟', 'der', 'Schrittzähler'],
   ['Selbstoptimierung', 'self-optimisation', '📈', 'die'],
   ['Wellness', 'wellness', '🧖', 'die'],
   ['Stressabbau', 'stress relief', '🧘', 'der'],
-  ['Schlafmangel', 'lack of sleep', '🥱', 'der'],
-  ['Burnout', 'burnout', '🔥', 'der', 'Burnouts'],
+  ['Wirbelsäule', 'spine', '🦴', 'die'],
+  ['Rückenschule', 'back school', '🪑', 'die'],
   ['dehnen', 'to stretch', '🙆'],
   ['ganzheitlich', 'holistic', '☯️'],
   ['chronisch', 'chronic', '⏳'],
@@ -56,7 +56,7 @@ const medicine = vocabList(U, 'Medicine & insurance', [
   ['Heilmethode', 'method of healing', '🌿', 'die', 'Heilmethoden'],
   ['Akupunktur', 'acupuncture', '📍', 'die'],
   ['Homöopathie', 'homeopathy', '💧', 'die'],
-  ['Nebenwirkung', 'side effect', '⚠️', 'die', 'Nebenwirkungen'],
+  ['Verstauchung', 'sprain', '🦶', 'die', 'Verstauchungen'],
   ['Dosierung', 'dosage', '💊', 'die', 'Dosierungen'],
   ['Schmerzmittel', 'painkiller', '🩹', 'das', 'Schmerzmittel'],
   ['Zusatzversicherung', 'supplementary insurance', '🛡️', 'die', 'Zusatzversicherungen'],
@@ -94,7 +94,7 @@ export const gesundheit: UnitContent = {
       'flashcards',
       meta(
         'Fitness & wellbeing',
-        'Ausdauer, Muskelkater, Selbstoptimierung – talking about sport and stress.',
+        'Kondition, Muskelzerrung, Selbstoptimierung – talking about sport and stress.',
         ['vocabulary', 'health-fitness'],
         1,
         5,
@@ -123,13 +123,13 @@ export const gesundheit: UnitContent = {
         byDe(
           fitness,
           'Kraftsport',
-          'Muskelkater',
+          'Muskelzerrung',
           'Fitnessarmband',
           'Schrittzähler',
-          'Burnout',
+          'Rückenschule',
           'Wellness',
-          'Schlafmangel',
-          'Ausdauer',
+          'Wirbelsäule',
+          'Kondition',
         ),
         fitness,
       ),
@@ -148,11 +148,11 @@ export const gesundheit: UnitContent = {
       quizDeEn(
         byDe(
           vocab,
-          'Beweglichkeit',
+          'Dehnung',
           'Befund',
           'Rehabilitation',
           'Heilmethode',
-          'Nebenwirkung',
+          'Verstauchung',
           'Dosierung',
           'Zusatzversicherung',
           'lindern',
@@ -199,7 +199,7 @@ export const gesundheit: UnitContent = {
       listen(
         byDe(
           vocab,
-          'Verspannung',
+          'Haltungsschaden',
           'Stressabbau',
           'Therapie',
           'Physiotherapie',
@@ -222,9 +222,9 @@ export const gesundheit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(fitness, 'Ausdauer', 'Burnout'), 'unscramble').items,
+          ...spell(byDe(fitness, 'Kondition', 'Rückenschule'), 'unscramble').items,
           ...spell(byDe(medicine, 'Diagnose'), 'unscramble').items,
-          ...spell(byDe(fitness, 'Verspannung', 'Schlafmangel'), 'type').items,
+          ...spell(byDe(fitness, 'Haltungsschaden', 'Wirbelsäule'), 'type').items,
           ...spell(byDe(medicine, 'Therapie'), 'type').items,
           dictation('d1', 'Mit Yoga baue ich Stress ab.', 'I reduce stress with yoga.'),
           dictation(
@@ -804,7 +804,7 @@ export const gesundheit: UnitContent = {
             'irgendwo',
           ]),
           q('c6', 'die Diagnose', 'diagnosis', ['dosage', 'side effect', 'therapy']),
-          q('c7', 'die Verspannung', 'muscle tension', [
+          q('c7', 'der Haltungsschaden', 'postural damage', [
             'stamina',
             'sore muscles',
             'stress relief',
