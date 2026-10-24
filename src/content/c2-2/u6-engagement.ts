@@ -25,18 +25,18 @@ const LESSON = 'c22-prefix-verbs' as const;
 const gesellschaft = vocabList(U, 'Civil society', [
   ['Zivilgesellschaft', 'civil society', '🌐', 'die'],
   ['Gemeinwohl', 'common good', '🏘️', 'das'],
-  ['Solidarität', 'solidarity', '🤝', 'die'],
+  ['Gemeinsinn', 'public spirit', '🤝', 'der'],
   ['Volksbegehren', 'popular petition for a referendum', '📣', 'das', 'Volksbegehren'],
   ['Ehrenamtliche', 'volunteer (adjectival noun)', '🎗️', 'der', 'Ehrenamtlichen'],
   ['Stiftung', 'foundation', '🏦', 'die', 'Stiftungen'],
   ['Selbsthilfegruppe', 'self-help group', '🫂', 'die', 'Selbsthilfegruppen'],
-  ['Genossenschaft', 'cooperative', '🏭', 'die', 'Genossenschaften'],
+  ['Spendenaktion', 'fundraising campaign', '🏭', 'die', 'Spendenaktionen'],
   ['Gemeinnützigkeit', 'non-profit status', '💚', 'die'],
-  ['Teilhabe', 'participation, inclusion', '🚪', 'die'],
+  ['Mitbestimmung', 'co-determination, having a say', '🚪', 'die'],
   ['Ausgrenzung', 'exclusion', '🚧', 'die', 'Ausgrenzungen'],
-  ['Diskriminierung', 'discrimination', '🙈', 'die', 'Diskriminierungen'],
+  ['Marginalisierung', 'marginalisation', '🙈', 'die'],
   ['Spendenaufruf', 'donation appeal', '📢', 'der', 'Spendenaufrufe'],
-  ['Zivilcourage', 'moral courage', '🦁', 'die'],
+  ['Einsatzbereitschaft', 'willingness to get involved', '🦁', 'die'],
 ]);
 
 const verben = vocabList(U, 'Two-faced verbs', [
@@ -85,7 +85,7 @@ export const engagement: UnitContent = {
         {
           key: 'society',
           title: 'Civil society',
-          description: 'Gemeinwohl, Solidarität, Zivilcourage – words for engagement.',
+          description: 'Gemeinwohl, Gemeinsinn, Mitbestimmung – words for engagement.',
           vocab: gesellschaft,
         },
         {
@@ -98,13 +98,13 @@ export const engagement: UnitContent = {
       pictures: byDe(
         gesellschaft,
         'Zivilgesellschaft',
-        'Solidarität',
+        'Gemeinsinn',
         'Volksbegehren',
         'Stiftung',
-        'Genossenschaft',
-        'Diskriminierung',
+        'Spendenaktion',
+        'Marginalisierung',
         'Spendenaufruf',
-        'Zivilcourage',
+        'Einsatzbereitschaft',
       ),
       picturesTitle: 'Engaged citizens',
       picturesDescription: 'Name the civil-society word.',
@@ -123,8 +123,8 @@ export const engagement: UnitContent = {
       ),
       memoryTitle: 'Prefix memory',
       memoryDescription: 'Match each phrase with its meaning.',
-      unscramble: byDe(gesellschaft, 'Gemeinwohl', 'Teilhabe', 'Stiftung'),
-      typeIn: byDe(gesellschaft, 'Zivilgesellschaft', 'Genossenschaft'),
+      unscramble: byDe(gesellschaft, 'Gemeinwohl', 'Mitbestimmung', 'Stiftung'),
+      typeIn: byDe(gesellschaft, 'Zivilgesellschaft', 'Spendenaktion'),
       dictations: [
         [
           'd1',

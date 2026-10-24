@@ -29,7 +29,7 @@ const stil = vocabList(U, 'Figurative language & tone', [
   ['Übertreibung', 'exaggeration', '🎈', 'die', 'Übertreibungen'],
   ['Anspielung', 'allusion, hint', '🎯', 'die', 'Anspielungen'],
   ['Zwischenton', 'nuance, undertone', '🎶', 'der', 'Zwischentöne'],
-  ['Umgangssprache', 'colloquial language', '🗨️', 'die'],
+  ['Jargon', 'jargon', '🗨️', 'der', 'Jargons'],
   ['Floskel', 'stock phrase', '🧾', 'die', 'Floskeln'],
   ['Wortspiel', 'pun', '🎲', 'das', 'Wortspiele'],
   ['Unterton', 'tone, undertone', '🔉', 'der', 'Untertöne'],
@@ -124,7 +124,7 @@ export const nuancen: UnitContent = {
       memoryTitle: 'Idiom memory',
       memoryDescription: 'Match each idiom with its meaning.',
       unscramble: byDe(stil, 'Idiom', 'Anspielung', 'Floskel'),
-      typeIn: byDe(stil, 'Doppeldeutigkeit', 'Umgangssprache'),
+      typeIn: byDe(stil, 'Doppeldeutigkeit', 'Jargon'),
       dictations: [
         [
           'd1',

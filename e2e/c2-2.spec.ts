@@ -69,7 +69,7 @@ test.describe('C2.2 – library', () => {
     for (const [label, tag] of [
       [/Participles before nouns/, 'c22-participial-attributes'],
       [/Subjective modal verbs/, 'c22-subjective-modals'],
-      [/Passive in all tenses/, 'c22-passive-forms'],
+      [/Passive in every tense/, 'c22-passive-forms'],
       [/zu \+ Partizip I/, 'c22-gerundive'],
       [/angesichts \/ infolge/, 'c22-formal-genitive'],
       [/Law & justice/, 'c22-law'],

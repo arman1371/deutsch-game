@@ -24,16 +24,16 @@ const LESSON = 'c22-participial-attributes' as const;
 const betrieb = vocabList(U, 'The art world', [
   ['Ästhetik', 'aesthetics', '✨', 'die'],
   ['Exponat', 'exhibit', '🖼️', 'das', 'Exponate'],
-  ['Meisterwerk', 'masterpiece', '🏆', 'das', 'Meisterwerke'],
-  ['Vernissage', 'opening of an exhibition', '🥂', 'die', 'Vernissagen'],
+  ['Hauptwerk', 'major work', '🏆', 'das', 'Hauptwerke'],
+  ['Finissage', 'closing event of an exhibition', '🥂', 'die', 'Finissagen'],
   ['Retrospektive', 'retrospective', '🕰️', 'die', 'Retrospektiven'],
   ['Leihgabe', 'loan (exhibit)', '🤝', 'die', 'Leihgaben'],
   ['Kurator', 'curator', '🧑‍💼', 'der', 'Kuratoren'],
   ['Kunstkritiker', 'art critic', '📝', 'der', 'Kunstkritiker'],
-  ['Mäzen', 'patron', '💰', 'der', 'Mäzene'],
+  ['Stifter', 'donor, benefactor', '💰', 'der', 'Stifter'],
   ['Auktion', 'auction', '🔨', 'die', 'Auktionen'],
-  ['Plagiat', 'plagiarism, copy', '🕵️', 'das', 'Plagiate'],
-  ['Installation', 'installation (art)', '🧱', 'die', 'Installationen'],
+  ['Imitat', 'imitation', '🕵️', 'das', 'Imitate'],
+  ['Vitrine', 'display case', '🧱', 'die', 'Vitrinen'],
   ['Zeitgeist', 'spirit of the age', '🌀', 'der'],
 ]);
 
@@ -86,7 +86,7 @@ export const kunst: UnitContent = {
         {
           key: 'art-world',
           title: 'The art world',
-          description: 'Vernissage, Mäzen, Plagiat – who and what is behind an exhibition.',
+          description: 'Finissage, Stifter, Imitat – who and what is behind an exhibition.',
           vocab: betrieb,
         },
         {
@@ -99,13 +99,13 @@ export const kunst: UnitContent = {
       pictures: byDe(
         betrieb,
         'Exponat',
-        'Meisterwerk',
-        'Vernissage',
+        'Hauptwerk',
+        'Finissage',
         'Auktion',
-        'Plagiat',
-        'Installation',
+        'Imitat',
+        'Vitrine',
         'Kurator',
-        'Mäzen',
+        'Stifter',
       ),
       picturesTitle: 'Behind the exhibition',
       picturesDescription: 'Name the art-world word.',
@@ -124,8 +124,8 @@ export const kunst: UnitContent = {
       ),
       memoryTitle: 'Critic’s memory',
       memoryDescription: 'Match each judgement with its meaning.',
-      unscramble: byDe(betrieb, 'Meisterwerk', 'Auktion', 'Leihgabe'),
-      typeIn: byDe(betrieb, 'Plagiat', 'Vernissage'),
+      unscramble: byDe(betrieb, 'Hauptwerk', 'Auktion', 'Leihgabe'),
+      typeIn: byDe(betrieb, 'Imitat', 'Finissage'),
       dictations: [
         [
           'd1',

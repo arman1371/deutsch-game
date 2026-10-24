@@ -1,10 +1,10 @@
-# C2.2 – syllabus research, coverage and overlap with A1.1–B1.2
+# C2.2 – syllabus research, coverage and overlap with A1.1–B2.2
 
 C2.2 is the second half of the C2 level. It was built from every C2 document that could be found online and
 read, checked against the CEFR C2 descriptors. The rule from the earlier levels still applies: **teach what is
 new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone
 unit – what is already taught.** `src/content/c2-2/content.test.ts` enforces the vocabulary side: no word card
-in C2.2 repeats a word card of A1.1, A1.2, A2.1, A2.2 or B1.1 (or another C2.2 unit).
+in C2.2 repeats a word card of A1.1 to B2.2 (or another C2.2 unit).
 
 The German content has **not yet been reviewed by a native speaker.**
 
