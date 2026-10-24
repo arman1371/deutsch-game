@@ -96,6 +96,19 @@ export const TAGS = {
   'home-europe': { label: 'Home & Europe', group: 'topic', emoji: '🇪🇺' },
   'theatre-art': { label: 'Theatre & art', group: 'topic', emoji: '🎭' },
   'opinions-presenting': { label: 'Opinions & presentations', group: 'topic', emoji: '🎤' },
+  // topics – B2.1
+  relationships: { label: 'Relationships & feelings', group: 'topic', emoji: '💞' },
+  'minimalism-diet': { label: 'Possessions, minimalism & diet', group: 'topic', emoji: '🥗' },
+  wellbeing: { label: 'Sleep, stress & fitness', group: 'topic', emoji: '😴' },
+  'body-language': { label: 'Communication & body language', group: 'topic', emoji: '🙌' },
+  teamwork: { label: 'Teamwork & job satisfaction', group: 'topic', emoji: '🧑‍🤝‍🧑' },
+  'life-paths': { label: 'Education & life paths', group: 'topic', emoji: '🛤️' },
+  'society-change': { label: 'Society in change', group: 'topic', emoji: '🌐' },
+  'housing-market': { label: 'Housing & tenants', group: 'topic', emoji: '🏢' },
+  'media-news': { label: 'Media & news', group: 'topic', emoji: '📰' },
+  science: { label: 'Science & research', group: 'topic', emoji: '🔬' },
+  'travel-mobility': { label: 'Travel & mobility', group: 'topic', emoji: '🧳' },
+  'climate-global': { label: 'Climate & globalisation', group: 'topic', emoji: '🌍' },
   // grammar points
   'word-order': { label: 'Word order', group: 'grammar', emoji: '↔️' },
   questions: { label: 'Questions', group: 'grammar', emoji: '❓' },
@@ -158,14 +171,11 @@ export const TAGS = {
   'noun-prepositions': { label: 'Nouns with prepositions', group: 'grammar', emoji: '📎' },
   'comparative-clauses': { label: 'anders als / genauso … wie', group: 'grammar', emoji: '🟰' },
   'modal-hearsay': { label: 'sollen / wollen: hearsay', group: 'grammar', emoji: '📢' },
-  nominalisation: { label: 'Verbs → nouns (Nominalisierung)', group: 'grammar', emoji: '🗂️' },
   'consecutive-connectors': {
     label: 'folglich / infolgedessen / als dass',
     group: 'grammar',
     emoji: '⤵️',
   },
-  'noun-verb-phrases': { label: 'Noun-verb phrases', group: 'grammar', emoji: '🧩' },
-  'passive-alternatives': { label: 'Alternatives to the passive', group: 'grammar', emoji: '🔀' },
   'irgend-pronouns': { label: 'irgend- / manche / sämtliche', group: 'grammar', emoji: '❓' },
   'modal-clauses': { label: 'indem / dadurch, dass / durch', group: 'grammar', emoji: '🛠️' },
   'extended-participle': {
@@ -183,11 +193,6 @@ export const TAGS = {
     group: 'grammar',
     emoji: '🙄',
   },
-  'relative-wer': {
-    label: 'wer / wen / wem … (generalising relatives)',
-    group: 'grammar',
-    emoji: '🔎',
-  },
   'stative-passive': { label: 'Zustandspassiv (ist … gemacht)', group: 'grammar', emoji: '🧱' },
   'perfekt-double-infinitive': {
     label: 'Double infinitive (ich habe ihn kommen hören)',
@@ -199,7 +204,6 @@ export const TAGS = {
     group: 'grammar',
     emoji: '🔗',
   },
-  'konjunktiv-1': { label: 'Indirect speech (Konjunktiv I)', group: 'grammar', emoji: '🗨️' },
   'modal-assumption': { label: 'Assumptions with modal verbs', group: 'grammar', emoji: '🕵️' },
   // grammar points – B1.2
   'je-desto': { label: 'je … desto', group: 'grammar', emoji: '📈' },
@@ -215,6 +219,31 @@ export const TAGS = {
   'relative-wo-was': { label: 'Relative wo / was', group: 'grammar', emoji: '📌' },
   'nicht-position': { label: 'Position of nicht', group: 'grammar', emoji: '🙅' },
   'consecutive-clauses': { label: 'sodass / so … dass', group: 'grammar', emoji: '⤵️' },
+  // grammar points – B2.1
+  'nouns-with-prepositions': {
+    label: 'Nouns & adjectives + preposition',
+    group: 'grammar',
+    emoji: '🔌',
+  },
+  'middle-field': { label: 'Order in the Mittelfeld', group: 'grammar', emoji: '🧭' },
+  'konjunktiv-1': { label: 'Reported speech (Konjunktiv I)', group: 'grammar', emoji: '🗨️' },
+  'causal-expressions': { label: 'Reasons: aufgrund / dank / da', group: 'grammar', emoji: '🔎' },
+  assumptions: { label: 'Assumptions (wird … haben)', group: 'grammar', emoji: '🤔' },
+  'es-dass': { label: 'es & dass-clauses', group: 'grammar', emoji: '👆' },
+  'state-passive': { label: 'Zustandspassiv (ist geöffnet)', group: 'grammar', emoji: '🔒' },
+  'temporal-connectors': {
+    label: 'solange / sobald / ehe / seitdem',
+    group: 'grammar',
+    emoji: '⏱️',
+  },
+  'noun-verb-phrases': { label: 'Noun-verb phrases', group: 'grammar', emoji: '🧩' },
+  'relative-wer': { label: 'wer / wen / wem clauses', group: 'grammar', emoji: '🙋' },
+  'conditional-b2': { label: 'falls / sofern / Hätte ich …', group: 'grammar', emoji: '🔀' },
+  'text-cohesion': { label: 'Reference words (dadurch, dazu)', group: 'grammar', emoji: '🪡' },
+  'passive-alternatives': { label: 'lassen / sein + zu / -bar', group: 'grammar', emoji: '🔁' },
+  'auch-wenn': { label: 'auch wenn / zwar … aber', group: 'grammar', emoji: '🙄' },
+  adversative: { label: 'während / dagegen / hingegen', group: 'grammar', emoji: '⚔️' },
+  nominalisation: { label: 'Nominalisation', group: 'grammar', emoji: '🏗️' },
 } as const satisfies Record<string, TagInfo>;
 
 export type TagId = keyof typeof TAGS;

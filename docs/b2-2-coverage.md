@@ -1,10 +1,10 @@
-# B2.2 – syllabus research, coverage and overlap with A1.1–B1.2
+# B2.2 – syllabus research, coverage and overlap with A1.1–B2.1
 
 B2.2 was built from the second half of the B2 syllabus of the course books and university B2.2 syllabi listed below, checked
 against the Goethe-Zertifikat B2 model test and the CEFR B2 descriptor. The rule from A2.2 to B1.2 still applies: **teach what
 is new, extend what an earlier unit started, and only review – inside new activities, never as a stand-alone unit – what is
 already taught.** `src/content/b2-2/content.test.ts` enforces the vocabulary side: no word card in B2.2 repeats a word card of
-A1.1–B1.2 (or another B2.2 unit).
+A1.1–B2.1 (or another B2.2 unit).
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -48,7 +48,7 @@ Limits of the research:
 ## How the units were chosen
 
 A topic became a unit when at least two of the sources above teach it; the grammar of a unit is what those sources attach to the
-topic, minus anything A1.1–B1.2 already teach.
+topic, minus anything A1.1–B1.2 already teach. B2.1 was built in parallel from the same books, so B2.2 shares some grammar with it (see below).
 
 | Unit                                 | Sicher! B2.2 | Kontext B2.2      | Vielfalt B2.2      | Aspekte neu B2.2               | University syllabi    | Goethe B2 model test          |
 | ------------------------------------ | ------------ | ----------------- | ------------------ | ------------------------------ | --------------------- | ----------------------------- |
@@ -79,27 +79,35 @@ topic, minus anything A1.1–B1.2 already teach.
 
 ## Grammar
 
-| Syllabus item (tag)                                                                | Earlier levels                        | Treatment in B2.2                                                            |
-| ---------------------------------------------------------------------------------- | ------------------------------------- | ---------------------------------------------------------------------------- |
-| Nouns with prepositions, question words with prepositions (`noun-prepositions`)    | verbs with prepositions A2.1, B1.1    | new (u1)                                                                     |
-| Comparative clauses: genauso … wie, anders als, je nachdem (`comparative-clauses`) | comparison A1.2, je … desto B1.2      | new connectors (u1)                                                          |
-| _sollen_ / _wollen_ as hearsay and claim (`modal-hearsay`)                         | modal verbs A1.2, B1.1                | new (u2); infinitive Perfekt practised                                       |
-| Nominalisation (`nominalisation`)                                                  | word formation A2.2, B1.2             | new (u2)                                                                     |
-| Consecutive connectors folglich, somit, zu … als dass (`consecutive-connectors`)   | sodass / so … dass B1.2               | extended (u3)                                                                |
-| Noun-verb phrases and negation by prefix / suffix (`noun-verb-phrases`)            | word formation B1.2                   | new (u3)                                                                     |
-| Alternatives to the passive and the impersonal passive (`passive-alternatives`)    | passive A2.2, B1.1, B1.2              | new (u4)                                                                     |
-| _irgend_- words and quantifiers (`irgend-pronouns`)                                | indefinite pronouns A2.1              | extended (u5)                                                                |
-| Modal clauses: indem, dadurch dass, ohne dass (`modal-clauses`)                    | indem / ohne dass B1.2                | extended with dadurch, durch, mithilfe (u5)                                  |
-| Extended participle attributes (`extended-participle`)                             | participles as adjectives B1.2        | new (u6)                                                                     |
-| Adversative connectors während, wohingegen, hingegen (`adversative-connectors`)    | einerseits … andererseits B1.2        | new (u6)                                                                     |
-| Advanced concession: obgleich, wenngleich, ungeachtet (`concessive-advanced`)      | obwohl / trotzdem A2.1, B1.1          | extended (u7)                                                                |
-| Relative clauses with _wer_ / _was_ (`relative-wer`)                               | relative clauses A2.2, wo / was B1.2  | new (u8)                                                                     |
-| Vorgangs- versus Zustandspassiv (`stative-passive`)                                | passive A2.2, B1.2                    | new (u8); generated tables in `a2-2/helpers.ts` reused                       |
-| Perfekt with double infinitive (`perfekt-double-infinitive`)                       | Perfekt A1.2, modal verbs             | new (u9)                                                                     |
-| Adjectives with prepositions, _wo(r)_- compounds (`adjective-prepositions`)        | verbs with prepositions               | new (u10)                                                                    |
-| Konjunktiv I and Konjunktiv II as a substitute (`konjunktiv-1`)                    | Konjunktiv II A2.2, B1.1              | new (u11); generated tables in `b2-2/helpers.ts`                             |
-| Assumptions with modal verbs, present and past (`modal-assumption`)                | modal verbs; hearsay _sollen_ from u2 | new (u12)                                                                    |
-| Generalising relatives (_wer … der_), `es` as placeholder, `laut`, Fugen-s         | –                                     | _wer_ in u8; the others are only mentioned in single items, not a unit topic |
+| Syllabus item (tag)                                                                | Earlier levels                        | Treatment in B2.2                                                             |
+| ---------------------------------------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------- |
+| Nouns with prepositions, question words with prepositions (`noun-prepositions`)    | verbs with prepositions A2.1, B1.1    | new (u1)                                                                      |
+| Comparative clauses: genauso … wie, anders als, je nachdem (`comparative-clauses`) | comparison A1.2, je … desto B1.2      | new connectors (u1)                                                           |
+| _sollen_ / _wollen_ as hearsay and claim (`modal-hearsay`)                         | modal verbs A1.2, B1.1                | new (u2); infinitive Perfekt practised                                        |
+| Nominalisation (`nominalisation`)                                                  | word formation A2.2, B1.2             | second pass (B2.1 u12 teaches it first); B2.1 tag and lesson reused           |
+| Consecutive connectors folglich, somit, zu … als dass (`consecutive-connectors`)   | sodass / so … dass B1.2               | extended (u3)                                                                 |
+| Noun-verb phrases and negation by prefix / suffix (`noun-verb-phrases`)            | word formation B1.2                   | second pass (B2.1 u7 teaches it first); B2.1 tag and lesson reused            |
+| Alternatives to the passive and the impersonal passive (`passive-alternatives`)    | passive A2.2, B1.1, B1.2              | second pass (B2.1 u10 teaches it first); B2.1 tag and lesson reused           |
+| _irgend_- words and quantifiers (`irgend-pronouns`)                                | indefinite pronouns A2.1              | extended (u5)                                                                 |
+| Modal clauses: indem, dadurch dass, ohne dass (`modal-clauses`)                    | indem / ohne dass B1.2                | extended with dadurch, durch, mithilfe (u5)                                   |
+| Extended participle attributes (`extended-participle`)                             | participles as adjectives B1.2        | new (u6)                                                                      |
+| Adversative connectors während, wohingegen, hingegen (`adversative-connectors`)    | einerseits … andererseits B1.2        | new (u6)                                                                      |
+| Advanced concession: obgleich, wenngleich, ungeachtet (`concessive-advanced`)      | obwohl / trotzdem A2.1, B1.1          | extended (u7)                                                                 |
+| Relative clauses with _wer_ / _was_ (`relative-wer`)                               | relative clauses A2.2, wo / was B1.2  | second pass (B2.1 u8 teaches it first); B2.1 tag and lesson reused            |
+| Vorgangs- versus Zustandspassiv (`stative-passive`)                                | passive A2.2, B1.2                    | new (u8); generated tables in `a2-2/helpers.ts` reused                        |
+| Perfekt with double infinitive (`perfekt-double-infinitive`)                       | Perfekt A1.2, modal verbs             | new (u9)                                                                      |
+| Adjectives with prepositions, _wo(r)_- compounds (`adjective-prepositions`)        | verbs with prepositions               | new (u10)                                                                     |
+| Konjunktiv I and Konjunktiv II as a substitute (`konjunktiv-1`)                    | Konjunktiv II A2.2, B1.1              | second pass (B2.1 u2 teaches it first); B2.1 tag, lesson and `k1Table` reused |
+| Assumptions with modal verbs, present and past (`modal-assumption`)                | modal verbs; hearsay _sollen_ from u2 | new (u12)                                                                     |
+| Generalising relatives (_wer … der_), `es` as placeholder, `laut`, Fugen-s         | –                                     | _wer_ in u8; the others are only mentioned in single items, not a unit topic  |
+
+### Overlap with B2.1
+
+B2.1 (PR #16) was researched in parallel from the same course books. B2.2 therefore shares **no word cards** with it (the
+vocabulary-integrity test now includes B2.1), but five grammar tags are taught in both levels: `konjunktiv-1`, `nominalisation`,
+`noun-verb-phrases`, `passive-alternatives` and `relative-wer`. B2.2 reuses B2.1's tag and mini lesson for them and practises the
+point again in new topics. Related points that B2.1 also covers under other tags (Zustandspassiv, concessions, contrasts,
+assumptions) are likewise a second, deeper pass.
 
 ## Communication goals
 

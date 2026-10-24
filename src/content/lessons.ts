@@ -435,15 +435,6 @@ export const LESSONS = {
       'Die Suppe soll sehr gesund sein.',
     ],
   },
-  nominalisation: {
-    title: 'From verbs and clauses to nouns',
-    rule: 'Written German often turns verbs into nouns: infinitive (das Rauchen), -ung (die Entscheidung), -en-stem (der Verzicht). A clause becomes a noun phrase with a preposition: weil er krank war → wegen seiner Krankheit; wenn man liest → beim Lesen; indem man spart → durch Sparen.',
-    examples: [
-      'Wenn man isst, soll man nicht lesen. → Beim Essen soll man nicht lesen.',
-      'Weil das Obst teuer ist → wegen der hohen Obstpreise',
-      'entscheiden → die Entscheidung',
-    ],
-  },
   'consecutive-connectors': {
     title: 'Expressing consequences',
     rule: 'sodass / so … dass start a clause with the verb at the end. In a new main clause folglich, infolgedessen, somit and daher are followed by the verb. zu … , als dass + Konjunktiv II means “too … to”: Es ist zu spät, als dass wir noch helfen könnten.',
@@ -451,24 +442,6 @@ export const LESSONS = {
       'Er hatte kaum Zeit, folglich musste er absagen.',
       'Es regnete so stark, dass das Fest ausfiel.',
       'Die Miete ist zu hoch, als dass ich sie zahlen könnte.',
-    ],
-  },
-  'noun-verb-phrases': {
-    title: 'Noun-verb phrases',
-    rule: 'Formal German prefers fixed combinations of a noun and a verb: eine Entscheidung treffen, in Anspruch nehmen, zur Verfügung stehen, in Frage stellen, Bescheid geben. The noun carries the meaning, the verb is fixed and has to be learnt with it.',
-    examples: [
-      'eine Entscheidung treffen (= entscheiden)',
-      'Rücksicht auf jemanden nehmen',
-      'Das Angebot steht zur Verfügung.',
-    ],
-  },
-  'passive-alternatives': {
-    title: 'Alternatives to the passive',
-    rule: 'Instead of the passive you can use man + active verb, sich lassen + infinitive (Das lässt sich lösen), sein + zu + infinitive (Das ist zu lösen) or an adjective in -bar / -lich (lösbar). The impersonal passive has no subject: Hier wird gearbeitet. Heute wird getanzt.',
-    examples: [
-      'Das Problem lässt sich lösen.',
-      'Der Antrag ist bis Freitag einzureichen.',
-      'Hier darf nicht geraucht werden.',
     ],
   },
   'irgend-pronouns': {
@@ -516,15 +489,6 @@ export const LESSONS = {
       'Er ist zwar jung, aber sehr erfahren.',
     ],
   },
-  'relative-wer': {
-    title: 'wer, wen, wem … as relative pronouns',
-    rule: 'wer / wen / wem / wessen introduce a clause about unspecified people (“whoever”), was about things. The case follows the verb of the relative clause; the main clause often starts with der / den / dem. The verb of the relative clause goes to the end.',
-    examples: [
-      'Wer zu spät kommt, muss draußen warten.',
-      'Wem es nicht gefällt, der kann gehen.',
-      'Was glänzt, ist nicht immer Gold.',
-    ],
-  },
   'stative-passive': {
     title: 'werden or sein with the participle?',
     rule: 'werden + participle describes the process (Das Bild wird restauriert). sein + participle describes the result (Das Bild ist restauriert). The Zustandspassiv answers “What state is it in?”, so it is only possible when the action can be finished.',
@@ -550,15 +514,6 @@ export const LESSONS = {
       'Sie ist stolz auf ihre Tochter.',
       'Wir sind mit dem Service zufrieden.',
       'Er ist von seinen Eltern abhängig.',
-    ],
-  },
-  'konjunktiv-1': {
-    title: 'Indirect speech with Konjunktiv I',
-    rule: 'Konjunktiv I is built from the infinitive stem + -e (er gehe, sie habe, er sei). If it looks like the indicative (ich, wir, sie plural), use Konjunktiv II or würde + infinitive. Past: sei / habe + participle. The tense of the original is not kept: only the verb mood shows that someone is quoting.',
-    examples: [
-      'Sie sagte, sie sei müde.',
-      'Er behauptet, er habe nichts gewusst.',
-      'Sie meinten, sie hätten keine Zeit.',
     ],
   },
   'modal-assumption': {
@@ -642,6 +597,150 @@ export const LESSONS = {
     examples: [
       'Es regnete stark, sodass das Fest ausfiel.',
       'Der Vortrag war so lang, dass alle müde wurden.',
+    ],
+  },
+  // ---- B2.1 ----
+  'nouns-with-prepositions': {
+    title: 'Nouns and adjectives with prepositions',
+    rule: 'Many nouns and adjectives need a fixed preposition, and it decides the case: die Angst vor + dative, das Interesse an + dative, der Wunsch nach + dative, stolz auf + accusative. Learn the preposition with the word. Before a clause use da(r)-: Ich bin stolz darauf, dass …',
+    examples: [
+      'die Angst vor dem Alleinsein · das Interesse an Kunst',
+      'Sie ist stolz auf ihre Tochter. · Er ist mit dem Ergebnis zufrieden.',
+      'Ich bin stolz darauf, dass du es geschafft hast.',
+    ],
+  },
+  'middle-field': {
+    title: 'Order in the Mittelfeld',
+    rule: 'Between the verb in position 2 and the final verb part, adverbials usually go time – reason – manner – place. Pronouns come before nouns; two pronouns: accusative before dative (Er schenkt ihn ihr); two nouns: dative before accusative.',
+    examples: [
+      'Ich fahre morgen wegen des Termins mit dem Zug nach Berlin.',
+      'Er schenkt ihr einen Ring. · Er schenkt ihn ihr.',
+    ],
+  },
+  'konjunktiv-1': {
+    title: 'Reported speech: Konjunktiv I',
+    rule: 'Reports and news repeat what somebody else said with Konjunktiv I: stem + -e, -est, -e, -en, -et, -en (sein: er sei). If the form looks like the present (sie haben, wir kommen), use Konjunktiv II instead (sie hätten, sie kämen). In speaking the indicative is common.',
+    examples: [
+      'Die Forscherin sagt, man solle weniger Fleisch essen.',
+      'Er sagte, er sei müde und habe keine Zeit.',
+      'Sie sagten, sie hätten viel zu tun.',
+    ],
+  },
+  'causal-expressions': {
+    title: 'Giving reasons: aufgrund, dank, da',
+    rule: 'Besides weil and wegen: da starts a subordinate clause (often at the beginning); aufgrund, infolge and angesichts take the genitive; dank names a positive reason; aus and vor + noun without an article give emotional reasons (aus Angst, vor Müdigkeit). deshalb and daher start a main clause.',
+    examples: [
+      'Aufgrund des Lärms konnte ich nicht schlafen.',
+      'Dank des Trainings fühle ich mich fitter.',
+      'Da ich Rückenschmerzen habe, mache ich Yoga.',
+    ],
+  },
+  assumptions: {
+    title: 'Making assumptions',
+    rule: 'To say what is probably true, use Futur I for the present (Er wird zu Hause sein) and Futur II for the past: werden + participle + haben/sein (Er wird den Zug verpasst haben). wohl, sicher and vermutlich often join in. müssen and dürfte also express a strong assumption.',
+    examples: [
+      'Sie wird schon schlafen.',
+      'Er wird den Bus verpasst haben.',
+      'Das muss ein Missverständnis gewesen sein.',
+    ],
+  },
+  'es-dass': {
+    title: 'es and dass-clauses',
+    rule: 'es can point ahead to a dass-clause or infinitive clause: Ich finde es schade, dass du gehst. If the clause comes first, es disappears: Dass du gehst, finde ich schade. With a verb + preposition use darauf, darüber …: Ich warte darauf, dass … With the same subject use an infinitive with zu.',
+    examples: [
+      'Ich finde es schade, dass du schon gehst.',
+      'Ich verlasse mich darauf, dass du kommst.',
+      'Ich hoffe, dich bald zu sehen.',
+    ],
+  },
+  'state-passive': {
+    title: 'Zustandspassiv: sein + participle',
+    rule: 'werden + participle describes a process (Die Tür wird geschlossen), sein + participle describes the result (Die Tür ist geschlossen). The agent is rarely named; if so, von names a person and durch a cause or means.',
+    examples: [
+      'Die Tür wird geschlossen. → Die Tür ist geschlossen.',
+      'Der Bericht ist schon geschrieben.',
+      'Das Dach wurde durch den Sturm beschädigt. Jetzt ist es beschädigt.',
+    ],
+  },
+  'temporal-connectors': {
+    title: 'solange, sobald, ehe, seitdem',
+    rule: 'solange = for as long as, sobald = as soon as, ehe = bevor (before), seitdem = since then, sooft = whenever. All start a subordinate clause, so the conjugated verb goes to the end. If the clause comes first, the main clause continues with the verb in position 1.',
+    examples: [
+      'Solange es regnet, bleibe ich zu Hause.',
+      'Sobald ich fertig bin, rufe ich dich an.',
+      'Seitdem er in Berlin wohnt, geht er oft ins Museum.',
+    ],
+  },
+  'noun-verb-phrases': {
+    title: 'Noun-verb phrases',
+    rule: 'Formal German often replaces a single verb with a fixed noun + verb phrase: eine Entscheidung treffen (entscheiden), zur Verfügung stellen, in Anspruch nehmen, in Frage kommen. The noun carries the meaning, the verb is fixed. The verb is conjugated as usual and goes to the end in subordinate clauses.',
+    examples: [
+      'Wir treffen morgen eine Entscheidung.',
+      'Dieses Angebot kommt für mich nicht in Frage.',
+      'Der Verein stellt Räume zur Verfügung.',
+    ],
+  },
+  'relative-wer': {
+    title: 'wer / wen / wem … clauses',
+    rule: 'wer, wen, wem start a clause about people in general (“whoever”). The case of wer/wen/wem is decided by the verb inside that clause; the main clause often continues with der, den or dem. Verb at the end of the wer-clause.',
+    examples: [
+      'Wer zu spät kommt, muss draußen warten.',
+      'Wem die Miete zu hoch ist, der sucht eine Genossenschaft.',
+      'Wen die Nachbarn stören, der sollte mit ihnen reden.',
+    ],
+  },
+  'conditional-b2': {
+    title: 'falls, sofern and clauses without wenn',
+    rule: 'falls and sofern (provided that) are formal alternatives to wenn. You can also drop wenn and put the verb first: Hätte ich mehr Zeit, würde ich reisen. Without a clause: bei + dative (bei Regen). andernfalls and ansonsten (otherwise) start a main clause with the verb next.',
+    examples: [
+      'Sofern kein Einspruch kommt, gilt der Vertrag.',
+      'Hätten wir mehr Platz, würden wir umziehen.',
+      'Zahlen Sie pünktlich. Andernfalls müssen Sie eine Gebühr zahlen.',
+    ],
+  },
+  'text-cohesion': {
+    title: 'Reference words that link sentences',
+    rule: 'da(r)- + preposition (dadurch, dafür, damit, darüber, dabei) points back to something just mentioned. It must match the preposition of the verb: sich ärgern über → darüber. Use it to link sentences without repeating words.',
+    examples: [
+      'Der Akku ist leer. Dadurch schaltet sich das Gerät aus.',
+      'Viele Jugendliche spielen online. Darüber streiten sie oft mit ihren Eltern.',
+      'Sie hat einen Podcast gegründet. Damit erreicht sie viele Menschen.',
+    ],
+  },
+  'passive-alternatives': {
+    title: 'Passive alternatives',
+    rule: 'Instead of werden + participle you can use sich lassen + infinitive (can be done), sein + zu + infinitive (can or must be done), adjectives in -bar (erklärbar) or man. The meaning is often “possible” or “necessary”, not just a plain passive.',
+    examples: [
+      'Das Problem lässt sich lösen.',
+      'Die Aufgabe ist leicht zu lösen.',
+      'Der Antrag ist bis Freitag abzugeben.',
+    ],
+  },
+  'auch-wenn': {
+    title: 'auch wenn, selbst wenn, zwar … aber',
+    rule: 'auch wenn (even if) and selbst wenn (even if, a less likely case) start a subordinate clause with the verb at the end. zwar … aber/jedoch concedes in the first clause and contrasts in the second. dennoch and allerdings are adverbs with the verb next.',
+    examples: [
+      'Auch wenn es regnet, machen wir einen Ausflug.',
+      'Selbst wenn ich Zeit hätte, käme ich nicht mit.',
+      'Die Stadt ist zwar teuer, aber wunderschön.',
+    ],
+  },
+  adversative: {
+    title: 'Contrasts: während, dagegen, hingegen',
+    rule: 'To contrast two facts, während (whereas) starts a subordinate clause. dagegen, hingegen and jedoch are adverbs: they take position 1, or come after the verb, and the verb stays in position 2. aber and doch stand in position 0.',
+    examples: [
+      'Während die einen online einkaufen, gehen die anderen lieber in den Laden.',
+      'Die Preise steigen. Die Löhne bleiben dagegen gleich.',
+      'Der Norden ist reich. Der Süden hat hingegen Probleme.',
+    ],
+  },
+  nominalisation: {
+    title: 'Nominalisation: verbs and adjectives as nouns',
+    rule: 'Formal texts turn verbs and adjectives into nouns: -ung (entscheiden → die Entscheidung), no suffix (steigen → der Anstieg), infinitive (lesen → das Lesen), -keit/-heit (möglich → die Möglichkeit). The subject becomes a genitive or a von-phrase: die Entscheidung des Chefs.',
+    examples: [
+      'Man entscheidet → die Entscheidung',
+      'Die Preise steigen. → der Anstieg der Preise',
+      'Es ist möglich. → die Möglichkeit',
     ],
   },
 } as const satisfies Record<string, Lesson>;
