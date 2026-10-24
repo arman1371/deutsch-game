@@ -4,7 +4,7 @@ C1.1 was built from the first half of the C1 syllabus of the course books listed
 exam description and the CEFR. The rule from A2.2 to B1.2 still applies: **teach what is new, extend what an earlier unit started,
 and only review – inside new activities, never as a stand-alone unit – what is already taught.**
 `src/content/c1-1/content.test.ts` enforces the vocabulary side: no word card in C1.1 repeats a word card of A1.1–B1.2 (or another
-C1.1 unit).
+C1.1 unit); overlap with B2.1 and B2.2 is allowed only for the words listed in that file (see below).
 
 The German content has **not yet been reviewed by a native speaker.**
 
@@ -85,6 +85,15 @@ topic, minus anything A1.1–B1.2 already teach.
 | Alternatives to modal verbs: sein … zu, sich lassen, haben … zu, -bar                         | passive with modals (B1.1 u3)               | new (u11)                                                                            |
 | Konjunktiv II, passive, relative clauses, two-part conjunctions                               | A2.2 – B1.2                                 | **not repeated**; used only inside new activities                                    |
 
+## Overlap with B2.1 and B2.2
+
+B2.1 and B2.2 were merged while C1.1 was in review and were researched from other B2 course books, but they open many of the
+same everyday themes (body language, media, studying, consumption, society, work). 102 C1.1 word cards also appear in B2.1 or
+B2.2. They are listed in `B2_OVERLAP` in `src/content/c1-1/content.test.ts`; any further collision fails the test. Shared
+grammar tags (`konjunktiv-1`, `noun-verb-phrases`) are used as they are; other C1.1 grammar (nominal style, participial
+attributes, prefix verbs, es-functions …) is treated at C1 depth in new activities. If the overlap should go, replacing the listed
+cards is a content-only change.
+
 ## Communication goals
 
 | Goal                                                                            | Unit |
@@ -109,8 +118,8 @@ No C1.1 game carries the **Pronunciation** skill tag; the sources attach no pron
 ## Grammar hints
 
 C1.1 follows the hint system of PR #8: the grammar activities name their mini lesson (automatically through the grammar tag, or
-per item in the unit challenges), and twelve new mini lessons were written for the C1.1 grammar tags (`formal-connectors`,
-`subjective-modals`, `reported-speech`, `noun-verb-phrases`, `concessive-restrictive`, `es-functions`, `intensifiers`,
+per item in the unit challenges), and ten new mini lessons were written for the C1.1 grammar tags (reported speech and noun-verb phrases share the `konjunktiv-1` and `noun-verb-phrases` tags and lessons of B2.1) (`formal-connectors`,
+`subjective-modals`, `concessive-restrictive`, `es-functions`, `intensifiers`,
 `unreal-consecutive`, `participial-attributes`, `prefix-verbs`, `nominal-style`, `modal-alternatives`). The unit 11 gap-fill items
 also carry `why` sentences for their wrong options.
 

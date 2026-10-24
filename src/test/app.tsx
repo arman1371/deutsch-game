@@ -9,6 +9,8 @@ import a21 from '@/content/a2-1';
 import a22 from '@/content/a2-2';
 import b11 from '@/content/b1-1';
 import b12 from '@/content/b1-2';
+import b21 from '@/content/b2-1';
+import b22 from '@/content/b2-2';
 import c11 from '@/content/c1-1';
 import type { Activity } from '@/content/schema';
 import { DEFAULT_SETTINGS, useSettingsStore } from '@/store/settingsStore';
@@ -27,6 +29,8 @@ export const allActivities: Activity[] = [
   ...a22.activities,
   ...b11.activities,
   ...b12.activities,
+  ...b21.activities,
+  ...b22.activities,
   ...c11.activities,
 ];
 export const allUnits = [
@@ -36,6 +40,8 @@ export const allUnits = [
   ...a22.units,
   ...b11.units,
   ...b12.units,
+  ...b21.units,
+  ...b22.units,
   ...c11.units,
 ];
 

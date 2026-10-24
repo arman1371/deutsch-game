@@ -53,8 +53,18 @@ export const LEVELS: LevelMeta[] = [
   {
     id: 'b2-1',
     title: 'B2.1',
-    subtitle: 'Arguing in depth, news and media, work and society at upper-intermediate level',
-    status: 'coming-soon',
+    subtitle:
+      'Relationships, minimalism, well-being, body language, teamwork, life paths, society, housing, media, science, travel and climate at upper-intermediate level',
+    status: 'available',
+    load: () => import('./b2-1'),
+  },
+  {
+    id: 'b2-2',
+    title: 'B2.2',
+    subtitle:
+      'Relationships, nutrition, university, complaints, fitness, regional languages, economy and tourism, art, recent history, sustainable cities, stress and decisions, media and law',
+    status: 'available',
+    load: () => import('./b2-2'),
   },
   {
     id: 'c1-1',
@@ -63,6 +73,12 @@ export const LEVELS: LevelMeta[] = [
       'Time and pace, media, language, manners, tourism, work, career paths, study, consumption, economy and society',
     status: 'available',
     load: () => import('./c1-1'),
+  },
+  {
+    id: 'c1-2',
+    title: 'C1.2',
+    subtitle: 'Argument, style and nuance at advanced level',
+    status: 'coming-soon',
   },
 ];
 

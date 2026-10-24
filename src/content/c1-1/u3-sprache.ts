@@ -139,7 +139,7 @@ export const sprache: UnitContent = {
       meta(
         'He said, she asked',
         'Listen to reported speech and pick what was said.',
-        ['listening', 'language-communication', 'reported-speech'],
+        ['listening', 'language-communication', 'konjunktiv-1'],
         3,
         5,
       ),
@@ -239,7 +239,7 @@ export const sprache: UnitContent = {
       meta(
         'Which form is it?',
         'Konjunktiv I, Konjunktiv II or the spoken indicative?',
-        ['grammar', 'reported-speech', 'language-communication'],
+        ['grammar', 'konjunktiv-1', 'language-communication'],
         3,
         5,
       ),
@@ -299,7 +299,7 @@ export const sprache: UnitContent = {
       meta(
         'er habe, sie sei, wir kämen',
         'Konjunktiv I forms: stem + -e, and the Perfekt with habe / sei.',
-        ['grammar', 'reported-speech', 'verb-conjugation'],
+        ['grammar', 'konjunktiv-1', 'verb-conjugation'],
         3,
         7,
       ),
@@ -322,7 +322,7 @@ export const sprache: UnitContent = {
       meta(
         'Direct speech → reported speech',
         'Choose the Konjunktiv form that reports the quote.',
-        ['grammar', 'reported-speech', 'language-communication'],
+        ['grammar', 'konjunktiv-1', 'language-communication'],
         3,
         6,
       ),
@@ -402,7 +402,7 @@ export const sprache: UnitContent = {
       meta(
         'Write the reported form',
         'Type the Konjunktiv form that fits the quote.',
-        ['grammar', 'reported-speech', 'language-communication'],
+        ['grammar', 'konjunktiv-1', 'language-communication'],
         3,
         6,
       ),
@@ -461,7 +461,7 @@ export const sprache: UnitContent = {
       meta(
         'laut, nach, zufolge, wie',
         'Attribute information to a source.',
-        ['grammar', 'reported-speech', 'language-communication'],
+        ['grammar', 'konjunktiv-1', 'language-communication'],
         3,
         5,
       ),
@@ -509,7 +509,7 @@ export const sprache: UnitContent = {
       meta(
         'Report it',
         'Build reported statements and questions.',
-        ['grammar', 'reported-speech', 'word-order'],
+        ['grammar', 'konjunktiv-1', 'word-order'],
         3,
         7,
       ),
@@ -576,7 +576,7 @@ export const sprache: UnitContent = {
       meta(
         'Between the lines',
         'Understand irony and handle a dialect.',
-        ['communication', 'language-communication', 'reported-speech'],
+        ['communication', 'language-communication', 'konjunktiv-1'],
         3,
         7,
       ),
@@ -669,7 +669,7 @@ export const sprache: UnitContent = {
       meta(
         'Reported speech blitz',
         'Right or wrong Konjunktiv I?',
-        ['grammar', 'reported-speech'],
+        ['grammar', 'konjunktiv-1'],
         3,
         2,
       ),
@@ -709,13 +709,13 @@ export const sprache: UnitContent = {
       ),
       {
         questions: [
-          lx('reported-speech', q('c1', 'Er sagte, er ___ krank.', 'sei', ['ist', 'seien', 'war'])),
+          lx('konjunktiv-1', q('c1', 'Er sagte, er ___ krank.', 'sei', ['ist', 'seien', 'war'])),
           lx(
-            'reported-speech',
+            'konjunktiv-1',
             q('c2', 'Sie meinte, sie ___ die Mail gelesen.', 'habe', ['hat', 'hatte', 'sei']),
           ),
           lx(
-            'reported-speech',
+            'konjunktiv-1',
             q('c3', 'Die Kollegen sagten, sie ___ keine Zeit. (Konjunktiv II)', 'hätten', [
               'haben',
               'habe',
@@ -723,11 +723,11 @@ export const sprache: UnitContent = {
             ]),
           ),
           lx(
-            'reported-speech',
+            'konjunktiv-1',
             q('c4', 'Sie fragte, ob er pünktlich ___.', 'komme', ['kommt', 'kam', 'kömme']),
           ),
           lx(
-            'reported-speech',
+            'konjunktiv-1',
             q('c5', 'Dem Bericht ___ ist die Lage ruhig.', 'zufolge', ['laut', 'wie', 'dass']),
           ),
           q('c6', 'die Mimik', 'facial expression', ['gestures', 'dialect', 'tone of voice']),
