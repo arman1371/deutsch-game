@@ -19,16 +19,16 @@ import type { UnitContent } from './types';
 const U = 'c2-1-sprache';
 
 const style = vocabList(U, 'Language & style', [
-  ['Ausdrucksweise', 'manner of expression', '🗨️', 'die', 'Ausdrucksweisen'],
+  ['Ausdrucksvermögen', 'command of language', '🗨️', 'das'],
   ['Sprachgebrauch', 'language use, usage', '📖', 'der'],
-  ['Umgangssprache', 'colloquial language', '😎', 'die'],
+  ['Fachjargon', 'technical jargon', '🧪', 'der'],
   ['Hochsprache', 'standard language', '🎩', 'die', 'Hochsprachen'],
   ['Fachbegriff', 'technical term', '🔬', 'der', 'Fachbegriffe'],
   ['Mehrdeutigkeit', 'ambiguity', '🔀', 'die', 'Mehrdeutigkeiten'],
   ['Anspielung', 'allusion', '👀', 'die', 'Anspielungen'],
   ['Zwischenton', 'undertone, nuance', '🎼', 'der', 'Zwischentöne'],
   ['Wortwahl', 'choice of words', '🔤', 'die'],
-  ['Tonfall', 'tone of voice', '🎙️', 'der', 'Tonfälle'],
+  ['Unterton', 'undertone', '🎙️', 'der', 'Untertöne'],
   ['Pointe', 'punchline, point', '🎯', 'die', 'Pointen'],
   ['Ironie', 'irony', '🙃', 'die'],
   ['unmissverständlich', 'unmistakable, unambiguous', '✅'],
@@ -40,7 +40,7 @@ const style = vocabList(U, 'Language & style', [
 
 const talk = vocabList(U, 'Talking to each other', [
   ['Schlagfertigkeit', 'quick-wittedness', '⚡', 'die'],
-  ['Taktgefühl', 'tact', '🤝', 'das'],
+  ['Feingefühl', 'sensitivity, delicacy', '🤝', 'das'],
   ['Missdeutung', 'misinterpretation', '❓', 'die', 'Missdeutungen'],
   ['Gegenrede', 'reply, rebuttal', '✋', 'die', 'Gegenreden'],
   ['Zwischenruf', 'interjection, heckle', '📣', 'der', 'Zwischenrufe'],
@@ -49,8 +49,8 @@ const talk = vocabList(U, 'Talking to each other', [
   ['Gesprächspause', 'pause in a conversation', '⏸️', 'die', 'Gesprächspausen'],
   ['wortkarg', 'taciturn, of few words', '🤐'],
   ['redselig', 'talkative', '🗣️'],
-  ['taktvoll', 'tactful', '🕊️'],
-  ['schlagfertig', 'quick-witted', '🎾'],
+  ['unaufdringlich', 'unobtrusive, discreet', '🕊️'],
+  ['wortgewandt', 'eloquent', '🎾'],
   ['ausufern', 'to get out of hand (a discussion)', '🌪️'],
   ['ins Wort fallen', 'to interrupt', '✂️'],
   ['sich verhaspeln', 'to stumble over one’s words', '🪢'],
@@ -86,7 +86,7 @@ export const sprache: UnitContent = {
       'flashcards',
       meta(
         'Language & style',
-        'Ausdrucksweise, Zwischenton, Pointe – the words for how we say things.',
+        'Ausdrucksvermögen, Zwischenton, Pointe – the words for how we say things.',
         ['vocabulary', 'c21-language-style'],
         1,
         6,
@@ -99,7 +99,7 @@ export const sprache: UnitContent = {
       'flashcards',
       meta(
         'Talking to each other',
-        'Gegenrede, Taktgefühl, ins Wort fallen – conversation behaviour.',
+        'Gegenrede, Feingefühl, ins Wort fallen – conversation behaviour.',
         ['vocabulary', 'c21-language-style'],
         1,
         5,
@@ -123,7 +123,7 @@ export const sprache: UnitContent = {
           'Mehrdeutigkeit',
           'Anspielung',
           'Zwischenton',
-          'Tonfall',
+          'Unterton',
           'Pointe',
           'verharmlosen',
           'zuspitzen',
@@ -149,12 +149,12 @@ export const sprache: UnitContent = {
         byDe(
           vocab,
           'Schlagfertigkeit',
-          'Taktgefühl',
+          'Feingefühl',
           'Gegenrede',
           'Wortgefecht',
           'Redefluss',
           'redselig',
-          'taktvoll',
+          'unaufdringlich',
           'sich verhaspeln',
         ),
       ),
@@ -173,7 +173,7 @@ export const sprache: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Ironie', 'Pointe'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Wortwahl', 'Tonfall'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Wortwahl', 'Unterton'), 'unscramble').items,
           ...spell(byDe(vocab, 'Fachbegriff', 'Anspielung'), 'type').items,
           ...spell(byDe(vocab, 'unmissverständlich'), 'type').items,
           dictation(
@@ -614,14 +614,14 @@ export const sprache: UnitContent = {
           ]),
           q('c6', 'die Anspielung', 'allusion', ['objection', 'punchline', 'tone of voice']),
           q('c7', 'zuspitzen', 'to sharpen', ['to hint at', 'to play down', 'to paraphrase']),
-          q('c8', 'schlagfertig', 'quick-witted', ['taciturn', 'tactful', 'talkative']),
+          q('c8', 'wortgewandt', 'eloquent', ['taciturn', 'tactful', 'talkative']),
           q('c9', 'Wer „auf den Punkt bringt“, …', 'sums things up precisely', [
             'avoids the topic',
             'raises his voice',
             'interrupts others',
           ]),
-          q('c10', 'Welches Wort passt zur Alltagssprache?', 'die Umgangssprache', [
-            'der Fachbegriff',
+          q('c10', 'Welches Wort passt zur Sprache einer Berufsgruppe?', 'der Fachjargon', [
+            'die Umgangssprache',
             'die Hochsprache',
             'die Mehrdeutigkeit',
           ]),

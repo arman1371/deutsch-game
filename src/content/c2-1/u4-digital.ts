@@ -21,16 +21,16 @@ const U = 'c2-1-digital';
 
 const digital = vocabList(U, 'Digital life', [
   ['Vernetzung', 'networking, connectivity', '🕸️', 'die'],
-  ['Algorithmus', 'algorithm', '🧮', 'der', 'Algorithmen'],
+  ['Plattformbetreiber', 'platform operator', '🧮', 'der', 'Plattformbetreiber'],
   ['Plattform', 'platform', '🏗️', 'die', 'Plattformen'],
   ['Datensparsamkeit', 'data minimisation', '🔒', 'die'],
-  ['Überwachung', 'surveillance', '👁️', 'die'],
-  ['Medienkompetenz', 'media literacy', '🧠', 'die'],
-  ['Reizüberflutung', 'sensory overload', '🌀', 'die'],
-  ['Ablenkung', 'distraction', '📵', 'die', 'Ablenkungen'],
-  ['Abhängigkeit', 'dependence', '⛓️', 'die', 'Abhängigkeiten'],
-  ['Datenleck', 'data leak', '💧', 'das', 'Datenlecks'],
-  ['Verschlüsselung', 'encryption', '🔐', 'die'],
+  ['Datenerhebung', 'data collection', '👁️', 'die'],
+  ['Digitalisierungsschub', 'digitalisation boost', '🧠', 'der'],
+  ['Informationsflut', 'flood of information', '🌀', 'die'],
+  ['Push-Mitteilung', 'push notification', '📵', 'die', 'Push-Mitteilungen'],
+  ['Suchtpotenzial', 'addictive potential', '⛓️', 'das'],
+  ['Cyberangriff', 'cyber attack', '💧', 'der', 'Cyberangriffe'],
+  ['Authentifizierung', 'authentication', '🔐', 'die'],
   ['digitalisieren', 'to digitise', '💾'],
   ['vernetzen', 'to connect, to network', '🔗'],
   ['überwachen', 'to monitor', '📹'],
@@ -40,11 +40,11 @@ const digital = vocabList(U, 'Digital life', [
 
 const change = vocabList(U, 'Change & trends', [
   ['Wandel', 'change, transformation', '🦋', 'der'],
-  ['Umbruch', 'upheaval, radical change', '🌋', 'der', 'Umbrüche'],
+  ['Strukturwandel', 'structural change', '🌋', 'der'],
   ['Vorreiter', 'pioneer', '🚩', 'der', 'Vorreiter'],
   ['Zukunftsfähigkeit', 'viability for the future', '🌱', 'die'],
   ['Meilenstein', 'milestone', '🏁', 'der', 'Meilensteine'],
-  ['Durchbruch', 'breakthrough', '💥', 'der', 'Durchbrüche'],
+  ['Quantensprung', 'quantum leap', '💥', 'der', 'Quantensprünge'],
   ['Auswirkung', 'effect, impact', '🌊', 'die', 'Auswirkungen'],
   ['vollziehen', 'to carry out, to complete', '✔️'],
   ['bewirken', 'to bring about', '⚙️'],
@@ -84,7 +84,7 @@ export const digitalUnit: UnitContent = {
       'flashcards',
       meta(
         'Digital life',
-        'Algorithmus, Datenleck, Medienkompetenz – living online.',
+        'Plattformbetreiber, Cyberangriff, Digitalisierungsschub – living online.',
         ['vocabulary', 'c21-digital-life'],
         1,
         6,
@@ -97,7 +97,7 @@ export const digitalUnit: UnitContent = {
       'flashcards',
       meta(
         'Change & trends',
-        'Wandel, Umbruch, Durchbruch – describing transformation.',
+        'Wandel, Strukturwandel, Quantensprung – describing transformation.',
         ['vocabulary', 'c21-digital-life'],
         1,
         5,
@@ -119,9 +119,9 @@ export const digitalUnit: UnitContent = {
         byDe(
           vocab,
           'Vernetzung',
-          'Reizüberflutung',
-          'Verschlüsselung',
-          'Umbruch',
+          'Informationsflut',
+          'Authentifizierung',
+          'Strukturwandel',
           'Vorreiter',
           'Zukunftsfähigkeit',
           'schlagartig',
@@ -146,13 +146,13 @@ export const digitalUnit: UnitContent = {
       memory(
         byDe(
           vocab,
-          'Algorithmus',
+          'Plattformbetreiber',
           'Datensparsamkeit',
-          'Überwachung',
-          'Ablenkung',
-          'Abhängigkeit',
+          'Datenerhebung',
+          'Push-Mitteilung',
+          'Suchtpotenzial',
           'Meilenstein',
-          'Durchbruch',
+          'Quantensprung',
           'Auswirkung',
         ),
       ),
@@ -172,8 +172,8 @@ export const digitalUnit: UnitContent = {
         byDe(
           vocab,
           'Plattform',
-          'Datenleck',
-          'Medienkompetenz',
+          'Cyberangriff',
+          'Digitalisierungsschub',
           'digitalisieren',
           'überwachen',
           'allgegenwärtig',
@@ -196,8 +196,8 @@ export const digitalUnit: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Wandel', 'Plattform'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Datenleck', 'Umbruch'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Medienkompetenz', 'Abhängigkeit'), 'type').items,
+          ...spell(byDe(vocab, 'Cyberangriff', 'Strukturwandel'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Digitalisierungsschub', 'Suchtpotenzial'), 'type').items,
           ...spell(byDe(vocab, 'voraussichtlich'), 'type').items,
           dictation(
             'd1',
@@ -675,12 +675,12 @@ export const digitalUnit: UnitContent = {
           q('c3', 'Bis Montag werde ich es erledigt ___.', 'haben', ['sein', 'worden', 'werden']),
           q('c4', 'Sie wird schon abgereist ___.', 'sein', ['haben', 'werden', 'worden']),
           q('c5', 'Er wird die Mail wohl übersehen ___.', 'haben', ['sein', 'werden', 'worden']),
-          q('c6', 'die Reizüberflutung', 'sensory overload', [
-            'surveillance',
-            'distraction',
-            'dependence',
+          q('c6', 'die Informationsflut', 'flood of information', [
+            'data collection',
+            'screen time',
+            'addictive potential',
           ]),
-          q('c7', 'der Durchbruch', 'breakthrough', ['milestone', 'upheaval', 'pioneer']),
+          q('c7', 'der Quantensprung', 'quantum leap', ['milestone', 'upheaval', 'pioneer']),
           q('c8', 'schlagartig', 'suddenly', ['gradually', 'inevitably', 'probably']),
           q('c9', 'sich etablieren', 'to establish itself', [
             'to digitise',

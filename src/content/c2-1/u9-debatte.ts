@@ -40,7 +40,7 @@ const argue = vocabList(U, 'Arguing', [
   ['Schlussfolgerung', 'conclusion, inference', '🧩', 'die', 'Schlussfolgerungen'],
   ['Übereinkunft', 'agreement, settlement', '🤝', 'die', 'Übereinkünfte'],
   ['Zugeständnis', 'concession', '🎁', 'das', 'Zugeständnisse'],
-  ['Abwägung', 'weighing up', '⚖️', 'die', 'Abwägungen'],
+  ['Kompromissbereitschaft', 'willingness to compromise', '⚖️', 'die'],
   ['Überzeugungskraft', 'persuasiveness', '💪', 'die'],
   ['Einschränkung', 'qualification, restriction', '⛔', 'die', 'Einschränkungen'],
   ['stichhaltig', 'sound, valid', '🧱'],
@@ -49,8 +49,8 @@ const argue = vocabList(U, 'Arguing', [
   ['einwenden', 'to object', '✋'],
   ['entkräften', 'to invalidate, to refute', '🪓'],
   ['untermauern', 'to underpin', '🏗️'],
-  ['abwägen', 'to weigh up', '🔍'],
-  ['einlenken', 'to give way', '🏳️'],
+  ['plädieren', 'to plead, to argue for', '🔍'],
+  ['schlichten', 'to mediate', '🏳️'],
 ]);
 
 const vocab = [...talk, ...argue];
@@ -120,7 +120,7 @@ export const debatte: UnitContent = {
           'stichhaltig',
           'fragwürdig',
           'entkräften',
-          'einlenken',
+          'schlichten',
         ),
         vocab,
       ),
@@ -144,7 +144,7 @@ export const debatte: UnitContent = {
           'Zwischenfrage',
           'Stichwortzettel',
           'Übereinkunft',
-          'Abwägung',
+          'Kompromissbereitschaft',
           'schlüssig',
           'untermauern',
         ),
@@ -189,7 +189,7 @@ export const debatte: UnitContent = {
       {
         items: [
           ...spell(byDe(vocab, 'Schlusswort', 'Übereinkunft'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Abwägung', 'Aufbau'), 'unscramble').items,
+          ...spell(byDe(vocab, 'Kompromissbereitschaft', 'Aufbau'), 'unscramble').items,
           ...spell(byDe(vocab, 'Zugeständnis', 'Einschränkung'), 'type').items,
           ...spell(byDe(vocab, 'stichhaltig'), 'type').items,
           dictation(
@@ -602,7 +602,7 @@ export const debatte: UnitContent = {
           q('c8', 'schlüssig', 'conclusive', ['questionable', 'biased', 'sweeping']),
           q('c9', 'die Überleitung', 'transition', ['outline', 'audience', 'hook']),
           q('c10', 'Welches Wort passt zu „ein Argument widerlegen“?', 'entkräften', [
-            'einlenken',
+            'schlichten',
             'hervorheben',
             'veranschaulichen',
           ]),

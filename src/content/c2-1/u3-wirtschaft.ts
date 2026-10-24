@@ -20,7 +20,7 @@ const U = 'c2-1-wirtschaft';
 
 const economy = vocabList(U, 'The economy', [
   ['Teuerungsrate', 'inflation rate', '💹', 'die', 'Teuerungsraten'],
-  ['Kaufkraft', 'purchasing power', '💶', 'die'],
+  ['Inflationsrate', 'inflation rate', '💶', 'die'],
   ['Konjunktur', 'state of the economy, economic cycle', '🌤️', 'die'],
   ['Rezession', 'recession', '📉', 'die', 'Rezessionen'],
   ['Zinswende', 'turnaround in interest rates', '🔄', 'die'],
@@ -28,9 +28,9 @@ const economy = vocabList(U, 'The economy', [
   ['Haushaltsdefizit', 'budget deficit', '🕳️', 'das', 'Haushaltsdefizite'],
   ['Wertschöpfungskette', 'value chain', '🚚', 'die', 'Wertschöpfungsketten'],
   ['Nachfrage', 'demand', '📢', 'die'],
-  ['Mindestlohn', 'minimum wage', '🧾', 'der', 'Mindestlöhne'],
+  ['Lohngefälle', 'pay gap', '🧾', 'das', 'Lohngefälle'],
   ['Grundeinkommen', 'basic income', '🎁', 'das'],
-  ['Handelsabkommen', 'trade agreement', '🤝', 'das', 'Handelsabkommen'],
+  ['Strafzoll', 'punitive tariff', '🤝', 'der', 'Strafzölle'],
 ]);
 
 const money = vocabList(U, 'Wealth & finance', [
@@ -41,7 +41,7 @@ const money = vocabList(U, 'Wealth & finance', [
   ['Steuerlast', 'tax burden', '🧮', 'die'],
   ['Insolvenz', 'insolvency', '🧾', 'die', 'Insolvenzen'],
   ['Erbschaft', 'inheritance', '📜', 'die', 'Erbschaften'],
-  ['investieren', 'to invest', '💼'],
+  ['subventionieren', 'to subsidise', '💼'],
   ['besteuern', 'to tax', '🏷️'],
   ['bezuschussen', 'to subsidise', '🎟️'],
   ['vererben', 'to bequeath', '🗝️'],
@@ -78,7 +78,7 @@ export const wirtschaft: UnitContent = {
       'flashcards',
       meta(
         'The economy',
-        'Konjunktur, Kaufkraft, Wertschöpfungskette – the words of the business pages.',
+        'Konjunktur, Inflationsrate, Wertschöpfungskette – the words of the business pages.',
         ['vocabulary', 'c21-economy'],
         1,
         6,
@@ -107,7 +107,7 @@ export const wirtschaft: UnitContent = {
         byDe(
           vocab,
           'Teuerungsrate',
-          'Kaufkraft',
+          'Inflationsrate',
           'Zinswende',
           'Haushaltsdefizit',
           'Wertschöpfungskette',
@@ -136,7 +136,7 @@ export const wirtschaft: UnitContent = {
           vocab,
           'Konjunktur',
           'Nachfrage',
-          'Mindestlohn',
+          'Lohngefälle',
           'Grundeinkommen',
           'Anleger',
           'Insolvenz',
@@ -161,10 +161,10 @@ export const wirtschaft: UnitContent = {
           vocab,
           'Rezession',
           'Staatsverschuldung',
-          'Handelsabkommen',
+          'Strafzoll',
           'Vermögen',
           'Altersvorsorge',
-          'investieren',
+          'subventionieren',
           'besteuern',
         ),
         vocab,
@@ -185,7 +185,7 @@ export const wirtschaft: UnitContent = {
         items: [
           ...spell(byDe(vocab, 'Rendite', 'Anleger'), 'unscramble').items,
           ...spell(byDe(vocab, 'Konjunktur', 'Rezession'), 'unscramble').items,
-          ...spell(byDe(vocab, 'Staatsverschuldung', 'Kaufkraft'), 'type').items,
+          ...spell(byDe(vocab, 'Staatsverschuldung', 'Inflationsrate'), 'type').items,
           ...spell(byDe(vocab, 'Insolvenz'), 'type').items,
           dictation(
             'd1',

@@ -19,23 +19,23 @@ import type { UnitContent } from './types';
 const U = 'c2-1-arbeit';
 
 const world = vocabList(U, 'Working life today', [
-  ['Arbeitsverdichtung', 'work intensification', '⏱️', 'die'],
+  ['Personalengpass', 'staff shortage', '⏱️', 'der'],
   ['Erreichbarkeit', 'availability, being reachable', '📱', 'die'],
-  ['Fachkräftemangel', 'skilled-labour shortage', '🧑‍🔧', 'der'],
-  ['Vereinbarkeit', 'compatibility (of work and family)', '⚖️', 'die'],
+  ['Stellenabbau', 'job cuts', '✂️', 'der'],
+  ['Mitbestimmung', 'co-determination', '⚖️', 'die'],
   ['Führungskraft', 'executive, manager', '🧑‍💼', 'die', 'Führungskräfte'],
   ['Belegschaft', 'workforce, staff', '👥', 'die', 'Belegschaften'],
   ['Tarifvertrag', 'collective agreement', '📜', 'der', 'Tarifverträge'],
   ['Arbeitnehmervertretung', 'employee representation', '🏛️', 'die', 'Arbeitnehmervertretungen'],
-  ['Gleitzeit', 'flexitime', '🕰️', 'die'],
+  ['Vertrauensarbeitszeit', 'trust-based working hours', '🕰️', 'die'],
   ['Arbeitszeitkonto', 'working-time account', '📅', 'das', 'Arbeitszeitkonten'],
-  ['Aufstiegschance', 'chance of promotion', '📈', 'die', 'Aufstiegschancen'],
-  ['Quereinsteiger', 'career changer', '🔀', 'der', 'Quereinsteiger'],
-  ['Leistungsdruck', 'pressure to perform', '😰', 'der'],
+  ['Karrieresprung', 'career leap', '📈', 'der', 'Karrieresprünge'],
+  ['Berufsrückkehrer', 'returner to work', '🔀', 'der', 'Berufsrückkehrer'],
+  ['Überlastungsanzeige', 'overload notification', '😰', 'die', 'Überlastungsanzeigen'],
   ['befristet', 'fixed-term', '⏳'],
   ['unbefristet', 'permanent (of a contract)', '♾️'],
-  ['delegieren', 'to delegate', '👈'],
-  ['bewältigen', 'to cope with, to manage', '💪'],
+  ['koordinieren', 'to coordinate', '👈'],
+  ['meistern', 'to master, to handle', '💪'],
   ['sich einarbeiten', 'to get up to speed', '📚'],
 ]);
 
@@ -87,7 +87,7 @@ export const arbeit: UnitContent = {
       'flashcards',
       meta(
         'Working life today',
-        'Arbeitsverdichtung, Tarifvertrag, Quereinsteiger – the modern workplace.',
+        'Personalengpass, Tarifvertrag, Berufsrückkehrer – the modern workplace.',
         ['vocabulary', 'c21-working-world'],
         1,
         6,
@@ -121,16 +121,16 @@ export const arbeit: UnitContent = {
       quizDeEn(
         byDe(
           world,
-          'Arbeitsverdichtung',
+          'Personalengpass',
           'Erreichbarkeit',
-          'Vereinbarkeit',
+          'Mitbestimmung',
           'Belegschaft',
           'Tarifvertrag',
           'Arbeitnehmervertretung',
           'Arbeitszeitkonto',
-          'Quereinsteiger',
+          'Berufsrückkehrer',
           'befristet',
-          'bewältigen',
+          'meistern',
         ),
         world,
       ),
@@ -172,10 +172,10 @@ export const arbeit: UnitContent = {
       ),
       {
         items: [
-          ...spell(byDe(world, 'Gleitzeit', 'Belegschaft'), 'unscramble').items,
+          ...spell(byDe(world, 'Vertrauensarbeitszeit', 'Belegschaft'), 'unscramble').items,
           ...spell(byDe(world, 'Arbeitnehmervertretung', 'Tarifvertrag'), 'unscramble').items,
-          ...spell(byDe(world, 'Arbeitszeitkonto', 'Fachkräftemangel'), 'type').items,
-          ...spell(byDe(world, 'Leistungsdruck'), 'type').items,
+          ...spell(byDe(world, 'Arbeitszeitkonto', 'Stellenabbau'), 'type').items,
+          ...spell(byDe(world, 'Überlastungsanzeige'), 'type').items,
           dictation(
             'd1',
             'Der Betriebsrat übt Kritik an der ständigen Erreichbarkeit.',
@@ -552,10 +552,10 @@ export const arbeit: UnitContent = {
           ]),
           q('c6', 'die Belegschaft', 'workforce', ['works council', 'notice period', 'manager']),
           q('c7', 'befristet', 'fixed-term', ['permanent', 'flexible', 'overpaid']),
-          q('c8', 'delegieren', 'to delegate', ['to cope with', 'to criticise', 'to provide']),
-          q('c9', 'der Leistungsdruck', 'pressure to perform', [
-            'flexitime',
-            'skilled-labour shortage',
+          q('c8', 'koordinieren', 'to coordinate', ['to cope with', 'to criticise', 'to provide']),
+          q('c9', 'der Termindruck', 'deadline pressure', [
+            'trust-based working hours',
+            'job cuts',
             'collective agreement',
           ]),
           q('c10', 'Welche Kombination passt zu „bezweifeln“?', 'in Frage stellen', [
